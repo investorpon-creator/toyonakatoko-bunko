@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>倭姫命世記 ── 豐中常文庫</title>
+<style>
+  :root {
+    --ink: #1a1208;
+    --paper: #f5f0e8;
+    --paper-dark: #e8e0cc;
+    --vermilion: #c0392b;
+    --gold: #8b6914;
+    --muted: #6b5d4a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', Georgia, serif;
+    min-height: 100vh;
+  }
+
+  /* ── ヘッダー ── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  header .lib-name {
+    font-size: 1rem;
+    letter-spacing: 0.25em;
+    color: #c8b88a;
+    white-space: nowrap;
+  }
+
+  header .lib-name a { color: inherit; text-decoration: none; }
+  header .lib-name a:hover { text-decoration: underline; }
+
+  header .sep { color: #6b5d4a; }
+
+  header .book-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+    font-weight: normal;
+  }
+
+  header .book-title-ruby {
+    font-size: 0.72rem;
+    color: #a09070;
+    letter-spacing: 0.15em;
+    margin-left: 0.5rem;
+  }
+
+  /* ── 書誌情報バー ── */
+  .bibliograph {
+    background: var(--paper-dark);
+    border-bottom: 1px solid #c8b88a;
+    padding: 0.7rem 2rem;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    line-height: 1.9;
+  }
+
+  .bibliograph .tag {
+    display: inline-block;
+    border: 1px solid #b0a080;
+    padding: 0 0.4rem;
+    margin-right: 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  /* ── タブ ── */
+  .tabs {
+    display: flex;
+    border-bottom: 2px solid var(--ink);
+    background: #ede7d9;
+  }
+
+  .tab-btn {
+    padding: 0.7rem 1.8rem;
+    font-family: inherit;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    background: none;
+    border: none;
+    border-right: 1px solid #c8b88a;
+    cursor: pointer;
+    color: var(--muted);
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .tab-btn:hover { background: #ddd5c0; }
+
+  .tab-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* ── ビューアー本体 ── */
+  .viewer {
+    display: none;
+  }
+
+  .viewer.active {
+    display: block;
+  }
+
+  /* ── 画像ビューアー ── */
+  #viewer-image {
+    display: none;
+  }
+
+  #viewer-image.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-stage {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 0;
+  }
+
+  .image-stage img {
+    width: 100%;
+    border: 1px solid #c0b090;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    display: block;
+  }
+
+  .image-caption {
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .image-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    justify-content: center;
+  }
+
+  .nav-btn {
+    font-family: inherit;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+
+  .nav-btn:hover { opacity: 0.8; }
+  .nav-btn:disabled { background: #aaa; cursor: default; opacity: 0.5; }
+
+  .page-indicator {
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    min-width: 8rem;
+    text-align: center;
+  }
+
+  .thumb-strip {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 1rem 2rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    scrollbar-width: thin;
+  }
+
+  .thumb {
+    flex-shrink: 0;
+    width: 56px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.15s, border-color 0.15s;
+  }
+
+  .thumb:hover { opacity: 1; }
+  .thumb.active { border-color: var(--vermilion); opacity: 1; }
+
+  /* ── 翻刻テキスト ── */
+  #viewer-text {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3rem;
+  }
+
+  #viewer-text.active {
+    display: block;
+  }
+
+  .text-intro {
+    background: #fff;
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  .chapter {
+    margin-bottom: 2.5rem;
+  }
+
+  .chapter-heading {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: var(--vermilion);
+    border-bottom: 1px solid var(--vermilion);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .chapter-summary {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 2;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--paper-dark);
+  }
+
+  .original-text {
+    font-size: 0.9rem;
+    line-height: 2.2;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border: 1px solid #d4c9b0;
+  }
+
+  .original-text .vermilion { color: var(--vermilion); }
+
+  .page-ref {
+    font-size: 0.65rem;
+    color: #aaa;
+    letter-spacing: 0.05em;
+    margin-left: 0.3rem;
+    vertical-align: super;
+  }
+
+  /* ── 解題 ── */
+  #viewer-about {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3rem;
+  }
+
+  #viewer-about.active {
+    display: block;
+  }
+
+  .about-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-section h2 {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    font-weight: normal;
+    border-bottom: 1px solid #c8b88a;
+    padding-bottom: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-section p {
+    font-size: 0.85rem;
+    line-height: 2.2;
+    margin-bottom: 1rem;
+  }
+
+  .about-section .highlight {
+    background: #fff8e8;
+    border-left: 3px solid var(--gold);
+    padding: 0.8rem 1.2rem;
+    margin: 1rem 0;
+    font-size: 0.82rem;
+    line-height: 2;
+  }
+
+  table.spec {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+
+  table.spec th, table.spec td {
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid var(--paper-dark);
+    line-height: 1.8;
+  }
+
+  table.spec th {
+    color: var(--muted);
+    width: 9rem;
+    font-weight: normal;
+    vertical-align: top;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.72rem;
+    color: var(--muted);
+    border-top: 1px solid var(--paper-dark);
+    margin-top: 2rem;
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lib-name"><a href="../index.html">豐中常文庫</a></div>
+  <div class="sep">／</div>
+  <div>
+    <span class="book-title">倭姫命世記</span>
+    <span class="book-title-ruby">やまとひめのみことせいき</span>
+  </div>
+</header>
+
+<div class="bibliograph">
+  <span class="tag">神道五部書</span>
+  <span class="tag">度會神道</span>
+  <span class="tag">出口延佳校合本</span>
+  書写年：寛文九年（一六六九）九月一日　度會四門神主 延佳 校合記　／　塾主松浦茂樹 所蔵（全四十五丁）
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('image')">書写本画像</button>
+  <button class="tab-btn" onclick="switchTab('text')">翻刻テキスト</button>
+  <button class="tab-btn" onclick="switchTab('about')">解題</button>
+</div>
+
+<!-- ── 書写本画像タブ ── -->
+<div id="viewer-image" class="viewer active">
+  <div class="image-stage">
+    <img id="main-image" src="" alt="">
+    <div class="image-caption" id="image-caption"></div>
+  </div>
+  <div class="image-nav">
+    <button class="nav-btn" id="btn-prev" onclick="movePage(-1)">◀ 前丁</button>
+    <div class="page-indicator" id="page-indicator"></div>
+    <button class="nav-btn" id="btn-next" onclick="movePage(1)">次丁 ▶</button>
+  </div>
+  <div class="thumb-strip" id="thumb-strip"></div>
+</div>
+
+<!-- ── 翻刻テキストタブ ── -->
+<div id="viewer-text" class="viewer">
+  <div class="text-intro">
+    解読精度は概ね70〜80%。<b>[？]</b> は判読不能字、<b>[推：XX]</b> は推定読みを示す。
+    朱書（原本の赤字）は <span style="color:var(--vermilion)">赤字</span> で表記。
+    最終確定には塾主または専門研究者の確認を要する。
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第一巻　巻頭・天地開闢（page 00〜04）</div>
+    <div class="chapter-summary">
+      天地開闢より神々の系譜と天孫降臨、神武天皇の即位を経て、崇神天皇の御代に皇祖神の祭祀が宮中から外へ出る経緯に至る。
+    </div>
+    <div class="original-text">
+      天地開闢之初。神寶日出之時。御儀部神。永黙而不乱坐。<br>
+      或為神與大日霊貴像。結之幽契。永治三天下之言寿。照以無窮光華彩明。安国而不乱坐。<span class="page-ref">p.00</span><br><br>
+      宣。大合之内。諸神天之原奉之給比。神奉集給比。千五百秋瑞穂国之名。<br>
+      大原奉千五百秋瑞穂国之。以此国之荒振神等。是以天皇御孫之命降。八百万神等。<span class="page-ref">p.01</span><br><br>
+      <span class="vermilion">崇神天皇</span>四百七十年餘。御斎宮。御鏡を奉る。<span class="page-ref">p.04</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第二巻　御杖代任命・遊行前期（page 05〜09）</div>
+    <div class="chapter-summary">
+      崇神天皇の御代、御杖代として豊鋤入姫命が任命され皇祖神を奉じて旅立つ。次代、垂仁天皇の御代に倭姫命が後を継ぎ、大和の笠縫邑を発って遷宮地を求める旅を始める。
+    </div>
+    <div class="original-text">
+      <span class="vermilion">御杖代</span><br>
+      御間城入彦五十瓊殖天皇即位六年 己丑（崇神6年）<br>
+      天磐境を造る。神鏡を斎き奉る[？]<br>
+      豐入媛命（豐鍬入姫命）に[？]大宮所を求めて遷給ふ[？]<span class="page-ref">p.05</span><br><br>
+      五十一年甲戌（崇神51年）笠縫の宮[？]倭笠縫邑に[？]奉斎[？]<span class="page-ref">p.06</span><br><br>
+      戌[？]倭姫命此處御覚給[？]　倭笠縫邑[？]　大和国を出で[？]<br>
+      六十四年[？]七月伊賀國[？]御船代[？]度會郡[？]<span class="page-ref">p.07</span><br><br>
+      六十六年己巳[？]近江国甲賀[？]御坂宮に居坐[？]<br>
+      [朱]四年伊賀國奉斎[/朱] 八千矛瀬御鎮坐[？]<span class="page-ref">p.08</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第三巻　遊行中期（大和〜伊賀〜美濃・page 10〜14）</div>
+    <div class="chapter-summary">
+      倭姫命の遊行はさらに広がり、飯野郡に至って神領五十戸を定める。各地で国造らが参詞し神戸を奉献。五十鈴川上流が視野に入る。
+    </div>
+    <div class="original-text">
+      <span class="vermilion">阿耨阿耨社</span><br>
+      十八年（垂仁期）己卯 [推：飯野郡松崎の神戸定給]<br>
+      御子等八朔伊雜進布<br>
+      <span class="vermilion">神領五十人</span><span class="page-ref">p.10</span><br><br>
+      又野陰山[？] 田畓畝國[？]<br>
+      十鈴川上之多[？] 御饌都國[？]<span class="page-ref">p.11</span><br><br>
+      大若子命伊勢大若子命忌祖王[？]<br>
+      秦國天皇詔[？]五十鈴山地天孫之子孫天日別命国造王[？]<span class="page-ref">p.12</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第四巻　遊行後期（尾張〜伊勢・page 15〜19）</div>
+    <div class="chapter-summary">
+      滝原・大濱・五十鈴川方面へ進む。度会国造の名と神戸進納。御鈴神戸を定めながら五十鈴川沿いを遡る。五十鈴川到着の直前。
+    </div>
+    <div class="original-text">
+      滝河處鴻國名付同給白人「申名」<br>
+      度之猿田國上神戸進 [推：度会国造の名と神戸進納]<br>
+      御鈴留給於其處 御鈴神戸定給<span class="page-ref">p.15</span><br><br>
+      御饌處置處所名植桐 神伽指置處所名持<br>
+      一兒處名鴎名久来於御稲神社定給<span class="page-ref">p.17</span><br><br>
+      <span class="vermilion">後鎮神田</span> <span class="vermilion">雲来社</span><br>
+      等五十鈴河池社久於太御祓給<span class="page-ref">p.19</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第五巻　五十鈴川到着・伊勢鎮座（page 20〜24）</div>
+    <div class="chapter-summary">
+      垂仁76年、大宮殿を大幡主命が造営し伊雜宮が初出。天照大神鎮座が完成。垂仁27年丙寅に伊勢国の鎮座が確定する。
+    </div>
+    <div class="original-text">
+      七十六年丁巳十月癸子（垂仁76年10月）天皇崩<br>
+      大幡主御造支大宮殿造支<br>
+      <span class="vermilion">斎主鈴金鈴等</span> 神事奉<span class="page-ref">p.20</span><br><br>
+      鋸以大蓄柱立尾名御柱高天原<br>
+      不示元都都振仁高知豊根仁<br>
+      奉巳堂十鈴之河上鈴神宫水神<br>
+      倭姫命御祝御曰我吉志比賣地占<br>
+      是廿七年丙寅國坐定支<span class="page-ref">p.21</span><br><br>
+      <span class="vermilion">朝熊神鏡</span> 倭姫命神之大神社於前鎮神社定給之<br>
+      御饌止諾而饗賓神等 焼塩奉行人 麻氣定支<span class="page-ref">p.23</span><br><br>
+      伊雜浦号久 海漁名<br>
+      又見鶴作此鶴宇<span class="vermilion">真名鶴</span><br>
+      <span class="vermilion">朝熊</span> 神奉物記給物心給<span class="page-ref">p.24</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">★ 伊雜宮創建・真名鶴・大歳神（page 25｜大成 p.72-73 校合済）</div>
+    <div class="chapter-summary">
+      志摩・伊雜の地に至った倭姫命は、一基（ひともと）に千穗茂る聖なる稲を<b>白眞名鶴</b>が咋（くわ）えているのを瑞祥とし、<b>伊佐波登美神</b>に命じて伊雜宮（朝熊山嶺社）を造らせる。眞名鶴は大歳神として祀られた。その稲を皇大神の御前に懸け奉る<b>懸税の起源</b>、播主の女・山姫が清酒を醸す<b>御神酒の起源</b>も、この一段に記される。
+    </div>
+    <div class="original-text" style="line-height:2.4">
+      <span style="color:var(--muted);font-size:0.75rem">〔右丁〕</span><br>
+      …彼の鶴、穗を本（もと）に、<span class="vermilion">皇太神の御前に懸け</span>、眞名鶴…奉り始む。則ち其の稲、大（おほ）…<br>
+      <span class="vermilion">播主（はたぬし）の女子（むすめ）・山姫に清酒（すみさけ）を作（つく）らしめ、御饌（みけ）を奉る</span><br>
+      <span class="vermilion">千杭（ちくひ）奉り始む</span>。茲（ここ）に因（よ）る也<br>
+      …伊雜方上、其の処、<span class="vermilion">伊佐波登美神の神宮を造り奉る</span>、皇太神の…<span class="vermilion">伊雜宮</span>・攝宮<br>
+      鶴を<span class="vermilion">眞名鶴</span>と号し稱す、<span class="vermilion">大歳神</span>、同処に祝（いわ）ふ<br>
+      又其の神、皇太神の坐す、朝熊河の後（うしろ）<br>
+      <span style="color:var(--muted);font-size:0.75rem">〔左丁〕</span><br>
+      葦原の中、石に坐す祓神（はらえがみ）、<span class="vermilion">（小）朝熊山嶺社</span>を造り奉り、祝ひ定め坐さしむ。<span class="vermilion">大歳神</span>と稱す、是れなり<br>
+      又明年（くるとし）秋の比（ころ）、<span class="vermilion">眞名鶴</span>、皇太神に天翔（あまかけ）り…<br>
+      天日（あまつひ）更に止まず翔り鳴く時<br>
+      爰（ここ）に倭姫命、異（あや）しと給ひ、男命を使はして見せしむ<br>
+      到り見れば、中に稲生（お）ひ、<span class="vermilion">八百穗（やほほ）茂る</span>也、咋（くわ）へ持ち鳴く<span class="page-ref">p.25</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第六巻　伊雜宮続編・御杖代継承（page 26〜29）</div>
+    <div class="chapter-summary">
+      真名鶴飛去後、伊雜宮の御田・神社・神戸の制定が続く。御杖代制度が代々継承され、倭姫命崩御。日本武尊が草薙剣を授かる場面へ。
+    </div>
+    <div class="original-text">
+      見[推：鳴]将[？]鳴挙上天[推：鵠飛去]<br>
+      仕也地国延也 [推：八柱の神社造営・御田定置]<span class="page-ref">p.26</span><br><br>
+      是廿七年起首立泰朝 不打有断而切奉勤事自 [推：御饌奉斎を中断なく続ける]<br>
+      <span class="vermilion">天津国津神</span>諸神に 食事天津神四方國衆守<span class="page-ref">p.27</span><br><br>
+      <span class="vermilion">景行天皇</span><br>
+      <span class="vermilion">倭比賣命二月廿酉日入定</span> [倭姫命崩御の記録]<br>
+      久須見麻命御杖代二十二代<span class="page-ref">p.28</span><br><br>
+      日本武尊朝倭姫命再拝<br>
+      之劔授見見授草雜釗取革罷<br>
+      [推：倭姫命より草薙剣を授かる]<br>
+      <span class="vermilion">朝熊鳴呼大稲神</span> 神田奉物<span class="page-ref">p.29</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">★ 心御柱・伊勢神宮鎮座（page 30｜大成 p.72 校合済）</div>
+    <div class="chapter-summary">
+      天照大御神が「吾の坐すは一所耳」と告げ、倭姫命が五十鈴川のほとりに大宮を造営。<b>底津磐根に大宮柱を広敷き立て</b>、<b>心御柱</b>を建てる。神宝（鏡・大刀・小刀・矛・楯）を奉る。度會神道の核心思想に直結し、中常塾の塾名「中常」の根源となる章節。
+    </div>
+    <div class="original-text">
+      <span class="vermilion">皇太神吾一所耳</span><br>
+      食邦波國與依御饌都<br>
+      飯野邦君太朗八合女見地占<br>
+      此山有大若子命我給御殿造支<span class="page-ref">p.30 右</span><br><br>
+      倭姫命二神之斎主齋鎮筆始<br>
+      <span class="vermilion">心御柱</span><br>
+      高神鎭座之 大宮殿出闕始<br>
+      <span class="vermilion">底津磐根に大宮柱を広敷き立てて</span>（＝太敷き立て）<br>
+      御船に乗り奉り、五十鈴之河より<br>
+      神宝〔<span class="vermilion">鏡・大刀・小刀・矛・楯</span>〕を我が高天原に坐ゑ<br>
+      <span class="vermilion">鳴呼斎庭</span><br>
+      于時倭姫命、並びに<span class="vermilion">御柱</span><br>
+      神事祠百神更定 神戸郷<br>
+      <span class="vermilion">奉斎</span><span class="page-ref">p.30 左／大成 p.72</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第七巻　摂社末社・神宝奉斎（page 31〜34）</div>
+    <div class="chapter-summary">
+      朝夕の御饌を年中奉る制度。摂社・末社の祠社が整う。棚機姫神が大神御服を織る神事。機殿の制定。
+    </div>
+    <div class="original-text">
+      二所皇太神宮朝夕御饌大御饌<br>
+      平年別齋齊宣造支隨天神之諭止支<br>
+      <span class="vermilion">大山祖／木命社／田命社／米／佐／大神／田神社</span><span class="page-ref">p.31</span><br><br>
+      亦皇太神託言久此處之制有柱則<br>
+      高大坂則皇天昌運国家<br>
+      当与天壌無窮[？]<span class="page-ref">p.32</span><br><br>
+      <span class="vermilion">倭比賣御鏡事</span> <span class="vermilion">景行御代</span><br>
+      度會郡建神社（神服織社・神服社）の創建<br>
+      那織社命織太神之御服総倭僕神<span class="page-ref">p.33</span><br><br>
+      棚機姫神奉八幕餅機殿幾八多絹給<br>
+      又於八月御幕餅織太神服明乙<span class="page-ref">p.34</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第八巻　別宮・摂社一覧（page 35〜39）</div>
+    <div class="chapter-summary">
+      伊勢神宮の別宮・摂社・末社の総一覧。荒祭宮・滝原宮・伊雜宮などの別宮と、朝熊・大歳神社・酒殿神・外宮の体系化。
+    </div>
+    <div class="original-text">
+      <span class="vermilion">荒祭宮一座</span> 皇太神荒魂神（神異形也）<br>
+      <span class="vermilion">月夜見命二座</span> 男形莫案棄柳衣<br>
+      <span class="vermilion">瀧原宮二座</span> 神鏡座<br>
+      <span class="vermilion">伊雜宮一座</span> 神鏡座皇太神之御魂<br>
+      諸国祭支夫八十社座中<span class="page-ref">p.36</span><br><br>
+      <span class="vermilion">大歳神社一座</span> 國造神子達石原座大田命子也<br>
+      <span class="vermilion">朝熊神社</span> 達祖神二座 五十鈴大田之神祖也<br>
+      <span class="vermilion">豐受太神宮</span> 一座 神鏡座<br>
+      御戸開神 朝御饌神之御供別也<span class="page-ref">p.37</span><br><br>
+      <span class="vermilion">月讀神</span> 別宮 <span class="vermilion">多賀宮</span><br>
+      <span class="vermilion">酒殿神</span> 御酒奉所<br>
+      <span class="vermilion">御稻倉神</span> <span class="vermilion">風神社</span> <span class="vermilion">大國玉比賣神</span><span class="page-ref">p.38</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">第九巻　祭祀作法・歴代天皇（page 40〜41）</div>
+    <div class="chapter-summary">
+      歴代天皇の伊勢神宮参拝の記録と神戸郷の確立。神服織機殿の制定。垂仁丙午年に神戸郷を仰せ建てる。
+    </div>
+    <div class="original-text">
+      奉迎天日別命同起其遠不調漁<br>
+      大国玉神従西言徒東列子寛奉<span class="page-ref">p.40</span><br><br>
+      神服織機殿 飲爲為宮（神服織機殿の御饌の宮）<br>
+      二廿八年（垂仁28年）皇女夢野丘宮作之機殿<br>
+      嬢太神之服神宮成天人座度合衣<span class="page-ref">p.41</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">★ 第二奥書・伝来の証明（page 42）</div>
+    <div class="chapter-summary">
+      慶雲二年（七〇五）の撰集、大治四年（一一二九）の書写に始まり、大成 p.85 の伝来記では応永25・27年（一四一八〜二〇）に<b>度会章尚・雅晴</b>が書写校点、当家重代の秘藏として「<b>関東に遺す</b>」と続く。最後に寛文九年の延佳校合（page 44）に至る、約一三〇〇年の伝承を証明する奥書。
+    </div>
+    <div class="original-text">
+      <span class="vermilion">太神宮本紀下　大神宮本紀下</span><br><br>
+      伊勢謂者　天地萬物之靈神<br>
+      天照皇太神宮者　惟天神地祇之衆貴<br>
+      者也我國家神物霊心皆存霽豊<br><br>
+      <span class="vermilion">慶雲二年（七〇五）二月七日</span><br>
+      軍司月麻呂撰集之<br><br>
+      <span class="vermilion">大治四年（一一二九）十二月廿七日　書寫之畢</span><span class="page-ref">p.42</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">★ 書写の系譜（page 43）</div>
+    <div class="chapter-summary">
+      度會二門の祖より代々書写・撰集された秘伝の経緯。「他見を許さず」と明記された秘伝が、現代の塾主の手元にある。
+    </div>
+    <div class="original-text">
+      <span class="vermilion">外権祢宜度會神主延晴判</span><br>
+      丁卯歳正月廿日萬寫之[？]<br>
+      至見太神宮神主延上度会延晴<br><br>
+      下野応永戌[？]年伴夏端午後一<br>
+      目書寫畢<span class="page-ref">p.43 右</span><br><br>
+      倭姫命世記古太神宮神紙本紀記下<br>
+      度會二門之祖二所太神宮大神主御<br>
+      気之神紙撰之此宣神宮神主延月<br>
+      歳呂集撰之而追代度会神主等<br>
+      紛失之而摘問宮荒人田神主等相<br>
+      傳之耶秘<span class="vermilion">可不施他見借用之候間</span><br>
+      拝覧之列首誤字闕字朔有落侍之間<span class="page-ref">p.43 左</span>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-heading">★ 奥書・出口延佳の校合記（page 44）</div>
+    <div class="chapter-summary">
+      寛文九年（一六六九）、出口延佳五十四歳が自ら校合した記録。中常塾所蔵書写本の素性の最終証明。
+    </div>
+    <div class="original-text">
+      右記中往々別用之以傳[？]姫命也記<br>
+      之校合云正誤字八個字補落行加<br>
+      点摘有不審朝正本一見之節云<br><br>
+      <span class="vermilion">寛文九年（己酉）九月一日</span><br>
+      <span class="vermilion">度會四門神主 延佳 記</span><span class="page-ref">p.44</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── 解題タブ ── -->
+<div id="viewer-about" class="viewer">
+  <div class="about-section">
+    <h2>倭姫命世記とは</h2>
+    <p>
+      『倭姫命世記』は神道五部書（度會五部書）の一つ。倭姫命（やまとひめのみこと）が天照大御神の御神体・八咫鏡を奉じ、最終的に伊勢五十鈴川のほとりに鎮座地を定めるまでの約六十年に及ぶ遍歴を年代記形式で記した書。
+    </p>
+    <p>
+      成立は鎌倉後期とされるが、外宮度会氏による度会神道形成の文脈で整備・流布した。伊勢神宮の起源神話であるとともに、御饌・懸税・神嘗祭の起源を語る祭祀の根本古典でもある。
+    </p>
+    <div class="highlight">
+      伊雜宮創建の章（page 25／大成 p.72-73 校合済）には、一基（ひともと）に千穗茂る聖なる稲を<b>白眞名鶴（しろまなづる）</b>が咋（くわ）えていた瑞祥が記され、塾主の祖先<b>伊佐波登美神</b>がこの地に伊雜宮（朝熊山嶺社）を造営、眞名鶴は<b>大歳神</b>として祀られたとある。その稲を皇大神の御前に懸け奉る<b>懸税の起源</b>、播主の女・山姫が清酒を醸す<b>御神酒の起源</b>も同じ一段に記される。中常塾の懸税奉納事業（外宮初穂曳き・伊雜宮物産調献式）と御神酒事業、双方の起源神話がここにある。
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>本書写本について</h2>
+    <table class="spec">
+      <tr><th>書写・校合者</th><td>度會四門神主 延佳（出口延佳、一六一五〜一六九〇）</td></tr>
+      <tr><th>校合年</th><td>寛文九年（一六六九）九月一日</td></tr>
+      <tr><th>延佳の年齢</th><td>五十四歳</td></tr>
+      <tr><th>所蔵者</th><td>松浦茂樹（中常塾塾主）</td></tr>
+      <tr><th>丁数</th><td>四十五丁（見開き撮影・計八十八ページ分）</td></tr>
+      <tr><th>書体</th><td>楷書〜行書、朱書混じり</td></tr>
+      <tr><th>奥書</th><td>「校合云正誤字八個字補落行加点摘有不審朝正本一見之節云」</td></tr>
+    </table>
+
+    <div class="highlight" style="margin-top:1.5rem">
+      出口延佳は伊勢外宮・度会氏の神主にして江戸前期の神道家。『中臣祓瑞穂鈔』『倭姫命世記解』など度会神道の根本文献を著した。「中常の道を神道とせるの深意」の言は中常塾の塾名の由来でもある。
+    </div>
+  </div>
+
+  <div class="about-section">
+    <h2>中常塾との縁</h2>
+    <p>
+      本書写本に登場する<b>伊佐波登美神（いざわとみのかみ）</b>は、倭姫命の命により伊雜宮を造営した神。この「登美氏」は出雲族の系譜に連なり、塾主・松浦茂樹の<b>父方の源流</b>である出雲族登美氏と同族にあたる。塾主の父方は〈出雲族登美氏 → 奥州安倍氏（北辰の末裔）→ 松浦氏〉と一本につながる。
+    </p>
+    <p>
+      塾主は祖先の名が記された古典の書写本を所蔵し、祖先が造営した伊雜宮へ十年近く懸税奉納を続けてきた。この書写本は中常塾の物語の核心を物的に証明する一冊である。
+    </p>
+  </div>
+</div>
+
+<footer>
+  豐中常文庫　© 中常塾（塾主：松浦茂樹）<br>
+  名称は出口延佳が建立した豐宮崎文庫に敬意を表したものです。
+</footer>
+
+<script>
+  // ── タブ切替 ──
+  function switchTab(name) {
+    document.querySelectorAll('.viewer').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('viewer-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ── 画像ビューアー ──
+  const TOTAL = 45;
+  let current = 0;
+
+  const IMAGE_BASE = 'images/';
+
+  const CAPTIONS = {
+    0: '表紙・冒頭　天地開闢之初',
+    1: '豊葦原千五百秋瑞穂国　天孫降臨',
+    2: '天降後の神議　天地清浄',
+    3: '神代から人皇へ　神武天皇即位',
+    4: '崇神天皇の御代　御斎宮・御鏡',
+    5: '御杖代任命　豐鍬入姫命の旅立ち',
+    6: '垂仁天皇御代　倭姫命へ継承',
+    25: '★ 伊雜宮創建　真名鶴・大稔神の章',
+    30: '★ 心御柱　伊勢神宮鎮座',
+    44: '★ 奥書　寛文九年 度會延佳 校合記',
+  };
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function loadPage(n) {
+    current = n;
+    const img = document.getElementById('main-image');
+    img.src = IMAGE_BASE + 'page_' + pad(n) + '.jpg';
+    img.alt = '倭姫命世記 第' + n + '丁';
+
+    document.getElementById('image-caption').textContent =
+      (CAPTIONS[n] ? '【' + CAPTIONS[n] + '】' : '') + '　第' + n + '丁（全' + (TOTAL-1) + '丁）';
+
+    document.getElementById('page-indicator').textContent =
+      'page ' + pad(n) + ' ／ ' + pad(TOTAL - 1);
+
+    document.getElementById('btn-prev').disabled = n === 0;
+    document.getElementById('btn-next').disabled = n === TOTAL - 1;
+
+    document.querySelectorAll('.thumb').forEach(t => {
+      t.classList.toggle('active', parseInt(t.dataset.page) === n);
+    });
+
+    const strip = document.getElementById('thumb-strip');
+    const activeThumb = strip.querySelector('.thumb.active');
+    if (activeThumb) {
+      activeThumb.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  function movePage(delta) { loadPage(current + delta); }
+
+  // サムネイル生成
+  (function buildThumbs() {
+    const strip = document.getElementById('thumb-strip');
+    for (let i = 0; i < TOTAL; i++) {
+      const img = document.createElement('img');
+      img.src = IMAGE_BASE + 'page_' + pad(i) + '.jpg';
+      img.className = 'thumb';
+      img.dataset.page = i;
+      img.alt = '第' + i + '丁';
+      img.title = CAPTIONS[i] || ('第' + i + '丁');
+      img.onclick = () => loadPage(i);
+      strip.appendChild(img);
+    }
+  })();
+
+  loadPage(0);
+</script>
+</body>
+</html>

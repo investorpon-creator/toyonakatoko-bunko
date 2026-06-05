@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豐中常文庫</title>
+<style>
+  :root {
+    --ink: #1a1208;
+    --paper: #f5f0e8;
+    --paper-dark: #e8e0cc;
+    --vermilion: #c0392b;
+    --gold: #8b6914;
+    --muted: #6b5d4a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'MS Mincho', Georgia, serif;
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  header .title-main {
+    font-size: 2.2rem;
+    letter-spacing: 0.3em;
+    font-weight: normal;
+  }
+
+  header .title-ruby {
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    color: #c8b88a;
+    margin-top: 0.4rem;
+  }
+
+  header .tagline {
+    font-size: 0.8rem;
+    color: #a09070;
+    margin-top: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  nav {
+    background: var(--paper-dark);
+    border-bottom: 1px solid #c8b88a;
+    padding: 0.6rem 2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--vermilion);
+    border-bottom: 1px solid var(--vermilion);
+    padding-bottom: 0.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .book-list {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .book-card {
+    background: #fff;
+    border: 1px solid #d4c9b0;
+    border-left: 4px solid var(--gold);
+    padding: 1.5rem 2rem;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    transition: border-left-color 0.2s, box-shadow 0.2s;
+  }
+
+  .book-card:hover {
+    border-left-color: var(--vermilion);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+
+  .book-card .book-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .book-card .book-info {}
+
+  .book-card .book-title {
+    font-size: 1.3rem;
+    letter-spacing: 0.15em;
+    font-weight: normal;
+  }
+
+  .book-card .book-title-ruby {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    margin-top: 0.15rem;
+  }
+
+  .book-card .book-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.6rem;
+    line-height: 1.8;
+  }
+
+  .book-card .book-tag {
+    display: inline-block;
+    background: var(--paper-dark);
+    border: 1px solid #c8b88a;
+    font-size: 0.65rem;
+    padding: 0.1rem 0.5rem;
+    margin-right: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.72rem;
+    color: var(--muted);
+    border-top: 1px solid var(--paper-dark);
+    margin-top: 4rem;
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-main">豐中常文庫</div>
+  <div class="title-ruby">とよなかとこぶんこ</div>
+  <div class="tagline">中常塾所蔵・関連書籍のデジタル文庫　──　度會神道の根本古典を、現代の手に</div>
+</header>
+
+<nav>文庫トップ</nav>
+
+<main>
+
+  <p class="section-title">所蔵書籍一覧</p>
+
+  <div class="book-list">
+
+    <a class="book-card" href="倭姫命世記/index.html">
+      <div class="book-icon">📜</div>
+      <div class="book-info">
+        <div class="book-title">倭姫命世記</div>
+        <div class="book-title-ruby">やまとひめのみことせいき</div>
+        <div class="book-meta">
+          <span class="book-tag">度會神道</span>
+          <span class="book-tag">神道五部書</span>
+          <span class="book-tag">出口延佳校合本</span>
+          <br>
+          寛文九年（一六六九）九月一日　度會四門神主 延佳 校合記<br>
+          塾主松浦茂樹 所蔵の書写本（四十五丁）
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+  豐中常文庫は中常塾（塾主：松浦茂樹）が管理する度會神道関連典籍のデジタル文庫です。<br>
+  名称は出口延佳が建立した豐宮崎文庫に敬意を表したものです。<br>
+  © 中常塾
+</footer>
+
+</body>
+</html>
