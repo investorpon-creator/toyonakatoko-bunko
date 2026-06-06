@@ -468,7 +468,16 @@
         </a>
 
       </div>
-      <p class="contact-note">※ メールでのお問い合わせは準備中です</p>
+      <div class="sns-row" style="margin-top:1rem;">
+        <a class="sns-btn" id="mail-btn" href="#" onclick="revealMail(event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+          メール
+        </a>
+      </div>
+      <p class="contact-note" id="mail-note" style="display:none"></p>
     </div>
   </div>
 </section>
@@ -488,6 +497,20 @@
 
 <script>
   document.documentElement.classList.add('js');
+
+  // メールアドレスをボットから守るため、クリック時にJSで組み立てる
+  function revealMail(e) {
+    e.preventDefault();
+    const u = 'nakatokojuku', d = 'gmail.com';
+    const addr = u + '@' + d;
+    const btn = document.getElementById('mail-btn');
+    const note = document.getElementById('mail-note');
+    btn.href = 'mailto:' + addr;
+    btn.onclick = null;
+    note.textContent = addr;
+    note.style.display = 'block';
+    window.location.href = 'mailto:' + addr;
+  }
 </script>
 
 </body>
