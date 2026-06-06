@@ -266,6 +266,48 @@
   footer .f-seal span:first-child{border-bottom:1px solid rgba(255,255,255,.3);}
   footer .copy{margin-top:1.8rem;font-size:.66rem;letter-spacing:.26em;color:#7d6f56;}
 
+  /* ── 御縁・お問い合わせ ── */
+  .contact{
+    padding:clamp(3rem,6vw,5rem) 0;
+    border-top:1px solid var(--line);
+    background:linear-gradient(rgba(231,220,195,.25),transparent 70%);
+  }
+  .contact .inner{max-width:640px;margin:0 auto;text-align:center;}
+  .contact .mark{
+    display:inline-grid;place-content:center;
+    width:42px;height:42px;border:1px solid var(--gold);color:var(--vermilion);
+    font-size:1.05rem;letter-spacing:0;margin-bottom:1.6rem;
+  }
+  .contact-desc{
+    font-size:clamp(.86rem,1.2vw,1rem);
+    letter-spacing:.1em;line-height:2.4;color:var(--ink-soft);
+    margin-bottom:2.2rem;
+  }
+  .sns-row{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;
+  }
+  .sns-btn{
+    display:inline-flex;align-items:center;gap:.7rem;
+    padding:.8rem 2rem;
+    border:1px solid var(--line);
+    background:var(--paper-card);
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:.78rem;letter-spacing:.26em;
+    transition:border-color .25s,background .25s,transform .25s,color .25s;
+    font-family:var(--serif);
+  }
+  .sns-btn:hover{
+    border-color:var(--gold-soft);
+    background:#fff;
+    transform:translateY(-2px);
+    color:var(--ink);
+  }
+  .sns-btn svg{width:18px;height:18px;flex-shrink:0;}
+  .contact-note{
+    margin-top:1.8rem;font-size:.68rem;letter-spacing:.2em;color:var(--muted);
+  }
+
   /* 入りの所作 — 常に表示し、動きは加飾のみ */
   .reveal{opacity:1;transform:none;}
   @media (prefers-reduced-motion:no-preference){
@@ -298,6 +340,7 @@
     <nav class="topnav">
       <a href="#preface">文庫について</a>
       <a href="#collection">所蔵書</a>
+      <a href="#contact">お問い合わせ</a>
     </nav>
   </div>
 </div>
@@ -387,6 +430,39 @@
     </a>
 
     <p class="continued reveal">以 下 續 刊</p>
+  </div>
+</section>
+
+<!-- ── 御縁・お問い合わせ ── -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="inner reveal">
+      <div class="mark">縁</div>
+      <p class="contact-desc">
+        豐中常文庫・中常塾に関するご感想、度會神道についての<br>
+        ご質問は、各SNSのメッセージにてお気軽にどうぞ。
+      </p>
+      <div class="sns-row">
+
+        <a class="sns-btn" href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a class="sns-btn" href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+          </svg>
+          Facebook
+        </a>
+
+      </div>
+      <p class="contact-note">※ メールアドレスは準備中です</p>
+    </div>
   </div>
 </section>
 
