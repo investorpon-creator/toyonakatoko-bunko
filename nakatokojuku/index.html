@@ -100,6 +100,49 @@
     text-wrap:pretty;
   }
 
+  /* ── ヘッダー写真 ── */
+  .header-photo-wrap{
+    display:grid;grid-template-columns:1fr 220px;
+    gap:clamp(2rem,4vw,3.5rem);align-items:center;
+  }
+  .header-photo{
+    position:relative;align-self:start;
+  }
+  .header-photo img{
+    display:block;width:100%;
+    border:1px solid var(--line);
+    box-shadow:0 14px 36px -20px rgba(40,28,12,.5);
+    filter:saturate(.92) contrast(1.02);
+  }
+  .header-photo::before{
+    content:"";position:absolute;inset:6px;
+    border:1px solid #e4d8bd;pointer-events:none;z-index:1;
+  }
+  .header-photo-cap{
+    margin-top:.7rem;text-align:center;
+    font-size:.64rem;letter-spacing:.2em;color:var(--muted);
+  }
+
+  /* ── 和儀写真 ── */
+  .wagi-photo{
+    margin:1.6rem 0;position:relative;
+  }
+  .wagi-photo img{
+    display:block;width:100%;
+    border:1px solid var(--line);
+    box-shadow:0 14px 36px -20px rgba(40,28,12,.5);
+    filter:saturate(.9) contrast(1.02);
+  }
+  .wagi-photo-cap{
+    margin-top:.7rem;text-align:center;
+    font-size:.64rem;letter-spacing:.2em;color:var(--muted);
+  }
+
+  @media (max-width:600px){
+    .header-photo-wrap{grid-template-columns:1fr;}
+    .header-photo{max-width:280px;margin:0 auto;}
+  }
+
   /* ── セクション共通 ── */
   .section{
     padding:clamp(2.8rem,6vw,4.5rem) 0;
@@ -263,14 +306,24 @@
 <!-- ── ページヘッダー ── -->
 <div class="page-header">
   <div class="wrap">
-    <div class="kicker">度 會 神 道 ・ 岡 崎</div>
-    <h1>中常塾</h1>
-    <div class="sub">なかとこじゅく　塾主：松浦茂樹　令和八年五月二十五日 開塾</div>
-    <p class="lead">
-      敗れた出雲族の血を引く者が、神武以来の日本を貫く神祇の道を、
-      令和の岡崎で現代に継ぐ。<br>
-      度會神道の学びと「和儀」を通じて、<span class="em">日本人の肚を再発見する場</span>。
-    </p>
+    <div class="header-photo-wrap">
+      <div>
+        <div class="kicker">度 會 神 道 ・ 岡 崎</div>
+        <h1>中常塾</h1>
+        <div class="sub">なかとこじゅく　塾主：松浦茂樹　令和八年五月二十五日 開塾</div>
+        <p class="lead">
+          敗れた出雲族の血を引く者が、神武以来の日本を貫く神祇の道を、
+          令和の岡崎で現代に継ぐ。<br>
+          度會神道の学びと「和儀」を通じて、<span class="em">日本人の肚を再発見する場</span>。
+        </p>
+      </div>
+      <div>
+        <div class="header-photo">
+          <img src="photo_book.jpg" alt="塾主・松浦茂樹 倭姫命世記を手に">
+        </div>
+        <div class="header-photo-cap">塾主 松浦茂樹　倭姫命世記を手に</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -386,6 +439,10 @@
     <div class="sec-label">
       <div class="mark">学</div>
       <h2>度會神道の学びと和儀</h2>
+    </div>
+    <div class="wagi-photo">
+      <img src="photo_wagi.jpg" alt="能舞台での和儀稽古">
+      <div class="wagi-photo-cap">岡崎城二の丸能舞台にて　和儀稽古</div>
     </div>
     <p class="body">
       中常塾は、<span class="em">度會神道</span>の学びを核に据える。度会神道は伊勢外宮の度会氏が体系化した神道の流れ。
