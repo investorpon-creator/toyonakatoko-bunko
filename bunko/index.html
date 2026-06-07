@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>豐中常文庫 ── 中常塾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#211911;
+    --ink-soft:#3a2e20;
+    --paper:#efe7d4;
+    --paper-2:#e7dcc3;
+    --paper-card:#f7f1e4;
+    --vermilion:#a8362a;
+    --vermilion-deep:#8f2c22;
+    --gold:#9a7d3c;
+    --gold-soft:#b9a05e;
+    --muted:#6f6048;
+    --line:#cdbf9f;
+    --serif:'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--serif);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(255,255,255,.45), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(180,150,95,.10), transparent 48%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);}
+
+  /* ── 天 ── 細い金の罫と社号 ── */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(var(--paper),rgba(239,231,212,.55));
+    position:sticky;top:0;z-index:20;
+    backdrop-filter:blur(3px);
+  }
+  .topbar .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .wordmark{
+    display:flex;align-items:baseline;gap:.7rem;
+    font-size:1.02rem;letter-spacing:.42em;color:var(--ink);
+    font-weight:600;text-decoration:none;
+  }
+  .wordmark .seal-mini{
+    width:22px;height:22px;flex-shrink:0;
+    background:var(--vermilion);color:#fff;
+    font-size:9px;line-height:11px;font-weight:700;letter-spacing:0;
+    display:grid;place-content:center;text-align:center;
+    align-self:center;border-radius:2px;
+    font-family:var(--serif);
+  }
+  .topnav{display:flex;gap:2.1rem;font-size:.74rem;letter-spacing:.28em;color:var(--muted);}
+  .topnav a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s,color .25s;}
+  .topnav a:hover{color:var(--vermilion);border-color:var(--vermilion);}
+
+  /* ── 序の間 ── ヒーロー ── */
+  .hero{position:relative;padding:clamp(3.2rem,7vw,6rem) 0 clamp(3rem,6vw,5rem);}
+  .hero-grid{
+    display:grid;grid-template-columns:1fr minmax(300px,440px);
+    gap:clamp(2rem,5vw,5rem);align-items:center;
+  }
+
+  .hero-text{position:relative;}
+  .kicker{
+    font-size:.72rem;letter-spacing:.5em;color:var(--vermilion);
+    margin-bottom:2.2rem;padding-left:.5em;
+  }
+  .title-row{display:flex;align-items:flex-start;gap:1.4rem;}
+  .title-main{
+    writing-mode:vertical-rl;text-orientation:upright;
+    font-size:clamp(3.4rem,7vw,5.6rem);
+    font-weight:600;letter-spacing:.12em;line-height:1.02;
+    color:var(--ink);
+    text-shadow:0 1px 0 rgba(255,255,255,.5);
+  }
+  .title-ruby{
+    writing-mode:vertical-rl;text-orientation:upright;
+    font-size:.82rem;letter-spacing:.55em;color:var(--muted);
+    padding-top:.6em;font-weight:400;
+  }
+  .hero-rule{
+    width:64px;height:0;border-top:1px solid var(--gold);
+    margin:2.4rem 0 1.5rem;position:relative;
+  }
+  .hero-rule::after{content:"";position:absolute;top:3px;left:0;width:40px;border-top:1px solid var(--gold-soft);}
+  .tagline{
+    font-size:clamp(1.02rem,1.6vw,1.28rem);
+    letter-spacing:.16em;line-height:2.2;color:var(--ink-soft);
+    font-weight:500;max-width:30ch;
+  }
+  .subline{
+    margin-top:1.3rem;font-size:.8rem;letter-spacing:.3em;color:var(--muted);
+  }
+
+  /* 宝物 — 書影 */
+  .hero-relic{position:relative;}
+  .relic-frame{
+    background:#fbf6ec;
+    padding:18px;
+    border:1px solid var(--line);
+    box-shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 22px 50px -28px rgba(40,28,12,.55);
+    position:relative;
+  }
+  .relic-frame::before{
+    content:"";position:absolute;inset:7px;border:1px solid #e4d8bd;pointer-events:none;
+  }
+  .relic-frame img{
+    display:block;width:100%;height:clamp(340px,42vw,470px);
+    object-fit:cover;object-position:22% 50%;
+    filter:saturate(.94) contrast(1.02);
+  }
+  .relic-cap{
+    margin-top:1rem;text-align:center;
+    font-size:.68rem;letter-spacing:.26em;color:var(--muted);line-height:2;
+  }
+  .relic-cap b{color:var(--ink-soft);font-weight:600;}
+  /* 朱印 */
+  .seal{
+    position:absolute;right:-14px;bottom:54px;
+    width:78px;height:78px;
+    background:var(--vermilion);
+    color:#fff;border-radius:4px;
+    display:grid;grid-template-rows:1fr 1fr;
+    box-shadow:0 8px 22px -10px rgba(120,30,20,.7);
+    transform:rotate(-3deg);
+    font-weight:700;
+    border:2px solid rgba(255,255,255,.18);
+  }
+  .seal span{display:grid;place-content:center;font-size:1.5rem;letter-spacing:0;line-height:1;}
+  .seal span:first-child{border-bottom:1px solid rgba(255,255,255,.32);}
+
+  /* ── 序文 ── */
+  .preface{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:clamp(3rem,6vw,4.6rem) 0;
+    background:linear-gradient(rgba(231,220,195,.32),transparent 60%);
+  }
+  .preface .inner{max-width:680px;margin:0 auto;text-align:center;}
+  .mark{
+    display:inline-grid;place-content:center;
+    width:42px;height:42px;border:1px solid var(--gold);color:var(--vermilion);
+    font-size:1.05rem;letter-spacing:0;margin-bottom:1.8rem;
+  }
+  .preface p{
+    font-size:clamp(.98rem,1.4vw,1.12rem);
+    letter-spacing:.1em;line-height:2.5;color:var(--ink-soft);
+    text-wrap:pretty;
+  }
+  .preface p + p{margin-top:1.4rem;}
+  .preface .em{color:var(--vermilion-deep);font-weight:600;}
+
+  /* ── 所蔵 ── */
+  .collection{padding:clamp(3.4rem,7vw,5.5rem) 0 clamp(2rem,4vw,3rem);}
+  .sec-head{display:flex;align-items:baseline;gap:1.3rem;margin-bottom:2.6rem;}
+  .sec-head .kanji{
+    font-size:1.5rem;letter-spacing:.5em;color:var(--ink);font-weight:600;
+    padding-right:.1em;
+  }
+  .sec-head .rome{font-size:.66rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;}
+  .sec-head .grow{flex:1;height:0;border-top:1px solid var(--line);transform:translateY(-4px);}
+  .sec-head .count{font-size:.72rem;letter-spacing:.3em;color:var(--muted);}
+
+  .volume{
+    display:grid;grid-template-columns:152px 1fr;gap:clamp(1.6rem,3.5vw,3rem);
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    padding:clamp(1.6rem,3vw,2.4rem);
+    text-decoration:none;color:inherit;
+    position:relative;
+    transition:box-shadow .3s,transform .3s,border-color .3s;
+  }
+  .volume::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gold);
+    transition:background .3s;
+  }
+  .volume:hover{
+    box-shadow:0 24px 48px -30px rgba(40,28,12,.5);
+    transform:translateY(-2px);
+    border-color:var(--gold-soft);
+  }
+  .volume:hover::before{background:var(--vermilion);}
+
+  .vol-cover{position:relative;align-self:start;}
+  .vol-cover img{
+    display:block;width:100%;height:210px;object-fit:cover;object-position:24% 50%;
+    border:1px solid #d8caa8;
+    box-shadow:0 10px 24px -14px rgba(40,28,12,.55);
+  }
+  .vol-no{
+    position:absolute;top:-12px;left:-12px;
+    width:38px;height:38px;background:var(--ink);color:var(--paper);
+    display:grid;place-content:center;font-size:1.05rem;letter-spacing:0;
+    border:1px solid var(--gold);
+  }
+
+  .vol-body{min-width:0;}
+  .vol-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;}
+  .vol-tags span{
+    font-size:.64rem;letter-spacing:.18em;color:var(--muted);
+    border:1px solid var(--line);padding:.18rem .6rem;background:rgba(255,255,255,.4);
+  }
+  .vol-title{
+    font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:.16em;font-weight:600;
+    line-height:1.3;color:var(--ink);
+  }
+  .vol-ruby{font-size:.74rem;letter-spacing:.34em;color:var(--muted);margin-top:.4rem;}
+  .vol-desc{
+    font-size:.86rem;letter-spacing:.06em;line-height:2.1;color:var(--ink-soft);
+    margin:1.2rem 0 1.3rem;max-width:52ch;text-wrap:pretty;
+  }
+  .vol-meta{
+    font-size:.72rem;letter-spacing:.08em;line-height:2;color:var(--muted);
+    padding-top:1rem;border-top:1px dotted var(--line);
+  }
+  .vol-enter{
+    display:inline-flex;align-items:center;gap:.6rem;margin-top:1.3rem;
+    font-size:.8rem;letter-spacing:.3em;color:var(--vermilion-deep);font-weight:600;
+  }
+  .vol-enter .arw{transition:transform .3s;}
+  .volume:hover .vol-enter .arw{transform:translateX(5px);}
+
+  .continued{
+    text-align:center;margin-top:2.4rem;
+    font-size:.72rem;letter-spacing:.5em;color:var(--muted);
+  }
+  .continued::before,.continued::after{content:"──　";color:var(--line);}
+
+  /* ── 地 ── フッター ── */
+  footer{
+    margin-top:clamp(3rem,7vw,5.5rem);
+    background:var(--ink);color:#d9cdb4;
+    border-top:3px solid var(--gold);
+    padding:clamp(3rem,6vw,4.2rem) 0 3rem;
+  }
+  footer .wrap{text-align:center;}
+  footer .f-mark{
+    font-size:1.3rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1.4rem;
+  }
+  footer .f-line{
+    font-size:.74rem;letter-spacing:.18em;line-height:2.3;color:#a9997b;
+    max-width:46ch;margin:0 auto;
+  }
+  footer .f-seal{
+    display:inline-grid;grid-template-rows:1fr 1fr;
+    width:46px;height:46px;margin-top:1.8rem;
+    background:var(--vermilion);color:#fff;border-radius:3px;font-weight:700;
+  }
+  footer .f-seal span{display:grid;place-content:center;font-size:.95rem;line-height:1;}
+  footer .f-seal span:first-child{border-bottom:1px solid rgba(255,255,255,.3);}
+  footer .copy{margin-top:1.8rem;font-size:.66rem;letter-spacing:.26em;color:#7d6f56;}
+
+  /* ── 御縁・お問い合わせ ── */
+  .contact{
+    padding:clamp(3rem,6vw,5rem) 0;
+    border-top:1px solid var(--line);
+    background:linear-gradient(rgba(231,220,195,.25),transparent 70%);
+  }
+  .contact .inner{max-width:640px;margin:0 auto;text-align:center;}
+  .contact .mark{
+    display:inline-grid;place-content:center;
+    width:42px;height:42px;border:1px solid var(--gold);color:var(--vermilion);
+    font-size:1.05rem;letter-spacing:0;margin-bottom:1.6rem;
+  }
+  .contact-desc{
+    font-size:clamp(.86rem,1.2vw,1rem);
+    letter-spacing:.1em;line-height:2.4;color:var(--ink-soft);
+    margin-bottom:2.2rem;
+  }
+  .sns-row{
+    display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;
+  }
+  .sns-btn{
+    display:inline-flex;align-items:center;gap:.7rem;
+    padding:.8rem 2rem;
+    border:1px solid var(--line);
+    background:var(--paper-card);
+    color:var(--ink-soft);
+    text-decoration:none;
+    font-size:.78rem;letter-spacing:.26em;
+    transition:border-color .25s,background .25s,transform .25s,color .25s;
+    font-family:var(--serif);
+  }
+  .sns-btn:hover{
+    border-color:var(--gold-soft);
+    background:#fff;
+    transform:translateY(-2px);
+    color:var(--ink);
+  }
+  .sns-btn svg{width:18px;height:18px;flex-shrink:0;}
+  .contact-note{
+    margin-top:1.8rem;font-size:.68rem;letter-spacing:.2em;color:var(--muted);
+  }
+
+  /* 入りの所作 — 常に表示し、動きは加飾のみ */
+  .reveal{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:no-preference){
+    .js .reveal{animation:riseIn 1s ease both;}
+    .js .reveal.d1{animation-delay:.12s;}
+    .js .reveal.d2{animation-delay:.24s;}
+  }
+  @keyframes riseIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;gap:2.6rem;}
+    .hero-relic{max-width:380px;margin:0 auto;}
+    .volume{grid-template-columns:1fr;}
+    .vol-cover{max-width:200px;}
+    .vol-cover img{height:240px;}
+    .topnav{gap:1.4rem;}
+    .vol-no{left:-8px;top:-8px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── 天 ── -->
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="../">
+      <span class="seal-mini">中常</span>
+      豐中常文庫
+    </a>
+    <nav class="topnav">
+      <a href="#preface">文庫について</a>
+      <a href="#collection">所蔵書</a>
+      <a href="../">中常塾</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ── 序の間 ── -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-text reveal">
+        <div class="kicker">度 會 神 道 ・ 根 本 典 籍 の 電 子 文 庫</div>
+        <div class="title-row">
+          <h1 class="title-main">豐中常文庫</h1>
+          <div class="title-ruby">とよなかとこぶんこ</div>
+        </div>
+        <div class="hero-rule"></div>
+        <p class="tagline">いにしへの古典を、<br>いまの手に繙（ひもと）く。</p>
+        <p class="subline">中 常 塾 蔵　典 籍 電 子 文 庫</p>
+      </div>
+
+      <div class="hero-relic reveal">
+        <div class="relic-frame">
+          <img src="../倭姫命世記/images/page_00.jpg" alt="倭姫命世記 書写本 巻頭">
+          <div class="seal" aria-hidden="true"><span>中</span><span>常</span></div>
+        </div>
+        <div class="relic-cap">
+          所蔵　<b>倭姫命世記</b>　書写本 巻頭<br>
+          寛文九年　度會延佳 校合
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 序文 ── -->
+<section class="preface" id="preface">
+  <div class="wrap">
+    <div class="inner reveal">
+      <div class="mark">序</div>
+      <p>
+        豐中常文庫は、<span class="em">度會神道の根本典籍</span>を後の世へ伝へむがため、
+        中常塾が蔵する書を電子の形に写し、繙（ひもと）く場として設けたものである。
+      </p>
+      <p>
+        その名は、江戸の昔、<span class="em">出口延佳</span>が外宮の膝下に建てし
+        豐宮崎文庫の志に敬意を表したもの。古（いにしへ）の一書を、損なふことなく、
+        広く現代の手に渡すことを願ふ。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 所蔵書 ── -->
+<section class="collection" id="collection">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kanji">所蔵書</span>
+      <span class="rome">Collection</span>
+      <span class="grow"></span>
+      <span class="count">全 一 巻</span>
+    </div>
+
+    <a class="volume reveal" href="../倭姫命世記/index.html">
+      <div class="vol-cover">
+        <span class="vol-no">一</span>
+        <img src="../倭姫命世記/images/page_00.jpg" alt="倭姫命世記 書影">
+      </div>
+      <div class="vol-body">
+        <div class="vol-tags">
+          <span>神道五部書</span>
+          <span>度會神道</span>
+          <span>出口延佳 校合本</span>
+        </div>
+        <h2 class="vol-title">倭姫命世記</h2>
+        <div class="vol-ruby">やまとひめのみことせいき</div>
+        <p class="vol-desc">
+          倭姫命が天照大御神を奉じ、伊勢・五十鈴川のほとりに鎮座の地を定むるまでの
+          六十余年の遍歴を年代記に記す、伊勢神宮の根本古典。御饌・懸税・神嘗祭の起源を語る。
+        </p>
+        <div class="vol-meta">
+          寛文九年（一六六九）九月一日　度會四門神主 延佳 校合記<br>
+          塾主 松浦茂樹 所蔵　書写本（全四十五丁・見開き八十八面）
+        </div>
+        <span class="vol-enter">閲覧する<span class="arw">▸</span></span>
+      </div>
+    </a>
+
+    <p class="continued reveal">以 下 續 刊</p>
+  </div>
+</section>
+
+<!-- ── 御縁・お問い合わせ ── -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="inner reveal">
+      <div class="mark">縁</div>
+      <p class="contact-desc">
+        豐中常文庫・中常塾に関するご感想、度會神道についての<br>
+        ご質問は、各SNSのメッセージにてお気軽にどうぞ。
+      </p>
+      <div class="sns-row">
+
+        <a class="sns-btn" href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a class="sns-btn" href="https://line.me/ti/p/@838ieovi" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+          </svg>
+          LINE
+        </a>
+
+        <a class="sns-btn" href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+          </svg>
+          Facebook
+        </a>
+
+      </div>
+      <div class="sns-row" style="margin-top:1rem;">
+        <a class="sns-btn" id="mail-btn" href="#" onclick="revealMail(event)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+          メール
+        </a>
+      </div>
+      <p class="contact-note" id="mail-note" style="display:none"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 地 ── -->
+<footer>
+  <div class="wrap">
+    <div class="f-mark">豐中常文庫</div>
+    <p class="f-line">
+      豐中常文庫は、中常塾（塾主 松浦茂樹）が蔵する度會神道関連典籍の電子文庫である。<br>
+      その名は、出口延佳が建てし豐宮崎文庫に敬意を表す。
+    </p>
+    <div class="f-seal" aria-hidden="true"><span>中</span><span>常</span></div>
+    <div class="copy">© 中常塾</div>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  // メールアドレスをボットから守るため、クリック時にJSで組み立てる
+  function revealMail(e) {
+    e.preventDefault();
+    const u = 'nakatokojuku', d = 'gmail.com';
+    const addr = u + '@' + d;
+    const btn = document.getElementById('mail-btn');
+    const note = document.getElementById('mail-note');
+    btn.href = 'mailto:' + addr;
+    btn.onclick = null;
+    note.textContent = addr;
+    note.style.display = 'block';
+    window.location.href = 'mailto:' + addr;
+  }
+</script>
+
+</body>
+</html>
