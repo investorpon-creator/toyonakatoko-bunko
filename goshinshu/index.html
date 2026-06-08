@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イセヒカリ御神酒三部作 ── 奉納の記録 ── 豐中常文庫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#211911;
+    --ink-soft:#3a2e20;
+    --paper:#efe7d4;
+    --paper-2:#e7dcc3;
+    --paper-card:#f7f1e4;
+    --paper-dark:#e2d9c4;
+    --vermilion:#a8362a;
+    --vermilion-deep:#8f2c22;
+    --gold:#9a7d3c;
+    --gold-soft:#b9a05e;
+    --muted:#6f6048;
+    --line:#cdbf9f;
+    --serif:'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--serif);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(255,255,255,.45), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(180,150,95,.10), transparent 48%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    min-height:100vh;
+  }
+
+  .wrap{max-width:820px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);}
+
+  /* ── topbar ── */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(var(--paper),rgba(239,231,212,.55));
+    position:sticky;top:0;z-index:20;
+    backdrop-filter:blur(3px);
+  }
+  .topbar .inner{
+    max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .wordmark{
+    display:flex;align-items:center;gap:.7rem;
+    font-size:1.02rem;letter-spacing:.42em;color:var(--ink);
+    font-weight:600;text-decoration:none;
+  }
+  .wordmark .seal-mini{
+    width:22px;height:22px;flex-shrink:0;
+    background:var(--vermilion);color:#fff;
+    font-size:9px;line-height:11px;font-weight:700;letter-spacing:0;
+    display:grid;place-content:center;text-align:center;
+    border-radius:2px;font-family:var(--serif);
+  }
+  .topbar-breadcrumb{
+    font-size:.74rem;letter-spacing:.2em;color:var(--muted);
+    display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+  }
+  .topbar-breadcrumb a{color:inherit;text-decoration:none;}
+  .topbar-breadcrumb a:hover{color:var(--vermilion);}
+  .topbar-breadcrumb .sep{color:var(--line);}
+  .topbar-breadcrumb .current{color:var(--ink-soft);font-weight:600;}
+
+  /* ── ページヘッダー ── */
+  .page-header{
+    padding:clamp(3rem,7vw,5.5rem) 0 clamp(2rem,5vw,3.5rem);
+    border-bottom:1px solid var(--line);
+  }
+  .page-header .kicker{
+    font-size:.72rem;letter-spacing:.5em;color:var(--vermilion);
+    margin-bottom:1.4rem;
+  }
+  .page-header h1{
+    font-size:clamp(1.8rem,4.5vw,3rem);
+    letter-spacing:.2em;font-weight:600;line-height:1.25;
+    margin-bottom:.5rem;
+  }
+  .page-header .sub{
+    font-size:.82rem;letter-spacing:.22em;color:var(--muted);
+    margin-top:.5rem;
+  }
+  .page-header .lead{
+    font-size:clamp(.94rem,1.4vw,1.06rem);
+    letter-spacing:.1em;line-height:2.5;
+    color:var(--ink-soft);
+    margin-top:2rem;max-width:54ch;
+    text-wrap:pretty;
+  }
+
+  /* ── 目次 ── */
+  .toc{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-left:3px solid var(--gold);
+    padding:1.4rem 1.8rem;
+    margin:2.5rem 0 0;
+  }
+  .toc-title{
+    font-size:.72rem;letter-spacing:.4em;color:var(--muted);
+    margin-bottom:.9rem;
+  }
+  .toc ol{
+    list-style:none;counter-reset:toc;
+    display:flex;flex-direction:column;gap:.45rem;
+  }
+  .toc ol li{
+    counter-increment:toc;
+    font-size:.84rem;letter-spacing:.1em;line-height:1.7;
+    display:flex;align-items:baseline;gap:.7rem;
+  }
+  .toc ol li::before{
+    content:counter(toc);
+    font-size:.7rem;color:var(--vermilion);
+    font-weight:700;flex-shrink:0;width:1.1rem;
+  }
+  .toc ol li a{
+    color:var(--ink-soft);text-decoration:none;
+  }
+  .toc ol li a:hover{color:var(--vermilion);}
+  .toc ol li .toc-note{
+    color:var(--muted);font-size:.73rem;margin-left:.3rem;
+  }
+
+  /* ── セクション共通 ── */
+  .section{
+    padding:clamp(2.8rem,6vw,4.5rem) 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section:last-of-type{border-bottom:none;}
+
+  /* 部のヘッダー */
+  .part-header{
+    display:flex;align-items:center;gap:1.2rem;
+    margin-bottom:2rem;padding-bottom:1.4rem;
+    border-bottom:1px solid var(--line);
+  }
+  .part-seal{
+    width:56px;height:56px;flex-shrink:0;
+    border:1px solid var(--gold);
+    display:grid;place-content:center;
+    text-align:center;
+    font-size:.78rem;font-weight:700;
+    color:var(--vermilion);letter-spacing:.04em;
+    line-height:1.4;
+    font-family:var(--serif);
+  }
+  .part-meta{
+    flex:1;
+  }
+  .part-meta .num{
+    font-size:.7rem;letter-spacing:.4em;color:var(--muted);
+    margin-bottom:.3rem;
+  }
+  .part-meta h2{
+    font-size:clamp(1.3rem,3vw,1.9rem);
+    letter-spacing:.18em;font-weight:600;
+    color:var(--ink);line-height:1.3;
+  }
+  .part-meta .year{
+    font-size:.78rem;letter-spacing:.25em;color:var(--gold);
+    margin-top:.3rem;
+  }
+
+  /* セクションラベル（小見出し） */
+  .sec-label{
+    display:flex;align-items:center;gap:.8rem;
+    margin:2rem 0 1.2rem;
+  }
+  .sec-label .mark{
+    width:32px;height:32px;flex-shrink:0;
+    border:1px solid var(--gold);color:var(--vermilion);
+    display:grid;place-content:center;
+    font-size:.82rem;letter-spacing:0;
+  }
+  .sec-label h3{
+    font-size:.96rem;letter-spacing:.25em;font-weight:600;color:var(--ink);
+  }
+
+  p.body{
+    font-size:.93rem;letter-spacing:.06em;line-height:2.5;
+    color:var(--ink-soft);margin-bottom:1.3rem;
+    text-wrap:pretty;
+  }
+  p.body:last-child{margin-bottom:0;}
+
+  .em{color:var(--vermilion-deep);font-weight:600;}
+  .em-gold{color:var(--gold);font-weight:600;}
+
+  .highlight{
+    background:var(--paper-card);
+    border-left:3px solid var(--gold);
+    padding:1.2rem 1.6rem;
+    margin:1.8rem 0;
+    font-size:.88rem;line-height:2.4;
+    color:var(--ink-soft);letter-spacing:.07em;
+    text-wrap:pretty;
+  }
+  .highlight b{color:var(--ink);font-weight:600;}
+
+  /* 奉納地リスト */
+  .shrine-list{
+    list-style:none;
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:.5rem;
+    margin:1.4rem 0;
+  }
+  .shrine-list li{
+    font-size:.82rem;letter-spacing:.08em;line-height:1.9;
+    color:var(--ink-soft);
+    padding:.35rem .8rem .35rem 1.4rem;
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    position:relative;
+  }
+  .shrine-list li::before{
+    content:"";position:absolute;left:.55rem;top:50%;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--vermilion);transform:translateY(-50%);
+  }
+
+  /* 銘の意味カード */
+  .mei-card{
+    background:var(--ink);
+    color:var(--paper);
+    padding:1.8rem 2rem;
+    margin:1.8rem 0;
+    position:relative;
+  }
+  .mei-card::before{
+    content:"";position:absolute;inset:6px;
+    border:1px solid rgba(205,191,159,.25);pointer-events:none;
+  }
+  .mei-card .mei-name{
+    font-size:clamp(1.5rem,4vw,2.2rem);
+    letter-spacing:.25em;font-weight:700;
+    color:var(--gold-soft);
+    margin-bottom:.5rem;line-height:1.2;
+  }
+  .mei-card .mei-yomi{
+    font-size:.76rem;letter-spacing:.35em;color:var(--muted);
+    margin-bottom:1.2rem;
+  }
+  .mei-card .mei-body{
+    font-size:.86rem;letter-spacing:.08em;line-height:2.3;
+    color:var(--paper-2);
+  }
+  .mei-card .mei-body b{color:var(--gold-soft);}
+
+  /* 年表 */
+  .timeline{
+    margin:1.6rem 0;
+    position:relative;
+  }
+  .timeline::before{
+    content:"";position:absolute;left:1.2rem;top:0;bottom:0;
+    width:1px;background:var(--line);
+  }
+  .tl-item{
+    display:flex;gap:1.4rem;
+    margin-bottom:1.6rem;
+    padding-left:.2rem;
+  }
+  .tl-dot{
+    width:26px;height:26px;flex-shrink:0;
+    background:var(--paper-card);
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:grid;place-content:center;
+    font-size:.62rem;font-weight:700;
+    color:var(--vermilion);
+    position:relative;z-index:1;
+  }
+  .tl-content{
+    flex:1;padding-top:.1rem;
+  }
+  .tl-content .tl-date{
+    font-size:.72rem;letter-spacing:.3em;color:var(--muted);
+    margin-bottom:.25rem;
+  }
+  .tl-content .tl-text{
+    font-size:.88rem;letter-spacing:.07em;line-height:2.2;
+    color:var(--ink-soft);text-wrap:pretty;
+  }
+  .tl-content .tl-text b{color:var(--ink);font-weight:600;}
+
+  /* 三部作比較バー */
+  .trilogy-bar{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:.8rem;margin:2rem 0;
+  }
+  .trilogy-item{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    padding:1.2rem 1rem 1rem;
+    text-align:center;
+    position:relative;
+    cursor:default;
+  }
+  .trilogy-item.active{
+    border-color:var(--gold);
+  }
+  .trilogy-item.active::after{
+    content:"◀ 今この章";
+    position:absolute;bottom:-.3rem;left:50%;transform:translateX(-50%);
+    font-size:.58rem;letter-spacing:.08em;color:var(--gold);
+    white-space:nowrap;
+  }
+  .trilogy-item .ti-num{
+    font-size:.62rem;letter-spacing:.3em;color:var(--muted);margin-bottom:.3rem;
+  }
+  .trilogy-item .ti-name{
+    font-size:.9rem;letter-spacing:.15em;font-weight:700;color:var(--ink);
+    line-height:1.3;
+  }
+  .trilogy-item .ti-year{
+    font-size:.7rem;letter-spacing:.15em;color:var(--gold);margin-top:.3rem;
+  }
+
+  /* 序章の箱 */
+  .prelude-box{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    padding:1.8rem 2rem;
+    margin:0;
+  }
+  .prelude-box .pb-kicker{
+    font-size:.7rem;letter-spacing:.4em;color:var(--vermilion);margin-bottom:1rem;
+  }
+  .prelude-box .pb-quote{
+    font-size:.9rem;letter-spacing:.1em;line-height:2.6;
+    color:var(--ink);border-left:2px solid var(--gold-soft);
+    padding-left:1.2rem;margin:1rem 0;
+  }
+  .prelude-box .pb-note{
+    font-size:.75rem;letter-spacing:.1em;color:var(--muted);line-height:1.9;
+  }
+
+  /* ── フッター ── */
+  footer{
+    background:var(--ink);color:#d9cdb4;
+    border-top:3px solid var(--gold);
+    padding:clamp(2.4rem,5vw,3.6rem) 0 2.4rem;
+  }
+  footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);text-align:center;}
+  footer .f-mark{font-size:1rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1rem;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.2;color:#a9997b;}
+  footer .f-seal{
+    display:inline-grid;grid-template-rows:1fr 1fr;
+    width:42px;height:42px;margin-top:1.6rem;
+    background:var(--vermilion);color:#fff;border-radius:3px;font-weight:700;
+  }
+  footer .f-seal span{display:grid;place-content:center;font-size:.9rem;line-height:1;}
+  footer .f-seal span:first-child{border-bottom:1px solid rgba(255,255,255,.3);}
+  footer .copy{margin-top:1.4rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}
+
+  @media (max-width:600px){
+    .trilogy-bar{grid-template-columns:1fr;}
+    .part-seal{width:44px;height:44px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── topbar ── -->
+<div class="topbar">
+  <div class="inner">
+    <a class="wordmark" href="../">
+      <span class="seal-mini">中常</span>
+      中常塾
+    </a>
+    <div class="topbar-breadcrumb">
+      <a href="../">中常塾トップ</a>
+      <span class="sep">／</span>
+      <a href="../nakatokojuku/">中常塾について</a>
+      <span class="sep">／</span>
+      <span class="current">御神酒三部作</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── ページヘッダー ── -->
+<div class="page-header">
+  <div class="wrap">
+    <div class="kicker">奉 納 の 記 録　イセヒカリ御神酒</div>
+    <h1>三部作<br><span style="font-size:clamp(1.1rem,2.5vw,1.6rem);letter-spacing:.25em;color:var(--muted);">國靈　みはしら　中常乃金神</span></h1>
+    <div class="sub">二〇一五年 ── 二〇二五年　十年の醸し</div>
+    <p class="lead">
+      神宮の神嘗祭に稲穂を奉る、その稲穂を御神酒に醸す ──<br>
+      その典籍上の根拠は、<span class="em">倭姫命世記25頁</span>に刻まれている。<br>
+      大幡主の女子・乙姫が清酒を作り、御饌を奉った、あの一段に。<br>
+      本頁は、その流れを現代に生きた十年の記録である。
+    </p>
+
+    <div class="toc">
+      <div class="toc-title">目 次</div>
+      <ol>
+        <li><a href="#jo">序 ── 典籍の根拠と奉納文化</a></li>
+        <li>
+          <a href="#kunitama">第一部 ── 御神酒『國靈（くにたま）』</a>
+          <span class="toc-note">2015年　常世の神を迎えた祭祀より</span>
+        </li>
+        <li>
+          <a href="#mihashira">第二部 ── 御神酒『みはしら』</a>
+          <span class="toc-note">2018年　心の御柱を立てる旅</span>
+        </li>
+        <li>
+          <a href="#konnjin">第三部 ── 御神酒『中常乃金神（なかとこのこんじん）』</a>
+          <span class="toc-note">2025年　集大成・中常の道の体現</span>
+        </li>
+        <li><a href="#musubi">結 ── 外宮御木曳きへ、そして中常塾へ</a></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ── 序 ── -->
+<section class="section" id="jo">
+  <div class="wrap">
+    <div class="part-header">
+      <div class="part-seal">序</div>
+      <div class="part-meta">
+        <div class="num">PRELUDE</div>
+        <h2>典籍の根拠と奉納文化</h2>
+        <div class="year">倭姫命世記 二十五頁</div>
+      </div>
+    </div>
+
+    <div class="prelude-box">
+      <div class="pb-kicker">倭姫命世記　二十五頁より</div>
+      <div class="pb-quote">
+        真名鶴が咋えた稲穂を、<b>皇太神の御前に懸け奉る</b>　── 懸税の起源<br>
+        その穂を<b>大幡主の女子・乙姫に清酒を作らしめ、御饌を奉る</b>　── 御神酒の起源
+      </div>
+      <div class="pb-note">
+        出口延佳（1615-1690）校合・寛文9年写本。豐中常文庫所蔵。中常塾 塾主 松浦茂樹による翻刻・確認（2026年6月6日）。
+      </div>
+    </div>
+
+    <p class="body" style="margin-top:1.8rem;">
+      この一段は、神宮の食物と酒の起源を伝える。稲穂を神の御前に懸け奉ること ──
+      それが<span class="em">懸税（かけちから）</span>奉納の根拠であり、
+      その穂から清酒を醸して奉ること ── それが<span class="em">御神酒奉納</span>の根拠である。
+    </p>
+    <p class="body">
+      中常塾の奉納事業はこの二本立てで成り立っている。
+      神嘗祭の外宮初穗曳き・伊雜宮物産調献式でイセヒカリの懸税を奉り、
+      その同じイセヒカリを御神酒に醸して全国の神々に捧げる。
+      典籍に記された乙姫の行為が、1300年以上の時を超えて今に甦っている。
+    </p>
+    <p class="body">
+      御神酒は三部作として醸された。
+      <span class="em">『國靈（くにたま）』</span>から始まり、
+      <span class="em">『みはしら』</span>を経て、
+      集大成の<span class="em">『中常乃金神（なかとこのこんじん）』</span>へ。
+      それぞれに固有の祈りと物語があり、それぞれが次へと連なる流れをなしている。
+    </p>
+
+    <div class="trilogy-bar">
+      <div class="trilogy-item">
+        <div class="ti-num">第 一 部</div>
+        <div class="ti-name">國靈<br><span style="font-size:.72rem;font-weight:400;letter-spacing:.1em;">くにたま</span></div>
+        <div class="ti-year">2015年</div>
+      </div>
+      <div class="trilogy-item">
+        <div class="ti-num">第 二 部</div>
+        <div class="ti-name">みはしら</div>
+        <div class="ti-year">2018年</div>
+      </div>
+      <div class="trilogy-item">
+        <div class="ti-num">第 三 部</div>
+        <div class="ti-name">中常乃金神<br><span style="font-size:.64rem;font-weight:400;letter-spacing:.08em;">なかとこのこんじん</span></div>
+        <div class="ti-year">2025年</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 第一部：國靈 ── -->
+<section class="section" id="kunitama">
+  <div class="wrap">
+    <div class="part-header">
+      <div class="part-seal">一<br>部</div>
+      <div class="part-meta">
+        <div class="num">PART I</div>
+        <h2>御神酒『國靈（くにたま）』</h2>
+        <div class="year">二〇一五年　常世の神を迎えた祭祀より</div>
+      </div>
+    </div>
+
+    <div class="mei-card">
+      <div class="mei-name">國靈</div>
+      <div class="mei-yomi">くにたま</div>
+      <div class="mei-body">
+        <b>國常立太神とも言い換えられる、日本の國、そして國土の神靈そのもの。</b><br>
+        穀靈・国の霊・地球そのもの ── 重層する意味を一語に込めた銘。
+      </div>
+    </div>
+
+    <div class="sec-label">
+      <div class="mark">始</div>
+      <h3>常世の神を迎えた祭祀</h3>
+    </div>
+    <p class="body">
+      物語の始まりは、満月の夜の聖地における一つの祭祀だった。
+      古典に記された「遠き常世の響きが波のように届く理想の地」としての伊勢 ──
+      古代には山頂の聖地で満月の夜に常世の神々を迎える祭祀が行われていたという。
+      その流れに倣い、塾主は同様の儀式を試みた。
+    </p>
+    <p class="body">
+      祭の三日後、伊勢の神話語り・人力車曳きの祥平氏から夜明け前に知らせが届いた。
+      「<span class="em">夢に○○さんが出てきました。あなたを玉置神社へお連れすることが役割みたいです</span>」。
+      玉置神社の御祭神は<span class="em">國常立太神</span>。
+      常世の神・國常立太神をお迎えした祭のすぐ後に、その御社へ召し出されたのである。
+    </p>
+    <p class="body">
+      向かった日は12月12日 ── 「二十（ふと＝太）」が逆さまに秘められた日。
+      「太」のつく神として、隠れ神・國常立「太」神の御社へ向かうにふさわしい日だと感じた。
+      熊野・那智・玉置の旅の中で、勾玉を授かり、
+      「伊雑（イザワ）皇大神」の名が書かれた名刺と偶然出会い、
+      やがて伊雜宮との霊的な縁が重なっていった。
+    </p>
+
+    <div class="sec-label">
+      <div class="mark">米</div>
+      <h3>イセヒカリとの出会い、そして醸造へ</h3>
+    </div>
+    <p class="body">
+      2014年、塾主たちはイセヒカリの稲作に関わり始めた。
+      イセヒカリは平成元年、伊勢神宮の神田に台風で倒れなかった2本の突然変異の稲穂から生まれた稲。
+      「<span class="em">平成の斎庭の穗の神勅</span>」 ──
+      天照太御神がニニギノミコトに高天原の稲穂を授けた神話の再現として、
+      平成の御世の始まりに今上陛下へ授けられた神聖な米である。
+    </p>
+    <p class="body">
+      そのイセヒカリを天照大神を祀る神社に面した田で育て、
+      2015年、初の御神酒『國靈』が醸された。
+      ラベルの題字には、<span class="em">坂東未來社長から授かった藍墨「心御柱」</span>を御神筆として用いた。
+      出雲大社のかつての柱に見立てた、世界で9本しかない特別な藍墨 ──
+      その最初の1本を「6ヶ月後に使うように」と告げられて受け取っていたものが、
+      ちょうどこの時に用いられた。
+      「<span class="em">始まりの日は、はるか昔に決められていた</span>」という確信が、この御神酒の底に宿っている。
+    </p>
+
+    <div class="sec-label">
+      <div class="mark">奉</div>
+      <h3>日本全地方への奉納 ── 「奉納文化社会」へ</h3>
+    </div>
+    <p class="body">
+      御神酒『國靈』の奉納を呼びかけた趣意は、「<span class="em">奉納文化社会</span>」という概念だった。
+      自らの最高の仕事を神に捧げることで社会の豊かさが生まれる ──
+      参加方法は三通り、地元神社への個人奉納・合同奉納・支援の一口。
+      共感した仲間たちとともに、日本の全地方の神社への奉納が実現した。
+    </p>
+    <p class="body">
+      奉納の旅は、白山・全国神社群へと広がっていった。
+      奉納の集大成として白山登拝が行われ、山頂で祭儀が執り行われた。
+      「<span class="em">神に捧げるものはまず最高のものを</span>」という信念のもと、
+      苦難と非凡な体験を経た登拝の翌朝、澄んだ日の出を迎えた。
+    </p>
+
+    <div class="highlight">
+      2016年5月 ── 「<b>國靈清掃奉仕団</b>」として皇居勤労奉仕に参内。<br>
+      白山山頂に奉納した『國靈』を皇居の地で団員と分かち合う日、<b>伊勢志摩サミット</b>が開催された。<br>
+      皇太子殿下（当時）より御会釈・お言葉を賜り、陛下よりも直々に御下問を賜った。<br>
+      イセヒカリが平成元年に生まれ、<b>平成10,000日目の大いなる節目の日</b>に、この場が開かれた。
+    </div>
+
+    <div class="sec-label">
+      <div class="mark">地</div>
+      <h3>主な奉納神社</h3>
+    </div>
+    <ul class="shrine-list">
+      <li>玉置神社（奈良・十津川）</li>
+      <li>伊雜宮（三重・志摩）</li>
+      <li>白山山頂（石川）</li>
+      <li>伊勢神宮（田植祭）</li>
+      <li>各地神社（全地方）</li>
+      <li>皇居（勤労奉仕）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── 第二部：みはしら ── -->
+<section class="section" id="mihashira">
+  <div class="wrap">
+    <div class="part-header">
+      <div class="part-seal">二<br>部</div>
+      <div class="part-meta">
+        <div class="num">PART II</div>
+        <h2>御神酒『みはしら』</h2>
+        <div class="year">二〇一八年　心の御柱を立てる旅</div>
+      </div>
+    </div>
+
+    <div class="mei-card">
+      <div class="mei-name">みはしら</div>
+      <div class="mei-yomi">三柱・御柱</div>
+      <div class="mei-body">
+        <b>度會神道の心御柱（しんのみはしら）</b> ── 根源神・天御中主神が宿る中心軸<br>
+        <b>日本創世の天の御柱（あめのみはしら）</b> ── イザナギ・イザナミが大八洲を産んだ柱<br>
+        「<b>日本の國土の神々を、そして日本の未来を支える『しんのみはしら』となる</b>」
+      </div>
+    </div>
+
+    <div class="sec-label">
+      <div class="mark">醸</div>
+      <h3>酉歳の稲より ── 純米大吟醸の醸造</h3>
+    </div>
+    <p class="body">
+      酉歳（2017年）の一年をかけて祭祀し育てたイセヒカリより、
+      純米大吟醸御神酒『みはしら』は醸された。
+      醸造は<span class="em">ほうらいせん吟醸工房</span>（豊田市黒田町・加茂の地）。
+      協力は<span class="em">浪漫酒創庫あつみ（渡会社長）</span> ──
+      杜氏は子供の頃から渡会社長に縁ある方で、
+      仕上がりは「<span class="em">格別の出来</span>」と評された。
+    </p>
+    <p class="body">
+      稲作から醸造まで、すべてを共に成してきたのが<span class="em">梁川和基氏</span>である。
+      この御神酒の物語は、二人の共同事業として刻まれている。
+    </p>
+
+    <div class="sec-label">
+      <div class="mark">奉</div>
+      <h3>奉納初め ── 平泉寺白山神社</h3>
+    </div>
+    <p class="body">
+      『みはしら』の奉納は、<span class="em">平泉寺白山神社</span>から始まった。
+      1メートルを超える雪の中を参拝し、通常は入ることのできない神殿の間に上げていただき、
+      お祓いの上で奉納という異例の対応を賜った。
+      地域住民の儀式が終わった直後のタイミングだった。
+    </p>
+    <p class="body">
+      先代・平泉澄博士の遺品と著作が紹介され、その遺志を継ぐ決意を新たにした。
+      宮司の妻が装束姿で対応し、記念撮影も行われた。
+      北の白山へのこの奉納初めは、山田白魁塾の「白」と「魁」の連環でもあった。
+    </p>
+
+    <div class="sec-label">
+      <div class="mark">旅</div>
+      <h3>奉納の旅 ── 全国の神々へ</h3>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">社</div>
+        <div class="tl-content">
+          <div class="tl-date">丹波国一之宮・出雲大神宮 ／ 山城国一之宮・上賀茂神社</div>
+          <div class="tl-text">
+            梁川氏らとともに献酒。上賀茂神社では通常は御祈祷受付で受け取られる献酒を、
+            <b>本殿特別参拝の場へ持ち込んでよい</b>と促された。
+            権禰宜が本殿の御扉前まで運んでくださった瞬間、感動で胸が熱く、涙が込み上げた。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">伊</div>
+        <div class="tl-content">
+          <div class="tl-date">伊勢参宮</div>
+          <div class="tl-text">
+            思わず導かれた御神前での参宮。感動感慨に耽る参宮となった。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">白</div>
+        <div class="tl-content">
+          <div class="tl-date">白山中居神社（岐阜・郡上）</div>
+          <div class="tl-text">
+            伊勢志摩から真北にある原点の地。玉串奉奠による正式参拝。
+            神社関係者より「<b>尊い活動をなさっていますね</b>」と讃辞を受ける。
+            「<b>まず初めにこの真のみはしらを立てること</b>が自らの役目」という確信を得た。
+            白山の星空の下で帰路についた。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">東</div>
+        <div class="tl-content">
+          <div class="tl-date">麻賀多神社・天之日津久神社（千葉）／東国三社</div>
+          <div class="tl-text">
+            2年の改修工事を経た社が「黄金に輝く」ほど一新されていた。
+            前の週には鹿島・香取への奉納を密かに成し遂げてくれた方がいた。
+            旅を通じて一貫して晴天が続き、「<b>みはしらブルー</b>」という言葉が生まれた。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      「<b>立て替え立て直しが起こっても日本を支えつづける『みはしら』</b>」<br>
+      平成から新時代への移行期、伝統と文化を通じて過去と未来をつなぐ事業として、
+      この奉納は行われた。<br>
+      上賀茂神社の神主は語った ──
+      「室町時代の黄金の国ジパングは、社殿の大造営ラッシュだったから外国人が驚いた」。
+      かつての日本の黄金の輝きを、神社の社殿に見た。
+    </div>
+  </div>
+</section>
+
+<!-- ── 第三部：中常乃金神 ── -->
+<section class="section" id="konnjin">
+  <div class="wrap">
+    <div class="part-header">
+      <div class="part-seal">三<br>部</div>
+      <div class="part-meta">
+        <div class="num">PART III</div>
+        <h2>御神酒『中常乃金神』</h2>
+        <div class="year">二〇二五年　集大成・中常の道の体現</div>
+      </div>
+    </div>
+
+    <div class="mei-card">
+      <div class="mei-name">中常乃金神</div>
+      <div class="mei-yomi">なかとこのこんじん</div>
+      <div class="mei-body">
+        <b>中常の道</b>とは、外宮権禰宜・出口延佳が説いた「中常ノ道ヲ神道トセルノ深意」に由来する。<br>
+        五行説において中は<b>土・黄</b>。中を極めると黄金の輝き。それが常とは、<b>黄金に輝き続けること</b>。<br>
+        「心の中にいらっしゃる根源の神の黄金の輝きと常に一体となって生きるとき、<b>神代そのまま今にある</b>」
+      </div>
+    </div>
+
+    <div class="sec-label">
+      <div class="mark">道</div>
+      <h3>中常の道 ── 三部作が辿り着いた思想</h3>
+    </div>
+    <p class="body">
+      イセヒカリ御神酒の三部作が最後に辿り着いた銘は、中常塾そのものの名の由来だった。
+      江戸時代の<span class="em">伊勢外宮権禰宜・出口延佳（1615-1690）</span>は、弟子への講義でこう語った。
+    </p>
+    <div class="highlight">
+      「<b>中常ノ道ヲ神道トセルノ深意</b>」<br>
+      天御中主神は中極の道をもって國土を治め給う。
+      世の人が心に宿す神明の「黄金の輝き」と夫婦のように連れ添って生きるならば、
+      神代はそのまま今にある。天の下平らけく泰らけくならざることはない。<br>
+      ── これが中常の道であり、神道という深秘である。
+    </div>
+    <p class="body">
+      この教えを銘とした御神酒『中常乃金神』は、
+      米から醸す御神酒が「稲穂の黄金のエネルギーを凝縮した」ものであること、
+      そしてそのエネルギーが日本の国土を黄金に輝かせ続けるという祈りを内包している。
+    </p>
+
+    <div class="sec-label">
+      <div class="mark">醸</div>
+      <h3>醸造 ── 四日市・伊藤酒造にて</h3>
+    </div>
+    <p class="body">
+      2025年2月、<span class="em">四日市の伊藤酒造</span>にて醸造が行われた。
+      塾主は<span class="em">齋主</span>として、度會神道の根本テキスト
+      <span class="em">『中臣祓瑞穗鈔』</span>を奏上した。
+    </p>
+    <p class="body">
+      御神酒の利益は製造費等の経費を差し引いた全額を<span class="em">伊勢神宮へ寄付</span>する。
+      販売はサルヴァトーレ（梁川氏）が担う。
+      御神酒は「商品」ではなく「奉納の流れの一部」 ──
+      三河から伊勢へ流れてきた懸税奉納の文化と同じく、
+      この御神酒もまた奉りの形をとる。
+    </p>
+
+    <div class="highlight">
+      「<b>日本の大地自然という我が龍体を大切にし、黄金に輝かせ続けるならば、日本の統治は任せよう。</b>」<br>
+      鎌倉の神道書に記された内外宮の「<b>幽れたる契り</b>」 ──
+      その契約の条件である「斎庭の穗の稔り」の再現として、
+      イセヒカリ御神酒三部作はあった。<br><br>
+      『中常乃金神』が全國に広がり、各地の神々様に届けられますように。
+      この御神酒を奉納くださる方の黄金に輝く心を、神様がお受けくださりますように。
+    </div>
+
+    <div class="sec-label">
+      <div class="mark">奉</div>
+      <h3>奉納地</h3>
+    </div>
+    <ul class="shrine-list">
+      <li>伊勢神宮外宮・内宮</li>
+      <li>伊雜宮（志摩）</li>
+      <li>稲前神社（岡崎）</li>
+      <li>各地の関係神社</li>
+      <li>共感縁者による個人奉納</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── 結 ── -->
+<section class="section" id="musubi">
+  <div class="wrap">
+    <div class="part-header">
+      <div class="part-seal">結</div>
+      <div class="part-meta">
+        <div class="num">EPILOGUE</div>
+        <h2>外宮御木曳きへ、そして中常塾へ</h2>
+        <div class="year">二〇二六年　十年の奉納の先に</div>
+      </div>
+    </div>
+
+    <p class="body">
+      三部作が完結した2025年の翌年、2026年5月31日 ──
+      次の式年遷宮のための<span class="em">外宮への御木曳き</span>に、
+      『中常乃金神』奉納の縁で繋がった関係者が参加した。
+    </p>
+    <p class="body">
+      御神酒を奉納する。その奉納を縁として繋がった仲間が、
+      今度は遷宮の用材を曳く奉仕へと向かう。
+      「<span class="em">奉納 → 遷宮への奉仕</span>」という流れが、ここに完結した。
+    </p>
+    <p class="body">
+      2026年5月25日、<span class="em">中常塾</span>が正式に開塾した。
+      岡崎城二の丸能舞台にて、度會神道の講義と和儀の稽古が始まった。
+      御神酒三部作が積み上げた十年の奉納は、塾主の言葉に重みを与え、
+      中常塾の物語の根幹を成している。
+    </p>
+
+    <div class="highlight">
+      「<b>神代そのまま今に在る</b>」という言葉は、遠い過去の神話への憧憬ではない。<br>
+      今この瞬間に神代が現前している ── それを体感する道として、
+      度會神道の学びと和儀の稽古がある。<br>
+      御神酒の三部作は、その道に先立って行われた奉納の記録である。
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">一</div>
+        <div class="tl-content">
+          <div class="tl-date">2015年</div>
+          <div class="tl-text">御神酒<b>『國靈（くにたま）』</b>醸成・日本全地方神社奉納</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">二</div>
+        <div class="tl-content">
+          <div class="tl-date">2018年</div>
+          <div class="tl-text">御神酒<b>『みはしら』</b>醸成・平泉寺白山神社ほか全国奉納</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">三</div>
+        <div class="tl-content">
+          <div class="tl-date">2025年2月</div>
+          <div class="tl-text">御神酒<b>『中常乃金神（なかとこのこんじん）』</b>醸成・全国奉納<br>四日市・伊藤酒造にて。塾主齋主として『中臣祓瑞穗鈔』奏上</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">木</div>
+        <div class="tl-content">
+          <div class="tl-date">2026年5月31日</div>
+          <div class="tl-text">次の式年遷宮のための<b>外宮御木曳き</b>に奉納縁者が参加</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">塾</div>
+        <div class="tl-content">
+          <div class="tl-date">2026年5月25日</div>
+          <div class="tl-text"><b>中常塾</b>正式開塾。岡崎城二の丸能舞台にて度會神道講義・和儀稽古</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+      <a href="../nakatokojuku/" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border:1px solid var(--gold);background:var(--ink);color:var(--paper);text-decoration:none;font-size:.78rem;letter-spacing:.28em;font-family:var(--serif);transition:opacity .2s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+        中常塾について ▸
+      </a>
+      <a href="../taiken/" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border:1px solid var(--line);background:transparent;color:var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.28em;font-family:var(--serif);transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+        講義・稽古へ ▸
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── フッター ── -->
+<footer>
+  <div class="inner">
+    <div class="f-mark">豐中常文庫</div>
+    <p class="f-line">
+      豐中常文庫は、中常塾（塾主 松浦茂樹）が蔵する度會神道関連典籍の電子文庫である。<br>
+      名称は出口延佳が建てし豐宮崎文庫に敬意を表す。
+    </p>
+    <div class="f-seal" aria-hidden="true"><span>中</span><span>常</span></div>
+    <div class="copy">© 中常塾</div>
+  </div>
+</footer>
+
+</body>
+</html>
