@@ -350,6 +350,74 @@
     font-size:.75rem;letter-spacing:.1em;color:var(--muted);line-height:1.9;
   }
 
+  /* ── YouTubeカード ── */
+  .yt-section{
+    padding:clamp(2.4rem,5vw,3.6rem) 0;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(rgba(231,220,195,.15),transparent 80%);
+  }
+  .yt-card{
+    display:flex;align-items:center;gap:1.4rem;
+    background:var(--ink);
+    padding:1.6rem 2rem;
+    position:relative;
+  }
+  .yt-card::before{
+    content:"";position:absolute;inset:5px;
+    border:1px solid rgba(205,191,159,.15);pointer-events:none;
+  }
+  .yt-card::after{
+    content:"";position:absolute;left:0;top:0;bottom:0;
+    width:3px;background:#ff0000;
+  }
+  .yt-play{
+    width:52px;height:52px;flex-shrink:0;
+    background:#ff0000;border-radius:12px;
+    display:grid;place-content:center;
+    font-size:1.4rem;color:#fff;line-height:1;
+    padding-left:.2rem;
+  }
+  .yt-info{flex:1;}
+  .yt-handle{
+    font-size:.82rem;letter-spacing:.22em;
+    color:var(--gold-soft);font-weight:600;margin-bottom:.35rem;
+  }
+  .yt-sub{
+    font-size:.76rem;letter-spacing:.1em;
+    color:#a9997b;line-height:1.9;
+  }
+  .yt-btn{
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.65rem 1.4rem;
+    background:#ff0000;color:#fff;
+    text-decoration:none;font-size:.72rem;letter-spacing:.22em;
+    font-family:var(--serif);white-space:nowrap;
+    transition:opacity .2s;flex-shrink:0;
+  }
+  .yt-btn:hover{opacity:.82;}
+  .yt-kicker{
+    font-size:.7rem;letter-spacing:.4em;color:var(--vermilion);margin-bottom:1.2rem;
+  }
+  .yt-lead{
+    font-size:.9rem;letter-spacing:.08em;line-height:2.4;
+    color:var(--ink-soft);margin-bottom:1.4rem;text-wrap:pretty;
+  }
+  @media (max-width:560px){
+    .yt-card{flex-direction:column;align-items:flex-start;gap:1rem;}
+    .yt-btn{align-self:flex-end;}
+  }
+
+  .f-links{
+    display:flex;align-items:center;gap:.9rem;justify-content:center;
+    margin:1rem 0 .6rem;flex-wrap:wrap;
+  }
+  .f-links a{
+    font-size:.68rem;letter-spacing:.25em;color:var(--muted);
+    text-decoration:none;transition:color .2s;
+  }
+  .f-links a:hover{color:var(--ink);}
+  .f-links span{color:var(--line);font-size:.7rem;}
+
   /* ── フッター ── */
   footer{
     background:var(--ink);color:#d9cdb4;
@@ -978,6 +1046,30 @@
   </div>
 </section>
 
+<!-- ── YouTube ── -->
+<section class="yt-section">
+  <div class="inner">
+    <p class="yt-kicker">動　画　記　録</p>
+    <p class="yt-lead">
+      奉納の現場——醸造祭・奉納の儀・伊雜宮物産調献式・外宮御木曳き——の映像記録は、<br class="pc-br">
+      YouTubeチャンネル「中常塾」にてご覧いただけます。
+    </p>
+    <div class="yt-card">
+      <div class="yt-play">▶</div>
+      <div class="yt-info">
+        <div class="yt-handle">YouTube　@nakatokojuku</div>
+        <div class="yt-sub">
+          奉納の記録・度會神道講義・和儀稽古<br>
+          御神酒三部作の醸造祭・奉納映像
+        </div>
+      </div>
+      <a class="yt-btn" href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">
+        チャンネルを見る
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ── フッター ── -->
 <footer>
   <div class="inner">
@@ -986,6 +1078,13 @@
       豐中常文庫は、中常塾（塾主 松浦茂樹）が蔵する度會神道関連典籍の電子文庫である。<br>
       名称は出口延佳が建てし豐宮崎文庫に敬意を表す。
     </p>
+    <div class="f-links">
+      <a href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">YouTube</a>
+      <span>·</span>
+      <a href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener">Instagram</a>
+      <span>·</span>
+      <a href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener">Facebook</a>
+    </div>
     <div class="f-seal" aria-hidden="true"><span>中</span><span>常</span></div>
     <div class="copy">© 中常塾</div>
   </div>

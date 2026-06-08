@@ -302,6 +302,49 @@
   }
   .cta-btn:hover{opacity:.85;}
 
+  /* ── YouTubeカード（CTA内） ── */
+  .yt-mini{
+    display:flex;align-items:center;gap:1rem;
+    background:var(--ink);
+    padding:1.2rem 1.6rem;
+    margin:2rem auto 0;
+    max-width:540px;text-align:left;
+    position:relative;
+  }
+  .yt-mini::after{
+    content:"";position:absolute;left:0;top:0;bottom:0;
+    width:3px;background:#ff0000;
+  }
+  .yt-mini .yt-play{
+    width:40px;height:40px;flex-shrink:0;
+    background:#ff0000;border-radius:9px;
+    display:grid;place-content:center;
+    font-size:1.1rem;color:#fff;padding-left:.15rem;
+  }
+  .yt-mini .yt-info .yt-handle{
+    font-size:.75rem;letter-spacing:.2em;color:#b9a05e;font-weight:600;margin-bottom:.2rem;
+  }
+  .yt-mini .yt-info .yt-sub{
+    font-size:.68rem;letter-spacing:.08em;color:#7d6f56;line-height:1.7;
+  }
+  .yt-mini-link{
+    margin-left:auto;flex-shrink:0;
+    font-size:.68rem;letter-spacing:.2em;color:#ff6060;text-decoration:none;
+    padding:.5rem .9rem;border:1px solid #ff0000;transition:all .2s;
+  }
+  .yt-mini-link:hover{background:#ff0000;color:#fff;}
+
+  /* フッター SNSリンク */
+  footer .f-links{
+    display:flex;align-items:center;gap:.9rem;justify-content:center;
+    margin:.8rem 0 .4rem;flex-wrap:wrap;
+  }
+  footer .f-links a{
+    font-size:.67rem;letter-spacing:.22em;color:#7d6f56;text-decoration:none;transition:color .2s;
+  }
+  footer .f-links a:hover{color:#d9cdb4;}
+  footer .f-links span{color:#3a3326;font-size:.65rem;}
+
   /* ── フッター ── */
   footer{
     background:var(--ink);color:#d9cdb4;
@@ -647,6 +690,15 @@
         お問い合わせ
       </a>
     </div>
+    <div class="yt-mini">
+      <div class="yt-play">▶</div>
+      <div class="yt-info">
+        <div class="yt-handle">YouTube　@nakatokojuku</div>
+        <div class="yt-sub">奉納の記録・度會神道講義・和儀稽古</div>
+      </div>
+      <a class="yt-mini-link" href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">見る</a>
+    </div>
+
     <p style="margin-top:1.6rem;font-size:.72rem;letter-spacing:.18em;color:var(--muted);">
       倭姫命世記の書写本は
       <a href="../bunko/" style="color:var(--vermilion-deep);text-decoration:none;">豐中常文庫</a>
@@ -663,6 +715,13 @@
       豐中常文庫は、中常塾（塾主 松浦茂樹）が蔵する度會神道関連典籍の電子文庫である。<br>
       名称は出口延佳が建てし豐宮崎文庫に敬意を表す。
     </p>
+    <div class="f-links">
+      <a href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">YouTube</a>
+      <span>·</span>
+      <a href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener">Instagram</a>
+      <span>·</span>
+      <a href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener">Facebook</a>
+    </div>
     <div class="f-seal" aria-hidden="true"><span>中</span><span>常</span></div>
     <div class="copy">© 中常塾</div>
   </div>
