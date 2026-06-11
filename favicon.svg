@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="9" fill="#a8362a"/>
+  <line x1="13" y1="32" x2="51" y2="32" stroke="#ffffff" stroke-opacity=".32" stroke-width="1.5"/>
+  <text x="32" y="17" text-anchor="middle" dominant-baseline="central" font-family="'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif" font-size="23" font-weight="700" fill="#ffffff">中</text>
+  <text x="32" y="48" text-anchor="middle" dominant-baseline="central" font-family="'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif" font-size="23" font-weight="700" fill="#ffffff">常</text>
+</svg>

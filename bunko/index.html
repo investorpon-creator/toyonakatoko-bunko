@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>豐中常文庫 ── 中常塾</title>
+<meta name="description" content="豐中常文庫（とよなかとこぶんこ）は、中常塾が蔵する度會神道の根本典籍を電子の形に写し、広く現代の手に渡すために開いた電子文庫。第一冊は出口延佳校合『倭姫命世記』書写本（寛文九年）。">
+<meta name="theme-color" content="#efe7d4">
+<link rel="canonical" href="https://nakatokojuku.jp/bunko/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="中常塾">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="豐中常文庫 ── 中常塾">
+<meta property="og:description" content="度會神道の根本典籍を電子の形に写し、広く現代の手に渡す電子文庫。第一冊は出口延佳校合『倭姫命世記』書写本。">
+<meta property="og:url" content="https://nakatokojuku.jp/bunko/">
+<meta property="og:image" content="https://nakatokojuku.jp/%E5%80%AD%E5%A7%AB%E5%91%BD%E4%B8%96%E8%A8%98/images/page_00.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
@@ -323,7 +335,10 @@
     .volume{grid-template-columns:1fr;}
     .vol-cover{max-width:200px;}
     .vol-cover img{height:240px;}
-    .topnav{gap:1.4rem;}
+    .topbar .wrap{height:auto;min-height:56px;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem;gap:.3rem 1rem;}
+    .wordmark{white-space:nowrap;letter-spacing:.3em;}
+    .topnav{gap:.7rem 1.1rem;font-size:.7rem;letter-spacing:.16em;flex-wrap:wrap;justify-content:flex-end;}
+    .topnav a{white-space:nowrap;}
     .vol-no{left:-8px;top:-8px;}
   }
 </style>
@@ -364,7 +379,7 @@
 
       <div class="hero-relic reveal">
         <div class="relic-frame">
-          <img src="../倭姫命世記/images/page_00.jpg" alt="倭姫命世記 書写本 巻頭">
+          <img src="../倭姫命世記/images/page_00.jpg" alt="倭姫命世記 書写本 巻頭" width="2000" height="1500" fetchpriority="high">
           <div class="seal" aria-hidden="true"><span>中</span><span>常</span></div>
         </div>
         <div class="relic-cap">
@@ -408,7 +423,7 @@
     <a class="volume reveal" href="../倭姫命世記/index.html">
       <div class="vol-cover">
         <span class="vol-no">一</span>
-        <img src="../倭姫命世記/images/page_00.jpg" alt="倭姫命世記 書影">
+        <img src="../倭姫命世記/images/page_00.jpg" alt="倭姫命世記 書影" width="2000" height="1500" loading="lazy" decoding="async">
       </div>
       <div class="vol-body">
         <div class="vol-tags">

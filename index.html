@@ -4,6 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中常塾 ── なかとこじゅく</title>
+<meta name="description" content="中常塾（なかとこじゅく）は、度會神道の学びと和儀（能楽・狂言の身体技法）を通じて、日本人の肚を再発見する場。神宮を丑寅で守る令和の岡崎にて、塾主・松浦茂樹が令和八年五月二十五日開塾。">
+<meta name="theme-color" content="#efe7d4">
+<link rel="canonical" href="https://nakatokojuku.jp/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="中常塾">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="中常塾 ── なかとこじゅく">
+<meta property="og:description" content="度會神道の学びと和儀を通じて、日本人の肚を再発見する場。神宮を丑寅で守る令和の岡崎にて開塾。">
+<meta property="og:url" content="https://nakatokojuku.jp/">
+<meta property="og:image" content="https://nakatokojuku.jp/taiken/photo_group.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "中常塾",
+  "alternateName": "なかとこじゅく",
+  "url": "https://nakatokojuku.jp/",
+  "founder": {"@type": "Person", "name": "松浦茂樹"},
+  "foundingDate": "2026-05-25",
+  "description": "度會神道の学びと和儀（能楽・狂言の身体技法）を通じて、日本人の肚を再発見する場。",
+  "address": {"@type": "PostalAddress", "addressLocality": "岡崎市", "addressRegion": "愛知県", "addressCountry": "JP"},
+  "sameAs": [
+    "https://www.youtube.com/@nakatokojuku",
+    "https://www.instagram.com/nakatokojuku/",
+    "https://www.facebook.com/nakatokojuku"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
@@ -104,7 +134,7 @@
     position:relative;align-self:start;
   }
   .header-photo img{
-    display:block;width:100%;
+    display:block;width:100%;height:auto;
     border:1px solid var(--line);
     box-shadow:0 14px 36px -20px rgba(40,28,12,.5);
     filter:saturate(.92) contrast(1.02);
@@ -123,7 +153,7 @@
     margin:1.6rem 0;position:relative;
   }
   .wagi-photo img{
-    display:block;width:100%;
+    display:block;width:100%;height:auto;
     border:1px solid var(--line);
     box-shadow:0 14px 36px -20px rgba(40,28,12,.5);
     filter:saturate(.9) contrast(1.02);
@@ -399,7 +429,10 @@
 
   @media (max-width:640px){
     .offering-grid{grid-template-columns:1fr;}
-    .topnav{gap:1.4rem;}
+    .topbar .inner{height:auto;min-height:56px;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem;gap:.3rem 1rem;}
+    .wordmark{white-space:nowrap;letter-spacing:.3em;}
+    .topnav{gap:.7rem 1.1rem;font-size:.7rem;letter-spacing:.16em;flex-wrap:wrap;justify-content:flex-end;}
+    .topnav a{white-space:nowrap;}
   }
 </style>
 </head>
@@ -413,6 +446,7 @@
       中常塾
     </a>
     <nav class="topnav">
+      <a href="taiken/">講義・お稽古</a>
       <a href="bunko/">豐中常文庫</a>
       <a href="倭姫命世記/">倭姫命世記</a>
       <a href="#contact">お問い合わせ</a>
@@ -425,18 +459,18 @@
   <div class="wrap">
     <div class="header-photo-wrap">
       <div>
-        <div class="kicker">神 宮 の 丑 寅 を 守 る 、 令 和 の 岡 崎</div>
+        <div class="kicker">神 宮 を 丑 寅 で 守 る 、 令 和 の 岡 崎</div>
         <h1>中常塾</h1>
         <div class="sub">なかとこじゅく　塾主：松浦茂樹　令和八年五月二十五日 開塾</div>
         <p class="lead">
           敗れた出雲族の血を引く者が、神武以前からの日本を貫く神祇の道を、<br>
-          神宮の丑寅を守る、令和の岡崎で現代に継ぐ。<br>
+          神宮を丑寅で守る、令和の岡崎で現代に継ぐ。<br>
           度會神道の学びと「和儀」を通じて、<span class="em">日本人の肚を再発見する場</span>。
         </p>
       </div>
       <div>
         <div class="header-photo">
-          <img src="nakatokojuku/photo_book.jpg" alt="塾主・松浦茂樹 倭姫命世記を手に">
+          <img src="nakatokojuku/photo_book.jpg" alt="塾主・松浦茂樹 倭姫命世記を手に" width="696" height="662" fetchpriority="high">
         </div>
         <div class="header-photo-cap">塾主 松浦茂樹　倭姫命世記を手に</div>
       </div>
@@ -444,8 +478,20 @@
   </div>
 </div>
 
+<!-- ── 能舞台バナー ── -->
+<div style="padding:2.4rem 1.2rem;max-width:760px;margin:0 auto;">
+  <a href="taiken/" style="display:block;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
+    <img src="taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(33,25,17,.82) 40%,rgba(33,25,17,.35) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.6rem 1.2rem;">
+      <p style="margin:0 0 .3rem;color:var(--gold-soft);font-size:.7rem;letter-spacing:.3em;">中常塾 能楽堂プログラム</p>
+      <p style="margin:0 0 1rem;color:#f5ede0;font-size:1.15rem;letter-spacing:.2em;font-weight:500;">能舞台で、肚が目覚める。</p>
+      <span style="display:inline-block;padding:.5em 1.8em;border:1px solid var(--gold-soft);color:var(--gold-soft);font-size:.75rem;letter-spacing:.22em;">講義・お稽古 ── 詳細はこちら ▸</span>
+    </div>
+  </a>
+</div>
+
 <!-- ── 塾名の由来 ── -->
-<section class="section">
+<section class="section" style="border-top:1px solid var(--line);">
   <div class="wrap">
     <div class="sec-label">
       <div class="mark">名</div>
@@ -547,6 +593,11 @@
       <li><b>みはしら</b><span>二回目・平泉寺白山神社ほか全国奉納</span></li>
       <li><b>中常乃金神（なかとこのこんじん）</b><span>集大成・2025年2月 四日市・伊藤酒造にて醸造。塾主が齋主として『中臣祓瑞穗鈔』を奏上</span></li>
     </ul>
+    <p class="body" style="margin-top:1.6rem;">
+      <a href="goshinshu/" style="color:var(--vermilion-deep);text-decoration:none;font-size:.86rem;letter-spacing:.18em;">
+        ▸ 御神酒三部作　奉納の記録を読む
+      </a>
+    </p>
   </div>
 </section>
 
@@ -558,7 +609,7 @@
       <h2>度會神道の学びと和儀</h2>
     </div>
     <div class="wagi-photo">
-      <img src="nakatokojuku/photo_wagi.jpg" alt="能舞台での和儀稽古">
+      <img src="nakatokojuku/photo_wagi.jpg" alt="能舞台での和儀稽古" width="1400" height="794" loading="lazy" decoding="async">
       <div class="wagi-photo-cap">岡崎城二の丸能舞台にて　和儀稽古</div>
     </div>
     <p class="body">
@@ -608,7 +659,7 @@
     <div class="voice-list">
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           永年心に引っかかっていた違和感がすっと溶けて、目から鱗でした。
           300年以上前に説いて下さっていたとは！
@@ -618,7 +669,7 @@
       </div>
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           古来、文化、根源を学び、軸を知り、力の源を解りやすく体験しました。
           柔らかく教えて頂き、また体験出来た事、有難う御座いました。また参加させて頂きます。
@@ -627,7 +678,7 @@
       </div>
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           私自身が永らく「誰とも共有できなかった大切な価値観」として心に秘めていた内容と同じことが書かれており、感動いたしました。
           神道、自分自身を信じてまっすぐ生きればよいのだ、と肚落ちいたしました。
@@ -636,7 +687,7 @@
       </div>
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           和儀に少し触れただけでも心身が整ったような気がします。
           すり足の効果が早速出て、「そそそそっと歩いてきた」と言われました。
@@ -646,7 +697,7 @@
       </div>
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           日本文化に触れ、和儀、口伝。
           伝える事の大切さ、伝える事の本質、日本人のしん、人としてのしん。
@@ -656,7 +707,7 @@
       </div>
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           習った摺り足の姿勢をとって歩くと身体の深部が筋肉痛。
           普段どれだけ中心の筋肉を使っていないか実感しました。
@@ -665,7 +716,7 @@
       </div>
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           新緑の季節の中、能楽堂でのお稽古。場の空気に触れるだけでも、貴重なひとときでした。
           美しい所作、美しい佇まい、身につけたいなとしみじみ感じました。
@@ -674,7 +725,7 @@
       </div>
 
       <div class="voice-card">
-        <div class="voice-mark">「</div>
+        <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
           柔らかなお言葉で、体験の出来ない世界を解りやすく伝えて頂き有難う御座います。
           また参加させて頂きます。
