@@ -57,14 +57,14 @@ body{
   backdrop-filter:blur(3px);
 }
 .topbar .inner{
-  max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);
+  max-width:1120px;margin:0 auto;padding:.55rem clamp(1.4rem,4vw,3.5rem);
   display:flex;align-items:center;justify-content:space-between;
-  height:64px;
+  min-height:64px;gap:1rem;
 }
 .wordmark{
   display:flex;align-items:center;gap:.7rem;
   font-size:1.02rem;letter-spacing:.42em;color:var(--ink);
-  font-weight:600;text-decoration:none;
+  font-weight:600;text-decoration:none;white-space:nowrap;
 }
 .wordmark .seal-mini{
   width:22px;height:22px;flex-shrink:0;
@@ -73,14 +73,10 @@ body{
   display:grid;place-content:center;text-align:center;
   border-radius:2px;font-family:var(--serif);
 }
-.topbar-breadcrumb{
-  font-size:.74rem;letter-spacing:.2em;color:var(--muted);
-  display:flex;align-items:center;gap:.6rem;
-}
-.topbar-breadcrumb a{color:inherit;text-decoration:none;}
-.topbar-breadcrumb a:hover{color:var(--vermilion);}
-.topbar-breadcrumb .sep{color:var(--line);}
-.topbar-breadcrumb .current{color:var(--ink-soft);font-weight:600;}
+.topnav{display:flex;gap:.6rem 1.6rem;font-size:.74rem;letter-spacing:.24em;color:var(--muted);flex-wrap:wrap;justify-content:flex-end;}
+.topnav a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s,color .25s;white-space:nowrap;}
+.topnav a:hover{color:var(--vermilion);border-color:var(--vermilion);}
+.topnav a.current{color:var(--ink-soft);border-color:var(--vermilion);font-weight:600;}
 
 /* ── HERO ── */
 .hero{
@@ -436,6 +432,10 @@ p.body:last-child{margin-bottom:0;}
   .profile-grid{grid-template-columns:1fr;}
   .profile-photo{max-width:150px;}
 }
+@media(max-width:640px){
+  .wordmark{letter-spacing:.3em;}
+  .topnav{gap:.5rem 1rem;font-size:.7rem;letter-spacing:.16em;}
+}
 
 /* ── 開催概要テーブル ── */
 .detail-table{
@@ -509,7 +509,7 @@ footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);
 footer .f-mark{font-size:1rem;letter-spacing:.44em;color:#efe3c6;font-weight:600;margin-bottom:.8rem;}
 footer .f-links{
   display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;
-  margin-bottom:1.2rem;
+  margin:1.1rem 0 1.4rem;
 }
 footer .f-links a{
   font-size:.72rem;letter-spacing:.24em;color:#a9997b;
@@ -536,11 +536,14 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
       <span class="seal-mini">中常</span>
       中常塾
     </a>
-    <div class="topbar-breadcrumb">
-      <a href="../">中常塾</a>
-      <span class="sep">／</span>
-      <span class="current">能舞台 講義・お稽古</span>
-    </div>
+    <nav class="topnav">
+      <a href="../nakatokojuku/">中常塾について</a>
+      <a class="current" aria-current="page" href="./">講義・お稽古</a>
+      <a href="../goshinshu/">御神酒三部作</a>
+      <a href="../bunko/">豐中常文庫</a>
+      <a href="../倭姫命世記/">倭姫命世記</a>
+      <a href="../#contact">お問い合わせ</a>
+    </nav>
   </div>
 </div>
 
@@ -998,15 +1001,15 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
 <footer>
   <div class="inner">
     <div class="f-mark">中常塾</div>
-    <div class="f-links">
-      <a href="../">中常塾トップ</a>
-      <a href="../nakatokojuku/">中常塾について</a>
-      <a href="../bunko/">豐中常文庫</a>
-    </div>
     <p class="f-line">
-      度會神道の学びと「和儀」を通じて、日本人の肚を再発見する場。<br>
-      令和八年五月　岡崎にて開塾　　塾主 松浦茂樹
+      塾主 松浦茂樹　令和八年五月二十五日 開塾<br>
+      度會神道の学びと和儀を通じて、日本人の肚を再発見する場。
     </p>
+    <div class="f-links">
+      <a href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener">Facebook</a>
+    </div>
     <div class="f-seal" aria-hidden="true"><span>中</span><span>常</span></div>
     <div class="copy">© 中常塾</div>
   </div>
