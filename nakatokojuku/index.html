@@ -150,6 +150,27 @@
     font-size:.64rem;letter-spacing:.2em;color:var(--muted);
   }
 
+  /* ── 記録写真 ── */
+  .photo-fig{margin:1.8rem 0;}
+  .photo-fig img{
+    display:block;width:100%;height:auto;
+    border:1px solid var(--line);
+    box-shadow:0 14px 36px -20px rgba(40,28,12,.5);
+    filter:saturate(.92) contrast(1.02);
+  }
+  .photo-fig .photo-cap{
+    margin-top:.7rem;text-align:center;
+    font-size:.64rem;letter-spacing:.2em;color:var(--muted);
+  }
+  .photo-pair{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:1.2rem;margin:1.8rem 0;align-items:start;
+  }
+  .photo-pair .photo-fig{margin:0;}
+  @media (max-width:600px){
+    .photo-pair{grid-template-columns:1fr;}
+  }
+
   @media (max-width:600px){
     .header-photo-wrap{grid-template-columns:1fr;}
     .header-photo{max-width:280px;margin:0 auto;}
@@ -495,6 +516,11 @@
       塾主の父方の源流・登美氏の祖先神が、この典籍の中に実名で登場する。
       「ここに祖先の名がある」と指さすことのできる物証が、この書写本である。
     </div>
+
+    <div class="photo-fig" style="max-width:560px;margin:1.8rem auto;">
+      <img src="photo_manuscript.jpg" alt="倭姫命世記 書写本 二十五頁 ── 波登美神の名が記された一段" width="900" height="1200" loading="lazy" decoding="async">
+      <div class="photo-cap">『倭姫命世記』書写本 二十五頁 ── 冒頭に「波登美神」の名が見える</div>
+    </div>
   </div>
 </section>
 
@@ -527,6 +553,17 @@
         <div class="card-body">
           イセヒカリを原料とした御神酒三部作の醸造・奉納
         </div>
+      </div>
+    </div>
+
+    <div class="photo-pair">
+      <div class="photo-fig">
+        <img src="photo_hatsuhobiki.jpg" alt="神嘗祭 初穂曳き ── 懸税の稲穂を手に" width="1000" height="1333" loading="lazy" decoding="async">
+        <div class="photo-cap">神嘗祭 初穂曳き ── 懸税の稲穂を手に</div>
+      </div>
+      <div class="photo-fig">
+        <img src="photo_isawanomiya.jpg" alt="皇大神宮別宮 伊雜宮にて ── 物産調献式" width="1400" height="1050" loading="lazy" decoding="async">
+        <div class="photo-cap">皇大神宮別宮 伊雜宮にて ── 物産調献式</div>
       </div>
     </div>
 
