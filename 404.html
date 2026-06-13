@@ -73,6 +73,12 @@
   <!-- GoatCounter analytics -->
   <script data-goatcounter="https://nakatokojuku.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
+<style>
+  /* ── 改行の統一（PC/スマホ最適化） ── */
+  @media (max-width:600px){ br.br-pc{ display:none; } .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
+  budoux-ja{ display:inline; }
+  .page-header h1, .sec-label h2{ text-wrap:balance; }
+</style>
 </head>
 <body>
 <main>
@@ -84,5 +90,28 @@
     <a class="btn ghost" href="/bunko/">豐中常文庫へ ▸</a>
   </div>
 </main>
+<!-- 日本語の自然な折り返し（BudouX・自前同梱） -->
+<script src="assets/budoux-ja.min.js" defer></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function(){
+    var CJK = /[　-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/;
+    var sel = '.page-header .lead, p.body, .sec-label h2, .contact-desc, .f-line';
+    document.querySelectorAll(sel).forEach(function(el){
+      if (el.closest('budoux-ja')) return;
+      var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n, nodes = [];
+      while (n = tw.nextNode()) nodes.push(n);
+      nodes.forEach(function(t){
+        t.nodeValue = t.nodeValue.replace(/[ \t]*[\r\n]+[ \t]*/g, function(m, off, str){
+          var b = str[off-1], a = str[off+m.length];
+          return (b && a && CJK.test(b) && CJK.test(a)) ? '' : ' ';
+        });
+      });
+      if (el.querySelector('budoux-ja')) return;
+      var w = document.createElement('budoux-ja');
+      while (el.firstChild) w.appendChild(el.firstChild);
+      el.appendChild(w);
+    });
+  });
+</script>
 </body>
 </html>
