@@ -73,7 +73,10 @@
   .wrap{max-width:820px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);}
 
   /* ── 改行の統一（PC/スマホ最適化） ── */
-  @media (max-width:600px){ br.br-pc{ display:none; } }
+  @media (max-width:600px){
+    br.br-pc{ display:none; }
+    .wrap{ padding-left:2.4rem; padding-right:2.4rem; }  /* スマホは本文を1文字分内側に */
+  }
   budoux-ja{ display:inline; }
   .page-header h1, .page-header .lead, .sec-label h2{ text-wrap:balance; }
 
@@ -1008,9 +1011,21 @@
 <script src="assets/budoux-ja.min.js" defer></script>
 <script>
   window.addEventListener('DOMContentLoaded', function(){
+    var CJK = /[　-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/;
     var sel = '.page-header .lead, p.body, .sec-label h2, .contact-desc, .f-line';
     document.querySelectorAll(sel).forEach(function(el){
-      if (el.querySelector('budoux-ja') || el.closest('budoux-ja')) return;
+      if (el.closest('budoux-ja')) return;
+      // 1) ソース改行・字下げによる不要なスペースを除去（CJK文字間は詰める）
+      var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n, nodes = [];
+      while (n = tw.nextNode()) nodes.push(n);
+      nodes.forEach(function(t){
+        t.nodeValue = t.nodeValue.replace(/[ \t]*[\r\n]+[ \t]*/g, function(m, off, str){
+          var b = str[off-1], a = str[off+m.length];
+          return (b && a && CJK.test(b) && CJK.test(a)) ? '' : ' ';
+        });
+      });
+      // 2) BudouXで文節折り返し
+      if (el.querySelector('budoux-ja')) return;
       var w = document.createElement('budoux-ja');
       while (el.firstChild) w.appendChild(el.firstChild);
       el.appendChild(w);
