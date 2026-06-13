@@ -485,6 +485,161 @@
   </div>
 </div>
 
+<!-- ── 今日の中常 ── -->
+<style>
+  .tdy .tdy-date{font-size:.9rem;letter-spacing:.18em;color:var(--vermilion-deep);margin-bottom:1.6rem;font-weight:600;}
+  .tdy-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+  @media(max-width:680px){.tdy-grid{grid-template-columns:1fr;}}
+  .tdy-card{background:var(--paper-card);border:1px solid var(--line);border-top:2px solid var(--gold);padding:1.4rem 1.5rem;}
+  .tdy-cap{font-size:.66rem;letter-spacing:.28em;color:var(--gold);margin-bottom:.9rem;}
+  .tdy-koyomi .kou{font-size:1.16rem;letter-spacing:.08em;color:var(--ink);margin-bottom:.2rem;}
+  .tdy-koyomi .kou .sekki{color:var(--vermilion-deep);font-weight:600;}
+  .tdy-koyomi .yomi{font-size:.78rem;color:var(--muted);letter-spacing:.1em;margin-bottom:.9rem;}
+  .tdy-koyomi .tsuki{font-size:.86rem;color:var(--ink-soft);letter-spacing:.08em;}
+  .tdy-issetsu blockquote{margin:0;font-size:1.04rem;line-height:2.1;color:var(--ink);letter-spacing:.06em;}
+  .tdy-issetsu .src{display:block;margin-top:.8rem;font-size:.7rem;color:var(--muted);letter-spacing:.16em;text-align:right;}
+  .tdy-hitokoto .h-date{font-size:.7rem;color:var(--gold);letter-spacing:.16em;margin-bottom:.5rem;}
+  .tdy-hitokoto .h-text{font-size:.92rem;line-height:2;color:var(--ink-soft);letter-spacing:.05em;}
+  .tdy-tayori ul{list-style:none;margin:0;padding:0;}
+  .tdy-tayori li{font-size:.84rem;line-height:1.7;color:var(--ink-soft);padding:.4rem 0;border-bottom:1px dotted var(--line);letter-spacing:.04em;}
+  .tdy-tayori li:last-child{border-bottom:none;}
+  .tdy-tayori li .d{color:var(--gold);font-size:.72rem;letter-spacing:.12em;margin-right:.6em;}
+  .tdy-tayori a{color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid transparent;}
+  .tdy-tayori a:hover{border-color:var(--vermilion-deep);}
+</style>
+<section class="section tdy" style="border-top:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-label">
+      <div class="mark">今</div>
+      <h2>今日の中常</h2>
+    </div>
+    <div class="tdy-date" id="tdyDate"></div>
+    <div class="tdy-grid">
+      <div class="tdy-card tdy-koyomi">
+        <div class="tdy-cap">今日の暦</div>
+        <div id="tdyKoyomi"></div>
+      </div>
+      <div class="tdy-card tdy-issetsu">
+        <div class="tdy-cap">今日の一節</div>
+        <div id="tdyIssetsu"></div>
+      </div>
+      <div class="tdy-card tdy-hitokoto">
+        <div class="tdy-cap">塾主の一言</div>
+        <div id="tdyHitokoto"></div>
+      </div>
+      <div class="tdy-card tdy-tayori">
+        <div class="tdy-cap">新着だより・お知らせ</div>
+        <ul id="tdyTayori"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  // ───────── 塾主が編集する箇所 ─────────
+  // 今日の一節（対外可・公開済みの古典／祈りのみ。厳禁資料は不可）
+  var ISSETSU = [
+    {t:"神風の伊勢の国は、常世の浪の重浪帰する国なり。傍国の可怜国なり。是の国に居らむと欲ふ。", s:"倭姫命世記"},
+    {t:"中常ノ道ヲ神道トセルノ深意。", s:"出口延佳『神代講述鈔』"},
+    {t:"中常の道、心御柱、中極の道。", s:"中臣祓瑞穂鈔"},
+    {t:"黄金の、神の國日本。その黄金時代を、皆でともに、神とともに、築き上げましょう。", s:"塾主の祈り"}
+  ];
+  // 塾主の一言（新しいものを先頭に追加）
+  var HITOKOTO = [
+    {d:"令和八年六月十三日", t:"「今日の中常」を設けました。日々の暦と一節、折々の言葉を、ここに。神代は、遠い昔ではなく、今日のこの一日のただ中に在ります。"}
+  ];
+  // 新着だより・お知らせ（新しいものを先頭に。urlは任意）
+  var TAYORI = [
+    {d:"6/13", t:"トップに「今日の中常」を設けました"},
+    {d:"5/25", t:"中常塾を開塾しました"}
+  ];
+  // ───────────────────────────────────
+
+  // 七十二候（暦順・略本暦）[月,日,二十四節気,候名,読み]
+  var KO = [
+    [1,5,"小寒","芹乃栄","せりすなわちさかう"],[1,10,"小寒","水泉動","しみずあたたかをふくむ"],[1,15,"小寒","雉始雊","きじはじめてなく"],
+    [1,20,"大寒","款冬華","ふきのはなさく"],[1,25,"大寒","水沢腹堅","さわみずこおりつめる"],[1,30,"大寒","鶏始乳","にわとりはじめてとやにつく"],
+    [2,4,"立春","東風解凍","はるかぜこおりをとく"],[2,9,"立春","黄鶯睍睆","うぐいすなく"],[2,14,"立春","魚上氷","うおこおりをいずる"],
+    [2,19,"雨水","土脉潤起","つちのしょううるおいおこる"],[2,24,"雨水","霞始靆","かすみはじめてたなびく"],[3,1,"雨水","草木萌動","そうもくめばえいずる"],
+    [3,6,"啓蟄","蟄虫啓戸","すごもりむしとをひらく"],[3,11,"啓蟄","桃始笑","ももはじめてさく"],[3,16,"啓蟄","菜虫化蝶","なむしちょうとなる"],
+    [3,21,"春分","雀始巣","すずめはじめてすくう"],[3,26,"春分","桜始開","さくらはじめてひらく"],[3,31,"春分","雷乃発声","かみなりすなわちこえをはっす"],
+    [4,5,"清明","玄鳥至","つばめきたる"],[4,10,"清明","鴻雁北","こうがんかえる"],[4,15,"清明","虹始見","にじはじめてあらわる"],
+    [4,20,"穀雨","葭始生","あしはじめてしょうず"],[4,25,"穀雨","霜止出苗","しもやみてなえいずる"],[4,30,"穀雨","牡丹華","ぼたんはなさく"],
+    [5,5,"立夏","蛙始鳴","かわずはじめてなく"],[5,10,"立夏","蚯蚓出","みみずいずる"],[5,15,"立夏","竹笋生","たけのこしょうず"],
+    [5,21,"小満","蚕起食桑","かいこおきてくわをはむ"],[5,26,"小満","紅花栄","べにばなさかう"],[5,31,"小満","麦秋至","むぎのときいたる"],
+    [6,5,"芒種","蟷螂生","かまきりしょうず"],[6,10,"芒種","腐草為螢","くされたるくさほたるとなる"],[6,16,"芒種","梅子黄","うめのみきばむ"],
+    [6,21,"夏至","乃東枯","なつかれくさかるる"],[6,26,"夏至","菖蒲華","あやめはなさく"],[7,1,"夏至","半夏生","はんげしょうず"],
+    [7,7,"小暑","温風至","あつかぜいたる"],[7,12,"小暑","蓮始開","はすはじめてひらく"],[7,17,"小暑","鷹乃学習","たかすなわちわざをならう"],
+    [7,22,"大暑","桐始結花","きりはじめてはなをむすぶ"],[7,28,"大暑","土潤溽暑","つちうるおうてむしあつし"],[8,2,"大暑","大雨時行","たいうときどきにふる"],
+    [8,7,"立秋","涼風至","すずかぜいたる"],[8,12,"立秋","寒蝉鳴","ひぐらしなく"],[8,17,"立秋","蒙霧升降","ふかききりまとう"],
+    [8,23,"処暑","綿柎開","わたのはなしべひらく"],[8,28,"処暑","天地始粛","てんちはじめてさむし"],[9,2,"処暑","禾乃登","こくものすなわちみのる"],
+    [9,7,"白露","草露白","くさのつゆしろし"],[9,12,"白露","鶺鴒鳴","せきれいなく"],[9,17,"白露","玄鳥去","つばめさる"],
+    [9,22,"秋分","雷乃収声","かみなりすなわちこえをおさむ"],[9,27,"秋分","蟄虫坏戸","むしかくれてとをふさぐ"],[10,2,"秋分","水始涸","みずはじめてかるる"],
+    [10,8,"寒露","鴻雁来","こうがんきたる"],[10,13,"寒露","菊花開","きくのはなひらく"],[10,18,"寒露","蟋蟀在戸","きりぎりすとにあり"],
+    [10,23,"霜降","霜始降","しもはじめてふる"],[10,28,"霜降","霎時施","こさめときどきふる"],[11,2,"霜降","楓蔦黄","もみじつたきばむ"],
+    [11,7,"立冬","山茶始開","つばきはじめてひらく"],[11,12,"立冬","地始凍","ちはじめてこおる"],[11,17,"立冬","金盞香","きんせんかさく"],
+    [11,22,"小雪","虹蔵不見","にじかくれてみえず"],[11,27,"小雪","朔風払葉","きたかぜこのはをはらう"],[12,2,"小雪","橘始黄","たちばなはじめてきばむ"],
+    [12,7,"大雪","閉塞成冬","そらさむくふゆとなる"],[12,12,"大雪","熊蟄穴","くまあなにこもる"],[12,16,"大雪","鱖魚群","さけのうおむらがる"],
+    [12,21,"冬至","乃東生","なつかれくさしょうず"],[12,26,"冬至","麋角解","さわしかのつのおつる"],[12,31,"冬至","雪下出麦","ゆきわたりてむぎいづる"]
+  ];
+
+  var now = new Date();
+  var y = now.getFullYear(), m = now.getMonth()+1, d = now.getDate();
+  var week = ["日","月","火","水","木","金","土"];
+
+  // 和暦（令和）
+  var reiwa = y - 2018;
+  document.getElementById("tdyDate").textContent =
+    "令和" + reiwa + "年 " + m + "月" + d + "日（" + week[now.getDay()] + "）";
+
+  // 現在の七十二候
+  var cur = KO[KO.length-1]; // 1/1〜1/4 は前年冬至末候
+  for (var i=0;i<KO.length;i++){
+    if (m > KO[i][0] || (m === KO[i][0] && d >= KO[i][1])) cur = KO[i];
+  }
+  // 月齢（新月基準 2000-01-06 18:14 UTC）
+  var synod = 29.530588853;
+  var age = ((now.getTime() - Date.UTC(2000,0,6,18,14)) / 86400000) % synod;
+  if (age < 0) age += synod;
+  function moonName(a){
+    if (a < 1.5) return "新月（朔）";
+    if (a < 5.5) return "三日月のころ";
+    if (a < 9) return "上弦の月";
+    if (a < 12.5) return "十日余りの月";
+    if (a < 16.2) return "満月（望）のころ";
+    if (a < 20) return "居待・寝待の月";
+    if (a < 23.5) return "下弦の月";
+    if (a < 27.5) return "有明の月";
+    return "晦（つごもり）近し";
+  }
+  document.getElementById("tdyKoyomi").innerHTML =
+    '<div class="kou"><span class="sekki">' + cur[2] + '</span> ── ' + cur[3] + '</div>' +
+    '<div class="yomi">' + cur[4] + '</div>' +
+    '<div class="tsuki">月齢 ' + age.toFixed(1) + ' ── ' + moonName(age) + '</div>';
+
+  // 通日（その日に応じて一節を選ぶ）
+  var doy = Math.floor((now - new Date(y,0,0)) / 86400000);
+  var q = ISSETSU[doy % ISSETSU.length];
+  document.getElementById("tdyIssetsu").innerHTML =
+    '<blockquote>' + q.t + '<span class="src">── ' + q.s + '</span></blockquote>';
+
+  // 塾主の一言（最新）
+  var h = HITOKOTO[0];
+  document.getElementById("tdyHitokoto").innerHTML =
+    '<div class="h-date">' + h.d + '</div><div class="h-text">' + h.t + '</div>';
+
+  // 新着だより（最新4件）
+  var html = "";
+  for (var j=0;j<TAYORI.length && j<4;j++){
+    var t = TAYORI[j];
+    var line = '<span class="d">' + t.d + '</span>' +
+               (t.url ? '<a href="' + t.url + '">' + t.t + '</a>' : t.t);
+    html += "<li>" + line + "</li>";
+  }
+  document.getElementById("tdyTayori").innerHTML = html;
+})();
+</script>
+
 <!-- ── 能舞台バナー ── -->
 <div style="padding:2.4rem 1.2rem;max-width:760px;margin:0 auto;">
   <a href="taiken/" style="display:block;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
