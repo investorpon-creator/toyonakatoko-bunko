@@ -76,6 +76,8 @@
   @media (max-width:600px){
     br.br-pc{ display:none; }
     p.body, .lead, .hero-lead, h1, h2{ text-wrap: wrap !important; }  /* スマホは行を端まで詰める(greedy) */
+    /* スマホは文節保持(keep-all)をやめ、どこでも切って行を端まで詰める */
+    budoux-ja{ word-break: normal !important; overflow-wrap: anywhere !important; }
     /* スマホは本文を1文字分内側に（両脇ギリギリだったブロックを統一） */
     .wrap, .bunko-link .inner, .contact .inner{ padding-left:2.4rem; padding-right:2.4rem; }
   }
