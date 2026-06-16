@@ -349,7 +349,8 @@
           async src="//gc.zgo.at/count.js"></script>
 <style>
   /* ── 改行の統一（PC/スマホ最適化） ── */
-  @media (max-width:600px){ br.br-pc{ display:none; } .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
+  @media (max-width:600px){ br.br-pc{ display:none; }
+    p.body, .lead, .hero-lead, h1, h2{ text-wrap: wrap !important; }  /* スマホは行を端まで詰める(greedy) */ .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
   budoux-ja{ display:inline; }
   .page-header h1, .sec-label h2{ text-wrap:balance; }
 </style>
