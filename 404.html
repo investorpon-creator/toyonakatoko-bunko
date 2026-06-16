@@ -97,8 +97,10 @@
   window.addEventListener('DOMContentLoaded', function(){
     var CJK = /[　-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/;
     var sel = '.page-header .lead, p.body, .sec-label h2, .contact-desc, .f-line';
+    var wraps = [];
     document.querySelectorAll(sel).forEach(function(el){
       if (el.closest('budoux-ja')) return;
+      // 1) ソース改行・字下げによる不要なスペースを除去（CJK文字間は詰める）
       var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n, nodes = [];
       while (n = tw.nextNode()) nodes.push(n);
       nodes.forEach(function(t){
@@ -107,11 +109,29 @@
           return (b && a && CJK.test(b) && CJK.test(a)) ? '' : ' ';
         });
       });
+      // 2) BudouXで文節折り返し
       if (el.querySelector('budoux-ja')) return;
       var w = document.createElement('budoux-ja');
       while (el.firstChild) w.appendChild(el.firstChild);
       el.appendChild(w);
+      wraps.push(w);
     });
+    // 3) 読みカッコの改行調整（BudouX処理後）
+    //    ・開き「（」の手前では切らない＝読みを手前の語に密着させる
+    //    ・閉じ「）」「」」等の直後では切ってよい＝行末まで詰められる
+    var reBefore = /​+(?=[（(])/g;                 // 開きカッコ前のZWSPを除去
+    var reAfter  = /([）」』】〕〉》｝)])(?!​)/g;     // 閉じカッコ後にZWSPを付与
+    function fixBrackets(){
+      wraps.forEach(function(w){
+        var tw2 = document.createTreeWalker(w, NodeFilter.SHOW_TEXT, null), nn, ns = [];
+        while (nn = tw2.nextNode()) ns.push(nn);
+        ns.forEach(function(t){
+          var s = t.nodeValue.replace(reBefore, '').replace(reAfter, '$1​');
+          if (s !== t.nodeValue) t.nodeValue = s;
+        });
+      });
+    }
+    requestAnimationFrame(function(){ requestAnimationFrame(fixBrackets); });
   });
 </script>
 </body>
