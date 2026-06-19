@@ -138,6 +138,47 @@
     text-wrap:pretty;
   }
 
+  /* ── 冒頭CTA（ダイレクト接続の約束） ── */
+  .hero-cta-block{
+    margin-top:2.6rem;padding-top:2.2rem;
+    border-top:1px solid var(--line);max-width:52ch;
+  }
+  .hero-promise{
+    font-size:clamp(.98rem,1.5vw,1.14rem);
+    letter-spacing:.08em;line-height:2.3;color:var(--ink);
+    text-wrap:pretty;
+  }
+  .hero-benefits{
+    list-style:none;margin:1.5rem 0 1.9rem;padding:0;
+  }
+  .hero-benefits li{
+    position:relative;padding:.32rem 0 .32rem 1.5rem;
+    font-size:.92rem;letter-spacing:.05em;line-height:1.85;color:var(--ink-soft);
+  }
+  .hero-benefits li::before{
+    content:"";position:absolute;left:.1rem;top:1.05em;
+    width:6px;height:6px;background:var(--gold);transform:rotate(45deg);
+  }
+  .hero-cta{
+    display:inline-flex;align-items:center;gap:.5rem;
+    background:var(--vermilion);color:#f7efe2;text-decoration:none;
+    font-size:clamp(.96rem,1.4vw,1.06rem);font-weight:600;letter-spacing:.14em;
+    padding:.92rem 2.3rem;border-radius:4px;
+    box-shadow:0 12px 26px -14px rgba(168,54,42,.75);
+    transition:background .25s,transform .15s,box-shadow .25s;
+  }
+  .hero-cta:hover{
+    background:var(--vermilion-deep);transform:translateY(-1px);
+    box-shadow:0 16px 30px -14px rgba(143,44,34,.8);
+  }
+  .hero-cta-note{
+    margin-top:1.1rem;font-size:.76rem;letter-spacing:.08em;
+    line-height:1.9;color:var(--muted);
+  }
+  @media(max-width:600px){
+    .hero-cta{width:100%;justify-content:center;}
+  }
+
   /* ── ヘッダー写真 ── */
   .header-photo-wrap{
     display:grid;grid-template-columns:1fr 220px;
@@ -484,6 +525,21 @@
         <p class="lead">
           敗れた出雲族の血を引く者が、神武以前からの日本を貫く神祇の道を、<br class="br-pc">神宮を丑寅で守る、令和の岡崎で現代に継ぎます。<br class="br-pc">度會神道の学びと「和儀」を通じて、<span class="em">日本人の肚を再発見する場</span>です。
         </p>
+
+        <div class="hero-cta-block">
+          <p class="hero-promise">
+            神代は、遠い昔ではありません。今日の、あなたの一日のただ中に在ります。<br class="br-pc">
+            中常塾は、その神代にふれる小さな一節を、<span class="em">毎朝あなたのもとへ</span>お届けします。<br class="br-pc">
+            受け取るほどに、ざわつく日々の真ん中に、一本の芯が通っていきます。
+          </p>
+          <ul class="hero-benefits">
+            <li>毎朝、自分の真ん中を見失わずに一日を始められます</li>
+            <li>神代の物語の連なりの中に、あなたの居場所ができます</li>
+            <li>奉納・祭典・お稽古の声が、いちばん早くあなたに届きます</li>
+          </ul>
+          <a class="hero-cta" href="#tsunagaru">毎朝、肚に一節を受け取る　▸</a>
+          <p class="hero-cta-note">折々のことばと、奉納・お稽古のご案内が届きます。<br class="br-pc">いつでも、そっと離れられます。まずは、明日の朝から。</p>
+        </div>
       </div>
       <div>
         <div class="header-photo">
@@ -544,20 +600,21 @@
     </div>
   </div>
 </section>
+<script src="kotoba.js"></script>
 <script>
 (function(){
   // ───────── 塾主が編集する箇所 ─────────
-  // 今日の一節（対外可・公開済みの古典／祈りのみ。厳禁資料は不可）
+  // 今日の一節・塾主の一言は七十二候ごとに自動表示（データ＝kotoba.js）。
+  // 下の ISSETSU は kotoba.js が読めない時のフォールバック用。
   var ISSETSU = [
     {t:"神風の伊勢の国は、常世の浪の重浪帰する国なり。傍国の可怜国なり。是の国に居らむと欲ふ。", s:"倭姫命世記"},
     {t:"中常ノ道ヲ神道トセルノ深意。", s:"出口延佳『神代講述鈔』"},
     {t:"中常の道、心御柱、中極の道。", s:"中臣祓瑞穂鈔"},
     {t:"黄金の、神の國日本。その黄金時代を、皆でともに、神とともに、築き上げましょう。", s:"塾主の祈り"}
   ];
-  // 塾主の一言（新しいものを先頭に追加）
-  var HITOKOTO = [
-    {d:"令和八年六月十三日", t:"「今日の中常」を設けました。日々の暦と一節、折々の言葉を、ここに。神代は、遠い昔ではなく、今日のこの一日のただ中に在ります。"}
-  ];
+  // 塾主の一言：特別な一言を最前面に固定したい時だけ {d:"令和八年〇月〇日", t:"…", pin:true} を先頭に置く。
+  // 空（pinなし）なら、その日の七十二候の声（kotoba.js）が自動表示される。
+  var HITOKOTO = [];
   // 新着だより・お知らせ（新しいものを先頭に。urlは任意）
   var TAYORI = [
     {d:"6/13", t:"トップに「今日の中常」を設けました"},
@@ -603,10 +660,11 @@
     "令和" + reiwa + "年 " + m + "月" + d + "日（" + week[now.getDay()] + "）";
 
   // 現在の七十二候
-  var cur = KO[KO.length-1]; // 1/1〜1/4 は前年冬至末候
+  var curIdx = KO.length-1;   // 1/1〜1/4 は前年冬至末候
   for (var i=0;i<KO.length;i++){
-    if (m > KO[i][0] || (m === KO[i][0] && d >= KO[i][1])) cur = KO[i];
+    if (m > KO[i][0] || (m === KO[i][0] && d >= KO[i][1])) curIdx = i;
   }
+  var cur = KO[curIdx];
   // 月齢（新月基準 2000-01-06 18:14 UTC）
   var synod = 29.530588853;
   var age = ((now.getTime() - Date.UTC(2000,0,6,18,14)) / 86400000) % synod;
@@ -627,16 +685,32 @@
     '<div class="yomi">' + cur[4] + '</div>' +
     '<div class="tsuki">月齢 ' + age.toFixed(1) + ' ── ' + moonName(age) + '</div>';
 
-  // 通日（その日に応じて一節を選ぶ）
-  var doy = Math.floor((now - new Date(y,0,0)) / 86400000);
-  var q = ISSETSU[doy % ISSETSU.length];
+  // その日の七十二候に組まれた一節・一言（kotoba.js）
+  var D = window.NAKATOKO_DAILY;
+  var pair = (D && D.kou && D.kou[curIdx]) ? D.kou[curIdx] : null;
+
+  // 今日の一節（候に組んだ一節。無ければ通日でフォールバック）
+  var q;
+  if (pair && D.pool[pair.q]) {
+    q = D.pool[pair.q];
+  } else {
+    var doy = Math.floor((now - new Date(y,0,0)) / 86400000);
+    q = ISSETSU[doy % ISSETSU.length];
+  }
   document.getElementById("tdyIssetsu").innerHTML =
     '<blockquote>' + q.t + '<span class="src">── ' + q.s + '</span></blockquote>';
 
-  // 塾主の一言（最新）
-  var h = HITOKOTO[0];
-  document.getElementById("tdyHitokoto").innerHTML =
-    '<div class="h-date">' + h.d + '</div><div class="h-text">' + h.t + '</div>';
+  // 塾主の一言：固定の一言（pin）があればそれ、無ければ候の声
+  var hDate, hText;
+  if (HITOKOTO.length && HITOKOTO[0].pin) {
+    hDate = HITOKOTO[0].d; hText = HITOKOTO[0].t;
+  } else if (pair) {
+    hDate = '七十二候 ── ' + cur[3]; hText = pair.h;
+  }
+  if (hText) {
+    document.getElementById("tdyHitokoto").innerHTML =
+      '<div class="h-date">' + hDate + '</div><div class="h-text">' + hText + '</div>';
+  }
 
   // 新着だより（最新4件）
   var html = "";
@@ -650,17 +724,76 @@
 })();
 </script>
 
-<!-- ── LINE 友だち追加 ── -->
-<div style="max-width:620px;margin:0 auto;padding:2.4rem 1.4rem 0;text-align:center;">
-  <p style="font-size:.92rem;line-height:2;color:var(--ink-soft);letter-spacing:.06em;margin:0 0 1.1rem;">
-    暦のうつろい、今日の一節、折々のおしらせ ──<br class="br-pc"><span class="em">「中常だより」を、LINEでもお届けします。</span>
-  </p>
-  <a href="https://lin.ee/vDCT7cG" target="_blank" rel="noopener noreferrer"
-     style="display:inline-flex;align-items:center;gap:.6rem;background:#06C755;color:#fff;text-decoration:none;padding:.85rem 2.2rem;border-radius:6px;font-size:.86rem;letter-spacing:.18em;box-shadow:0 8px 22px -10px rgba(6,199,85,.7);">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true" style="flex-shrink:0;"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-    友だち追加
-  </a>
+<!-- ── つながる（中常だより・ダイレクト接続） ── -->
+<style>
+  .tsunagaru{max-width:680px;margin:0 auto;padding:3rem 1.4rem 0;}
+  .tsunagaru .tg-lead{text-align:center;font-size:1rem;line-height:2.1;color:var(--ink);letter-spacing:.06em;margin:0 0 .6rem;}
+  .tsunagaru .tg-sub{text-align:center;font-size:.82rem;line-height:1.9;color:var(--muted);letter-spacing:.06em;margin:0 0 2rem;}
+  .tg-card{background:var(--paper-card);border:1px solid var(--line);border-top:2px solid var(--gold);padding:1.9rem 1.8rem;}
+  .tg-card .tg-cap{font-size:.66rem;letter-spacing:.28em;color:var(--gold);margin-bottom:1.2rem;text-align:center;}
+  .tg-form{display:flex;flex-direction:column;gap:.9rem;max-width:380px;margin:0 auto;}
+  .tg-form label{font-size:.74rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.3rem;display:block;}
+  .tg-form input{width:100%;font-family:var(--serif);font-size:.95rem;color:var(--ink);background:#fffdf8;border:1px solid var(--line);border-radius:3px;padding:.7rem .9rem;letter-spacing:.04em;}
+  .tg-form input:focus{outline:none;border-color:var(--gold-soft);box-shadow:0 0 0 3px rgba(154,125,60,.14);}
+  .tg-submit{margin-top:.5rem;background:var(--vermilion);color:#f7efe2;border:none;font-family:var(--serif);font-size:1rem;font-weight:600;letter-spacing:.14em;padding:.92rem;border-radius:4px;cursor:pointer;box-shadow:0 12px 26px -14px rgba(168,54,42,.75);transition:background .25s;}
+  .tg-submit:hover{background:var(--vermilion-deep);}
+  .tg-note{text-align:center;font-size:.72rem;line-height:1.9;color:var(--muted);letter-spacing:.06em;margin-top:1.1rem;}
+  .tg-line{text-align:center;margin-top:1.8rem;padding-top:1.6rem;border-top:1px dotted var(--line);}
+  .tg-line p{font-size:.84rem;line-height:1.9;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
+  .tg-line-btn{display:inline-flex;align-items:center;gap:.6rem;background:#06C755;color:#fff;text-decoration:none;padding:.7rem 1.9rem;border-radius:6px;font-size:.82rem;letter-spacing:.16em;box-shadow:0 8px 22px -12px rgba(6,199,85,.7);}
+</style>
+<div class="tsunagaru" id="tsunagaru">
+  <p class="tg-lead">毎朝、神代にふれる一節を ── <span class="em">「中常だより」</span>をお届けします。</p>
+  <p class="tg-sub">受け取るほどに、日々の真ん中に一本の芯が通っていきます。<br class="br-pc">いつでも、そっと離れられます。まずは、明日の朝から。</p>
+
+  <div class="tg-card">
+    <div id="tg-formwrap">
+      <div class="tg-cap">御芳名を記す ── おたよりで受け取る</div>
+      <!-- Googleフォーム（塾主所有）をバックエンドに送信。回答は塾主のフォーム／スプレッドシートに貯まる。 -->
+      <form class="tg-form" id="tg-form" method="POST" target="tg-sink"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScS4IU0BgWbMl9LWngXLoZl7EM59iC5ligGY7sY1jAXpiALoA/formResponse">
+        <div>
+          <label for="tg-name">御芳名</label>
+          <input id="tg-name" type="text" name="entry.375573805" placeholder="松浦 茂樹" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="tg-email">お届け先メール</label>
+          <input id="tg-email" type="email" name="entry.283975890" placeholder="namae@example.jp" autocomplete="email" required>
+        </div>
+        <input type="hidden" name="fvv" value="1">
+        <input type="hidden" name="pageHistory" value="0">
+        <button class="tg-submit" type="submit">明日の朝から受け取る　▸</button>
+      </form>
+      <p class="tg-note">折々のことばと、奉納・お稽古のご案内をお送りします。<br class="br-pc">お名前は、中常だよりの呼びかけにのみ用います。</p>
+    </div>
+    <div id="tg-thanks" style="display:none;text-align:center;padding:.4rem 0 .2rem;">
+      <p style="font-size:1.04rem;line-height:2;color:var(--ink);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
+      <p style="font-size:.9rem;line-height:2;color:var(--ink-soft);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。<br class="br-pc">もしよろしければ、毎朝そっと手元へ ── 下のLINEでも繋がっておけます。</p>
+    </div>
+    <iframe name="tg-sink" title="送信" style="display:none;" tabindex="-1" aria-hidden="true"></iframe>
+
+    <div class="tg-line">
+      <p>毎朝そっと、もっと手軽に手元へ ──<br class="br-pc">LINEでも繋がっておきますか。</p>
+      <a class="tg-line-btn" href="https://lin.ee/vDCT7cG" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="#fff" aria-hidden="true" style="flex-shrink:0;"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.105.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで繋がる
+      </a>
+    </div>
+  </div>
 </div>
+<script>
+(function(){
+  var f=document.getElementById('tg-form');
+  if(!f)return;
+  f.addEventListener('submit',function(){
+    setTimeout(function(){
+      var w=document.getElementById('tg-formwrap'),t=document.getElementById('tg-thanks');
+      if(w)w.style.display='none';
+      if(t)t.style.display='block';
+    },120);
+  });
+})();
+</script>
 
 <!-- ── 能舞台バナー ── -->
 <div style="padding:2.4rem 1.2rem;max-width:760px;margin:0 auto;">
