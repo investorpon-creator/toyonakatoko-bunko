@@ -7,7 +7,7 @@
 <meta name="description" content="神道五部書の一つ『倭姫命世記』。寛文九年（一六六九）出口延佳校合の書写本（中常塾 塾主・松浦茂樹所蔵、全四十五丁）を、書写本画像・翻刻テキスト・解題で公開。伊雜宮創建・懸税と御神酒の起源・心御柱の章を含む。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/%E5%80%AD%E5%A7%AB%E5%91%BD%E4%B8%96%E8%A8%98/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
 <meta property="og:site_name" content="中常塾">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
@@ -324,23 +324,87 @@
   <!-- GoatCounter analytics -->
   <script data-goatcounter="https://nakatokojuku.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
+
+<style id="wa-refine">
+  :root{
+    --vermilion-soft:#bb4a3a;
+    --gold-pale:#cdb474;
+    --gold-leaf:linear-gradient(110deg,#8a6c2e 0%,#b9a05e 28%,#e6d6a4 46%,#9a7d3c 60%,#c9b072 80%,#8a6c2e 100%);
+    --wa-asanoha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Cpath d='M28 0v97M0 16.2l28 16.2 28-16.2M0 80.8l28-16.2 28 16.2M28 32.4L0 48.5v32.3M28 32.4l28 16.1v32.3M28 64.6L0 48.5M28 64.6l28-16.1M0 16.2v32.3M56 16.2v32.3'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23b9a05e' stroke-width='1.1'%3E%3Cpath d='M0 30a30 30 0 0 1 30-30 30 30 0 0 1 30 30'/%3E%3Cpath d='M0 30a21 21 0 0 1 30-21 21 21 0 0 1 30 21'/%3E%3Cpath d='M0 30a12 12 0 0 1 30-12 12 12 0 0 1 30 12'/%3E%3Cpath d='M-30 30a30 30 0 0 1 30-30M60 30a30 30 0 0 1 30-30'/%3E%3Cpath d='M-30 30a21 21 0 0 1 30-21M60 30a21 21 0 0 1 30-21'/%3E%3Cpath d='M-30 30a12 12 0 0 1 30-12M60 30a12 12 0 0 1 30-12'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .sec-label .mark,.part-seal,.mark{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion) 45%,var(--vermilion-deep))!important;
+    color:#fbeede!important;border:none!important;border-radius:3px!important;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.35),0 5px 14px -8px rgba(138,42,32,.7)!important;
+  }
+  .sec-label .mark::after,.part-seal::after,.mark::after{
+    content:"";position:absolute;inset:3px;border:1px solid rgba(255,240,220,.5);border-radius:1px;pointer-events:none;
+  }
+  .wordmark .seal-mini,footer .f-seal,.hero-relic .seal{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion-deep))!important;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.3),0 6px 16px -10px rgba(120,30,20,.6)!important;
+  }
+  .highlight{border-left:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  .offering-card::before,.volume::before{background:var(--gold-leaf)!important;}
+  .header-photo,.relic-frame,.image-frame,.photo-frame{position:relative;}
+  .header-photo::after,.relic-frame::after,.image-frame::after,.photo-frame::after{
+    content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;
+    background:var(--gold-leaf);z-index:2;pointer-events:none;
+  }
+  .hero-h1 em{
+    background:var(--gold-leaf);-webkit-background-clip:text;background-clip:text;
+    color:transparent!important;-webkit-text-fill-color:transparent;
+  }
+  .topbar{position:relative;}
+  .topbar::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+    background:var(--gold-leaf);opacity:.55;pointer-events:none;
+  }
+  .page-header,.hero,.book-header{position:relative;}
+  .page-header::before,.book-header::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-asanoha);
+    background-size:56px 97px;opacity:.05;pointer-events:none;
+    -webkit-mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+    mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-shippou);
+    background-size:44px 44px;opacity:.06;pointer-events:none;
+  }
+  .page-header>.wrap,.hero>.wrap,.hero>.hero-inner,.book-header>.wrap{position:relative;z-index:1;}
+  footer{position:relative;overflow:hidden;border-top:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  footer::before{
+    content:"";position:absolute;inset:0;background-image:var(--wa-seigaiha);
+    background-size:60px 30px;opacity:.06;pointer-events:none;
+    -webkit-mask-image:linear-gradient(#000,transparent 72%);mask-image:linear-gradient(#000,transparent 72%);
+  }
+  footer .wrap,footer .inner{position:relative;z-index:1;}
+  html.wa-anim .wa-rise{opacity:0;transform:translateY(22px);
+    transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1);}
+  html.wa-anim .wa-rise.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html.wa-anim .wa-rise{opacity:1!important;transform:none!important;transition:none!important;}
+  }
+</style>
 </head>
 <body>
 
 <!-- ── 天 ── -->
 <div class="topbar">
   <div class="wrap">
-    <a class="wordmark" href="../">
+    <a class="wordmark" href="https://nakatokojuku.jp/">
       <span class="seal-mini">中常</span>
       中常塾
     </a>
     <nav class="topnav">
-      <a href="../nakatokojuku/">中常塾について</a>
-      <a href="../taiken/">講義・お稽古</a>
-      <a href="../goshinshu/">御神酒三部作</a>
-      <a href="../bunko/">豐中常文庫</a>
-      <a class="current" aria-current="page" href="./">倭姫命世記</a>
-      <a href="../#contact">お問い合わせ</a>
+      <a href="https://nakatokojuku.jp/nakatokojuku/">中常塾について</a>
+      <a href="https://nakatokojuku.jp/taiken/">講義・お稽古</a>
+      <a href="https://nakatokojuku.jp/goshinshu/">御神酒三部作</a>
+      <a href="https://nakatokojuku.jp/bunko/">豐中常文庫</a>
+      <a class="current" aria-current="page" href="https://nakatokojuku.jp/倭姫命世記/">倭姫命世記</a>
+      <a href="https://nakatokojuku.jp/#contact">お問い合わせ</a>
     </nav>
   </div>
 </div>
@@ -807,6 +871,23 @@
   });
 
   loadPage(0);
+</script>
+
+<script>
+(function(){
+  var sel='.section,.preface,.collection,.voices,.cta-section,.yt-section,.part-header,.mei-card,.timeline,.hero-text,.hero-relic,.header-photo-wrap,.photo-fig,.volume,.pillar-grid,.layer-grid';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.viewer');});
+  if(!els.length)return;
+  document.documentElement.classList.add('wa-anim');
+  els.forEach(function(e){e.classList.add('wa-rise');});
+  var revealAll=function(){els.forEach(function(e){e.classList.add('in');});};
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){revealAll();return;}
+  var vh=window.innerHeight||document.documentElement.clientHeight;
+  els.forEach(function(e){if(e.getBoundingClientRect().top<vh*0.92)e.classList.add('in');});
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(e){if(!e.classList.contains('in'))io.observe(e);});
+  setTimeout(function(){if(document.querySelectorAll('.wa-rise.in').length<els.length)revealAll();},1900);
+})();
 </script>
 </body>
 </html>

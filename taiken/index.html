@@ -7,7 +7,7 @@
 <meta name="description" content="岡崎城 二の丸能楽堂にて、度會神道の講義と和儀のお稽古を少人数でお届けする中常塾の講義・お稽古。日本人の肚を再発見する、特別な一日。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/taiken/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
 <meta property="og:site_name" content="中常塾">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
@@ -537,23 +537,87 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
   budoux-ja{ display:inline; }
   .page-header h1, .sec-label h2{ text-wrap:balance; }
 </style>
+
+<style id="wa-refine">
+  :root{
+    --vermilion-soft:#bb4a3a;
+    --gold-pale:#cdb474;
+    --gold-leaf:linear-gradient(110deg,#8a6c2e 0%,#b9a05e 28%,#e6d6a4 46%,#9a7d3c 60%,#c9b072 80%,#8a6c2e 100%);
+    --wa-asanoha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Cpath d='M28 0v97M0 16.2l28 16.2 28-16.2M0 80.8l28-16.2 28 16.2M28 32.4L0 48.5v32.3M28 32.4l28 16.1v32.3M28 64.6L0 48.5M28 64.6l28-16.1M0 16.2v32.3M56 16.2v32.3'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23b9a05e' stroke-width='1.1'%3E%3Cpath d='M0 30a30 30 0 0 1 30-30 30 30 0 0 1 30 30'/%3E%3Cpath d='M0 30a21 21 0 0 1 30-21 21 21 0 0 1 30 21'/%3E%3Cpath d='M0 30a12 12 0 0 1 30-12 12 12 0 0 1 30 12'/%3E%3Cpath d='M-30 30a30 30 0 0 1 30-30M60 30a30 30 0 0 1 30-30'/%3E%3Cpath d='M-30 30a21 21 0 0 1 30-21M60 30a21 21 0 0 1 30-21'/%3E%3Cpath d='M-30 30a12 12 0 0 1 30-12M60 30a12 12 0 0 1 30-12'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .sec-label .mark,.part-seal,.mark{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion) 45%,var(--vermilion-deep))!important;
+    color:#fbeede!important;border:none!important;border-radius:3px!important;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.35),0 5px 14px -8px rgba(138,42,32,.7)!important;
+  }
+  .sec-label .mark::after,.part-seal::after,.mark::after{
+    content:"";position:absolute;inset:3px;border:1px solid rgba(255,240,220,.5);border-radius:1px;pointer-events:none;
+  }
+  .wordmark .seal-mini,footer .f-seal,.hero-relic .seal{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion-deep))!important;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.3),0 6px 16px -10px rgba(120,30,20,.6)!important;
+  }
+  .highlight{border-left:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  .offering-card::before,.volume::before{background:var(--gold-leaf)!important;}
+  .header-photo,.relic-frame,.image-frame,.photo-frame{position:relative;}
+  .header-photo::after,.relic-frame::after,.image-frame::after,.photo-frame::after{
+    content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;
+    background:var(--gold-leaf);z-index:2;pointer-events:none;
+  }
+  .hero-h1 em{
+    background:var(--gold-leaf);-webkit-background-clip:text;background-clip:text;
+    color:transparent!important;-webkit-text-fill-color:transparent;
+  }
+  .topbar{position:relative;}
+  .topbar::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+    background:var(--gold-leaf);opacity:.55;pointer-events:none;
+  }
+  .page-header,.hero,.book-header{position:relative;}
+  .page-header::before,.book-header::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-asanoha);
+    background-size:56px 97px;opacity:.05;pointer-events:none;
+    -webkit-mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+    mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-shippou);
+    background-size:44px 44px;opacity:.06;pointer-events:none;
+  }
+  .page-header>.wrap,.hero>.wrap,.hero>.hero-inner,.book-header>.wrap{position:relative;z-index:1;}
+  footer{position:relative;overflow:hidden;border-top:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  footer::before{
+    content:"";position:absolute;inset:0;background-image:var(--wa-seigaiha);
+    background-size:60px 30px;opacity:.06;pointer-events:none;
+    -webkit-mask-image:linear-gradient(#000,transparent 72%);mask-image:linear-gradient(#000,transparent 72%);
+  }
+  footer .wrap,footer .inner{position:relative;z-index:1;}
+  html.wa-anim .wa-rise{opacity:0;transform:translateY(22px);
+    transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1);}
+  html.wa-anim .wa-rise.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html.wa-anim .wa-rise{opacity:1!important;transform:none!important;transition:none!important;}
+  }
+</style>
 </head>
 <body>
 
 <!-- ── topbar ── -->
 <div class="topbar">
   <div class="inner">
-    <a class="wordmark" href="../">
+    <a class="wordmark" href="https://nakatokojuku.jp/">
       <span class="seal-mini">中常</span>
       中常塾
     </a>
     <nav class="topnav">
-      <a href="../nakatokojuku/">中常塾について</a>
-      <a class="current" aria-current="page" href="./">講義・お稽古</a>
-      <a href="../goshinshu/">御神酒三部作</a>
-      <a href="../bunko/">豐中常文庫</a>
-      <a href="../倭姫命世記/">倭姫命世記</a>
-      <a href="../#contact">お問い合わせ</a>
+      <a href="https://nakatokojuku.jp/nakatokojuku/">中常塾について</a>
+      <a class="current" aria-current="page" href="https://nakatokojuku.jp/taiken/">講義・お稽古</a>
+      <a href="https://nakatokojuku.jp/goshinshu/">御神酒三部作</a>
+      <a href="https://nakatokojuku.jp/bunko/">豐中常文庫</a>
+      <a href="https://nakatokojuku.jp/倭姫命世記/">倭姫命世記</a>
+      <a href="https://nakatokojuku.jp/#contact">お問い合わせ</a>
     </nav>
   </div>
 </div>
@@ -565,9 +629,9 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
     <h1 class="hero-h1">能舞台で、<br><em>肚</em>が目覚める。</h1>
     <p class="hero-quote">── 鏡板の松の前に立つ、その一日</p>
     <p class="hero-lead">
-      呼吸を整え、丹田で軸を感じ、摺り足で場を歩きます。<br>
-      度會神道の講義と、和儀の稽古が重なるとき──<br>
-      あなたの中にある日本人の軸が、<br>
+      呼吸を整え、丹田で軸を感じ、摺り足で場を歩きます。
+      度會神道の講義と、和儀の稽古が重なるとき──
+      あなたの中にある日本人の軸が、
       静かに、確かに、今ここに在ります。
     </p>
     <div class="hero-ctas">
@@ -702,20 +766,20 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
   <div class="wrap">
     <div class="photo-block">
       <div class="photo-frame">
-        <img src="photo_group.jpg" alt="岡崎城 二の丸能楽堂 和儀お稽古 4名" width="1600" height="911" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城 二の丸能楽堂 和儀お稽古 4名" width="1600" height="911" loading="lazy" decoding="async">
       </div>
       <div class="photo-cap">岡崎城 二の丸能楽堂にて　和儀お稽古の一場面</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem;">
       <div>
         <div class="photo-frame">
-          <img src="photo_practice.jpg" alt="鏡板の前で稽古する塾主と参加者" width="1600" height="912" loading="lazy" decoding="async">
+          <img src="https://nakatokojuku.jp/taiken/photo_practice.jpg" alt="鏡板の前で稽古する塾主と参加者" width="1600" height="912" loading="lazy" decoding="async">
         </div>
         <div class="photo-cap">鏡板の松の前　少人数での和儀稽古</div>
       </div>
       <div>
         <div class="photo-frame">
-          <img src="photo_lecture.jpg" alt="度會神道講義の一場面" width="1600" height="911" loading="lazy" decoding="async">
+          <img src="https://nakatokojuku.jp/taiken/photo_lecture.jpg" alt="度會神道講義の一場面" width="1600" height="911" loading="lazy" decoding="async">
         </div>
         <div class="photo-cap">度會神道 講義の一場面</div>
       </div>
@@ -913,7 +977,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
     </div>
     <div class="profile-grid">
       <div class="profile-photo">
-        <img src="../nakatokojuku/photo_book.jpg" alt="塾主・松浦茂樹" width="696" height="662" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg" alt="塾主・松浦茂樹" width="696" height="662" loading="lazy" decoding="async">
       </div>
       <div>
         <p class="body">
@@ -930,7 +994,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
           岡崎城 二の丸能楽堂にて定期的に講義・稽古を開催中です。
         </p>
         <div style="margin-top:1.4rem;">
-          <a href="../nakatokojuku/"
+          <a href="https://nakatokojuku.jp/nakatokojuku/"
             style="font-size:.75rem;letter-spacing:.22em;color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid rgba(143,44,34,.3);padding-bottom:1px;">
             中常塾について、もっと知る ▸
           </a>
@@ -994,8 +1058,8 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
     <p class="cta-eyebrow">中常塾　能舞台 講義・お稽古</p>
     <h2 class="cta-headline">鏡板の松の前に、<br>あなたも立ってみてください。</h2>
     <p class="cta-lead">
-      頭で分かることと、身体で知ることは、別のことです。<br>
-      能舞台という「場の力」の中で、一日かけて学びます。<br>
+      頭で分かることと、身体で知ることは、別のことです。
+      能舞台という「場の力」の中で、一日かけて学びます。
       その体験が、言葉では運べないものを運んできます。
     </p>
     <a class="btn-primary"
@@ -1027,7 +1091,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
 </footer>
 
 <!-- 日本語の自然な折り返し（BudouX・自前同梱） -->
-<script src="../assets/budoux-ja.min.js" defer></script>
+<script src="https://nakatokojuku.jp/assets/budoux-ja.min.js" defer></script>
 <script>
   window.addEventListener('DOMContentLoaded', function(){
     var CJK = /[　-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/;
@@ -1068,6 +1132,23 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
     }
     requestAnimationFrame(function(){ requestAnimationFrame(fixBrackets); });
   });
+</script>
+
+<script>
+(function(){
+  var sel='.section,.preface,.collection,.voices,.cta-section,.yt-section,.part-header,.mei-card,.timeline,.hero-text,.hero-relic,.header-photo-wrap,.photo-fig,.volume,.pillar-grid,.layer-grid';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.viewer');});
+  if(!els.length)return;
+  document.documentElement.classList.add('wa-anim');
+  els.forEach(function(e){e.classList.add('wa-rise');});
+  var revealAll=function(){els.forEach(function(e){e.classList.add('in');});};
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){revealAll();return;}
+  var vh=window.innerHeight||document.documentElement.clientHeight;
+  els.forEach(function(e){if(e.getBoundingClientRect().top<vh*0.92)e.classList.add('in');});
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(e){if(!e.classList.contains('in'))io.observe(e);});
+  setTimeout(function(){if(document.querySelectorAll('.wa-rise.in').length<els.length)revealAll();},1900);
+})();
 </script>
 </body>
 </html>

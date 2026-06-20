@@ -7,7 +7,7 @@
 <meta name="description" content="塾名「中常」の由来、塾主・松浦茂樹のルーツと伊雜宮、懸税・御神酒の奉納事業、度會神道の学びと和儀 ── 中常塾の物語の全体をご紹介します。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/nakatokojuku/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
 <meta property="og:site_name" content="中常塾">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
@@ -409,23 +409,87 @@
   budoux-ja{ display:inline; }
   .page-header h1, .sec-label h2{ text-wrap:balance; }
 </style>
+
+<style id="wa-refine">
+  :root{
+    --vermilion-soft:#bb4a3a;
+    --gold-pale:#cdb474;
+    --gold-leaf:linear-gradient(110deg,#8a6c2e 0%,#b9a05e 28%,#e6d6a4 46%,#9a7d3c 60%,#c9b072 80%,#8a6c2e 100%);
+    --wa-asanoha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Cpath d='M28 0v97M0 16.2l28 16.2 28-16.2M0 80.8l28-16.2 28 16.2M28 32.4L0 48.5v32.3M28 32.4l28 16.1v32.3M28 64.6L0 48.5M28 64.6l28-16.1M0 16.2v32.3M56 16.2v32.3'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23b9a05e' stroke-width='1.1'%3E%3Cpath d='M0 30a30 30 0 0 1 30-30 30 30 0 0 1 30 30'/%3E%3Cpath d='M0 30a21 21 0 0 1 30-21 21 21 0 0 1 30 21'/%3E%3Cpath d='M0 30a12 12 0 0 1 30-12 12 12 0 0 1 30 12'/%3E%3Cpath d='M-30 30a30 30 0 0 1 30-30M60 30a30 30 0 0 1 30-30'/%3E%3Cpath d='M-30 30a21 21 0 0 1 30-21M60 30a21 21 0 0 1 30-21'/%3E%3Cpath d='M-30 30a12 12 0 0 1 30-12M60 30a12 12 0 0 1 30-12'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .sec-label .mark,.part-seal,.mark{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion) 45%,var(--vermilion-deep))!important;
+    color:#fbeede!important;border:none!important;border-radius:3px!important;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.35),0 5px 14px -8px rgba(138,42,32,.7)!important;
+  }
+  .sec-label .mark::after,.part-seal::after,.mark::after{
+    content:"";position:absolute;inset:3px;border:1px solid rgba(255,240,220,.5);border-radius:1px;pointer-events:none;
+  }
+  .wordmark .seal-mini,footer .f-seal,.hero-relic .seal{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion-deep))!important;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.3),0 6px 16px -10px rgba(120,30,20,.6)!important;
+  }
+  .highlight{border-left:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  .offering-card::before,.volume::before{background:var(--gold-leaf)!important;}
+  .header-photo,.relic-frame,.image-frame,.photo-frame{position:relative;}
+  .header-photo::after,.relic-frame::after,.image-frame::after,.photo-frame::after{
+    content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;
+    background:var(--gold-leaf);z-index:2;pointer-events:none;
+  }
+  .hero-h1 em{
+    background:var(--gold-leaf);-webkit-background-clip:text;background-clip:text;
+    color:transparent!important;-webkit-text-fill-color:transparent;
+  }
+  .topbar{position:relative;}
+  .topbar::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+    background:var(--gold-leaf);opacity:.55;pointer-events:none;
+  }
+  .page-header,.hero,.book-header{position:relative;}
+  .page-header::before,.book-header::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-asanoha);
+    background-size:56px 97px;opacity:.05;pointer-events:none;
+    -webkit-mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+    mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-shippou);
+    background-size:44px 44px;opacity:.06;pointer-events:none;
+  }
+  .page-header>.wrap,.hero>.wrap,.hero>.hero-inner,.book-header>.wrap{position:relative;z-index:1;}
+  footer{position:relative;overflow:hidden;border-top:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  footer::before{
+    content:"";position:absolute;inset:0;background-image:var(--wa-seigaiha);
+    background-size:60px 30px;opacity:.06;pointer-events:none;
+    -webkit-mask-image:linear-gradient(#000,transparent 72%);mask-image:linear-gradient(#000,transparent 72%);
+  }
+  footer .wrap,footer .inner{position:relative;z-index:1;}
+  html.wa-anim .wa-rise{opacity:0;transform:translateY(22px);
+    transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1);}
+  html.wa-anim .wa-rise.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html.wa-anim .wa-rise{opacity:1!important;transform:none!important;transition:none!important;}
+  }
+</style>
 </head>
 <body>
 
 <!-- ── topbar ── -->
 <div class="topbar">
   <div class="inner">
-    <a class="wordmark" href="../">
+    <a class="wordmark" href="https://nakatokojuku.jp/">
       <span class="seal-mini">中常</span>
       中常塾
     </a>
     <nav class="topnav">
-      <a class="current" aria-current="page" href="./">中常塾について</a>
-      <a href="../taiken/">講義・お稽古</a>
-      <a href="../goshinshu/">御神酒三部作</a>
-      <a href="../bunko/">豐中常文庫</a>
-      <a href="../倭姫命世記/">倭姫命世記</a>
-      <a href="../#contact">お問い合わせ</a>
+      <a class="current" aria-current="page" href="https://nakatokojuku.jp/nakatokojuku/">中常塾について</a>
+      <a href="https://nakatokojuku.jp/taiken/">講義・お稽古</a>
+      <a href="https://nakatokojuku.jp/goshinshu/">御神酒三部作</a>
+      <a href="https://nakatokojuku.jp/bunko/">豐中常文庫</a>
+      <a href="https://nakatokojuku.jp/倭姫命世記/">倭姫命世記</a>
+      <a href="https://nakatokojuku.jp/#contact">お問い合わせ</a>
     </nav>
   </div>
 </div>
@@ -439,14 +503,14 @@
         <h1>中常塾</h1>
         <div class="sub">なかとこじゅく　塾主：松浦茂樹　令和八年五月二十五日 開塾</div>
         <p class="lead">
-          敗れた出雲族の血を引く者が、神武以前からの日本を貫く神祇の道を、<br>
-          神宮を丑寅で守る、令和の岡崎で現代に継ぎます。<br>
+          敗れた出雲族の血を引く者が、神武以前からの日本を貫く神祇の道を、
+          神宮を丑寅で守る、令和の岡崎で現代に継ぎます。
           度會神道の学びと「和儀」を通じて、<span class="em">日本人の肚を再発見する場</span>です。
         </p>
       </div>
       <div>
         <div class="header-photo">
-          <img src="photo_book.jpg" alt="塾主・松浦茂樹 倭姫命世記を手に" width="696" height="662" fetchpriority="high">
+          <img src="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg" alt="塾主・松浦茂樹 倭姫命世記を手に" width="696" height="662" fetchpriority="high">
         </div>
         <div class="header-photo-cap">塾主 松浦茂樹　倭姫命世記を手に</div>
       </div>
@@ -456,8 +520,8 @@
 
 <!-- ── 能舞台バナー ── -->
 <div style="padding:0 1.2rem 2.4rem;max-width:760px;margin:0 auto;">
-  <a href="../taiken/" style="display:block;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
-    <img src="../taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
+  <a href="https://nakatokojuku.jp/taiken/" style="display:block;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
+    <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(33,25,17,.82) 40%,rgba(33,25,17,.35) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.6rem 1.2rem;">
       <p style="margin:0 0 .3rem;color:var(--gold-soft);font-size:.7rem;letter-spacing:.3em;">中常塾 能楽堂プログラム</p>
       <p style="margin:0 0 1rem;color:#f5ede0;font-size:1.15rem;letter-spacing:.2em;font-weight:500;">能舞台で、肚が目覚める。</p>
@@ -530,7 +594,7 @@
     </div>
 
     <div class="photo-fig" style="max-width:560px;margin:1.8rem auto;">
-      <img src="photo_manuscript.jpg" alt="倭姫命世記 書写本 二十五頁 ── 波登美神の名が記された一段" width="900" height="1200" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/nakatokojuku/photo_manuscript.jpg" alt="倭姫命世記 書写本 二十五頁 ── 波登美神の名が記された一段" width="900" height="1200" loading="lazy" decoding="async">
       <div class="photo-cap">『倭姫命世記』書写本 二十五頁 ── 冒頭に「波登美神」の名が見える</div>
     </div>
   </div>
@@ -570,17 +634,17 @@
 
     <div class="photo-pair">
       <div class="photo-fig">
-        <img src="photo_hatsuhobiki.jpg" alt="神嘗祭 初穂曳き ── 懸税の稲穂を手に" width="1000" height="1333" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/nakatokojuku/photo_hatsuhobiki.jpg" alt="神嘗祭 初穂曳き ── 懸税の稲穂を手に" width="1000" height="1333" loading="lazy" decoding="async">
         <div class="photo-cap">神嘗祭 初穂曳き ── 懸税の稲穂を手に</div>
       </div>
       <div class="photo-fig">
-        <img src="photo_isawanomiya.jpg" alt="皇大神宮別宮 伊雜宮にて ── 物産調献式" width="1400" height="1050" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/nakatokojuku/photo_isawanomiya.jpg" alt="皇大神宮別宮 伊雜宮にて ── 物産調献式" width="1400" height="1050" loading="lazy" decoding="async">
         <div class="photo-cap">皇大神宮別宮 伊雜宮にて ── 物産調献式</div>
       </div>
     </div>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_kaketikara_haori.jpg" alt="懸税の掛かる御垣のもとにて" width="900" height="1567" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/nakatokojuku/photo_kaketikara_haori.jpg" alt="懸税の掛かる御垣のもとにて" width="900" height="1567" loading="lazy" decoding="async">
       <div class="photo-cap">懸税の掛かる御垣のもとにて</div>
     </div>
 
@@ -591,7 +655,7 @@
       <li><b>中常乃金神（なかとこのこんじん）</b><span>集大成・2025年2月 四日市・伊藤酒造にて醸造。塾主が齋主として『中臣祓瑞穗鈔』を奏上</span></li>
     </ul>
     <p class="body" style="margin-top:1.6rem;">
-      <a href="../goshinshu/" style="color:var(--vermilion-deep);text-decoration:none;font-size:.86rem;letter-spacing:.18em;">
+      <a href="https://nakatokojuku.jp/goshinshu/" style="color:var(--vermilion-deep);text-decoration:none;font-size:.86rem;letter-spacing:.18em;">
         ▸ 御神酒三部作　奉納の記録を読む
       </a>
     </p>
@@ -606,7 +670,7 @@
       <h2>度會神道の学びと和儀</h2>
     </div>
     <div class="wagi-photo">
-      <img src="photo_wagi.jpg" alt="能舞台での和儀稽古" width="1400" height="794" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/nakatokojuku/photo_wagi.jpg" alt="能舞台での和儀稽古" width="1400" height="794" loading="lazy" decoding="async">
       <div class="wagi-photo-cap">岡崎城二の丸能舞台にて　和儀稽古</div>
     </div>
     <p class="body">
@@ -632,16 +696,16 @@
     </p>
 
     <div class="photo-fig" style="max-width:480px;margin:1.8rem auto 0;">
-      <img src="photo_jingu_noh_shojo.jpg" alt="神宮内宮能舞台にて　酒の妖精「猩々」を奉納" width="720" height="960" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/nakatokojuku/photo_jingu_noh_shojo.jpg" alt="神宮内宮能舞台にて　酒の妖精「猩々」を奉納" width="720" height="960" loading="lazy" decoding="async">
       <div class="photo-cap">神宮内宮能舞台にて　酒の妖精「猩々」を奉納</div>
     </div>
 
     <div class="photo-fig" style="max-width:480px;margin:1.8rem auto 0;">
-      <img src="photo_menjo.jpg" alt="能舞台にて 師範免状を手に" width="1000" height="953" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/nakatokojuku/photo_menjo.jpg" alt="能舞台にて 師範免状を手に" width="1000" height="953" loading="lazy" decoding="async">
       <div class="photo-cap">能舞台にて ── 師範免状を手に</div>
     </div>
-    <a href="../taiken/" style="display:block;margin-top:2rem;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
-      <img src="../taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
+    <a href="https://nakatokojuku.jp/taiken/" style="display:block;margin-top:2rem;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
+      <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(33,25,17,.82) 40%,rgba(33,25,17,.35) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.6rem 1.2rem;">
         <p style="margin:0 0 .3rem;color:var(--gold-soft);font-size:.7rem;letter-spacing:.3em;">中常塾 能楽堂プログラム</p>
         <p style="margin:0 0 1rem;color:#f5ede0;font-size:1.15rem;letter-spacing:.2em;font-weight:500;">能舞台で、肚が目覚める。</p>
@@ -670,7 +734,7 @@
     </p>
 
     <div class="photo-fig" style="max-width:560px;margin:1.8rem auto 0;">
-      <img src="photo_toyomiyazaki.jpg" alt="史蹟・舊豐宮崎文庫の石柱の前にて 所蔵の典籍と共に" width="1000" height="750" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/nakatokojuku/photo_toyomiyazaki.jpg" alt="史蹟・舊豐宮崎文庫の石柱の前にて 所蔵の典籍と共に" width="1000" height="750" loading="lazy" decoding="async">
       <div class="photo-cap">史蹟・舊豐宮崎文庫の前にて ── 所蔵の典籍と共に</div>
     </div>
   </div>
@@ -774,7 +838,7 @@
       <a class="cta-btn" href="https://mosh.jp/nakatokojuku/articles/66137" target="_blank" rel="noopener noreferrer">
         お申し込みはこちら ▸
       </a>
-      <a class="cta-btn" href="../#contact" style="background:transparent;color:var(--ink);border-color:var(--line);">
+      <a class="cta-btn" href="https://nakatokojuku.jp/#contact" style="background:transparent;color:var(--ink);border-color:var(--line);">
         お問い合わせ
       </a>
     </div>
@@ -789,7 +853,7 @@
 
     <p style="margin-top:1.6rem;font-size:.72rem;letter-spacing:.18em;color:var(--muted);">
       倭姫命世記の書写本は
-      <a href="../bunko/" style="color:var(--vermilion-deep);text-decoration:none;">豐中常文庫</a>
+      <a href="https://nakatokojuku.jp/bunko/" style="color:var(--vermilion-deep);text-decoration:none;">豐中常文庫</a>
       にてご覧いただけます。
     </p>
   </div>
@@ -816,7 +880,7 @@
 </footer>
 
 <!-- 日本語の自然な折り返し（BudouX・自前同梱） -->
-<script src="../assets/budoux-ja.min.js" defer></script>
+<script src="https://nakatokojuku.jp/assets/budoux-ja.min.js" defer></script>
 <script>
   window.addEventListener('DOMContentLoaded', function(){
     var CJK = /[　-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/;
@@ -857,6 +921,23 @@
     }
     requestAnimationFrame(function(){ requestAnimationFrame(fixBrackets); });
   });
+</script>
+
+<script>
+(function(){
+  var sel='.section,.preface,.collection,.voices,.cta-section,.yt-section,.part-header,.mei-card,.timeline,.hero-text,.hero-relic,.header-photo-wrap,.photo-fig,.volume,.pillar-grid,.layer-grid';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.viewer');});
+  if(!els.length)return;
+  document.documentElement.classList.add('wa-anim');
+  els.forEach(function(e){e.classList.add('wa-rise');});
+  var revealAll=function(){els.forEach(function(e){e.classList.add('in');});};
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){revealAll();return;}
+  var vh=window.innerHeight||document.documentElement.clientHeight;
+  els.forEach(function(e){if(e.getBoundingClientRect().top<vh*0.92)e.classList.add('in');});
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(e){if(!e.classList.contains('in'))io.observe(e);});
+  setTimeout(function(){if(document.querySelectorAll('.wa-rise.in').length<els.length)revealAll();},1900);
+})();
 </script>
 </body>
 </html>

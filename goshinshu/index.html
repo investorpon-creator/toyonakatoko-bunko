@@ -7,7 +7,7 @@
 <meta name="description" content="イセヒカリ御神酒三部作『國靈』『みはしら』『中常乃金神』── 倭姫命世記二十五頁に典籍上の根拠を持つ御神酒奉納、十年の記録。中常塾 塾主・松浦茂樹による醸造と全国奉納の物語。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/goshinshu/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
 <meta property="og:site_name" content="中常塾">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
@@ -511,23 +511,87 @@
   budoux-ja{ display:inline; }
   .page-header h1, .sec-label h2{ text-wrap:balance; }
 </style>
+
+<style id="wa-refine">
+  :root{
+    --vermilion-soft:#bb4a3a;
+    --gold-pale:#cdb474;
+    --gold-leaf:linear-gradient(110deg,#8a6c2e 0%,#b9a05e 28%,#e6d6a4 46%,#9a7d3c 60%,#c9b072 80%,#8a6c2e 100%);
+    --wa-asanoha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Cpath d='M28 0v97M0 16.2l28 16.2 28-16.2M0 80.8l28-16.2 28 16.2M28 32.4L0 48.5v32.3M28 32.4l28 16.1v32.3M28 64.6L0 48.5M28 64.6l28-16.1M0 16.2v32.3M56 16.2v32.3'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23b9a05e' stroke-width='1.1'%3E%3Cpath d='M0 30a30 30 0 0 1 30-30 30 30 0 0 1 30 30'/%3E%3Cpath d='M0 30a21 21 0 0 1 30-21 21 21 0 0 1 30 21'/%3E%3Cpath d='M0 30a12 12 0 0 1 30-12 12 12 0 0 1 30 12'/%3E%3Cpath d='M-30 30a30 30 0 0 1 30-30M60 30a30 30 0 0 1 30-30'/%3E%3Cpath d='M-30 30a21 21 0 0 1 30-21M60 30a21 21 0 0 1 30-21'/%3E%3Cpath d='M-30 30a12 12 0 0 1 30-12M60 30a12 12 0 0 1 30-12'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .sec-label .mark,.part-seal,.mark{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion) 45%,var(--vermilion-deep))!important;
+    color:#fbeede!important;border:none!important;border-radius:3px!important;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.35),0 5px 14px -8px rgba(138,42,32,.7)!important;
+  }
+  .sec-label .mark::after,.part-seal::after,.mark::after{
+    content:"";position:absolute;inset:3px;border:1px solid rgba(255,240,220,.5);border-radius:1px;pointer-events:none;
+  }
+  .wordmark .seal-mini,footer .f-seal,.hero-relic .seal{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion-deep))!important;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.3),0 6px 16px -10px rgba(120,30,20,.6)!important;
+  }
+  .highlight{border-left:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  .offering-card::before,.volume::before{background:var(--gold-leaf)!important;}
+  .header-photo,.relic-frame,.image-frame,.photo-frame{position:relative;}
+  .header-photo::after,.relic-frame::after,.image-frame::after,.photo-frame::after{
+    content:"";position:absolute;top:-1px;left:-1px;right:-1px;height:3px;
+    background:var(--gold-leaf);z-index:2;pointer-events:none;
+  }
+  .hero-h1 em{
+    background:var(--gold-leaf);-webkit-background-clip:text;background-clip:text;
+    color:transparent!important;-webkit-text-fill-color:transparent;
+  }
+  .topbar{position:relative;}
+  .topbar::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+    background:var(--gold-leaf);opacity:.55;pointer-events:none;
+  }
+  .page-header,.hero,.book-header{position:relative;}
+  .page-header::before,.book-header::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-asanoha);
+    background-size:56px 97px;opacity:.05;pointer-events:none;
+    -webkit-mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+    mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-shippou);
+    background-size:44px 44px;opacity:.06;pointer-events:none;
+  }
+  .page-header>.wrap,.hero>.wrap,.hero>.hero-inner,.book-header>.wrap{position:relative;z-index:1;}
+  footer{position:relative;overflow:hidden;border-top:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  footer::before{
+    content:"";position:absolute;inset:0;background-image:var(--wa-seigaiha);
+    background-size:60px 30px;opacity:.06;pointer-events:none;
+    -webkit-mask-image:linear-gradient(#000,transparent 72%);mask-image:linear-gradient(#000,transparent 72%);
+  }
+  footer .wrap,footer .inner{position:relative;z-index:1;}
+  html.wa-anim .wa-rise{opacity:0;transform:translateY(22px);
+    transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1);}
+  html.wa-anim .wa-rise.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html.wa-anim .wa-rise{opacity:1!important;transform:none!important;transition:none!important;}
+  }
+</style>
 </head>
 <body>
 
 <!-- ── topbar ── -->
 <div class="topbar">
   <div class="inner">
-    <a class="wordmark" href="../">
+    <a class="wordmark" href="https://nakatokojuku.jp/">
       <span class="seal-mini">中常</span>
       中常塾
     </a>
     <nav class="topnav">
-      <a href="../nakatokojuku/">中常塾について</a>
-      <a href="../taiken/">講義・お稽古</a>
-      <a class="current" aria-current="page" href="./">御神酒三部作</a>
-      <a href="../bunko/">豐中常文庫</a>
-      <a href="../倭姫命世記/">倭姫命世記</a>
-      <a href="../#contact">お問い合わせ</a>
+      <a href="https://nakatokojuku.jp/nakatokojuku/">中常塾について</a>
+      <a href="https://nakatokojuku.jp/taiken/">講義・お稽古</a>
+      <a class="current" aria-current="page" href="https://nakatokojuku.jp/goshinshu/">御神酒三部作</a>
+      <a href="https://nakatokojuku.jp/bunko/">豐中常文庫</a>
+      <a href="https://nakatokojuku.jp/倭姫命世記/">倭姫命世記</a>
+      <a href="https://nakatokojuku.jp/#contact">お問い合わせ</a>
     </nav>
   </div>
 </div>
@@ -539,14 +603,14 @@
     <h1>三部作<br><span style="font-size:clamp(1.1rem,2.5vw,1.6rem);letter-spacing:.25em;color:var(--muted);">國靈　みはしら　中常乃金神</span></h1>
     <div class="sub">二〇一五年 ── 二〇二五年　十年の醸し</div>
     <p class="lead">
-      神宮の神嘗祭に稲穂を奉る、その稲穂を御神酒に醸す ──<br>
-      その典籍上の根拠は、<span class="em">倭姫命世記25頁</span>に刻まれています。<br>
-      大幡主の女子・乙姫が清酒を作り、御饌を奉った、あの一段に。<br>
+      神宮の神嘗祭に稲穂を奉る、その稲穂を御神酒に醸す ──
+      その典籍上の根拠は、<span class="em">倭姫命世記25頁</span>に刻まれています。
+      大幡主の女子・乙姫が清酒を作り、御饌を奉った、あの一段に。
       本頁は、その流れを現代に生きた十年の記録です。
     </p>
 
     <div class="photo-fig" style="max-width:430px;margin:2.4rem auto 0;">
-      <img src="photo_trilogy.jpg" alt="イセヒカリ御神酒三部作 みはしら・中常乃金神・國靈" width="750" height="1000" fetchpriority="high">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_trilogy.jpg" alt="イセヒカリ御神酒三部作 みはしら・中常乃金神・國靈" width="750" height="1000" fetchpriority="high">
       <div class="photo-cap">イセヒカリ御神酒三部作　みはしら ── 中常乃金神 ── 國靈</div>
     </div>
 
@@ -596,7 +660,7 @@
     </div>
 
     <div class="photo-fig" style="max-width:560px;margin:1.8rem auto;">
-      <img src="../nakatokojuku/photo_manuscript.jpg" alt="倭姫命世記 書写本 二十五頁 ── 懸税と御神酒の起源の一段" width="900" height="1200" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/nakatokojuku/photo_manuscript.jpg" alt="倭姫命世記 書写本 二十五頁 ── 懸税と御神酒の起源の一段" width="900" height="1200" loading="lazy" decoding="async">
       <div class="photo-cap">豐中常文庫所蔵『倭姫命世記』書写本 二十五頁 ── 懸税と御神酒の起源の一段</div>
     </div>
 
@@ -613,17 +677,17 @@
     </p>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_hatsuhobiki.jpg" alt="外宮神嘗祭への初穗曳き ── 白装束でイセヒカリの初穗を手に" width="1125" height="1500" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_hatsuhobiki.jpg" alt="外宮神嘗祭への初穗曳き ── 白装束でイセヒカリの初穗を手に" width="1125" height="1500" loading="lazy" decoding="async">
       <div class="photo-cap">外宮神嘗祭への初穗曳き ── 懸税奉納のようす</div>
     </div>
 
     <div class="photo-fig" style="max-width:560px;margin:1.8rem auto;">
-      <img src="photo_choken.jpg" alt="伊雜宮物産調献式 ── 鳥居の前でイセヒカリの初穗と御神酒と共に" width="1500" height="1125" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_choken.jpg" alt="伊雜宮物産調献式 ── 鳥居の前でイセヒカリの初穗と御神酒と共に" width="1500" height="1125" loading="lazy" decoding="async">
       <div class="photo-cap">伊雜宮物産調献式 ── 懸税奉納のようす</div>
     </div>
 
     <div class="photo-fig" style="max-width:480px;margin:1.8rem auto;">
-      <img src="photo_kakechikara.jpg" alt="社殿に懸け奉られた稲穂 ── 懸税" width="1000" height="1333" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_kakechikara.jpg" alt="社殿に懸け奉られた稲穂 ── 懸税" width="1000" height="1333" loading="lazy" decoding="async">
       <div class="photo-cap">社殿に懸け奉られた稲穂 ── 今に生きる懸税</div>
     </div>
     <p class="body">
@@ -687,7 +751,7 @@
     </p>
 
     <div class="photo-fig" style="max-width:420px;margin:1.8rem auto;">
-      <img src="photo_geku_first.jpg" alt="新しい外宮へ家族で初めての参拝 ── 御垣内参拝開始の初日" width="1050" height="1400" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_geku_first.jpg" alt="新しい外宮へ家族で初めての参拝 ── 御垣内参拝開始の初日" width="1050" height="1400" loading="lazy" decoding="async">
       <div class="photo-cap">新しい外宮へ、紋付袴で最初の参拝 ── 御垣内参拝開始の初日（2013年10月7日 日の出）</div>
     </div>
     <p class="body">
@@ -726,12 +790,12 @@
     </p>
 
     <div class="photo-fig" style="max-width:560px;margin:1.8rem auto;">
-      <img src="photo_asama_moon.jpg" alt="祭典の前、朝熊山に懸かる満月と眼下の街明かり" width="1500" height="947" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_asama_moon.jpg" alt="祭典の前、朝熊山に懸かる満月と眼下の街明かり" width="1500" height="947" loading="lazy" decoding="async">
       <div class="photo-cap">祭典の前、朝熊山に満月が懸かる ── 2013年11月18日 未明</div>
     </div>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_asama_sunrise.jpg" alt="朝熊山頂の夜明け ── 法螺貝と昇る朝日" width="750" height="1000" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_asama_sunrise.jpg" alt="朝熊山頂の夜明け ── 法螺貝と昇る朝日" width="750" height="1000" loading="lazy" decoding="async">
       <div class="photo-cap">朝熊山頂の夜明け ── 法螺貝と共に（2013年11月）</div>
     </div>
 
@@ -744,7 +808,7 @@
     </p>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_shichigosan.jpg" alt="息子の七五三のご奉告に伊勢神宮へ ── 家族で参拝" width="1129" height="1400" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_shichigosan.jpg" alt="息子の七五三のご奉告に伊勢神宮へ ── 家族で参拝" width="1129" height="1400" loading="lazy" decoding="async">
       <div class="photo-cap">息子の七五三のご奉告に伊勢神宮へ ── 2013年11月18日</div>
     </div>
 
@@ -800,7 +864,7 @@
     </p>
 
     <div class="photo-fig" style="max-width:480px;margin:1.8rem auto;">
-      <img src="photo_oshiraishi.jpg" alt="伊雜宮 式年遷宮 御白石持ち神事 ── 白装束でイセヒカリの稲穂を手に" width="1000" height="1000" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_oshiraishi.jpg" alt="伊雜宮 式年遷宮 御白石持ち神事 ── 白装束でイセヒカリの稲穂を手に" width="1000" height="1000" loading="lazy" decoding="async">
       <div class="photo-cap">伊雜宮 式年遷宮 御白石持ち神事 ── イセヒカリの初穗と共に（2014年11月）</div>
     </div>
 
@@ -815,7 +879,7 @@
     </p>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_kunitama.jpg" alt="御神酒『國靈』── 稲穂と度會神道大成前篇と共に" width="750" height="1000" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_kunitama.jpg" alt="御神酒『國靈』── 稲穂と度會神道大成前篇と共に" width="750" height="1000" loading="lazy" decoding="async">
       <div class="photo-cap">御神酒『國靈』── イセヒカリの稲穂、『度會神道大成 前篇』と共に</div>
     </div>
 
@@ -854,7 +918,7 @@
     </div>
 
     <div class="photo-fig" style="max-width:480px;margin:1.8rem auto;">
-      <img src="photo_koukyo.jpg" alt="皇居勤労奉仕記念 ── 平成28年5月 赤坂御用地にて" width="1000" height="1275" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_koukyo.jpg" alt="皇居勤労奉仕記念 ── 平成28年5月 赤坂御用地にて" width="1000" height="1275" loading="lazy" decoding="async">
       <div class="photo-cap">皇居勤労奉仕記念 ── 平成28年5月　赤坂御用地にて</div>
     </div>
 
@@ -937,17 +1001,17 @@
 
     <div class="photo-pair">
       <div class="photo-fig">
-        <img src="photo_kobo.jpg" alt="ほうらいせん吟醸工房前にて 仕込みの日の集合写真" width="1000" height="1333" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_kobo.jpg" alt="ほうらいせん吟醸工房前にて 仕込みの日の集合写真" width="1000" height="1333" loading="lazy" decoding="async">
         <div class="photo-cap">ほうらいせん吟醸工房にて　仕込みの日</div>
       </div>
       <div class="photo-fig">
-        <img src="photo_tank.jpg" alt="仕込みタンクの前で 神棚を仰ぐ蔵にて" width="1000" height="1392" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_tank.jpg" alt="仕込みタンクの前で 神棚を仰ぐ蔵にて" width="1000" height="1392" loading="lazy" decoding="async">
         <div class="photo-cap">神棚を仰ぐ蔵　仕込みタンクの前で</div>
       </div>
     </div>
 
     <div class="photo-fig" style="max-width:560px;margin:1.8rem auto;">
-      <img src="photo_kaiire.jpg" alt="櫂入れ ── 親子で醪をかき混ぜる" width="1000" height="1333" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_kaiire.jpg" alt="櫂入れ ── 親子で醪をかき混ぜる" width="1000" height="1333" loading="lazy" decoding="async">
       <div class="photo-cap">櫂入れ ── 親から子へ、手から手へ</div>
     </div>
 
@@ -968,7 +1032,7 @@
     </p>
 
     <div class="photo-fig" style="max-width:480px;margin:1.8rem auto;">
-      <img src="photo_heisenji.jpg" alt="平泉寺白山神社にて ── 御神酒『みはしら』奉納の記念撮影" width="1000" height="1333" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_heisenji.jpg" alt="平泉寺白山神社にて ── 御神酒『みはしら』奉納の記念撮影" width="1000" height="1333" loading="lazy" decoding="async">
       <div class="photo-cap">平泉寺白山神社にて ── 『みはしら』奉納の日</div>
     </div>
 
@@ -1034,22 +1098,22 @@
 
     <div class="photo-pair">
       <div class="photo-fig">
-        <img src="photo_mihashira.jpg" alt="御神酒『みはしら』── 稲穂を結んだ二本" width="1000" height="1333" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_mihashira.jpg" alt="御神酒『みはしら』── 稲穂を結んだ二本" width="1000" height="1333" loading="lazy" decoding="async">
         <div class="photo-cap">青く光る『みはしら』── 稲穂を結んで</div>
       </div>
       <div class="photo-fig">
-        <img src="photo_hakusan.jpg" alt="白山・高天ヶ原にて 御神酒みはしらと共に" width="1000" height="1000" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_hakusan.jpg" alt="白山・高天ヶ原にて 御神酒みはしらと共に" width="1000" height="1000" loading="lazy" decoding="async">
         <div class="photo-cap">白山・高天ヶ原にて　『みはしら』と共に</div>
       </div>
     </div>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_hakusan_ryogawa.jpg" alt="梁川和基氏と白山登拝にて奉納" width="3024" height="4032" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_hakusan_ryogawa.jpg" alt="梁川和基氏と白山登拝にて奉納" width="3024" height="4032" loading="lazy" decoding="async">
       <div class="photo-cap">梁川和基氏と白山登拝にて奉納</div>
     </div>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_izumo.jpg" alt="御神酒『みはしら』故郷出雲大社にて" width="1000" height="1778" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_izumo.jpg" alt="御神酒『みはしら』故郷出雲大社にて" width="1000" height="1778" loading="lazy" decoding="async">
       <div class="photo-cap">故郷出雲大社 ── 御神前に『みはしら』を携えて</div>
     </div>
 
@@ -1097,7 +1161,7 @@
     </div>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="photo_konjin_hounou.jpg" alt="奥出雲・須佐神社奥宮 須佐之男命御磐座の御前に奉られた御神酒『中常乃金神』と鐸" width="750" height="1000" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_konjin_hounou.jpg" alt="奥出雲・須佐神社奥宮 須佐之男命御磐座の御前に奉られた御神酒『中常乃金神』と鐸" width="750" height="1000" loading="lazy" decoding="async">
       <div class="photo-cap">奥出雲・須佐神社奥宮 須佐之男命御磐座の御前に ──『中常乃金神』2025年3月</div>
     </div>
 
@@ -1146,11 +1210,11 @@
 
     <div class="photo-pair">
       <div class="photo-fig">
-        <img src="photo_saishu.jpg" alt="齋主装束で仕込みタンクに向かう塾主" width="703" height="703" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_saishu.jpg" alt="齋主装束で仕込みタンクに向かう塾主" width="703" height="703" loading="lazy" decoding="async">
         <div class="photo-cap">齋主として ── 伊藤酒造 仕込みの場にて</div>
       </div>
       <div class="photo-fig">
-        <img src="photo_brewing.jpg" alt="蒸米 ── 湯気の立つ蔵の仕込み作業" width="900" height="1200" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_brewing.jpg" alt="蒸米 ── 湯気の立つ蔵の仕込み作業" width="900" height="1200" loading="lazy" decoding="async">
         <div class="photo-cap">蒸米 ── 湯気の立つ蔵にて</div>
       </div>
     </div>
@@ -1186,11 +1250,11 @@
 
     <div class="photo-pair">
       <div class="photo-fig">
-        <img src="photo_konjin.jpg" alt="鳥居の前で御神酒『中常乃金神』と共に" width="750" height="1000" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_konjin.jpg" alt="鳥居の前で御神酒『中常乃金神』と共に" width="750" height="1000" loading="lazy" decoding="async">
         <div class="photo-cap">『中常乃金神』と共に ── 2025年6月</div>
       </div>
       <div class="photo-fig">
-        <img src="photo_hakusanchukyo.jpg" alt="白山中居神社 拝殿にて 御神酒奉納" width="1000" height="1330" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_hakusanchukyo.jpg" alt="白山中居神社 拝殿にて 御神酒奉納" width="1000" height="1330" loading="lazy" decoding="async">
         <div class="photo-cap">白山中居神社にて ── 御神酒奉納</div>
       </div>
     </div>
@@ -1221,7 +1285,7 @@
     </p>
 
     <div class="photo-fig" style="max-width:560px;margin:1.8rem auto;">
-      <img src="photo_okihiki_group.jpg" alt="御木曳き 奉曳の仲間と ── 2026年5月31日" width="1200" height="675" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_okihiki_group.jpg" alt="御木曳き 奉曳の仲間と ── 2026年5月31日" width="1200" height="675" loading="lazy" decoding="async">
       <div class="photo-cap">外宮御木曳き　奉曳の仲間と ── 2026年5月31日</div>
     </div>
     <p class="body">
@@ -1248,11 +1312,11 @@
 
     <div class="photo-pair">
       <div class="photo-fig">
-        <img src="photo_saiden_saishi.jpg" alt="斎田の祭祀 ── 太一の御印のもとで" width="1000" height="1333" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_saiden_saishi.jpg" alt="斎田の祭祀 ── 太一の御印のもとで" width="1000" height="1333" loading="lazy" decoding="async">
         <div class="photo-cap">斎田の祭祀 ── 太一の御印のもとで（2026年4月）</div>
       </div>
       <div class="photo-fig">
-        <img src="photo_saiden_taue.jpg" alt="斎田にて ── 御田の営みは今も続く" width="1000" height="1000" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/goshinshu/photo_saiden_taue.jpg" alt="斎田にて ── 御田の営みは今も続く" width="1000" height="1000" loading="lazy" decoding="async">
         <div class="photo-cap">斎田にて ── 御田の営みは今も続く</div>
       </div>
     </div>
@@ -1296,10 +1360,10 @@
     </div>
 
     <div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
-      <a href="../nakatokojuku/" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border:1px solid var(--gold);background:var(--ink);color:var(--paper);text-decoration:none;font-size:.78rem;letter-spacing:.28em;font-family:var(--serif);transition:opacity .2s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+      <a href="https://nakatokojuku.jp/nakatokojuku/" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border:1px solid var(--gold);background:var(--ink);color:var(--paper);text-decoration:none;font-size:.78rem;letter-spacing:.28em;font-family:var(--serif);transition:opacity .2s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
         中常塾について ▸
       </a>
-      <a href="../taiken/" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border:1px solid var(--line);background:transparent;color:var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.28em;font-family:var(--serif);transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+      <a href="https://nakatokojuku.jp/taiken/" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border:1px solid var(--line);background:transparent;color:var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.28em;font-family:var(--serif);transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
         講義・稽古へ ▸
       </a>
     </div>
@@ -1349,7 +1413,7 @@
 </footer>
 
 <!-- 日本語の自然な折り返し（BudouX・自前同梱） -->
-<script src="../assets/budoux-ja.min.js" defer></script>
+<script src="https://nakatokojuku.jp/assets/budoux-ja.min.js" defer></script>
 <script>
   window.addEventListener('DOMContentLoaded', function(){
     var CJK = /[　-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/;
@@ -1390,6 +1454,23 @@
     }
     requestAnimationFrame(function(){ requestAnimationFrame(fixBrackets); });
   });
+</script>
+
+<script>
+(function(){
+  var sel='.section,.preface,.collection,.voices,.cta-section,.yt-section,.part-header,.mei-card,.timeline,.hero-text,.hero-relic,.header-photo-wrap,.photo-fig,.volume,.pillar-grid,.layer-grid';
+  var els=[].slice.call(document.querySelectorAll(sel)).filter(function(e){return !e.closest('.viewer');});
+  if(!els.length)return;
+  document.documentElement.classList.add('wa-anim');
+  els.forEach(function(e){e.classList.add('wa-rise');});
+  var revealAll=function(){els.forEach(function(e){e.classList.add('in');});};
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){revealAll();return;}
+  var vh=window.innerHeight||document.documentElement.clientHeight;
+  els.forEach(function(e){if(e.getBoundingClientRect().top<vh*0.92)e.classList.add('in');});
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(e){if(!e.classList.contains('in'))io.observe(e);});
+  setTimeout(function(){if(document.querySelectorAll('.wa-rise.in').length<els.length)revealAll();},1900);
+})();
 </script>
 </body>
 </html>
