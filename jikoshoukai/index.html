@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>塾主より ── はじめましてのお便り ── 中常塾</title>
+<meta name="description" content="中常塾 塾主・松浦茂樹より、講座の中身の前にお伝えしたい、飾らない近況のお便りです。家族との出来事、正直な胸の内、稽古での失敗談 ── 肩書の前の、ひとりの人間として。">
+<meta name="theme-color" content="#efe7d4">
+<link rel="canonical" href="https://nakatokojuku.jp/jikoshoukai/">
+<link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="中常塾">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="塾主より ── はじめましてのお便り ── 中常塾">
+<meta property="og:description" content="講座の中身の前に、飾らない私自身のことをお伝えします。家族との出来事、正直な胸の内、稽古での失敗談。">
+<meta property="og:url" content="https://nakatokojuku.jp/jikoshoukai/">
+<meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#211911;
+    --ink-soft:#3a2e20;
+    --paper:#efe7d4;
+    --paper-2:#e7dcc3;
+    --paper-card:#f7f1e4;
+    --vermilion:#a8362a;
+    --vermilion-deep:#8f2c22;
+    --gold:#9a7d3c;
+    --gold-soft:#b9a05e;
+    --muted:#6f6048;
+    --line:#cdbf9f;
+    --serif:'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--serif);
+    color:var(--ink);
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(255,255,255,.45), transparent 42%),
+      radial-gradient(circle at 82% 78%, rgba(180,150,95,.10), transparent 48%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    min-height:100vh;
+  }
+
+  .wrap{max-width:820px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);}
+
+  /* ── topbar ── */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(var(--paper),rgba(239,231,212,.55));
+    position:sticky;top:0;z-index:20;
+    backdrop-filter:blur(3px);
+  }
+  .topbar .inner{
+    max-width:1120px;margin:0 auto;padding:.55rem clamp(1.4rem,4vw,3.5rem);
+    display:flex;align-items:center;justify-content:space-between;
+    min-height:64px;gap:1rem;
+  }
+  .wordmark{
+    display:flex;align-items:center;gap:.7rem;
+    font-size:1.02rem;letter-spacing:.42em;color:var(--ink);
+    font-weight:600;text-decoration:none;white-space:nowrap;
+  }
+  .wordmark .seal-mini{
+    width:22px;height:22px;flex-shrink:0;
+    background:var(--vermilion);color:#fff;
+    font-size:9px;line-height:11px;font-weight:700;letter-spacing:0;
+    display:grid;place-content:center;text-align:center;
+    border-radius:2px;font-family:var(--serif);
+  }
+  .topnav{display:flex;gap:.6rem 1.4rem;font-size:.74rem;letter-spacing:.24em;color:var(--muted);flex-wrap:wrap;justify-content:flex-end;}
+  .topnav a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s,color .25s;white-space:nowrap;}
+  .topnav a:hover{color:var(--vermilion);border-color:var(--vermilion);}
+  .topnav a.current{color:var(--ink-soft);border-color:var(--vermilion);font-weight:600;}
+
+  /* ── ページヘッダー ── */
+  .page-header{
+    padding:clamp(3rem,7vw,5rem) 0 clamp(2rem,5vw,3.5rem);
+    border-bottom:1px solid var(--line);
+  }
+  .page-header .kicker{
+    font-size:.72rem;letter-spacing:.5em;color:var(--vermilion);
+    margin-bottom:1.4rem;
+  }
+  .page-header h1{
+    font-size:clamp(2rem,5vw,3.2rem);
+    letter-spacing:.2em;font-weight:600;line-height:1.2;
+  }
+  .page-header .sub{
+    font-size:.82rem;letter-spacing:.22em;color:var(--muted);
+    margin-top:.6rem;
+  }
+  .page-header .lead{
+    font-size:clamp(.96rem,1.4vw,1.1rem);
+    letter-spacing:.1em;line-height:2.4;
+    color:var(--ink-soft);
+    margin-top:2rem;max-width:56ch;
+    text-wrap:pretty;
+  }
+
+  /* ── セクション共通 ── */
+  .section{
+    padding:clamp(2.8rem,6vw,4.5rem) 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section:last-of-type{border-bottom:none;}
+
+  .sec-label{
+    display:flex;align-items:center;gap:.8rem;
+    margin-bottom:1.8rem;
+  }
+  .sec-label .mark{
+    width:36px;height:36px;
+    border:1px solid var(--gold);color:var(--vermilion);
+    display:grid;place-content:center;
+    font-size:.9rem;letter-spacing:0;flex-shrink:0;
+  }
+  .sec-label h2{
+    font-size:1.05rem;letter-spacing:.3em;font-weight:600;color:var(--ink);
+  }
+
+  p.body{
+    font-size:.92rem;letter-spacing:.06em;line-height:2.4;
+    color:var(--ink-soft);margin-bottom:1.2rem;
+    text-wrap:pretty;
+  }
+  p.body:last-child{margin-bottom:0;}
+
+  .em{color:var(--vermilion-deep);font-weight:600;}
+
+  .highlight{
+    background:var(--paper-card);
+    border-left:3px solid var(--gold);
+    padding:1.2rem 1.5rem;
+    margin:1.6rem 0;
+    font-size:.88rem;line-height:2.2;
+    color:var(--ink-soft);letter-spacing:.06em;
+  }
+  .highlight b{color:var(--ink);font-weight:600;}
+  .highlight .attr{
+    display:block;margin-top:.6rem;text-align:right;
+    font-size:.7rem;letter-spacing:.18em;color:var(--muted);
+  }
+
+  /* ── 署名 ── */
+  .signoff{
+    margin-top:2.4rem;padding-top:1.8rem;
+    border-top:1px dotted var(--line);
+    text-align:right;
+  }
+  .signoff .date{font-size:.74rem;letter-spacing:.2em;color:var(--muted);margin-bottom:.4rem;}
+  .signoff .name{font-size:1rem;letter-spacing:.3em;color:var(--ink);font-weight:600;}
+
+  /* CTA */
+  .cta-wrap{
+    padding:clamp(2.5rem,6vw,4rem) 0;
+    text-align:center;
+  }
+  .cta-lead{
+    font-size:.88rem;letter-spacing:.14em;line-height:2.2;
+    color:var(--ink-soft);margin-bottom:2rem;
+  }
+  .cta-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:.7rem;
+    padding:.9rem 2.2rem;
+    border:1px solid var(--gold);
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+    font-size:.8rem;letter-spacing:.3em;
+    font-family:var(--serif);
+    transition:opacity .2s;
+  }
+  .cta-btn:hover{opacity:.85;}
+  .cta-btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+
+  /* フッター SNSリンク */
+  footer .f-links{
+    display:flex;align-items:center;gap:.9rem;justify-content:center;
+    margin:.8rem 0 .4rem;flex-wrap:wrap;
+  }
+  footer .f-links a{
+    font-size:.67rem;letter-spacing:.22em;color:#7d6f56;text-decoration:none;transition:color .2s;
+  }
+  footer .f-links a:hover{color:#d9cdb4;}
+  footer .f-links span{color:#3a3326;font-size:.65rem;}
+
+  /* ── フッター ── */
+  footer{
+    background:var(--ink);color:#d9cdb4;
+    border-top:3px solid var(--gold);
+    padding:clamp(2.4rem,5vw,3.6rem) 0 2.4rem;
+  }
+  footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);text-align:center;}
+  footer .f-mark{font-size:1rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1rem;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.2;color:#a9997b;}
+  footer .f-seal{
+    display:inline-grid;grid-template-rows:1fr 1fr;
+    width:42px;height:42px;margin-top:1.6rem;
+    background:var(--vermilion);color:#fff;border-radius:3px;font-weight:700;
+  }
+  footer .f-seal span{display:grid;place-content:center;font-size:.9rem;line-height:1;}
+  footer .f-seal span:first-child{border-bottom:1px solid rgba(255,255,255,.3);}
+  footer .copy{margin-top:1.4rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}
+
+  @media (max-width:640px){
+    .wordmark{letter-spacing:.3em;}
+    .topnav{gap:.5rem 1rem;font-size:.7rem;letter-spacing:.16em;}
+  }
+</style>
+    <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
+  <!-- GoatCounter analytics -->
+  <script data-goatcounter="https://nakatokojuku.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+<style>
+  /* ── 改行の統一（PC/スマホ最適化） ── */
+  @media (max-width:600px){ br.br-pc{ display:none; }
+    p.body, .lead, h1, h2{ text-wrap: wrap !important; }  /* スマホは行を端まで詰める(greedy) */ budoux-ja{ word-break: normal !important; overflow-wrap: anywhere !important; } .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
+  budoux-ja{ display:inline; }
+  .page-header h1, .sec-label h2{ text-wrap:balance; }
+</style>
+
+<style id="wa-refine">
+  :root{
+    --vermilion-soft:#bb4a3a;
+    --gold-pale:#cdb474;
+    --gold-leaf:linear-gradient(110deg,#8a6c2e 0%,#b9a05e 28%,#e6d6a4 46%,#9a7d3c 60%,#c9b072 80%,#8a6c2e 100%);
+    --wa-asanoha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Cpath d='M28 0v97M0 16.2l28 16.2 28-16.2M0 80.8l28-16.2 28 16.2M28 32.4L0 48.5v32.3M28 32.4l28 16.1v32.3M28 64.6L0 48.5M28 64.6l28-16.1M0 16.2v32.3M56 16.2v32.3'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
+    --wa-seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23b9a05e' stroke-width='1.1'%3E%3Cpath d='M0 30a30 30 0 0 1 30-30 30 30 0 0 1 30 30'/%3E%3Cpath d='M0 30a21 21 0 0 1 30-21 21 21 0 0 1 30 21'/%3E%3Cpath d='M0 30a12 12 0 0 1 30-12 12 12 0 0 1 30 12'/%3E%3Cpath d='M-30 30a30 30 0 0 1 30-30M60 30a30 30 0 0 1 30-30'/%3E%3Cpath d='M-30 30a21 21 0 0 1 30-21M60 30a21 21 0 0 1 30-21'/%3E%3Cpath d='M-30 30a12 12 0 0 1 30-12M60 30a12 12 0 0 1 30-12'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .sec-label .mark,.mark{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion) 45%,var(--vermilion-deep))!important;
+    color:#fbeede!important;border:none!important;border-radius:3px!important;position:relative;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.35),0 5px 14px -8px rgba(138,42,32,.7)!important;
+  }
+  .sec-label .mark::after,.mark::after{
+    content:"";position:absolute;inset:3px;border:1px solid rgba(255,240,220,.5);border-radius:1px;pointer-events:none;
+  }
+  .wordmark .seal-mini,footer .f-seal{
+    background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion-deep))!important;
+    box-shadow:inset 0 0 0 1px rgba(255,240,220,.3),0 6px 16px -10px rgba(120,30,20,.6)!important;
+  }
+  .highlight{border-left:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  .topbar{position:relative;}
+  .topbar::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+    background:var(--gold-leaf);opacity:.55;pointer-events:none;
+  }
+  .page-header{position:relative;}
+  .page-header::before{
+    content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-asanoha);
+    background-size:56px 97px;opacity:.05;pointer-events:none;
+    -webkit-mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+    mask-image:linear-gradient(120deg,transparent 30%,#000 125%);
+  }
+  .page-header>.wrap{position:relative;z-index:1;}
+  footer{position:relative;overflow:hidden;border-top:3px solid transparent!important;border-image:var(--gold-leaf) 1!important;}
+  footer::before{
+    content:"";position:absolute;inset:0;background-image:var(--wa-seigaiha);
+    background-size:60px 30px;opacity:.06;pointer-events:none;
+    -webkit-mask-image:linear-gradient(#000,transparent 72%);mask-image:linear-gradient(#000,transparent 72%);
+  }
+  footer .wrap,footer .inner{position:relative;z-index:1;}
+  html.wa-anim .wa-rise{opacity:0;transform:translateY(22px);
+    transition:opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1);}
+  html.wa-anim .wa-rise.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html.wa-anim .wa-rise{opacity:1!important;transform:none!important;transition:none!important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ── topbar ── -->
+<div class="topbar">
+  <div class="inner">
+    <a class="wordmark" href="https://nakatokojuku.jp/">
+      <span class="seal-mini">中常</span>
+      中常塾
+    </a>
+    <nav class="topnav">
+      <a href="https://nakatokojuku.jp/nakatokojuku/">中常塾について</a>
+      <a class="current" aria-current="page" href="https://nakatokojuku.jp/jikoshoukai/">塾主より</a>
+      <a href="https://nakatokojuku.jp/taiken/">講義・お稽古</a>
+      <a href="https://nakatokojuku.jp/goshinshu/">御神酒三部作</a>
+      <a href="https://nakatokojuku.jp/bunko/">豐中常文庫</a>
+      <a href="https://nakatokojuku.jp/倭姫命世記/">倭姫命世記</a>
+      <a href="https://nakatokojuku.jp/#contact">お問い合わせ</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ── ページヘッダー ── -->
+<div class="page-header">
+  <div class="wrap">
+    <div class="kicker">肩 書 よ り 先 に 、 お 伝 え し た い こ と</div>
+    <h1>塾主より　── はじめましてのお便り</h1>
+    <div class="sub">中常塾　塾主：松浦茂樹</div>
+    <p class="lead">
+      中常塾に興味を持ってくださった方が、講座の中身より先に知りたいのは、
+      案外「これは、どんな人が伝えているのか」ということかもしれません。
+      由緒や肩書をお話しする前に、まずはいくつかの出来事を通じて、
+      <span class="em">飾らない私自身のこと</span>をお伝えします。
+    </p>
+  </div>
+</div>
+
+<!-- ── クリスマスの朝 ── -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">
+      <div class="mark">朝</div>
+      <h2>予定を変えた、クリスマスの朝</h2>
+    </div>
+    <p class="body">
+      息子がまだ小さかった頃、年末に家族で京都へ旅に出ました。
+      翌朝は、國常立尊をお祀りする出雲大神宮の「國祖祭」に参列しようと決めていました。
+      せっかくの機会だから、家族揃って参りたい ── そう心に決めていたのです。
+    </p>
+    <p class="body">
+      ところが出発前夜、家内からこんな提案がありました。
+    </p>
+    <div class="highlight">
+      「明日はクリスマスの朝なんだから、サンタさんのプレゼントで遊ばせてあげようよ」
+      <span class="attr">── 家内より</span>
+    </div>
+    <p class="body">
+      なるほど、と思いました。國祖祭への参列は取り止め、朝は子供がプレゼントで
+      存分に遊んで満足するまで、のんびり待つことにしました。
+    </p>
+    <p class="body">
+      すると、そうしてゆっくり過ごしていたその朝のうちに、思いがけず、
+      京都に伝わる安倍貞任（あべのさだとう）の伝説を知ることになったのです。
+      貞任は奥州安倍氏の長で、私の父方の遠い祖先にあたります。
+      予定通り朝から慌ただしく出発していたら、きっと出逢えなかった話でした。
+    </p>
+    <p class="body">
+      子供のクリスマスを優先しただけのつもりが、結果として、
+      思わぬかたちで先祖と縁を結ぶ朝になりました。
+      大きな志を追いかけているつもりでも、目の前の家族を大切にすることの方が、
+      実はいちばん近道なのかもしれない ── そう教えられた出来事でした。
+    </p>
+  </div>
+</section>
+
+<!-- ── 正直な胸の内 ── -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">
+      <div class="mark">汗</div>
+      <h2>正直に言うと、しんどいこともあります</h2>
+    </div>
+    <p class="body">
+      第63回神宮式年遷宮の「令和の御木曳（おきひき）」では、
+      盟友・梁川和基氏と共に共同代表として、120人もの団体をまとめ、
+      外宮の神様へご用材を奉曳する大役をいただきました。
+    </p>
+    <p class="body">
+      衣装が届き、開封した瞬間は身の引き締まる思いでした。
+      まさか自分がそんな役目を担うことになるとは、当時は想像もしていませんでした。
+    </p>
+    <div class="highlight">
+      当日、間違いなく大変だとは思いますが……（もう色々と十分大変だったりします、苦笑）
+    </div>
+    <p class="body">
+      正直なところ、準備の日々は決して楽ではありません。
+      それでも、こうした御役目を与えていただけること自体が、
+      何にも代えがたいご縁だと感じています。
+      「大変です」と笑って言えるくらいには、この重みを喜んで背負っていきたいと思っています。
+    </p>
+  </div>
+</section>
+
+<!-- ── 稽古での失敗談 ── -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">
+      <div class="mark">笑</div>
+      <h2>稽古で、盛大に笑われた話</h2>
+    </div>
+    <p class="body">
+      和儀（わぎ）の稽古には、「笑い」の所作を学ぶ稽古もあります。
+      能楽・狂言に伝わる、日本人らしい笑い方を身体で稽古するのです。
+    </p>
+    <p class="body">
+      先日、その稽古の様子を写真に撮っていただいたのですが ──
+      見事に失敗した瞬間が写っていて、生徒さんたちに大いに笑われてしまいました。
+      教える立場のはずが、いちばん笑われていたのは私自身、というわけです。
+    </p>
+    <p class="body">
+      それでも、こういう失敗も含めて、笑いは日本人の大切な立ち居振る舞いだと
+      あらためて実感します。中常塾の塾主も、格好つけてばかりではありません。
+      稽古場では、みなさんと一緒に、そうやって笑い合っています。
+    </p>
+  </div>
+</section>
+
+<!-- ── 締めくくり ── -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-label">
+      <div class="mark">縁</div>
+      <h2>だからこそ、お伝えしたかったこと</h2>
+    </div>
+    <p class="body">
+      日本人の肚を再発見する場でありたいと願うなら、まず私自身が、
+      飾らず肚を開いてお伝えする ── それが中常塾の在り方だと思っています。
+      由緒やルーツの物語をお読みいただく前に、まずはこうして、
+      等身大の近況からお便りをお届けしました。
+    </p>
+    <div class="signoff">
+      <div class="date">令和八年七月</div>
+      <div class="name">中常塾　塾主　松浦茂樹</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cta-wrap">
+  <div class="wrap">
+    <p class="cta-lead">
+      ここまで読んでくださり、ありがとうございます。<br class="br-pc">
+      もしよろしければ、中常塾についてもう少し覗いてみてください。
+    </p>
+    <div class="cta-links">
+      <a class="cta-btn" href="https://nakatokojuku.jp/nakatokojuku/">
+        中常塾について ▸
+      </a>
+      <a class="cta-btn ghost" href="https://nakatokojuku.jp/taiken/">
+        講義・お稽古を見る
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ── フッター ── -->
+<footer>
+  <div class="inner">
+    <div class="f-mark">中常塾</div>
+    <p class="f-line">
+      塾主 松浦茂樹　令和八年五月二十五日 開塾<br>
+      度會神道の学びと和儀を通じて、日本人の肚を再発見する場です。
+    </p>
+    <div class="f-links">
+      <a href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">YouTube</a>
+      <span>·</span>
+      <a href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener">Instagram</a>
+      <span>·</span>
+      <a href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="f-seal" aria-hidden="true"><span>中</span><span>常</span></div>
+    <div class="copy">© 中常塾</div>
+  </div>
+</footer>
+
+<!-- 日本語の自然な折り返し（BudouX・自前同梱） -->
+<script src="https://nakatokojuku.jp/assets/budoux-ja.min.js" defer></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function(){
+    var CJK = /[　-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/;
+    var sel = '.page-header .lead, p.body, .sec-label h2, .cta-lead, .f-line';
+    var wraps = [];
+    document.querySelectorAll(sel).forEach(function(el){
+      if (el.closest('budoux-ja')) return;
+      var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n, nodes = [];
+      while (n = tw.nextNode()) nodes.push(n);
+      nodes.forEach(function(t){
+        t.nodeValue = t.nodeValue.replace(/[ \t]*[\r\n]+[ \t]*/g, function(m, off, str){
+          var b = str[off-1], a = str[off+m.length];
+          return (b && a && CJK.test(b) && CJK.test(a)) ? '' : ' ';
+        });
+      });
+      if (el.querySelector('budoux-ja')) return;
+      var w = document.createElement('budoux-ja');
+      while (el.firstChild) w.appendChild(el.firstChild);
+      el.appendChild(w);
+      wraps.push(w);
+    });
+    var reBefore = /​+(?=[（(])/g;
+    var reAfter  = /([）」』】〕〉》｝)])(?!​)/g;
+    function fixBrackets(){
+      wraps.forEach(function(w){
+        var tw2 = document.createTreeWalker(w, NodeFilter.SHOW_TEXT, null), nn, ns = [];
+        while (nn = tw2.nextNode()) ns.push(nn);
+        ns.forEach(function(t){
+          var s = t.nodeValue.replace(reBefore, '').replace(reAfter, '$1​');
+          if (s !== t.nodeValue) t.nodeValue = s;
+        });
+      });
+    }
+    requestAnimationFrame(function(){ requestAnimationFrame(fixBrackets); });
+  });
+</script>
+
+<script>
+(function(){
+  var sel='.section,.page-header,.cta-wrap';
+  var els=[].slice.call(document.querySelectorAll(sel));
+  if(!els.length)return;
+  document.documentElement.classList.add('wa-anim');
+  els.forEach(function(e){e.classList.add('wa-rise');});
+  var revealAll=function(){els.forEach(function(e){e.classList.add('in');});};
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion:reduce)').matches){revealAll();return;}
+  var vh=window.innerHeight||document.documentElement.clientHeight;
+  els.forEach(function(e){if(e.getBoundingClientRect().top<vh*0.92)e.classList.add('in');});
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  els.forEach(function(e){if(!e.classList.contains('in'))io.observe(e);});
+  setTimeout(function(){if(document.querySelectorAll('.wa-rise.in').length<els.length)revealAll();},1900);
+})();
+</script>
+</body>
+</html>
