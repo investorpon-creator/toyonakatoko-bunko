@@ -66,6 +66,12 @@
   .cta-sub{margin-top:.9rem;font-size:.8rem;}
   .cta-sub a{color:var(--gold);text-decoration:none;}
   .cta-sub a:hover{color:var(--vermilion);}
+  /* photo */
+  .photo-block{margin:clamp(2rem,5vw,3rem) 0;}
+  .photo-frame{position:relative;}
+  .photo-frame img{display:block;width:100%;height:auto;border:1px solid var(--line);box-shadow:0 16px 48px -24px rgba(40,28,12,.5);filter:saturate(.88) contrast(1.03);}
+  .photo-frame::before{content:"";position:absolute;inset:7px;border:1px solid rgba(228,216,189,.7);pointer-events:none;z-index:1;}
+  .photo-cap{margin-top:.8rem;text-align:center;font-size:.63rem;letter-spacing:.26em;color:var(--muted);}
   /* footer */
   footer{background:var(--ink);color:#d9cdb4;border-top:3px solid var(--gold);padding:clamp(2.4rem,5vw,3.4rem) 0 2.4rem;margin-top:3rem;}
   footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);text-align:center;}
@@ -123,6 +129,13 @@
 
   <h2>物語は、いまも続いています</h2>
   <p class="body">この物語は、過去のものではありません。塾主・松浦茂樹は、太鼓奉納集団・八咫烏（<a class="inline" href="https://www.instagram.com/yatagarasu1906.okazaki/" target="_blank" rel="noopener">Instagram</a>）を率いる盟友・梁川和基氏とともに、古(いにしえ)の故事に沿い、御神米イセヒカリの懸税を岡崎の稲前神社へ納め、伊勢では外宮の初穂曳きに参加して、神宮最古の文書に残る<span class="em">岡崎三河からの懸税奉納を現代に復活</span>させ、いまも毎年続けています。あわせて、御鍬のふるさとである磯部の伊雜宮へも、調献(ちょうけん)のお納めを重ねています。</p>
+  <p class="body">この現代の物語の始まりにも、幕末の故事と響き合う一幕があります。<a class="inline" href="/goshinshu/">御神酒三部作</a>の最初の一本『國靈』となるイセヒカリ ── その始まりの神事は、当時の神田(しんでん)があった吉田の地で執り行われた<span class="em">「お神札(ふだ)降りの儀」</span>でした。かつて吉田に御神札が舞い降りて祭りのうずが起こったように、御神札を天から神田へお迎えする ── それは、<span class="em">現代のええじゃないかの始まり</span>だったと言えます。</p>
+  <div class="photo-block">
+    <div class="photo-frame">
+      <img src="https://nakatokojuku.jp/bunko/okazaki-to-ise/photo_ofudafuri.jpg" alt="お神札降りの儀　白装束で御神札を天に迎える塾主" width="1600" height="1200" loading="lazy" decoding="async">
+    </div>
+    <div class="photo-cap">神田のあった吉田の地にて　お神札降りの儀</div>
+  </div>
   <p class="body">磯部から岡崎へ御鍬が運ばれた道を、こんどは岡崎から磯部へ、稲穂とともに辿り返す ── 神代は遠い昔ではなく、今日のこの一日のただ中に在る。岡崎の地に立つと、その言葉が絵空事でないことが、肚の底から分かってきます。</p>
 
   <div class="cta">
