@@ -28,4 +28,20 @@
     <loc>https://nakatokojuku.jp/%E5%80%AD%E5%A7%AB%E5%91%BD%E4%B8%96%E8%A8%98/</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://nakatokojuku.jp/bunko/watarai-shinto/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nakatokojuku.jp/bunko/yamatohime/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nakatokojuku.jp/bunko/nakatoko-no-michi/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nakatokojuku.jp/bunko/okazaki-to-ise/</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>
