@@ -214,6 +214,27 @@
   footer .f-seal span:first-child{border-bottom:1px solid rgba(255,255,255,.3);}
   footer .copy{margin-top:1.4rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}
 
+  .photo-block{
+    margin:clamp(2rem,5vw,4rem) 0 0;
+  }
+  .photo-frame{
+    position:relative;
+  }
+  .photo-frame img{
+    display:block;width:100%;height:auto;
+    border:1px solid var(--line);
+    box-shadow:0 16px 48px -24px rgba(40,28,12,.5);
+    filter:saturate(.88) contrast(1.03);
+  }
+  .photo-frame::before{
+    content:"";position:absolute;inset:7px;
+    border:1px solid rgba(228,216,189,.7);pointer-events:none;z-index:1;
+  }
+  .photo-cap{
+    margin-top:.8rem;text-align:center;
+    font-size:.63rem;letter-spacing:.26em;color:var(--muted);
+  }
+
   @media (max-width:640px){
     .wordmark{letter-spacing:.3em;}
     .topnav{gap:.5rem 1rem;font-size:.7rem;letter-spacing:.16em;}
@@ -399,6 +420,12 @@
       見事に失敗した瞬間が写っていて、生徒さんたちに大いに笑われてしまいました。
       教える立場のはずが、いちばん笑われていたのは私自身、というわけです。
     </p>
+    <div class="photo-block">
+      <div class="photo-frame">
+        <img src="https://nakatokojuku.jp/jikoshoukai/photo_warai.jpg" alt="能舞台での和儀「笑い」の稽古　塾主と生徒が笑い合う一場面" width="1600" height="916" loading="lazy" decoding="async">
+      </div>
+      <div class="photo-cap">岡崎城 二の丸能楽堂にて　「笑い」の稽古の一場面</div>
+    </div>
     <p class="body">
       それでも、こういう失敗も含めて、笑いは日本人の大切な立ち居振る舞いだと
       あらためて実感します。中常塾の塾主も、格好つけてばかりではありません。
