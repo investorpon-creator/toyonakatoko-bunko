@@ -79,6 +79,12 @@
   footer .f-links a{color:#c8b994;text-decoration:none;}
   footer .copy{margin-top:1.2rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}
   @media(max-width:640px){.wordmark{letter-spacing:.3em;}.topnav{gap:.5rem 1rem;font-size:.7rem;letter-spacing:.16em;}}
+  /* スマホ時のヘッダー配置（全ページ統一） */
+  @media (max-width:640px){
+    .topbar .inner,.topbar .wrap{min-height:56px;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem;gap:.3rem 1rem;}
+    .wordmark{letter-spacing:.3em;}
+    .topnav{gap:.7rem 1.1rem;font-size:.7rem;letter-spacing:.16em;justify-content:flex-end;}
+  }
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

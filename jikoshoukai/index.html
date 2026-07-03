@@ -298,6 +298,12 @@
   @media(prefers-reduced-motion:reduce){
     html.wa-anim .wa-rise{opacity:1!important;transform:none!important;transition:none!important;}
   }
+  /* スマホ時のヘッダー配置（全ページ統一） */
+  @media (max-width:640px){
+    .topbar .inner,.topbar .wrap{min-height:56px;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem;gap:.3rem 1rem;}
+    .wordmark{letter-spacing:.3em;}
+    .topnav{gap:.7rem 1.1rem;font-size:.7rem;letter-spacing:.16em;justify-content:flex-end;}
+  }
 </style>
 </head>
 <body>
