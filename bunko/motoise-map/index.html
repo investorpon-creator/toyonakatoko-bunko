@@ -135,8 +135,9 @@
   <h2>御巡幸の行程 ──『倭姫命世記』より</h2>
   <ol class="route" id="routelist"></ol>
 
-  <h2>元伊勢ではないけれど ── 倭姫宮</h2>
+  <h2>元伊勢ではないけれど ── 倭姫宮と伊雜宮</h2>
   <p class="body">道行きの主・倭姫命をお祀りする<span class="em">倭姫宮</span>（神宮別宮・三重県伊勢市楠部町）は、大正十二年の御創建で、『倭姫命世記』に出てくる元伊勢ではありません。けれど、この物語を胸に元伊勢をたどる旅の結びに詣でたいお宮として、地図には<span class="em">「姫」の印</span>で併せて載せています。</p>
+  <p class="body">もう一宮は、志摩磯部の<span class="em">伊雜宮(いざわのみや)</span>（神宮別宮・遙宮）。五十鈴の宮の御鎮座の後、倭姫命が志摩国を巡られた折に定められ、伊佐波登美神(いさわとみのかみ)が造営したと『倭姫命世記』は伝えます。元伊勢ではありませんが、物語の続きに登場する宮として<span class="em">「雜」の印</span>で載せました。この宮から御鍬(おくわ)が三河へ運ばれた後日譚は、<a class="inline" href="/bunko/okazaki-to-ise/">岡崎と伊勢 ── 御鍬祭りと懸税の物語</a>でどうぞ。</p>
 
   <p class="body">道行きの果てに、倭姫命は五十鈴の川上で神託を受けます ── <span class="em">「この国に居(を)らむと欲(おも)ふ」</span>。ここではないどこかを探し続けた長い旅が、「ここに居よう」の一言で結ばれる。この物語のあらすじと味わいどころは、<a class="inline" href="/bunko/yamatohime/">倭姫命世記をやさしく</a>でご覧いただけます。塾主が所蔵する出口延佳の直筆校合本の全頁は<a class="inline" href="/倭姫命世記/">こちら</a>です。</p>
 
@@ -191,8 +192,11 @@ var SPOTS = [
  ["皇大神宮（内宮）","五十鈴宮 ── 御鎮座の地","「この国に居らむと欲ふ」── 道行きの結び","三重県伊勢市宇治館町",34.455049,136.725312,true]
 ];
 
-// 番外：倭姫命世記に出てくる元伊勢ではないが、倭姫命をお祀りする宮
-var HIME = ["倭姫宮","倭姫命をお祀りする宮","大正十二年御創建・神宮の別宮。『倭姫命世記』の元伊勢ではありませんが、道行きの主をお祀りする宮として併せて載せています","三重県伊勢市楠部町",34.485889,136.722833];
+// 番外：元伊勢ではないが、この物語とともに訪ねたい宮々
+var EXTRAS = [
+ ["倭姫宮","姫","倭姫命をお祀りする宮","大正十二年御創建・神宮の別宮。『倭姫命世記』の元伊勢ではありませんが、道行きの主をお祀りする宮として併せて載せています","三重県伊勢市楠部町",34.485889,136.722833],
+ ["伊雜宮","雜","志摩国 一之宮 ── 神宮別宮・遙宮(とおのみや)","御鎮座の後、倭姫命が志摩国を巡られた折に定められ、伊佐波登美神(いさわとみのかみ)が造営したと『倭姫命世記』に伝わる宮。元伊勢ではありませんが、物語の続きに登場します","三重県志摩市磯部町上之郷",34.380278,136.808889]
+];
 
 var map = L.map('map', {scrollWheelZoom:false});
 L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
@@ -228,12 +232,14 @@ SPOTS.forEach(function(s, i){
 // 巡幸の道筋（伝承候補を含め、行程順に繋ぐ）
 L.polyline(latlngs, {color:'#a8362a', weight:2.5, opacity:.65, dashArray:'6 8'}).addTo(map);
 
-// 倭姫宮（番外・「姫」の印）
-var himeIcon = L.divIcon({className:'', html:'<div class="mk hime">姫</div>', iconSize:[26,26], iconAnchor:[13,13]});
-var himeMarker = L.marker([HIME[4], HIME[5]], {icon: himeIcon}).addTo(map);
-himeMarker.bindPopup('<div><b>'+HIME[0]+'</b><br><span class="pp-miya">'+HIME[1]+'</span><br>'+HIME[2]+'<br><span class="pp-place">'+HIME[3]+'</span></div>');
-himeMarker.bindTooltip(HIME[0], {permanent:true, direction:'right', offset:[14,0], className:'shrine-label'});
-latlngs.push([HIME[4], HIME[5]]);
+// 番外の宮々（番号なしの印）
+EXTRAS.forEach(function(e){
+  var icon = L.divIcon({className:'', html:'<div class="mk hime">'+e[1]+'</div>', iconSize:[26,26], iconAnchor:[13,13]});
+  var m = L.marker([e[5], e[6]], {icon: icon}).addTo(map);
+  m.bindPopup('<div><b>'+e[0]+'</b><br><span class="pp-miya">'+e[2]+'</span><br>'+e[3]+'<br><span class="pp-place">'+e[4]+'</span></div>');
+  m.bindTooltip(e[0], {permanent:true, direction:'right', offset:[14,0], className:'shrine-label'});
+  latlngs.push([e[5], e[6]]);
+});
 
 map.fitBounds(L.latLngBounds(latlngs).pad(0.08));
 
