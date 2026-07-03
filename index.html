@@ -33,6 +33,7 @@
     --serif:'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
     --gold-leaf:linear-gradient(110deg,#8a6c2e 0%,#b9a05e 28%,#e6d6a4 46%,#9a7d3c 60%,#c9b072 80%,#8a6c2e 100%);
     --asanoha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Cpath d='M28 0v97M0 16.2l28 16.2 28-16.2M0 80.8l28-16.2 28 16.2M28 32.4L0 48.5v32.3M28 32.4l28 16.1v32.3M28 64.6L0 48.5M28 64.6l28-16.1M0 16.2v32.3M56 16.2v32.3'/%3E%3C/g%3E%3C/svg%3E");
+    --shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
     --shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1.1'%3E%3Ccircle cx='0' cy='24' r='17'/%3E%3Ccircle cx='48' cy='24' r='17'/%3E%3Ccircle cx='24' cy='0' r='17'/%3E%3Ccircle cx='24' cy='48' r='17'/%3E%3Ccircle cx='24' cy='24' r='17'/%3E%3C/g%3E%3C/svg%3E");
     --seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23b9a05e' stroke-width='1.1'%3E%3Cpath d='M0 30a30 30 0 0 1 30-30 30 30 0 0 1 30 30'/%3E%3Cpath d='M0 30a21 21 0 0 1 30-21 21 21 0 0 1 30 21'/%3E%3Cpath d='M0 30a12 12 0 0 1 30-12 12 12 0 0 1 30 12'/%3E%3Cpath d='M-30 30a30 30 0 0 1 30-30M60 30a30 30 0 0 1 30-30'/%3E%3Cpath d='M-30 30a21 21 0 0 1 30-21M60 30a21 21 0 0 1 30-21'/%3E%3Cpath d='M-30 30a12 12 0 0 1 30-12M60 30a12 12 0 0 1 30-12'/%3E%3C/g%3E%3C/svg%3E");
   }
@@ -95,7 +96,7 @@
   .hero-stage .scrim{position:absolute;inset:0;background:
       linear-gradient(180deg, rgba(20,14,9,.42) 0%, rgba(20,14,9,.12) 30%, rgba(20,14,9,.34) 64%, rgba(18,12,8,.86) 100%),
       linear-gradient(90deg, rgba(18,12,8,.62) 0%, rgba(18,12,8,.14) 42%, transparent 72%);}
-  .hero-stage .asanoha-ov{position:absolute;inset:0;background-image:var(--asanoha);background-size:56px 97px;opacity:.10;mix-blend-mode:overlay;pointer-events:none;}
+  .hero-stage .asanoha-ov{position:absolute;inset:0;background-image:var(--shippou);background-size:44px 44px;opacity:.10;mix-blend-mode:overlay;pointer-events:none;}
   .hero-stage .foil-top{position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold-leaf);opacity:.9;z-index:3;}
 
   /* 縦書きの大字「中常塾」 */
@@ -116,7 +117,7 @@
 
   /* 下段：紙面のリード＋CTA */
   .hero-body{position:relative;padding:clamp(2.6rem,5vw,3.8rem) 0 clamp(2.4rem,5vw,3.6rem);}
-  .hero-body::before{content:"";position:absolute;inset:0;background-image:var(--asanoha);background-size:56px 97px;opacity:.045;pointer-events:none;-webkit-mask-image:linear-gradient(120deg,transparent 35%,#000 130%);mask-image:linear-gradient(120deg,transparent 35%,#000 130%);}
+  .hero-body::before{content:"";position:absolute;inset:0;background-image:var(--shippou);background-size:44px 44px;opacity:.045;pointer-events:none;-webkit-mask-image:linear-gradient(120deg,transparent 35%,#000 130%);mask-image:linear-gradient(120deg,transparent 35%,#000 130%);}
   .hero-body .wrap{position:relative;z-index:1;}
   .hero-lead{font-size:clamp(.98rem,1.4vw,1.12rem);letter-spacing:.1em;line-height:2.5;color:var(--ink-soft);max-width:54ch;text-wrap:pretty;}
   .em{color:var(--vermilion-deep);font-weight:600;}

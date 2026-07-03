@@ -27,6 +27,7 @@
     --ink:#211911;--ink-soft:#3a2e20;--paper:#efe7d4;--paper-card:#f7f1e4;
     --vermilion:#a8362a;--vermilion-deep:#8f2c22;--gold:#9a7d3c;--gold-soft:#b9a05e;
     --muted:#6f6048;--line:#cdbf9f;--serif:'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -45,7 +46,11 @@
   .topnav a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s,color .25s;white-space:nowrap;}
   .topnav a:hover{color:var(--vermilion);border-color:var(--vermilion);}
   /* article */
-  article{padding:clamp(2.4rem,6vw,4rem) 0 1rem;}
+  /* page head (七宝繋ぎ) */
+  .page-head{position:relative;padding:clamp(2.4rem,6vw,4rem) 0 clamp(1.6rem,4vw,2.4rem);}
+  .page-head::before{content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-shippou);background-size:44px 44px;opacity:.06;pointer-events:none;}
+  .page-head>.wrap{position:relative;z-index:1;}
+  article{padding:0 0 1rem;}
   .kicker{font-size:.72rem;letter-spacing:.42em;color:var(--vermilion);margin-bottom:1.2rem;}
   .crumb{font-size:.72rem;letter-spacing:.14em;color:var(--muted);margin-bottom:1.6rem;}
   .crumb a{color:var(--gold);text-decoration:none;}
@@ -95,12 +100,17 @@
   </div>
 </div>
 
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker">豐中常文庫 ── 解説</div>
+    <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 度會神道とは</nav>
+    <h1>度會神道とは<br>── 中常塾の学びの土台</h1>
+    <p class="lead">忙しい毎日のなかで、ふと「自分の真ん中」を見失いそうになる ── そんな時、千年を超えて受け継がれてきた一本の道が、静かな手がかりになります。神代は遠い昔ではなく、今日のこの一日のただ中に在る。そう伝えてくれるのが、度會神道（わたらいしんとう）です。伊勢神宮の外宮に伝わる神道で、伊勢神道とも呼ばれます。</p>
+  </div>
+</div>
+
 <div class="wrap">
 <article>
-  <div class="kicker">豐中常文庫 ── 解説</div>
-  <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 度會神道とは</nav>
-  <h1>度會神道とは<br>── 中常塾の学びの土台</h1>
-  <p class="lead">忙しい毎日のなかで、ふと「自分の真ん中」を見失いそうになる ── そんな時、千年を超えて受け継がれてきた一本の道が、静かな手がかりになります。神代は遠い昔ではなく、今日のこの一日のただ中に在る。そう伝えてくれるのが、度會神道（わたらいしんとう）です。伊勢神宮の外宮に伝わる神道で、伊勢神道とも呼ばれます。</p>
 
   <h2>何を説く神道なのか</h2>
   <p class="body">度會神道は、天地のはじめに在(ま)す根源の神 ── 天御中主神(あめのみなかぬしのかみ)・国常立尊(くにとこたちのみこと) ── を世界の中心に据えます。そして「神(かむ)ながらの道は、日本そのものの道である」と説きます。</p>
