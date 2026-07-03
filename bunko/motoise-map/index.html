@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>倭姫命の御巡幸マップ ── 元伊勢を地図でたどる｜豐中常文庫・私塾 中常塾</title>
+<meta name="description" content="『倭姫命世記』に記された御巡幸の宮々（元伊勢）の伝承地を、実際の地図に巡幸の順でプロットしました。大和の笠縫邑から五十鈴の宮まで、倭姫命の道行きを目でたどれます。">
+<meta name="theme-color" content="#efe7d4">
+<link rel="canonical" href="https://nakatokojuku.jp/bunko/motoise-map/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="豐中常文庫 ── 私塾 中常塾">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="倭姫命の御巡幸マップ ── 元伊勢を地図でたどる">
+<meta property="og:description" content="『倭姫命世記』の宮々（元伊勢）の伝承地を、実際の地図に巡幸順でプロット。倭姫命の道行きを目でたどれます。">
+<meta property="og:url" content="https://nakatokojuku.jp/bunko/motoise-map/">
+<meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+  :root{
+    --ink:#211911;--ink-soft:#3a2e20;--paper:#efe7d4;--paper-card:#f7f1e4;
+    --vermilion:#a8362a;--vermilion-deep:#8f2c22;--gold:#9a7d3c;--gold-soft:#b9a05e;
+    --muted:#6f6048;--line:#cdbf9f;--serif:'Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--serif);color:var(--ink);background-color:var(--paper);
+    background-image:radial-gradient(circle at 18% 12%,rgba(255,255,255,.45),transparent 42%),radial-gradient(circle at 82% 78%,rgba(180,150,95,.10),transparent 48%);
+    line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);}
+  .topbar{border-bottom:1px solid var(--line);background:linear-gradient(var(--paper),rgba(239,231,212,.55));position:sticky;top:0;z-index:1100;backdrop-filter:blur(3px);}
+  .topbar .inner{max-width:1120px;margin:0 auto;padding:.55rem clamp(1.4rem,4vw,3rem);display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:1rem;}
+  .wordmark{display:flex;align-items:center;gap:.7rem;font-size:1.02rem;letter-spacing:.42em;color:var(--ink);font-weight:600;text-decoration:none;white-space:nowrap;}
+  .seal-mini{width:22px;height:22px;flex-shrink:0;background:var(--vermilion);color:#fff;font-size:9px;line-height:11px;font-weight:700;letter-spacing:0;display:grid;place-content:center;text-align:center;border-radius:2px;}
+  .topnav{display:flex;gap:.6rem 1.5rem;font-size:.74rem;letter-spacing:.22em;color:var(--muted);flex-wrap:wrap;justify-content:flex-end;}
+  .topnav a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s,color .25s;white-space:nowrap;}
+  .topnav a:hover{color:var(--vermilion);border-color:var(--vermilion);}
+  /* page head (七宝繋ぎ) */
+  .page-head{position:relative;padding:clamp(2.4rem,6vw,4rem) 0 clamp(1.6rem,4vw,2.4rem);}
+  .page-head::before{content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-shippou);background-size:44px 44px;opacity:.06;pointer-events:none;}
+  .page-head>.wrap{position:relative;z-index:1;}
+  article{padding:0 0 1rem;}
+  .kicker{font-size:.72rem;letter-spacing:.42em;color:var(--vermilion);margin-bottom:1.2rem;}
+  .crumb{font-size:.72rem;letter-spacing:.14em;color:var(--muted);margin-bottom:1.6rem;}
+  .crumb a{color:var(--gold);text-decoration:none;}
+  .crumb a:hover{color:var(--vermilion);}
+  h1{font-size:clamp(1.8rem,4.5vw,2.7rem);letter-spacing:.12em;font-weight:600;line-height:1.4;margin-bottom:1rem;text-wrap:balance;}
+  .lead{font-size:clamp(.96rem,1.4vw,1.08rem);letter-spacing:.08em;line-height:2.2;color:var(--ink-soft);margin:1.6rem 0 1rem;text-wrap:pretty;}
+  h2{font-size:clamp(1.15rem,2.2vw,1.4rem);letter-spacing:.1em;font-weight:600;color:var(--vermilion-deep);margin:2.6rem 0 1rem;padding-left:.8rem;border-left:4px solid var(--gold);}
+  p.body{font-size:1rem;letter-spacing:.04em;line-height:2.15;margin:0 0 1.3rem;color:var(--ink);}
+  .em{color:var(--vermilion-deep);font-weight:600;}
+  a.inline{color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid var(--gold-soft);}
+  a.inline:hover{border-color:var(--vermilion-deep);}
+  /* map */
+  .map-frame{position:relative;border:1px solid var(--line);box-shadow:0 16px 48px -24px rgba(40,28,12,.5);margin:1.6rem 0 .6rem;}
+  #map{height:clamp(420px,72vh,680px);width:100%;background:#e8e4da;}
+  .map-note{font-size:.74rem;line-height:1.9;color:var(--muted);letter-spacing:.05em;margin-bottom:1.6rem;}
+  /* マーカー */
+  .mk{display:grid;place-content:center;width:26px;height:26px;border-radius:50%;background:var(--vermilion);color:#fff;font-family:var(--serif);font-size:.78rem;font-weight:700;border:2px solid #f7efe0;box-shadow:0 2px 8px rgba(30,20,10,.45);}
+  .mk.goal{background:#8a6d2f;}
+  .shrine-label{background:rgba(247,241,228,.92);border:1px solid var(--line);border-radius:3px;color:var(--ink);font-family:var(--serif);font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:2px 7px;box-shadow:0 2px 6px rgba(30,20,10,.25);white-space:nowrap;}
+  .leaflet-tooltip.shrine-label::before{display:none;}
+  .leaflet-popup-content-wrapper{background:var(--paper-card);color:var(--ink);font-family:var(--serif);border-radius:4px;border:1px solid var(--line);}
+  .leaflet-popup-content{margin:.9rem 1.1rem;line-height:1.9;font-size:.86rem;}
+  .pp-miya{color:var(--vermilion-deep);font-weight:600;}
+  .pp-place{font-size:.76rem;color:var(--muted);}
+  /* 行程リスト */
+  ol.route{margin:0 0 1.5rem;padding-left:0;list-style:none;counter-reset:rt;}
+  ol.route li{position:relative;padding:.35rem 0 .35rem 3rem;font-size:.95rem;letter-spacing:.04em;line-height:1.9;border-bottom:1px dashed var(--line);counter-increment:rt;}
+  ol.route li::before{content:counter(rt);position:absolute;left:.4rem;top:.55rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--vermilion);color:#fff;display:grid;place-content:center;font-size:.78rem;font-weight:700;}
+  ol.route li.goal::before{background:#8a6d2f;}
+  ol.route .miya{color:var(--vermilion-deep);font-weight:600;}
+  ol.route .pl{font-size:.78rem;color:var(--muted);}
+  .cta{background:var(--paper-card);border:1px solid var(--line);border-top:2px solid var(--vermilion);padding:1.6rem 1.6rem;margin:2.8rem 0 1rem;text-align:center;}
+  .cta p{font-size:.92rem;line-height:1.9;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
+  .cta-btn{display:inline-block;background:var(--vermilion);color:#f7efe2;text-decoration:none;font-size:.92rem;font-weight:600;letter-spacing:.12em;padding:.8rem 2rem;border-radius:4px;}
+  .cta-btn:hover{background:var(--vermilion-deep);}
+  .cta-sub{margin-top:.9rem;font-size:.8rem;}
+  .cta-sub a{color:var(--gold);text-decoration:none;}
+  .cta-sub a:hover{color:var(--vermilion);}
+  footer{background:var(--ink);color:#d9cdb4;border-top:3px solid var(--gold);padding:clamp(2.4rem,5vw,3.4rem) 0 2.4rem;margin-top:3rem;}
+  footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);text-align:center;}
+  footer .f-mark{font-size:1rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1rem;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.2;color:#a9997b;}
+  footer .f-links{display:flex;gap:.9rem;justify-content:center;margin:1rem 0 .4rem;flex-wrap:wrap;font-size:.72rem;}
+  footer .f-links a{color:#c8b994;text-decoration:none;}
+  footer .copy{margin-top:1.2rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}
+  @media(max-width:640px){.wordmark{letter-spacing:.3em;}.topnav{gap:.5rem 1rem;font-size:.7rem;letter-spacing:.16em;}}
+</style>
+<script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
+<script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <a class="wordmark" href="/"><span class="seal-mini">中常</span>私塾 中常塾</a>
+    <nav class="topnav">
+      <a href="/nakatokojuku/">中常塾について</a>
+      <a href="/jikoshoukai/">塾主より</a>
+      <a href="/taiken/">講義・お稽古</a>
+      <a href="/yamatohime-online/">オンライン私塾</a>
+      <a href="/goshinshu/">御神酒三部作</a>
+      <a href="/bunko/">豐中常文庫</a>
+      <a href="/倭姫命世記/">倭姫命世記</a>
+    </nav>
+  </div>
+</div>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker">豐中常文庫 ── 地図でよむ</div>
+    <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 倭姫命の御巡幸マップ</nav>
+    <h1>倭姫命の御巡幸マップ<br>── 元伊勢を地図でたどる</h1>
+    <p class="lead">あなたの住む町の近くを、二千年前に神様の行列が通ったかもしれません。天照大神の鎮まる地を求めて大和の笠縫邑(かさぬいのむら)を発ち、伊賀・近江・美濃・尾張をめぐって伊勢の五十鈴川へ ──『倭姫命世記(やまとひめのみことせいき)』に記されたこの道行きの宮々は<span class="em">「元伊勢」</span>と呼ばれ、いまも各地の神社にその伝承が息づいています。実際の地図の上で、御巡幸の順にたどってみてください。</p>
+  </div>
+</div>
+
+<div class="wrap">
+<article>
+
+  <div class="map-frame">
+    <div id="map"></div>
+  </div>
+  <p class="map-note">地図上の番号は御巡幸の順です。印を押すと、宮の名と伝承地が表示されます。比定社（どの神社がその宮にあたるか）には古来諸説があり、本図は代表的な伝承社を掲げました。一つの宮に複数の伝承社がある場合は並べて示しています。印の位置は一部およその場所です。</p>
+
+  <h2>御巡幸の行程 ──『倭姫命世記』より</h2>
+  <ol class="route" id="routelist"></ol>
+
+  <p class="body">道行きの果てに、倭姫命は五十鈴の川上で神託を受けます ── <span class="em">「この国に居(を)らむと欲(おも)ふ」</span>。ここではないどこかを探し続けた長い旅が、「ここに居よう」の一言で結ばれる。この物語のあらすじと味わいどころは、<a class="inline" href="/bunko/yamatohime/">倭姫命世記をやさしく</a>でご覧いただけます。塾主が所蔵する出口延佳の直筆校合本の全頁は<a class="inline" href="/倭姫命世記/">こちら</a>です。</p>
+
+  <div class="cta">
+    <p>この道行きを、三百五十年前の直筆校合本そのままの姿で、塾主とともにたどる ──<br>「オンライン私塾 中常塾」倭姫命世記オンライン講義の準備がはじまっています。</p>
+    <a class="cta-btn" href="/yamatohime-online/">オンライン講義の先行御案内へ ▸</a>
+    <p class="cta-sub"><a href="/bunko/yamatohime/">▶ 倭姫命世記をやさしく</a>　／　<a href="/bunko/">▶ 豐中常文庫</a>　／　<a href="/#tsunagaru">▶ 中常だよりを受け取る</a></p>
+  </div>
+
+</article>
+</div>
+
+<footer>
+  <div class="inner">
+    <div class="f-mark">私塾 中常塾</div>
+    <p class="f-line">塾主 松浦茂樹　令和八年五月二十五日 開塾<br>度會神道の学びと和儀を通じて、日本人の肚を再発見する場です。</p>
+    <div class="f-links">
+      <a href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="copy">© 私塾 中常塾</div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+// 巡幸データ：[名称, 宮名, 注記, 所在地, 緯度, 経度, goal?]
+var SPOTS = [
+ ["大神神社","倭笠縫邑・御室嶺上宮","豊鍬入姫命より倭姫命が御杖代を継いだ、旅の始まりの地。三輪山の麓（檜原神社の伝承も）","奈良県桜井市三輪",34.528753,135.851757],
+ ["阿紀神社","宇多秋宮(うだのあきのみや)","","奈良県宇陀市大宇陀",34.478250,135.923967],
+ ["篠畑神社","佐佐波多宮(ささはたのみや)","","奈良県宇陀市榛原",34.550495,135.990021],
+ ["宇流冨志禰神社","隠市守宮(なばりのいちもりのみや)","","三重県名張市平尾",34.619051,136.093175],
+ ["神戸神社","穴穂宮(あなほのみや)","","三重県伊賀市上神戸",34.679256,136.138290],
+ ["都美恵神社","敢都美恵宮(あえのとみえのみや)","","三重県伊賀市柘植町",34.843061,136.246923],
+ ["日雲神社","甲可日雲宮(こうかのひくものみや)","","滋賀県甲賀市信楽町",34.907889,136.083361],
+ ["坂田神明宮","坂田宮(さかたのみや)","","滋賀県米原市宇賀野",35.337389,136.287222],
+ ["天神神社","伊久良河宮(いくらがわのみや)","","岐阜県瑞穂市居倉",35.419563,136.642731],
+ ["酒見神社","中嶋宮(なかしまのみや)","","愛知県一宮市今伊勢町",35.315889,136.795194],
+ ["野志里神社","桑名野代宮(くわなのぬしろのみや)","","三重県桑名市多度町",35.118333,136.645833],
+ ["神館神社","桑名野代宮 伝承候補","","三重県桑名市江場",35.051224,136.692200],
+ ["布氣皇館太神社","奈其波志忍山宮 伝承候補","","三重県亀山市布気町",34.857731,136.428564],
+ ["忍山神社","奈其波志忍山宮(なごはしのおしやまのみや)","","三重県亀山市野村",34.854775,136.437022],
+ ["加良比乃神社","阿佐加藤方片樋宮(あさかのふぢかたのかたひのみや)","","三重県津市藤方",34.690361,136.516327],
+ ["阿射加神社","阿佐加藤方片樋宮 伝承候補","","三重県松阪市大阿坂町",34.599957,136.469986],
+ ["飯野高宮神山神社","飯野高宮(いいののたかみや)","","三重県松阪市山添町",34.525194,136.569611],
+ ["神戸神館神明社","飯野高宮 伝承候補","","三重県松阪市下村町",34.553167,136.549889],
+ ["竹佐々夫江神社","佐佐牟江宮(ささむえのみや)","","三重県多気郡明和町",34.569733,136.646149],
+ ["磯神社","伊蘇宮(いそのみや)","","三重県伊勢市磯町",34.519694,136.701194],
+ ["瀧原宮","瀧原宮(たきはらのみや)","遙宮(とおのみや)として今も神宮の別宮","三重県度会郡大紀町",34.366111,136.425833],
+ ["皇大神宮（内宮）","五十鈴宮 ── 御鎮座の地","「この国に居らむと欲ふ」── 道行きの結び","三重県伊勢市宇治館町",34.455049,136.725312,true],
+ ["倭姫宮","倭姫命をお祀りする宮","大正十二年創建・神宮の別宮","三重県伊勢市楠部町",34.485889,136.722833,true]
+];
+
+var map = L.map('map', {scrollWheelZoom:false});
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+  attribution: '地図：<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>',
+  maxZoom: 17
+}).addTo(map);
+
+var latlngs = [];
+var listEl = document.getElementById('routelist');
+SPOTS.forEach(function(s, i){
+  var num = i + 1;
+  var ll = [s[4], s[5]];
+  latlngs.push(ll);
+  var goal = !!s[6];
+  var icon = L.divIcon({className:'', html:'<div class="mk'+(goal?' goal':'')+'">'+num+'</div>', iconSize:[26,26], iconAnchor:[13,13]});
+  var m = L.marker(ll, {icon: icon}).addTo(map);
+  var pop = '<div><b>'+s[0]+'</b><br><span class="pp-miya">'+s[1]+'</span>'
+          + (s[2] ? '<br>'+s[2] : '')
+          + '<br><span class="pp-place">'+s[3]+'</span></div>';
+  m.bindPopup(pop);
+  var dir = (i % 2 === 0) ? 'right' : 'left';
+  m.bindTooltip(s[0], {permanent:true, direction:dir, offset:[dir==='right'?14:-14,0], className:'shrine-label'});
+  var li = document.createElement('li');
+  if (goal) li.className = 'goal';
+  li.innerHTML = '<b>'+s[0]+'</b>　<span class="miya">'+s[1]+'</span>'
+               + (s[2] ? '<br>'+s[2] : '')
+               + '<br><span class="pl">'+s[3]+'</span>';
+  li.addEventListener('click', function(){ map.setView(ll, 13); m.openPopup(); window.scrollTo({top:0, behavior:'smooth'}); });
+  li.style.cursor = 'pointer';
+  listEl.appendChild(li);
+});
+
+// 巡幸の道筋（伝承候補を含め、行程順に繋ぐ）
+L.polyline(latlngs.slice(0, 22), {color:'#a8362a', weight:2.5, opacity:.65, dashArray:'6 8'}).addTo(map);
+
+map.fitBounds(L.latLngBounds(latlngs).pad(0.08));
+
+// 引きの表示でも神社名が読めるよう、狭い画面のみ低ズームでラベルを畳む
+function updateLabels(){
+  var show = map.getZoom() >= (window.innerWidth < 640 ? 9 : 8);
+  document.querySelectorAll('.shrine-label').forEach(function(el){ el.style.display = show ? '' : 'none'; });
+}
+map.on('zoomend', updateLabels);
+updateLabels();
+</script>
+
+</body>
+</html>
