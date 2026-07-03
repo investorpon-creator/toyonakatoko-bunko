@@ -65,6 +65,7 @@
   /* マーカー */
   .mk{display:grid;place-content:center;width:26px;height:26px;border-radius:50%;background:var(--vermilion);color:#fff;font-family:var(--serif);font-size:.78rem;font-weight:700;border:2px solid #f7efe0;box-shadow:0 2px 8px rgba(30,20,10,.45);}
   .mk.goal{background:#8a6d2f;}
+  .mk.hime{background:#f7efe0;color:var(--vermilion-deep);border:2px solid var(--vermilion);font-size:.72rem;}
   .shrine-label{background:rgba(247,241,228,.92);border:1px solid var(--line);border-radius:3px;color:var(--ink);font-family:var(--serif);font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:2px 7px;box-shadow:0 2px 6px rgba(30,20,10,.25);white-space:nowrap;}
   .leaflet-tooltip.shrine-label::before{display:none;}
   .leaflet-popup-content-wrapper{background:var(--paper-card);color:var(--ink);font-family:var(--serif);border-radius:4px;border:1px solid var(--line);}
@@ -134,6 +135,9 @@
   <h2>御巡幸の行程 ──『倭姫命世記』より</h2>
   <ol class="route" id="routelist"></ol>
 
+  <h2>元伊勢ではないけれど ── 倭姫宮</h2>
+  <p class="body">道行きの主・倭姫命をお祀りする<span class="em">倭姫宮</span>（神宮別宮・三重県伊勢市楠部町）は、大正十二年の御創建で、『倭姫命世記』に出てくる元伊勢ではありません。けれど、この物語を胸に元伊勢をたどる旅の結びに詣でたいお宮として、地図には<span class="em">「姫」の印</span>で併せて載せています。</p>
+
   <p class="body">道行きの果てに、倭姫命は五十鈴の川上で神託を受けます ── <span class="em">「この国に居(を)らむと欲(おも)ふ」</span>。ここではないどこかを探し続けた長い旅が、「ここに居よう」の一言で結ばれる。この物語のあらすじと味わいどころは、<a class="inline" href="/bunko/yamatohime/">倭姫命世記をやさしく</a>でご覧いただけます。塾主が所蔵する出口延佳の直筆校合本の全頁は<a class="inline" href="/倭姫命世記/">こちら</a>です。</p>
 
   <div class="cta">
@@ -162,7 +166,8 @@
 <script>
 // 巡幸データ：[名称, 宮名, 注記, 所在地, 緯度, 経度, goal?]
 var SPOTS = [
- ["大神神社","倭笠縫邑・御室嶺上宮","豊鍬入姫命より倭姫命が御杖代を継いだ、旅の始まりの地。三輪山の麓（檜原神社の伝承も）","奈良県桜井市三輪",34.528753,135.851757],
+ ["檜原神社","倭笠縫邑(やまとかさぬいのむら)","天照大神が宮中を離れて最初に祀られた地。豊鍬入姫命が奉斎した、「元伊勢」の始まりの社","奈良県桜井市三輪（茅原）",34.538329,135.854713],
+ ["大神神社","弥和乃御室嶺上宮(みわのみむろのみねのうえのみや) 伝承地","豊鍬入姫命より倭姫命が御杖代(みつえしろ)を継いだ、旅の始まりの地","奈良県桜井市三輪",34.528753,135.851757],
  ["阿紀神社","宇多秋宮(うだのあきのみや)","","奈良県宇陀市大宇陀",34.478250,135.923967],
  ["篠畑神社","佐佐波多宮(ささはたのみや)","","奈良県宇陀市榛原",34.55528,135.98806],
  ["宇流冨志禰神社","隠市守宮(なばりのいちもりのみや)","","三重県名張市平尾",34.619051,136.093175],
@@ -183,9 +188,11 @@ var SPOTS = [
  ["竹佐々夫江神社","佐佐牟江宮(ささむえのみや)","","三重県多気郡明和町",34.56499,136.64972],
  ["磯神社","伊蘇宮(いそのみや)","","三重県伊勢市磯町",34.519694,136.701194],
  ["瀧原宮","瀧原宮(たきはらのみや)","遙宮(とおのみや)として今も神宮の別宮","三重県度会郡大紀町",34.366111,136.425833],
- ["皇大神宮（内宮）","五十鈴宮 ── 御鎮座の地","「この国に居らむと欲ふ」── 道行きの結び","三重県伊勢市宇治館町",34.455049,136.725312,true],
- ["倭姫宮","倭姫命をお祀りする宮","大正十二年創建・神宮の別宮","三重県伊勢市楠部町",34.485889,136.722833,true]
+ ["皇大神宮（内宮）","五十鈴宮 ── 御鎮座の地","「この国に居らむと欲ふ」── 道行きの結び","三重県伊勢市宇治館町",34.455049,136.725312,true]
 ];
+
+// 番外：倭姫命世記に出てくる元伊勢ではないが、倭姫命をお祀りする宮
+var HIME = ["倭姫宮","倭姫命をお祀りする宮","大正十二年御創建・神宮の別宮。『倭姫命世記』の元伊勢ではありませんが、道行きの主をお祀りする宮として併せて載せています","三重県伊勢市楠部町",34.485889,136.722833];
 
 var map = L.map('map', {scrollWheelZoom:false});
 L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
@@ -219,7 +226,14 @@ SPOTS.forEach(function(s, i){
 });
 
 // 巡幸の道筋（伝承候補を含め、行程順に繋ぐ）
-L.polyline(latlngs.slice(0, 22), {color:'#a8362a', weight:2.5, opacity:.65, dashArray:'6 8'}).addTo(map);
+L.polyline(latlngs, {color:'#a8362a', weight:2.5, opacity:.65, dashArray:'6 8'}).addTo(map);
+
+// 倭姫宮（番外・「姫」の印）
+var himeIcon = L.divIcon({className:'', html:'<div class="mk hime">姫</div>', iconSize:[26,26], iconAnchor:[13,13]});
+var himeMarker = L.marker([HIME[4], HIME[5]], {icon: himeIcon}).addTo(map);
+himeMarker.bindPopup('<div><b>'+HIME[0]+'</b><br><span class="pp-miya">'+HIME[1]+'</span><br>'+HIME[2]+'<br><span class="pp-place">'+HIME[3]+'</span></div>');
+himeMarker.bindTooltip(HIME[0], {permanent:true, direction:'right', offset:[14,0], className:'shrine-label'});
+latlngs.push([HIME[4], HIME[5]]);
 
 map.fitBounds(L.latLngBounds(latlngs).pad(0.08));
 
