@@ -1114,7 +1114,7 @@
     </div>
 
     <div class="photo-fig" style="max-width:430px;margin:1.8rem auto;">
-      <img src="https://nakatokojuku.jp/goshinshu/photo_hakusan_ryogawa.jpg" alt="梁川和基氏と白山登拝にて奉納" width="3024" height="4032" loading="lazy" decoding="async">
+      <img src="https://nakatokojuku.jp/goshinshu/photo_hakusan_ryogawa.jpg" alt="梁川和基氏と白山登拝にて奉納" width="900" height="1200" loading="lazy" decoding="async">
       <div class="photo-cap">梁川和基氏と白山登拝にて奉納</div>
     </div>
 
@@ -1399,6 +1399,63 @@
 </section>
 
 <!-- ── フッター ── -->
+<!-- ── 中常だより 記帳バンド ── -->
+<style>
+.kicho{padding:clamp(2.8rem,6vw,4.2rem) 1.5rem;border-top:1px solid var(--line,#cdbf9f);}
+.kicho-inner{max-width:640px;margin:0 auto;}
+.kicho-lead{text-align:center;font-size:1.02rem;line-height:2.15;letter-spacing:.06em;color:var(--ink,#211911);margin:0 0 .6rem;}
+.kicho-lead .kicho-em{color:var(--vermilion-deep,#8a2a20);font-weight:600;white-space:nowrap;}
+.kicho-sub{text-align:center;font-size:.8rem;line-height:1.95;color:var(--muted,#6f6048);letter-spacing:.06em;margin:0 0 2rem;}
+.kicho-card{position:relative;background:linear-gradient(180deg,var(--paper-card,#f8f2e6),var(--paper-warm,#f3ebd9));border:1px solid var(--line,#cdbf9f);padding:2rem 1.8rem;box-shadow:0 14px 34px -26px rgba(40,28,12,.55);}
+.kicho-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-soft,#b9a05e) 20%,var(--gold,#9a7d3c) 50%,var(--gold-soft,#b9a05e) 80%,transparent);}
+.kicho-cap{font-size:.66rem;letter-spacing:.3em;color:var(--gold,#9a7d3c);margin-bottom:1.2rem;text-align:center;}
+.kicho-form{display:flex;flex-direction:column;gap:.9rem;max-width:390px;margin:0 auto;}
+.kicho-form label{font-size:.74rem;letter-spacing:.1em;color:var(--muted,#6f6048);margin-bottom:.35rem;display:block;}
+.kicho-form input{width:100%;box-sizing:border-box;font-family:var(--serif,serif);font-size:.96rem;color:var(--ink,#211911);background:#fffdf8;border:1px solid var(--line,#cdbf9f);border-radius:3px;padding:.72rem .95rem;letter-spacing:.04em;}
+.kicho-form input:focus{outline:none;border-color:var(--gold-soft,#b9a05e);box-shadow:0 0 0 3px rgba(154,125,60,.14);}
+.kicho-submit{margin-top:.5rem;background:linear-gradient(165deg,#bb4a3a,#a8362a 55%,#8a2a20);color:#fbf2e2;border:none;font-family:var(--serif,serif);font-size:1rem;font-weight:600;letter-spacing:.16em;padding:.94rem;border-radius:4px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,240,220,.25),0 14px 28px -15px rgba(168,54,42,.8);transition:filter .2s;}
+.kicho-submit:hover{filter:brightness(1.06);}
+.kicho-note{text-align:center;font-size:.72rem;line-height:1.95;color:var(--muted,#6f6048);letter-spacing:.05em;margin-top:1.1rem;}
+</style>
+<section class="kicho" aria-label="中常だよりの御案内">
+  <div class="kicho-inner">
+    <p class="kicho-lead">ここまで読んでくださったあなたへ ── 毎朝、神代にふれる一節を<span class="kicho-em">「中常だより」</span>でお届けします。</p>
+    <p class="kicho-sub">受け取るほどに、日々の真ん中に一本の芯が通っていきます。いつでも、そっと離れられます。</p>
+    <div class="kicho-card">
+      <div id="kicho-formwrap">
+        <div class="kicho-cap">御芳名を記す ── おたよりで受け取る</div>
+        <form class="kicho-form" id="kicho-form" method="POST" target="kicho-sink" action="https://docs.google.com/forms/d/e/1FAIpQLScS4IU0BgWbMl9LWngXLoZl7EM59iC5ligGY7sY1jAXpiALoA/formResponse">
+          <div><label for="kicho-name">御芳名</label><input id="kicho-name" type="text" name="entry.375573805" placeholder="松浦 茂樹" autocomplete="name" required></div>
+          <div><label for="kicho-email">お届け先メール</label><input id="kicho-email" type="email" name="entry.283975890" placeholder="namae@example.jp" autocomplete="email" required></div>
+          <input type="hidden" name="fvv" value="1">
+          <input type="hidden" name="pageHistory" value="0">
+          <button class="kicho-submit" type="submit">明日の朝から受け取る　▸</button>
+        </form>
+        <p class="kicho-note">折々のことばと、奉納・お稽古のご案内をお送りします。<br>お名前は、中常だよりの呼びかけにのみ用います。</p>
+      </div>
+      <div id="kicho-thanks" style="display:none;text-align:center;padding:.4rem 0 .2rem;">
+        <p style="font-size:1.06rem;line-height:2;color:var(--ink,#211911);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
+        <p style="font-size:.9rem;line-height:2;color:var(--ink-soft,#3a2d20);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。</p>
+      </div>
+      <iframe name="kicho-sink" title="送信" style="display:none;" tabindex="-1" aria-hidden="true"></iframe>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var f=document.getElementById('kicho-form');
+  if(!f)return;
+  f.addEventListener('submit',function(){
+    var n=document.getElementById('kicho-name');
+    if(n&&n.value&&n.value.indexOf('〔御神酒の記録より〕')===-1){n.value=n.value+'　〔御神酒の記録より〕';}
+    setTimeout(function(){
+      var w=document.getElementById('kicho-formwrap'),t=document.getElementById('kicho-thanks');
+      if(w&&t){w.style.display='none';t.style.display='block';}
+    },400);
+  });
+})();
+</script>
+
 <footer>
   <div class="inner">
     <div class="f-mark">私塾 中常塾</div>

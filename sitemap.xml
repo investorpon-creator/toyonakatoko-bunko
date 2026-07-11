@@ -17,6 +17,10 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://nakatokojuku.jp/yamatohime-online/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://nakatokojuku.jp/bunko/</loc>
     <priority>0.8</priority>
   </url>
@@ -42,6 +46,10 @@
   </url>
   <url>
     <loc>https://nakatokojuku.jp/bunko/okazaki-to-ise/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nakatokojuku.jp/bunko/motoise-map/</loc>
     <priority>0.7</priority>
   </url>
 </urlset>
