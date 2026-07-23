@@ -52,4 +52,8 @@
     <loc>https://nakatokojuku.jp/bunko/motoise-map/</loc>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://nakatokojuku.jp/bunko/ayumi-no-chizu/</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>

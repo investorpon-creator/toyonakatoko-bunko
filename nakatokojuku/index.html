@@ -565,7 +565,7 @@
 </section>
 
 <!-- ── 塾主のルーツ ── -->
-<section class="section">
+<section class="section" id="roots">
   <div class="wrap">
     <div class="sec-label">
       <div class="mark">源</div>
@@ -604,149 +604,41 @@
       <div class="photo-cap">『倭姫命世記』書写本 二十五頁 ── 冒頭に「波登美神」の名が見える</div>
     </div>
 
-    <!-- ── 歩みの地図 ── -->
+    <!-- ── 歩みの地図（要約 ── 詳細は豐中常文庫の読み物へ） ── -->
     <style>
       .ayumi-block{margin-top:clamp(2.4rem,5vw,3.6rem);padding-top:clamp(2rem,4vw,2.8rem);border-top:1px dotted var(--line);}
       .ayumi-title{font-size:.98rem;letter-spacing:.26em;font-weight:600;color:var(--ink);margin-bottom:1.4rem;}
-      .ayumi-map{border:1px solid var(--line);box-shadow:0 16px 48px -28px rgba(40,28,12,.45);background:#e6ddc6;}
-      .ayumi-map img{display:block;width:100%;height:auto;}
+      a.ayumi-map{display:block;border:1px solid var(--line);box-shadow:0 16px 48px -28px rgba(40,28,12,.45);background:#e6ddc6;text-decoration:none;}
+      a.ayumi-map img{display:block;width:100%;height:auto;}
       .ayumi-cap{margin-top:.7rem;text-align:center;font-size:.63rem;letter-spacing:.24em;color:var(--muted);}
-      .ayumi-legend{list-style:none;margin:1.6rem 0 0;padding:0;}
-      .ayumi-legend li{display:flex;gap:.85rem;align-items:baseline;padding:.42rem 0;border-top:1px solid rgba(205,191,159,.45);font-size:.84rem;letter-spacing:.05em;line-height:1.9;color:var(--ink-soft);}
-      .ayumi-legend li:first-child{border-top:none;}
-      .ayumi-num{flex:0 0 24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--vermilion);color:#fbf2e2;font-size:.72rem;font-weight:600;align-self:flex-start;margin-top:.35rem;}
-      .ayumi-num.kin{background:var(--gold);}
-      .ayumi-legend b{color:var(--ink);font-weight:600;}
-      .ayumi-uta{margin:1.5rem 0;padding:1.1rem 1.3rem;border-left:2px solid var(--vermilion);background:rgba(205,191,159,.14);}
-      .ayumi-uta p{margin:0;font-size:1.02rem;letter-spacing:.14em;line-height:2.1;color:var(--ink);}
-      .ayumi-uta span{display:block;margin-top:.55rem;font-size:.78rem;letter-spacing:.08em;line-height:1.9;color:var(--muted);}
-      .ayumi-den{margin-top:1.8rem;font-size:.76rem;letter-spacing:.2em;color:var(--muted);}
+      .ayumi-more{display:inline-block;margin-top:.6rem;font-size:.92rem;letter-spacing:.12em;font-weight:600;color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid var(--gold-soft);padding-bottom:2px;}
+      .ayumi-more:hover{border-color:var(--vermilion-deep);}
     </style>
     <div class="ayumi-block" id="ayumi">
       <div class="ayumi-title">歩みの地図 ── 出雲から、岡崎まで</div>
       <p class="body">
         日本人は誰もが、その血の中に、神代から続く物語を宿しています。
-        家に伝わる話を一枚の地図に置いてみると、思いがけない道のりが
-        現れることがあります。ここに掲げるのは、我が家に伝わる物語を、
-        そのまま日本地図に写したものです。
+        家に伝わる話を一枚の地図に置いてみると、思いがけない道のりが現れます。
+        ここに掲げるのは、我が家に伝わる物語を、そのまま日本地図に写したものです。
+        出雲を発って大和で敗れ、津軽・衣川・京都・筑紫大島・松浦・下関を経て、
+        母の生地である出雲・大社杵築へ還り、いま岡崎に至ります。
       </p>
-      <div class="ayumi-map">
-        <img src="https://nakatokojuku.jp/nakatokojuku/ayumi_map.svg" alt="家に伝わる歩みの道のりを描いた日本地図。出雲を発ち、大和・津軽・衣川・京都・筑紫大島・松浦・下関を経て出雲杵築へ還り、岡崎へ至る。" width="1000" height="1024" loading="lazy" decoding="async">
-      </div>
+      <a class="ayumi-map" href="/bunko/ayumi-no-chizu/">
+        <img src="/nakatokojuku/ayumi_map.svg" alt="家に伝わる歩みの道のりを描いた日本地図。出雲を発ち、大和・津軽・衣川・京都・筑紫大島・松浦・下関を経て出雲杵築へ還り、岡崎へ至る。" width="1000" height="1024" loading="lazy" decoding="async">
+      </a>
       <div class="ayumi-cap">金の二重丸（1・9）＝出雲・大社杵築 ── 旅立ちの地であり、生を享けた地</div>
-      <ol class="ayumi-legend">
-        <li><span class="ayumi-num">1</span><span><b>出雲</b> ── 縄文の中心地。出雲族・登美氏の源。</span></li>
-        <li><span class="ayumi-num">2</span><span><b>大和</b> ── 登美長髄彦が治め、神武天皇に敗れた地。</span></li>
-        <li><span class="ayumi-num">3</span><span><b>津軽</b> ── 一族が北へ下がった地。</span></li>
-        <li><span class="ayumi-num">4</span><span><b>衣川（岩手）</b> ── 奥州安倍氏として興り、前九年の役に敗れた地。</span></li>
-        <li><span class="ayumi-num">5</span><span><b>京都</b> ── 安倍宗任が送られた都。</span></li>
-        <li><span class="ayumi-num">6</span><span><b>筑紫大島</b> ── 宗任が流された玄界の島。</span></li>
-        <li><span class="ayumi-num">7</span><span><b>松浦</b> ── 松浦党に合流。現姓・松浦氏の始まり。</span></li>
-        <li><span class="ayumi-num">8</span><span><b>下関</b> ── 幕末までに至った地。父の生地。</span></li>
-        <li><span class="ayumi-num kin">9</span><span><b>出雲・大社杵築</b> ── 母の生地。私が生を享けた地。</span></li>
-        <li><span class="ayumi-num kin">10</span><span><b>愛知・岡崎</b> ── いま、この地に在り。</span></li>
-      </ol>
-      <p class="body" style="margin-top:1.8rem;">
+      <p class="body" style="margin-top:1.4rem;">
         ご覧の通り、これは勝者の系譜ではありません。
-        大和で敗れて津軽へ下がり、衣川でふたたび敗れて西の果てへ ──
         敗れるたびに住む土地を失い、それでも歩みを止めなかった者たちの道のりです。
-      </p>
-
-      <div class="ayumi-den">『太平記』剣の巻の伝えるところ</div>
-      <p class="body">
-        天喜五年（一〇五七年）、源頼義は陸奥へ下り、九年のあいだ戦い続けて、
-        奥州の安倍貞任・宗任の兄弟を破りました。兄・貞任は討たれ、
-        弟・宗任は捕らわれて都へ送られます。
-        その宿所に、公卿・殿上人たちが連れ立ってやってきました。
-        「東国の蝦夷など、さぞ滑稽であろう。ひとつ笑ってやろう」──
-        そう言って梅の花をひと枝折り、宗任の前に差し出して尋ねます。
-        「宗任よ、これは何だ」。
-      </p>
-      <div class="ayumi-uta">
-        <p>わが国の梅の花とは見たれども　大宮人はいかが言ふらん</p>
-        <span>（わたくしどもの国では梅の花と見てまいりましたが、都の方々は何とお呼びになるのでしょうか）</span>
-      </div>
-      <p class="body">
-        笑いに来た人々は、きまり悪くなって、そのまま帰っていった ──
-        『太平記』はそう伝えます。
-        宗任はその後、筑紫へ流されました。そしてその末に、ひと言だけ添えられています。
-        「子孫は栄えて今に続いている。<span class="em">松浦党とは、これである</span>」と。
-        地図の七番、松浦に合流する道は、この一行につながっています。
-      </p>
-      <p class="body">
-        敗れたのは戦であって、その人の中心ではありませんでした。
-        土地を失い、都へ引き据えられ、見世物にされてなお、
-        梅を梅と呼ぶ一首が静かに出てくる ── そこに在るのは、
-        勝ち負けで揺れない<span class="em">肚</span>です。
-        中常塾でお伝えしたいのも、力でも位でもない、この中心そのものです。
-      </p>
-
-      <p class="body">
-        その流れの果て、幕末までに下関へ至った家に父が生まれ、
-        出雲・大社杵築に生まれた母と出会いました。
-        私はその母の生家、杵築(きづき)の地で生を享けています。
-        いまの出雲大社は、江戸の世まで<span class="em">杵築大社(きづきのおおやしろ)</span>と称されていました。
-        杵築とは、その大社(おおやしろ)の鎮まる、出雲の地の中心にほかなりません。
-        出雲を発った道が、長い長い歳月をかけて、その中心へ還ってきたことになります。
-        いまはその道の続きを、日本の中心・愛知の岡崎で歩いています。
-      </p>
-
-      <div class="ayumi-den">安倍の家が守り抜いた「神武以前」の誇り</div>
-      <p class="body">
-        この家が負うていたのは、単なる古い血筋ではありませんでした。
-        安倍の家は自らを、神武天皇の東征に抗して都を追われた
-        <span class="em">安日王(あびおう)</span> ── 地図の二番、大和で敗れた
-        登美長髄彦の兄とされる人物 ── の末裔と伝え、
-        「神代より前からこの列島に在った者」であることを、家の誇りの核としてきました。
-      </p>
-      <p class="body">
-        その誇りが並々ならぬものであったことを、はるか後世のひとつの符合が物語ります。
-        津軽に残った一族は、のちの安東氏・秋田氏へと続いたと伝えられます。
-        その末裔・秋田実季(あきたさねすえ)は、晩年、ひとつの地に蟄居(ちっきょ)を命じられました。
-        ── <span class="em">伊勢の朝熊(あさま)</span>。
-        神宮の丑寅(うしとら)を守る朝熊ヶ岳の膝下、まさに神域の鬼門にあたる地です。
-        土地も権勢も失った武将が余生を過ごす場所として選ばれたのが、
-        よりにもよって神宮を東北から鎮め守るこの一点であったこと ──
-        これを、ただの偶然と呼ぶのはためらわれます。
-      </p>
-      <p class="body">
-        その朝熊の草庵で、実季は三十年に近い歳月をかけて、一族の系図を編み上げました。
-        家臣を諸方へ遣わして書物を集めさせ、途切れかけた家の記憶を、
-        安日王の代までさかのぼって結び直したのです。完成は、亡くなる前の年でした。
-        神宮を丑寅で守る地に在って、神武以前へと血脈をたどり直す ──
-        その営みは、梅を梅と呼んだ宗任の一首と、同じ肚から出ています。
-      </p>
-      <p class="body">
-        さらに時代は下って明治十七年（一八八四）、華族の系図を整えるにあたり、
-        宮内省は秋田家の系図に困惑したと伝わります。
-        始祖が神武天皇に抗した安日王 ── いわば朝廷への「最初の反逆者」であったからです。
-        改訂を促された秋田家は、しかしこう答えて譲りませんでした。
-      </p>
-      <div class="ayumi-uta">
-        <p>天孫降臨より前の系図を正しく伝えるのは、出雲国造家と我が家のみである</p>
-        <span>（秋田家に伝わる答えとして）</span>
-      </div>
-      <p class="body">
-        敗れて土地を失っても、都に見世物にされても、皇室を前にしてさえ ──
-        家はその中心を売り渡しませんでした。
-        そして神宮の丑寅を守る朝熊の地で、その血脈は神代以前へと結び直された。
-        <span class="em">土地も権勢も失った者が、なお守り抜いたこの「神武以前」の誇り</span>こそ、
-        出雲を発ったこの道のりが、幾たびの敗北を越えて今日まで貫いてきた一本の軸なのだと思います。
-      </p>
-      <p class="body">
-        地図の十番、いま私が立つ岡崎もまた、伊勢の神宮から見れば丑寅にあたります。
-        四百年前に朝熊で系図を紡いだ遠い一族の営みと、この地で歩いている道の続きとが、
-        どこかで静かに響き合っているように思えてなりません。
-      </p>
-
-      <p class="body">
+        『太平記』が伝える安倍宗任の梅の一首、
+        伊勢の朝熊で三十年をかけて系図を編み直した秋田実季 ──
+        道のりの全体は、豐中常文庫の読み物にまとめました。
         もとより、遠い代のことは家に伝わる物語であり、
         すべてに証を立てられるわけではありません。
-        それでも、この物語とともに歩くとき、神代は遠い昔話ではなく、
-        いま足元に流れているものになります。
-        そしてこれは、我が家だけの話ではないはずです。
-        あなたの家の歩みをたどれば、そこにもきっと、<span class="em">あなたの地図</span>があります。
+        あなたのご家族の地図を描く手引きも、そちらに添えてあります。
       </p>
+      <a class="ayumi-more" href="/bunko/ayumi-no-chizu/">歩みの地図をひらく ▸</a>
+    </div>
     </div>
   </div>
 </section>
