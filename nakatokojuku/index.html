@@ -212,6 +212,19 @@
   }
   .highlight b{color:var(--ink);font-weight:600;}
 
+  /* 五つのつくり */
+  .gozukuri{margin:2.2rem 0 1.8rem;border-top:1px solid var(--line);}
+  .gz-row{
+    display:grid;grid-template-columns:7.5em 1fr;gap:1.2rem;
+    padding:1.15rem .2rem;border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .gz-name{font-size:.98rem;letter-spacing:.24em;font-weight:600;color:var(--ink);}
+  .gz-body{font-size:.82rem;letter-spacing:.05em;line-height:2.05;color:var(--muted);text-wrap:pretty;}
+  @media(max-width:680px){
+    .gz-row{grid-template-columns:1fr;gap:.35rem;padding:1rem .2rem;}
+  }
+
   /* 系譜テーブル */
   .lineage{
     width:100%;border-collapse:collapse;
@@ -517,6 +530,7 @@
           ここ岡崎は、神宮から見て丑寅（東北）にあたる地。
           出雲に発った一つの家の物語が、長い道のりの果てにこの地へ流れ着いた ── 塾主の家には、そう伝わります。
           その物語を負う者として、神武以前から続く神祇の道を、日々の稽古のなかに継いでいます。
+          その物語の続きを、みんなで味わいながら作り上げていく場でもあります。
         </p>
       </div>
       <div>
@@ -540,6 +554,32 @@
     </div>
   </a>
 </div>
+
+<!-- ── 五つのつくり ── -->
+<section class="section" id="gozukuri">
+  <div class="wrap">
+    <div class="sec-label">
+      <div class="mark">造</div>
+      <h2>五つのつくり ── 一人の肚から始まる同心円</h2>
+    </div>
+    <p class="body">
+      ここで得られるものは何か。ひとことで言えば、あなたの肚から始まる五つの「つくり」です。
+      内から外へ、一人の身体から國まで、同心円のように地続きにつながっています。
+    </p>
+    <div class="gozukuri">
+      <div class="gz-row"><div class="gz-name">人つくり</div><div class="gz-body">素読とお稽古で、あなた自身の肚・身体・声が調っていきます。すべてはここから始まります。</div></div>
+      <div class="gz-row"><div class="gz-name">人生つくり</div><div class="gz-body">度會神道の学びが、ご自身の歩みを神話に照らして味わい直す眼を開きます。</div></div>
+      <div class="gz-row"><div class="gz-name">邑つくり</div><div class="gz-body">毎朝の「中常だより」や講義の場に、同じ道を味わう顔の見える集まりが育ちつつあります。</div></div>
+      <div class="gz-row"><div class="gz-name">街つくり</div><div class="gz-body">ここ岡崎の能楽堂や土地の祭りとの縁が、学びの先に広がっていきます。</div></div>
+      <div class="gz-row"><div class="gz-name">國造り</div><div class="gz-body">神宮への奉納や祭典への奉仕に連なる道が開けます。國造りは遠い理念ではなく、一人の肚つくりの延長線上にあります。</div></div>
+    </div>
+    <p class="body">
+      と申しても、眉間にしわを寄せて励む場ではありません。神話を手本に、みんなで一つの物語を作り上げていく ──
+      言葉を口で味わい、身体で味わい、御神酒や宴で味わう。その味わいの積み重ねが、そのまま五つのつくりになっていきます。
+      この物語の次の一場面を書き加えるのは、これをお読みのあなたかもしれません。
+    </p>
+  </div>
+</section>
 
 <!-- ── 塾名の由来 ── -->
 <section class="section">
