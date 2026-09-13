@@ -1,7 +1,8 @@
 /* 開催予定 ── index.html（能楽堂プログラムの「次回は…」）と taiken/index.html（次回開催）が自動で読む。
    過ぎた日付は画面から自動で消え、次の日付が繰り上がる。予定が無くなると「決まり次第ここに掲載」と出る。
    塾主の編集：下の配列に1行足す（日付は YYYY-MM-DD）。消す必要はない。
-   {d:"2026-11-16", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"} */
+   {d:"2026-11-16", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"}
+   会場が二の丸能楽堂でない回は v:"会場名", addr:"住所" を足す（アプリの「次回開催」に出る。無ければ能楽堂と出る） */
 window.NAKATOKO_EVENTS = [
   {d:"2026-08-24", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"},
   {d:"2026-09-28", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"},

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中常塾 アプリ｜私塾 中常塾</title>
+<meta name="description" content="今日の一節と塾主の一言、中常だより、次回開催をお手元に。私塾 中常塾のアプリ（ホーム画面に追加してお使いください）。">
+<meta name="theme-color" content="#272018">
+<link rel="manifest" href="/app/manifest.webmanifest">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/app/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="中常塾">
+<meta property="og:title" content="中常塾 アプリ">
+<meta property="og:description" content="今日の一節と塾主の一言、中常だより、次回開催をお手元に。">
+<meta property="og:image" content="https://nakatokojuku.jp/app/icons/icon-512.png">
+<meta property="og:url" content="https://nakatokojuku.jp/app/">
+<link rel="canonical" href="https://nakatokojuku.jp/app/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#1e1610; --ink-soft:#3a2d20; --sumi:#272018;
+    --paper:#efe7d4; --paper-card:#f8f2e6; --paper-warm:#f3ebd9; --paper-deep:#e6dac0;
+    --vermilion:#a8362a; --vermilion-deep:#8a2a20; --vermilion-soft:#bb4a3a;
+    --gold:#9a7d3c; --gold-soft:#b9a05e; --gold-pale:#d8c79a;
+    --muted:#6f6048; --line:#cdbf9f; --line-soft:#ddd0b2;
+    --serif:'Shippori Mincho','Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;
+    --sans:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;
+    --tab-h:62px;
+    --seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='30' viewBox='0 0 60 30'%3E%3Cg fill='none' stroke='%23b9a05e' stroke-width='1'%3E%3Cpath d='M0 30a30 30 0 0 1 30-30 30 30 0 0 1 30 30'/%3E%3Cpath d='M0 30a21 21 0 0 1 30-21 21 21 0 0 1 30 21'/%3E%3Cpath d='M0 30a12 12 0 0 1 30-12 12 12 0 0 1 30 12'/%3E%3Cpath d='M-30 30a30 30 0 0 1 30-30M60 30a30 30 0 0 1 30-30'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:var(--serif);color:var(--ink);background:var(--paper);line-height:1.9;min-height:100vh;
+       padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom));font-feature-settings:"palt";}
+  a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+  [hidden]{display:none!important}
+  main{animation:fade .28s ease-out}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  /* 頭 */
+  .hd{background:var(--sumi);color:#f3ebd9;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;position:sticky;top:0;z-index:5;
+      display:flex;align-items:center;justify-content:center;gap:10px;border-bottom:1px solid rgba(185,160,94,.45)}
+  .hd .seal{width:26px;height:26px;display:grid;place-content:center;background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion) 45%,var(--vermilion-deep));
+      color:#fbf4e6;font-size:10px;line-height:11px;font-weight:600;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,240,220,.35);text-align:center}
+  .hd .brand{font-size:1rem;letter-spacing:.3em;font-weight:500}
+
+  /* 今日 */
+  .hero{position:relative;background:var(--paper-warm);padding:26px 20px 22px;text-align:center;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:var(--seigaiha);background-size:60px 30px;opacity:.07;pointer-events:none}
+  .hero>*{position:relative}
+  .hero .date{font-size:.72rem;letter-spacing:.32em;color:var(--muted);font-family:var(--sans);font-weight:400}
+  .hero .kou{font-size:1.5rem;letter-spacing:.14em;font-weight:500;line-height:1.5;margin-top:8px;color:var(--ink)}
+  .hero .yomi{font-size:.74rem;letter-spacing:.22em;color:var(--gold);margin-top:2px}
+  .rule{width:28px;height:1px;background:var(--gold-soft);margin:14px auto 0}
+
+  /* 見出し・札 */
+  .cap{display:flex;align-items:center;gap:10px;font-size:.66rem;letter-spacing:.34em;color:var(--vermilion-deep);margin:22px 20px 10px;font-weight:500}
+  .cap::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+  .card{background:var(--paper-card);border:1px solid var(--line-soft);border-radius:4px;margin:0 16px;overflow:hidden}
+  .today{display:grid;grid-template-columns:34px 1fr}
+  .today .vlabel{writing-mode:vertical-rl;background:var(--vermilion);color:#fbf4e6;font-size:.72rem;letter-spacing:.34em;padding:14px 0;text-align:center;display:grid;place-content:center}
+  .today .body{padding:16px 18px 14px}
+  .issetsu{font-size:1.06rem;line-height:2.05;letter-spacing:.04em;color:var(--ink)}
+  .issetsu .src{display:block;text-align:right;font-size:.72rem;color:var(--muted);letter-spacing:.14em;margin-top:6px}
+  .hitokoto{font-size:.98rem;line-height:2.1;letter-spacing:.03em;color:var(--ink-soft)}
+  .today .hitokoto{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line-soft)}
+  .today .hitokoto::before{content:"塾主の一言";display:block;font-size:.64rem;letter-spacing:.3em;color:var(--gold);margin-bottom:4px}
+  .today .more{display:block;text-align:right;font-size:.7rem;letter-spacing:.22em;color:var(--vermilion-deep);margin-top:10px}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px}
+  .cell{background:var(--paper-card);border:1px solid var(--line-soft);border-radius:4px;padding:16px 14px 14px;display:flex;align-items:center;gap:12px;min-height:76px}
+  .cell:active{background:var(--paper-warm)}
+  .cell .glyph{width:38px;height:38px;flex:0 0 38px;border:1px solid var(--vermilion);color:var(--vermilion);border-radius:50%;display:grid;place-content:center;font-size:1.05rem;font-weight:500}
+  .cell .t{font-size:.95rem;letter-spacing:.12em;font-weight:500;line-height:1.4}
+  .cell .s{display:block;font-size:.66rem;letter-spacing:.1em;color:var(--muted);font-family:var(--sans);margin-top:3px;line-height:1.5}
+
+  /* 一覧の行 */
+  .list{background:var(--paper-card);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .row{display:block;padding:15px 36px 13px 20px;border-bottom:1px solid var(--line-soft);position:relative}
+  .row:last-child{border-bottom:0}
+  .row:active{background:var(--paper-warm)}
+  .row::after{content:"›";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--gold-soft);font-size:1.2rem;line-height:1}
+  .row-t{display:block;font-size:.98rem;letter-spacing:.03em;line-height:1.75;color:var(--ink)}
+  .row-d{display:block;font-size:.7rem;color:var(--muted);font-family:var(--sans);margin-top:3px;letter-spacing:.08em}
+  .mini{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:9px 18px;border-bottom:1px solid var(--line-soft);font-size:.88rem;line-height:1.75}
+  .mini:last-child{border-bottom:0}
+  .mini-d{color:var(--vermilion-deep);font-family:var(--sans);font-size:.72rem;letter-spacing:.06em;padding-top:3px}
+  .foot-link{display:block;text-align:right;font-size:.7rem;letter-spacing:.22em;color:var(--vermilion-deep);padding:10px 18px 12px}
+  .muted{color:var(--muted)} .pad{padding:16px 20px}
+
+  /* 詳細 */
+  .dt-head{position:relative;background:var(--paper-warm);padding:24px 20px 20px;overflow:hidden}
+  .dt-head::before{content:"";position:absolute;inset:0;background:var(--seigaiha);background-size:60px 30px;opacity:.06;pointer-events:none}
+  .dt-head>*{position:relative}
+  .dt-kou{font-size:1.35rem;font-weight:500;letter-spacing:.1em;line-height:1.5}
+  .dt-yomi{font-size:.72rem;color:var(--gold);letter-spacing:.2em;margin-top:4px}
+  .dt-body{padding:6px 20px 8px}
+  .dt-body .issetsu{margin:6px 0 4px}
+  .dt-body .hitokoto{margin:6px 0 10px}
+  .btn{display:inline-block;background:var(--vermilion);color:#fbf4e6;padding:11px 26px;border-radius:2px;font-size:.86rem;letter-spacing:.24em;box-shadow:inset 0 0 0 1px rgba(255,240,220,.25)}
+  .btn.ghost{background:transparent;color:var(--vermilion-deep);box-shadow:inset 0 0 0 1px var(--vermilion-soft)}
+  .back{display:inline-block;font-size:.76rem;letter-spacing:.2em;color:var(--muted)}
+  .ev{background:var(--paper-card);border:1px solid var(--line-soft);border-radius:4px;padding:18px 18px 16px;margin:0 16px 12px;position:relative}
+  .ev::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;background:var(--vermilion)}
+  .ev-d{font-size:1.2rem;font-weight:500;letter-spacing:.06em}
+  .ev-t{font-size:.9rem;color:var(--ink-soft);margin:0 0 10px;letter-spacing:.06em}
+  .ev-v{font-size:.88rem;line-height:1.8;margin-bottom:14px;padding-top:10px;border-top:1px dashed var(--line-soft)}
+  .ev-v .muted{font-size:.78rem;font-family:var(--sans)}
+  .menu .row-t{font-weight:400}
+  .menu .row small{display:block;color:var(--muted);font-family:var(--sans);font-size:.7rem;letter-spacing:.04em;margin-top:1px}
+  .prose{padding:18px 20px 26px;font-size:.93rem;line-height:2}
+  .prose h3{font-size:.78rem;letter-spacing:.28em;margin:18px 0 6px;color:var(--vermilion-deep);font-weight:500}
+  .prose ol{padding-left:1.5em} .prose li{margin:2px 0}
+  .tip{margin:18px 16px 8px;font-size:.78rem;line-height:1.8;color:var(--muted);text-align:center;letter-spacing:.04em}
+  .tip a{color:var(--vermilion-deep);border-bottom:1px solid var(--gold-pale)}
+  body.standalone .tip{display:none}
+
+  /* 足 */
+  .tabs{position:fixed;left:0;right:0;bottom:0;height:calc(var(--tab-h) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
+        background:var(--sumi);display:flex;z-index:10;border-top:1px solid rgba(185,160,94,.45)}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#b9a05e;font-size:.62rem;letter-spacing:.16em;font-family:var(--sans);gap:4px;position:relative}
+  .tab .ic{font-size:1.15rem;line-height:1;font-family:var(--serif);font-weight:500}
+  .tab.on{color:#fbf4e6}
+  .tab.on::before{content:"";position:absolute;top:-1px;left:22%;right:22%;height:2px;background:var(--vermilion-soft)}
+</style>
+</head>
+<body>
+
+<header class="hd"><span class="seal">中<br>常</span><span class="brand">私塾 中常塾</span></header>
+
+<!-- トップ -->
+<main id="v-top">
+  <section class="hero">
+    <div class="date" id="hdDate"></div>
+    <div class="kou" id="hdKouName"></div>
+    <div class="yomi" id="hdKou"></div>
+    <div class="rule"></div>
+  </section>
+
+  <div class="cap">今日の一節・塾主の一言</div>
+  <div class="card today">
+    <div class="vlabel">今日の一節</div>
+    <div class="body" id="topHitokoto"></div>
+  </div>
+
+  <div class="cap">お手元に</div>
+  <nav class="grid">
+    <a class="cell" href="#tayori"><span class="glyph">便</span><span><span class="t">中常だより</span><span class="s">お知らせ・新着</span></span></a>
+    <a class="cell" href="#kaisai"><span class="glyph">舞</span><span><span class="t">次回開催</span><span class="s" id="topNext"></span></span></a>
+    <a class="cell" href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener"><span class="glyph">映</span><span><span class="t">YouTube</span><span class="s">公式チャンネル</span></span></a>
+    <a class="cell" href="https://lin.ee/vDCT7cG" target="_blank" rel="noopener"><span class="glyph">報</span><span><span class="t">LINE公式</span><span class="s">お知らせを受け取る</span></span></a>
+  </nav>
+
+  <div class="cap">新着だより</div>
+  <div class="card"><div id="topTayori"></div><a class="foot-link" href="#tayori">すべて見る ▸</a></div>
+
+  <p class="tip">Safariの共有ボタンから「ホーム画面に追加」で、アプリとして開けます。<a href="#howto">手順を見る</a></p>
+</main>
+
+<!-- 一言 一覧 -->
+<main id="v-hitokoto" hidden>
+  <div class="cap">七十二候ごとの一節と一言</div>
+  <div class="list" id="hitokotoList"></div>
+</main>
+<main id="v-hitokotoDetail" hidden><div id="hitokotoDetail"></div><p class="pad"><a class="back" href="#hitokoto">‹ 一覧へ戻る</a></p></main>
+
+<!-- だより -->
+<main id="v-tayori" hidden>
+  <div class="cap">中常だより・お知らせ</div>
+  <div class="list" id="tayoriList"></div>
+  <p class="pad" style="text-align:center"><a class="btn ghost" href="https://nakatokojuku.jp/tayori/" target="_blank" rel="noopener">これまでのだよりを読む</a></p>
+</main>
+<main id="v-tayoriDetail" hidden><div id="tayoriDetail"></div><p class="pad"><a class="back" href="#tayori">‹ 一覧へ戻る</a></p></main>
+
+<!-- 次回開催 -->
+<main id="v-kaisai" hidden>
+  <div class="cap">講義・お稽古 開催予定</div>
+  <div id="kaisaiList"></div>
+  <p class="pad muted" style="font-size:.8rem;line-height:1.9">会場は原則、岡崎城 二の丸能楽堂です。回によって変わるときは、その回の欄に記します。</p>
+</main>
+
+<!-- MENU -->
+<main id="v-menu" class="menu" hidden>
+  <div class="cap">MENU</div>
+  <div class="list">
+    <a class="row" href="https://nakatokojuku.jp/" target="_blank" rel="noopener"><span class="row-t">中常塾のサイト<small>nakatokojuku.jp</small></span></a>
+    <a class="row" href="https://nakatokojuku.jp/taiken/" target="_blank" rel="noopener"><span class="row-t">講義・お稽古のご案内</span></a>
+    <a class="row" href="https://nakatokojuku.jp/bunko/" target="_blank" rel="noopener"><span class="row-t">豐中常文庫</span></a>
+    <a class="row" href="https://nakatokojuku.jp/#tsunagaru" target="_blank" rel="noopener"><span class="row-t">中常だよりを申し込む</span></a>
+    <a class="row" href="https://lin.ee/vDCT7cG" target="_blank" rel="noopener"><span class="row-t">LINE公式<small>お知らせはこちらへ届きます</small></span></a>
+    <a class="row" href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener"><span class="row-t">Facebook</span></a>
+    <a class="row" href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener"><span class="row-t">Instagram</span></a>
+    <a class="row" href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener"><span class="row-t">YouTube</span></a>
+    <a class="row" href="#access"><span class="row-t">アクセス<small>岡崎城 二の丸能楽堂</small></span></a>
+    <a class="row" href="#howto"><span class="row-t">このアプリの使い方</span></a>
+    <a class="row" href="#privacy"><span class="row-t">プライバシーポリシー</span></a>
+  </div>
+  <p class="pad muted" style="font-size:.7rem;letter-spacing:.2em;text-align:center;font-family:var(--sans)">中常塾アプリ 1.0</p>
+</main>
+
+<!-- アクセス -->
+<main id="v-access" hidden>
+  <div class="dt-head"><div class="dt-kou">岡崎城 二の丸能楽堂</div><div class="dt-yomi">愛知県岡崎市康生町561（岡崎公園内）</div></div>
+  <div class="prose">
+    <p>講義・お稽古は原則この能楽堂で行います。回によって会場が変わるときは「次回開催」のその回の欄に記します。</p>
+    <p style="margin-top:16px"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%B2%A1%E5%B4%8E%E5%9F%8E%E4%BA%8C%E3%81%AE%E4%B8%B8%E8%83%BD%E6%A5%BD%E5%A0%82" target="_blank" rel="noopener">地図をひらく</a></p>
+  </div>
+  <p class="pad"><a class="back" href="#menu">‹ MENUへ戻る</a></p>
+</main>
+
+<!-- 使い方 -->
+<main id="v-howto" hidden>
+  <div class="dt-head"><div class="dt-kou">このアプリの使い方</div><div class="dt-yomi">ホーム画面に追加すると、アプリとして開けます</div></div>
+  <div class="prose">
+    <h3>iPhone（Safari）</h3>
+    <ol><li>画面下の共有ボタン（□に↑）を押します</li><li>「ホーム画面に追加」を選びます</li><li>右上の「追加」を押すと、ホーム画面に「中常塾」の印が置かれます</li></ol>
+    <h3>Android（Chrome）</h3>
+    <ol><li>右上の「⋮」を押します</li><li>「ホーム画面に追加」または「アプリをインストール」を選びます</li></ol>
+    <h3>お知らせの受け取り</h3>
+    <p>開催のお知らせや急ぎの連絡は、LINE公式から届きます。MENUの「LINE公式」からご登録ください。</p>
+  </div>
+  <p class="pad"><a class="back" href="#menu">‹ MENUへ戻る</a></p>
+</main>
+
+<!-- プライバシーポリシー -->
+<main id="v-privacy" hidden>
+  <div class="dt-head"><div class="dt-kou">プライバシーポリシー</div><div class="dt-yomi">中常塾アプリ</div></div>
+  <div class="prose">
+    <p>このアプリは、私塾 中常塾（塾主 松浦茂樹）が提供します。</p>
+    <h3>取得する情報</h3>
+    <p>アプリそのものは、お名前・連絡先などの個人情報を取得しません。中常だよりのお申し込みやLINE公式へのご登録は、それぞれのサービス（Googleフォーム・LINE）の定めに従って扱います。</p>
+    <h3>アクセスの計測</h3>
+    <p>サイトと同じく、どの画面がどれほど見られたかを個人を特定しない形で計測します（GoatCounter）。Cookieは使いません。</p>
+    <h3>端末への保存</h3>
+    <p>圏外でも読めるよう、画面の骨組みと最後に読んだ内容を端末に置きます。ブラウザの設定から消せます。</p>
+    <h3>お問い合わせ</h3>
+    <p>各SNSのメッセージ、またはLINE公式からお寄せください。</p>
+  </div>
+  <p class="pad"><a class="back" href="#menu">‹ MENUへ戻る</a></p>
+</main>
+
+<nav class="tabs">
+  <a class="tab" data-tab="top" href="#top"><span class="ic">家</span>トップ</a>
+  <a class="tab" data-tab="hitokoto" href="#hitokoto"><span class="ic">灯</span>一言</a>
+  <a class="tab" data-tab="tayori" href="#tayori"><span class="ic">便</span>だより</a>
+  <a class="tab" data-tab="line" href="https://lin.ee/vDCT7cG" target="_blank" rel="noopener"><span class="ic">報</span>LINE</a>
+  <a class="tab" data-tab="menu" href="#menu"><span class="ic">≡</span>MENU</a>
+</nav>
+
+<script src="/kotoba.js"></script>
+<script src="/tayori.js"></script>
+<script src="/bunko/kaidan/kaidan.js"></script>
+<script src="/events.js"></script>
+<script src="/app/app.js"></script>
+<script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
