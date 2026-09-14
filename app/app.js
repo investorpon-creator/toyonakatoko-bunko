@@ -1,5 +1,5 @@
 /* 中常塾アプリ ── 画面の切り替えと中身の組み立て。
-   中身はサイトと同じ /kotoba.js（一節・一言）/tayori.js（だより）/bunko/kaidan/kaidan.js（階段）/events.js（開催予定）を読む。
+   中身はサイトと同じ /kotoba.js（一節・一言）/tayori.js（たより）/bunko/kaidan/kaidan.js（階段）/events.js（開催予定）を読む。
    ここに文章は書かない。直すのはサイト側のその四つのファイル。 */
 (function(){
   /* 七十二候の表（index.html の KO と同じもの。暦を直すときは両方を揃える） */
@@ -29,7 +29,7 @@ const KO = [
   [12,7,"大雪","閉塞成冬","そらさむくふゆとなる"],[12,12,"大雪","熊蟄穴","くまあなにこもる"],[12,16,"大雪","鱖魚群","さけのうおむらがる"],
   [12,21,"冬至","乃東生","なつかれくさしょうず"],[12,26,"冬至","麋角解","さわしかのつのおつる"],[12,31,"冬至","雪下出麦","ゆきわたりてむぎいづる"]
 ];
-// 新着だよりの本体は /tayori.js（＋階段の公開分 /bunko/kaidan/kaidan.js）。ここは読み込み失敗時の控え。
+// 新着のたよりの本体は /tayori.js（＋階段の公開分 /bunko/kaidan/kaidan.js）。ここは読み込み失敗時の控え。
 const TAYORI = [{d:"2026-05-25",t:"中常塾を開塾しました"}];
   const VENUE = {name:"岡崎城 二の丸能楽堂", addr:"愛知県岡崎市康生町561（岡崎公園内）"};
   const $ = id => document.getElementById(id);
@@ -61,13 +61,13 @@ const TAYORI = [{d:"2026-05-25",t:"中常塾を開塾しました"}];
   const today = items[0];
   $("topHitokoto").innerHTML = (today.q ? '<blockquote class="issetsu">'+esc(today.q.t)+'<span class="src">── '+esc(today.q.s)+'</span></blockquote>' : '') + (today.h ? '<p class="hitokoto">'+esc(today.h)+'</p>' : '') + '<a class="more" href="#hitokoto/'+today.idx+'">この候の頁 ／ 前の候を読む ▸</a>';
 
-  /* ── だより：tayori.js ＋ 階段の公開分。今日より先の日付は出さない ── */
+  /* ── たより：tayori.js ＋ 階段の公開分。今日より先の日付は出さない ── */
   let list = (window.NAKATOKO_TAYORI || []).slice();
   (window.NAKATOKO_KAIDAN || []).forEach(k => { if(!k.d) return; const tt=k.t.split("──")[0].trim(); const lab=/^「/.test(tt)?tt:"「"+tt+"」"; list.push({d:k.d, t:"一節ずつの階段に"+lab+"を加えました", url:k.url}); });
   list = list.filter(t => t.d<=todayISO).sort((a,b)=> a.d<b.d?1:(a.d>b.d?-1:0));
   const fmtISO = iso => { const p=iso.split("-"); return (+p[0])+"年"+(+p[1])+"月"+(+p[2])+"日"; };
   const abs = u => /^https?:/.test(u) ? u : "https://nakatokojuku.jp"+u;
-  $("tayoriList").innerHTML = list.length ? list.map((t,i) => '<a class="row" href="#tayori/'+i+'"><span class="row-t">'+esc(t.t.length>40 ? t.t.slice(0,40)+"…" : t.t)+'</span><span class="row-d">'+esc(fmtISO(t.d))+'</span></a>').join("") : '<p class="muted pad">まだ、だよりはありません。</p>';
+  $("tayoriList").innerHTML = list.length ? list.map((t,i) => '<a class="row" href="#tayori/'+i+'"><span class="row-t">'+esc(t.t.length>40 ? t.t.slice(0,40)+"…" : t.t)+'</span><span class="row-d">'+esc(fmtISO(t.d))+'</span></a>').join("") : '<p class="muted pad">まだ、たよりはありません。</p>';
   function renderTayori(i){
     const t = list[i]; if(!t){ $("tayoriDetail").innerHTML=""; return; }
     $("tayoriDetail").innerHTML = '<div class="dt-head"><div class="dt-kou" style="font-size:1rem">中常だより</div><div class="dt-yomi">'+esc(fmtISO(t.d))+'</div></div><div class="dt-body"><p class="hitokoto" style="margin-top:12px">'+esc(t.t)+'</p>'+(t.url ? '<p style="padding:6px 0 12px"><a class="btn" href="'+esc(abs(t.url))+'" target="_blank" rel="noopener">読む</a></p>' : '')+'</div>';

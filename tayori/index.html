@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中常だより 書庫 ── これまでのだより・お知らせ｜私塾 中常塾</title>
+<title>中常だより 書庫 ── これまでのたより・お知らせ｜私塾 中常塾</title>
 <meta name="description" content="中常塾がお届けしてきた「中常だより」とお知らせを、新しい順に並べた書庫です。文庫の新しい解説、一節ずつの階段、講義・お稽古の便りが一枚で辿れます。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/tayori/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="中常だより 書庫 ── 私塾 中常塾">
-<meta property="og:description" content="中常塾のだより・お知らせを新しい順に。文庫の解説、一節ずつの階段、講義・お稽古の便り。">
+<meta property="og:description" content="中常塾のたより・お知らせを新しい順に。文庫の解説、一節ずつの階段、講義・お稽古の便り。">
 <meta property="og:url" content="https://nakatokojuku.jp/tayori/">
 <meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -118,13 +118,13 @@
     <div class="kicker">こ れ ま で の だ よ り</div>
     <div class="crumb"><a href="/">中常塾</a> ／ 中常だより 書庫</div>
     <h1>中常だより 書庫</h1>
-    <p class="lead">トップの「今日の中常」に載せてきた、だよりとお知らせの控えです。文庫の新しい解説、一節ずつの階段の新稿、講義・お稽古の便りを、新しい順に並べています。</p>
+    <p class="lead">トップの「今日の中常」に載せてきた、たよりとお知らせの控えです。文庫の新しい解説、一節ずつの階段の新稿、講義・お稽古の便りを、新しい順に並べています。</p>
   </div>
 </div>
 <article>
   <div class="wrap">
     <div id="tayoriList" style="margin:1rem 0 2.5rem;"><p style="color:var(--muted);font-size:.9rem;">読み込んでいます。</p></div>
-    <p style="font-size:.86rem;line-height:2;color:var(--muted);letter-spacing:.05em;margin:0 0 2.5rem;">毎朝の一節と折々のだよりは、御芳名を記していただいた方へお届けしています。<a class="inline" href="/#tsunagaru">明日の朝から受け取る ▸</a></p>
+    <p style="font-size:.86rem;line-height:2;color:var(--muted);letter-spacing:.05em;margin:0 0 2.5rem;">毎朝の一節と折々のたよりは、御芳名を記していただいた方へお届けしています。<a class="inline" href="/#tsunagaru">明日の朝から受け取る ▸</a></p>
   </div>
 </article>
 <script src="/tayori.js"></script>
@@ -136,7 +136,7 @@
   var list=(window.NAKATOKO_TAYORI||[]).slice();
   (window.NAKATOKO_KAIDAN||[]).forEach(function(k){ if(!k.d) return; var tt=k.t.split('──')[0].trim(); var lab=/^「/.test(tt)?tt:'「'+tt+'」'; list.push({d:k.d,t:'一節ずつの階段に'+lab+'を加えました',url:k.url}); });
   list=list.filter(function(x){return x.d&&x.d<=ty;}).sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0;});
-  var box=document.getElementById('tayoriList'); if(!list.length){box.innerHTML='<p style="color:var(--muted)">まだ、だよりはありません。</p>';return;}
+  var box=document.getElementById('tayoriList'); if(!list.length){box.innerHTML='<p style="color:var(--muted)">まだ、たよりはありません。</p>';return;}
   var html='',cur='';
   list.forEach(function(x){
     var m=x.d.slice(0,7); var y=m.slice(0,4), mo=parseInt(m.slice(5),10);
