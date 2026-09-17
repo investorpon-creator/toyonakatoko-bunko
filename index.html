@@ -24,6 +24,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@900&text=%E4%B8%AD%E5%B8%B8%E5%A1%BE&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&family=Yuji+Syuku&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1e1610; --ink-soft:#3a2d20; --sumi:#272018;
@@ -103,7 +105,7 @@
   .hero-stage .foil-top{position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold-leaf);opacity:.9;z-index:3;}
 
   /* 縦書きの大字「中常塾」 */
-  .hero-vtitle{position:absolute;top:clamp(2.2rem,6vw,4.2rem);right:clamp(1.4rem,6vw,5rem);z-index:3;writing-mode:vertical-rl;text-orientation:upright;font-size:clamp(3.4rem,11vw,8rem);font-weight:800;letter-spacing:.1em;line-height:.98;color:#f7efe0;text-shadow:0 2px 24px rgba(0,0,0,.55),0 0 1px rgba(0,0,0,.7);}
+  .hero-vtitle{position:absolute;top:clamp(2.2rem,6vw,4.2rem);right:clamp(1.4rem,6vw,5rem);z-index:3;writing-mode:vertical-rl;text-orientation:upright;font-family:'Zen Old Mincho',var(--serif);font-size:clamp(3.4rem,11vw,8rem);font-weight:900;letter-spacing:.04em;line-height:.98;color:#f7efe0;text-shadow:0 2px 24px rgba(0,0,0,.55),0 0 1px rgba(0,0,0,.7);}
   .hero-vtitle .foilchar{background:linear-gradient(110deg,#7a5a14 0%,#d8b34a 18%,#ffe996 36%,#c2942a 52%,#f9dc76 68%,#8a6a16 84%,#eccb5e 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 3px rgba(0,0,0,.65)) drop-shadow(0 4px 16px rgba(0,0,0,.45));}
   .hero-vtitle::before{content:"";position:absolute;left:-.62em;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,176,114,.7) 18%,rgba(201,176,114,.7) 82%,transparent);}
   .hero-vromaji{position:absolute;left:-1.55em;top:.2em;writing-mode:vertical-rl;font-size:.16em;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft);white-space:nowrap;}
@@ -150,7 +152,7 @@
   .sec-head{display:flex;flex-direction:column;gap:.32rem;flex:1;min-width:0;}
   .sec-kicker{font-size:.62rem;letter-spacing:.4em;color:var(--gold);}
   .sec-titlerow{display:flex;align-items:center;gap:1rem;}
-  .sec-label h2{font-size:1.16rem;letter-spacing:.32em;font-weight:600;color:var(--ink);white-space:nowrap;}
+  .sec-label h2{font-family:'Zen Kurenaido',var(--serif);font-size:1.16rem;letter-spacing:.32em;font-weight:400;color:var(--ink);white-space:nowrap;}
   .sec-rule{flex:1;height:0;border-top:1px solid var(--gold-soft);position:relative;opacity:.7;}
   .sec-rule::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:1px solid var(--line);opacity:.6;}
 
@@ -194,8 +196,8 @@
   .tdy-koyomi .kou .sekki{color:var(--vermilion-deep);font-weight:600;}
   .tdy-koyomi .yomi{font-size:.78rem;color:var(--muted);letter-spacing:.1em;margin-bottom:1rem;}
   .tdy-koyomi .tsuki{font-size:.86rem;color:var(--ink-soft);letter-spacing:.08em;}
-  .tdy-issetsu blockquote{margin:0;font-size:1.06rem;line-height:2.15;color:var(--ink);letter-spacing:.06em;}
-  .tdy-issetsu .src{display:block;margin-top:.9rem;font-size:.7rem;color:var(--muted);letter-spacing:.16em;text-align:right;}
+  .tdy-issetsu blockquote{margin:0;font-family:'Yuji Syuku',var(--serif);font-size:1.06rem;line-height:2.15;color:var(--ink);letter-spacing:.06em;}
+  .tdy-issetsu .src{display:block;font-family:var(--serif);margin-top:.9rem;font-size:.7rem;color:var(--muted);letter-spacing:.16em;text-align:right;}
   .tdy-hitokoto .h-date{font-size:.7rem;color:var(--gold);letter-spacing:.16em;margin-bottom:.6rem;}
   .tdy-hitokoto .h-text{font-size:.92rem;line-height:2.05;color:var(--ink-soft);letter-spacing:.05em;}
   .tdy-tayori ul{list-style:none;margin:0;padding:0;}
