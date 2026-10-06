@@ -748,7 +748,7 @@
       const up = window.nakatokoUpcoming();
       const note = window.NAKATOKO_EVENTS_NOTE ? " ── "+window.NAKATOKO_EVENTS_NOTE : "";
       setHTML("nbNext", up.length
-        ? '次回は<b style="color:#fff;">'+window.nakatokoFmtDate(up[0].d)+'</b>'+(up.length>1?' ── 以降 '+up.slice(1,3).map(e=>window.nakatokoFmtDate(e.d)).join('・'):note)
+        ? '次回は<b style="color:#fff;">'+window.nakatokoFmtDate(up[0].d)+(up[0].v?'　'+up[0].v:'')+'</b>'+(up.length>1?' ── 以降 '+up.slice(1,3).map(e=>window.nakatokoFmtDate(e.d)+(e.v?' '+e.v:'')).join('・'):note)
         : '次回の日程は、決まり次第ここに掲載します');
     }
   }

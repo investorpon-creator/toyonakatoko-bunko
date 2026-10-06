@@ -1145,6 +1145,8 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         <td>
           <b>岡崎城 二の丸能楽堂</b>
           <span class="note">愛知県岡崎市康生町561（岡崎公園内）</span>
+          <b style="display:block;margin-top:.9rem;">伊勢 世木神社</b>
+          <span class="note">三重県伊勢市吹上1丁目2-6（伊勢市駅前）。令和八年十一月より、毎月一日に開きます（一月のみ十五日）</span>
         </td>
       </tr>
       <tr>
@@ -1167,6 +1169,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         <td>
           <b>白足袋（必携）</b>
           <span class="note">能舞台には白足袋でしか立つことを許されていません。必ずご持参ください。動きやすい服装でお越しください</span>
+          <span class="note">伊勢 世木神社の回は、講義のみなら白足袋は要りません。お稽古は靴下でもできますが、白足袋をおすすめします</span>
         </td>
       </tr>
       <tr>
@@ -1174,6 +1177,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         <td>
           <span id="taikenNext">開催日程は下のお申し込みページをご覧ください</span>
           <span class="note">和儀お稽古（初心・初級）13:00〜／度會神道講義14:45〜／和儀お稽古（初級〜中級）16:00〜。初級〜中級は習熟度に合わせてお稽古いたしますので、初心・初級を一度受けていただければ、その日のうちでもお進みいただけます。定員が小さいため、お早めにどうぞ</span>
+          <span class="note">伊勢 世木神社の回は、それぞれ一時間あと（お稽古 初心・初級14:00〜／講義15:45〜／お稽古 初級〜中級17:00〜）。お申し込みは<a href="https://mosh.jp/nakatokojuku" target="_blank" rel="noopener noreferrer">MOSHの中常塾の頁</a>から</span>
         </td>
       </tr>
     </table>
@@ -1350,11 +1354,12 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
   var up=window.nakatokoUpcoming();
   if(!up.length){ el.innerHTML="次回の日程は、決まり次第ここに掲載します。"; return; }
   var f=window.nakatokoFmtDate, rest=up.slice(1,4);
-  var h="次にお申し込みいただけるのは<b>"+f(up[0].d)+"</b>です。";
+  var at=function(e){return e.v?"（"+e.v+"）":"";};
+  var h="次にお申し込みいただけるのは<b>"+f(up[0].d)+at(up[0])+"</b>です。";
   if(rest.length){
     var wd=function(iso){var p=iso.split("-");return new Date(+p[0],+p[1]-1,+p[2]).getDay();};
     var same=up.every(function(e){return wd(e.d)===wd(up[0].d);});
-    h+="以降、"+rest.map(function(e){var p=e.d.split("-");return (+p[1])+"月"+(+p[2])+"日";}).join("・")+(same?"（いずれも"+["日","月","火","水","木","金","土"][wd(up[0].d)]+"曜）":"");
+    h+="以降、"+rest.map(function(e){var p=e.d.split("-");return (+p[1])+"月"+(+p[2])+"日"+at(e);}).join("・")+(same?"（いずれも"+["日","月","火","水","木","金","土"][wd(up[0].d)]+"曜）":"");
   }
   el.innerHTML=h;
 })();
