@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>能舞台であなたの中の日本、肚が目覚める ── 私塾 中常塾 講義・お稽古</title>
-<meta name="description" content="岡崎城 二の丸能楽堂にて、度會神道の講義と和儀のお稽古を少人数でお届けする中常塾の講義・お稽古。日本人の肚を再発見する、特別な一日。">
+<meta name="description" content="岡崎城 二の丸能楽堂と伊勢 世木神社で、度會神道の講義と和儀のお稽古を少人数で行う中常塾の講座案内です。当日の流れ、和儀とは何か、参加者の声、会場・定員・持ち物などの開催概要を載せています。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/taiken/">
 <link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
@@ -612,6 +612,30 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Course","name":"度會神道の講義と和儀のお稽古","description":"岡崎城 二の丸能楽堂にて、度會神道の講義と和儀（能楽・狂言の身体技法）のお稽古を少人数で行う、中常塾の講義・お稽古。","inLanguage":"ja","courseMode":"対面","teaches":["度會神道","和儀（能楽・狂言の身体技法）"],"provider":{"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"publisher":{"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"mainEntityOfPage":"https://nakatokojuku.jp/taiken/"}
+</script>
+<!-- 開催予定の構造化データ（Event）── /events.js の予定のうち、今日以降のものだけを出す。予定の追加は events.js だけでよい -->
+<script src="/events.js"></script>
+<script>
+(function(){
+  if(!window.nakatokoUpcoming) return;
+  var org={"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"};
+  var noh={"@type":"Place","name":"岡崎城 二の丸能楽堂","address":{"@type":"PostalAddress","streetAddress":"康生町561（岡崎公園内）","addressLocality":"岡崎市","addressRegion":"愛知県","addressCountry":"JP"}};
+  var list=window.nakatokoUpcoming().map(function(e){
+    /* 開始時刻：能楽堂は13:00、伊勢 世木神社は一時間あとの14:00（本文「次回開催」による）。それ以外の会場は日付のみ */
+    var ise=e.v&&e.v.indexOf("世木神社")>-1;
+    var start=!e.v?e.d+"T13:00:00+09:00":(ise?e.d+"T14:00:00+09:00":e.d);
+    var place=e.v?{"@type":"Place","name":e.v,"address":e.addr}:noh;
+    return {"@context":"https://schema.org","@type":"Event","name":"中常塾 "+e.t,
+      "description":"度會神道の講義と和儀のお稽古。少人数制。",
+      "startDate":start,"eventStatus":"https://schema.org/EventScheduled",
+      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+      "location":place,"organizer":org,"url":e.url,
+      "image":"https://nakatokojuku.jp/taiken/photo_group.jpg","inLanguage":"ja"};
+  });
+  if(!list.length) return;
+  var el=document.createElement("script"); el.type="application/ld+json"; el.id="nakatoko-events-ld";
+  el.text=JSON.stringify(list); document.head.appendChild(el);
+})();
 </script>
 </head>
 <body>
