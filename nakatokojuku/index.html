@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>中常塾について ── 私塾 中常塾 なかとこじゅく</title>
-<meta name="description" content="塾名「中常」の由来、塾主・松浦茂樹のルーツと伊雜宮、懸税・御神酒の奉納事業、度會神道の学びと和儀 ── 中常塾の物語の全体をご紹介します。">
+<meta name="description" content="塾名「中常」の由来となった出口延佳の言葉、塾主・松浦茂樹の父方のルーツと伊雜宮、歩みの地図、倭姫命世記に根拠を持つ懸税・御神酒の奉納事業、度會神道の学びと和儀 ── 中常塾の全体をご紹介します。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/nakatokojuku/">
 <link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
@@ -368,7 +368,7 @@
     font-size:.75rem;letter-spacing:.2em;color:#b9a05e;font-weight:600;margin-bottom:.2rem;
   }
   .yt-mini .yt-info .yt-sub{
-    font-size:.68rem;letter-spacing:.08em;color:#7d6f56;line-height:1.7;
+    font-size:.68rem;letter-spacing:.08em;color:#9a8a6c;line-height:1.7;
   }
   .yt-mini-link{
     margin-left:auto;flex-shrink:0;
@@ -383,7 +383,7 @@
     margin:.8rem 0 .4rem;flex-wrap:wrap;
   }
   footer .f-links a{
-    font-size:.67rem;letter-spacing:.22em;color:#7d6f56;text-decoration:none;transition:color .2s;
+    font-size:.67rem;letter-spacing:.22em;color:#9a8a6c;text-decoration:none;transition:color .2s;
   }
   footer .f-links a:hover{color:#d9cdb4;}
   footer .f-links span{color:#3a3326;font-size:.65rem;}
@@ -410,6 +410,12 @@
     .offering-grid{grid-template-columns:1fr;}
     .wordmark{letter-spacing:.3em;}
     .topnav{gap:.5rem 1rem;font-size:.7rem;letter-spacing:.16em;}
+  }
+  /* 能舞台バナー：狭い画面で題と案内が一字だけ次行に落ちないよう字間を詰め、写真の上の文字に影を添える */
+  .noh-banner p,.noh-banner span{text-shadow:0 1px 6px rgba(12,8,4,.75);}
+  @media (max-width:480px){
+    .noh-banner p+p{letter-spacing:.1em!important;}
+    .noh-banner span{letter-spacing:.12em!important;padding:.5em 1.2em!important;}
   }
 </style>
     <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
@@ -546,8 +552,8 @@
 
 <!-- ── 能舞台バナー ── -->
 <div style="padding:0 1.2rem 2.4rem;max-width:760px;margin:0 auto;">
-  <a href="https://nakatokojuku.jp/taiken/" style="display:block;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
-    <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
+  <a class="noh-banner" href="https://nakatokojuku.jp/taiken/" style="display:block;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
+    <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂の能舞台で、松の鏡板を背に、袴姿の塾主と参加者が並び立って和儀の稽古をする" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(33,25,17,.82) 40%,rgba(33,25,17,.35) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.6rem 1.2rem;">
       <p style="margin:0 0 .3rem;color:var(--gold-soft);font-size:.7rem;letter-spacing:.3em;">中常塾 能楽堂プログラム</p>
       <p style="margin:0 0 1rem;color:#f5ede0;font-size:1.15rem;letter-spacing:.2em;font-weight:500;">能舞台で、肚が目覚める。</p>
@@ -606,7 +612,7 @@
       その二文字は、<span class="em">天御中主神（あまのみなかぬしのかみ）</span>＝國常立尊の同躰異名に由来します。
       天の中心にある北極星（北辰）のように、中心にして永遠、動かざる軸。
       その道を「神道」と呼んだ延佳の言葉を、塾名といたしました。
-      <a href="/bunko/nakatoko-no-michi/">▶ くわしくは「中常」という名</a>
+      <a href="/bunko/nakatoko-no-michi/" style="color:var(--vermilion-deep);text-decoration:none;">▶ くわしくは「中常」という名</a>
     </p>
     <p class="body">
       また本書写本の解題タブに収録した倭姫命世記の三十頁には、
@@ -799,8 +805,8 @@
       <img src="https://nakatokojuku.jp/nakatokojuku/photo_menjo.jpg" alt="能舞台にて 師範免状を手に" width="1000" height="953" loading="lazy" decoding="async">
       <div class="photo-cap">能舞台にて ── 師範免状を手に</div>
     </div>
-    <a href="https://nakatokojuku.jp/taiken/" style="display:block;margin-top:2rem;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
-      <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
+    <a class="noh-banner" href="https://nakatokojuku.jp/taiken/" style="display:block;margin-top:2rem;text-decoration:none;position:relative;overflow:hidden;border-radius:2px;">
+      <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂の能舞台で、松の鏡板を背に、袴姿の塾主と参加者が並び立って和儀の稽古をする" width="1600" height="911" loading="lazy" decoding="async" style="display:block;width:100%;height:220px;object-fit:cover;object-position:center 30%;">
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(33,25,17,.82) 40%,rgba(33,25,17,.35) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:1.6rem 1.2rem;">
         <p style="margin:0 0 .3rem;color:var(--gold-soft);font-size:.7rem;letter-spacing:.3em;">中常塾 能楽堂プログラム</p>
         <p style="margin:0 0 1rem;color:#f5ede0;font-size:1.15rem;letter-spacing:.2em;font-weight:500;">能舞台で、肚が目覚める。</p>

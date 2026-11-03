@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>倭姫命世記をやさしく ── 伊勢神宮の起源の物語｜豐中常文庫・私塾 中常塾</title>
-<meta name="description" content="神道五部書の一つ『倭姫命世記』を、やさしく。倭姫命が天照大御神を奉じて諸国を巡り、伊勢に神宮を定めるまでの物語と、懸税（神嘗祭）の起源を解説します。">
+<meta name="description" content="神道五部書の一つ『倭姫命世記』をやさしく解説します。倭姫命が天照大御神の御杖代として諸国を巡り、伊勢を御鎮座の地と定めるまでの物語、神嘗祭の懸税の起源、中常塾が蔵する出口延佳校合本のこと。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/bunko/yamatohime/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -85,6 +85,14 @@
   }
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

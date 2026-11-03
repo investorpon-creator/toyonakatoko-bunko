@@ -14,7 +14,7 @@
 <meta property="og:title" content="岡崎と伊勢 ── 御鍬祭りと懸税の物語">
 <meta property="og:description" content="岡崎はかつて伊勢へ初穂を納める國でした。磯部から磯部へ運ばれた御鍬、ええじゃないかの発火点、今に続く懸税奉納の物語。">
 <meta property="og:url" content="https://nakatokojuku.jp/bunko/okazaki-to-ise/">
-<meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg">
+<meta property="og:image" content="https://nakatokojuku.jp/bunko/okazaki-to-ise/photo_ofudafuri.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"岡崎と伊勢 ── 御鍬祭りと懸税の物語","description":"岡崎はかつて伊勢の神宮の神領であり、神嘗祭の懸税を納める國だった。御鍬祭りとええじゃないか、今に続く懸税奉納の物語を解説。","inLanguage":"ja","author":{"@type":"Person","name":"松浦茂樹"},"publisher":{"@type":"Organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"isPartOf":{"@type":"WebSite","name":"豐中常文庫","url":"https://nakatokojuku.jp/bunko/"},"mainEntityOfPage":"https://nakatokojuku.jp/bunko/okazaki-to-ise/"}
@@ -95,6 +95,14 @@
   }
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

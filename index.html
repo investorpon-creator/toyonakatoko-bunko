@@ -20,6 +20,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EducationalOrganization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","alternateName":["なかとこじゅく","私塾 中常塾"],"url":"https://nakatokojuku.jp/","founder":{"@type":"Person","name":"松浦茂樹"},"foundingDate":"2026-05-25","description":"度會神道の学びと和儀（能楽・狂言の身体技法）を通じて、日本人の肚を再発見する場。","address":{"@type":"PostalAddress","addressLocality":"岡崎市","addressRegion":"愛知県","addressCountry":"JP"},"sameAs":["https://www.youtube.com/@nakatokojuku","https://www.instagram.com/nakatokojuku/","https://www.facebook.com/nakatokojuku"]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","@id":"https://nakatokojuku.jp/#website","name":"私塾 中常塾","alternateName":"なかとこじゅく","url":"https://nakatokojuku.jp/","inLanguage":"ja","publisher":{"@id":"https://nakatokojuku.jp/#organization"}}
+</script>
 <link rel="preload" as="image" href="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -187,7 +190,7 @@
   .noh{position:relative;display:block;text-decoration:none;color:#f5ede0;height:clamp(340px,52vw,600px);overflow:hidden;background:var(--ink);}
   .noh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.92);}
   .noh::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(24,17,11,.88) 0%,rgba(24,17,11,.35) 42%,transparent 70%);}
-  .noh-text{position:absolute;left:0;right:0;bottom:0;z-index:1;padding-bottom:clamp(1.6rem,4vw,3rem);}
+  .noh-text{position:absolute;left:0;right:0;bottom:0;z-index:1;padding-bottom:clamp(1.6rem,4vw,3rem);text-shadow:0 1px 6px rgba(12,8,4,.75);}
   .noh-text .k{font-size:.74rem;letter-spacing:.3em;color:var(--gold-pale);margin-bottom:.4rem;}
   .noh-text .t{font-size:clamp(1.5rem,3.4vw,2.5rem);letter-spacing:.18em;margin-bottom:.8rem;font-weight:500;}
   .noh-text #nbNext{color:#e8dcc4;font-size:.8rem;letter-spacing:.14em;margin-bottom:1rem;}
@@ -300,6 +303,8 @@
     .btn-vermilion{width:100%;justify-content:center;}
     .tobira-intro h2{font-size:1.9rem;}
     .noh-text .t{font-size:1.3rem;letter-spacing:.12em;}
+    /* 狭い画面では文字が写真の人物に重なるため、下からの影を高くまで伸ばして読めるようにする */
+    .noh::after{background:linear-gradient(to top,rgba(24,17,11,.9) 0%,rgba(24,17,11,.66) 52%,rgba(24,17,11,.18) 82%,transparent 100%);}
   }
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
@@ -437,7 +442,7 @@
 </div>
 
 <a class="noh reveal" href="https://nakatokojuku.jp/taiken/">
-  <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂" width="1600" height="911" loading="lazy" decoding="async">
+  <img src="https://nakatokojuku.jp/taiken/photo_group.jpg" alt="岡崎城二の丸能楽堂の能舞台で、松の鏡板を背に、袴姿の塾主と参加者が並び立って和儀の稽古をする" width="1600" height="911" loading="lazy" decoding="async">
   <div class="noh-text">
     <div class="wrap-wide">
       <p class="k">中常塾 能楽堂プログラム</p>
