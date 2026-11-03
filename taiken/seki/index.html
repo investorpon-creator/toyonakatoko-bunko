@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>度會氏の氏神の社で、肚が目覚める ── 私塾 中常塾 講義・お稽古（伊勢 世木神社）</title>
-<meta name="description" content="外宮のお膝元・伊勢市駅前の世木神社にて、度會神道の講義と和儀のお稽古を少人数でお届けする中常塾の講義・お稽古。令和八年十一月より毎月一日に開きます。">
+<meta name="description" content="外宮のお膝元、伊勢市駅前の世木神社で、度會神道の講義と和儀のお稽古を少人数で行う中常塾の講座案内です。令和八年十一月より毎月一日に開催します。この社で学ぶ理由、当日の流れ、時間・定員・持ち物などの開催概要を載せています。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/taiken/seki/">
 <link rel="icon" href="https://nakatokojuku.jp/favicon.svg" type="image/svg+xml">
@@ -12,9 +12,9 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="度會氏の氏神の社で、肚が目覚める ── 私塾 中常塾 講義・お稽古（伊勢 世木神社）">
-<meta property="og:description" content="外宮のお膝元・伊勢市駅前の世木神社にて、度會神道の講義と和儀のお稽古を少人数でお届けする中常塾の講義・お稽古。毎月一日に開きます。">
+<meta property="og:description" content="外宮のお膝元・伊勢市駅前の世木神社にて、度會神道の講義と和儀のお稽古を少人数でお届けする中常塾の講義・お稽古。毎月一日に開催します。">
 <meta property="og:url" content="https://nakatokojuku.jp/taiken/seki/">
-<meta property="og:image" content="https://nakatokojuku.jp/taiken/photo_seki_torii.jpg">
+<meta property="og:image" content="https://nakatokojuku.jp/taiken/seki/photo_seki_torii.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,6 +110,10 @@ body{
   letter-spacing:.14em;font-weight:600;line-height:1.15;
   color:#f5edd8;
   margin-bottom:1.8rem;
+}
+/* スマホ幅では「肚が目覚める。」の七字が一行に収まらず「る。」だけが次行に落ちるため、画面幅に合わせて字を少し小さくする */
+@media (max-width:520px){
+  .hero-h1{font-size:min(2.8rem, calc((100vw - 46px) / 8.1));}
 }
 .hero-h1 em{
   color:var(--gold-soft);font-style:normal;
@@ -463,6 +467,10 @@ p.body:last-child{margin-bottom:0;}
   font-size:.72rem;color:var(--muted);
   margin-top:.2rem;letter-spacing:.04em;
 }
+.detail-table .note a{color:var(--vermilion-deep);}
+/* 時間の欄の申込リンクを既定の青ではなく他のリンクと同じ朱色に。定員の二項目（.nb）は語の途中で折れないようにする */
+.detail-table td > a{color:var(--vermilion-deep);text-underline-offset:3px;}
+.detail-table .nb{display:inline-block;}
 
 /* ── 最終CTA ── */
 .cta-section{
@@ -497,7 +505,7 @@ p.body:last-child{margin-bottom:0;}
 .cta-note{
   margin-top:1.6rem;
   font-size:.66rem;letter-spacing:.2em;
-  color:rgba(185,160,94,.48);
+  color:rgba(185,160,94,.8);
 }
 
 /* ── フッター ── */
@@ -617,6 +625,27 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Course","name":"度會神道の講義と和儀のお稽古（伊勢 世木神社）","description":"伊勢市駅前の世木神社にて、度會神道の講義と和儀（能楽・狂言の身体技法）のお稽古を少人数で行う、中常塾の講義・お稽古。毎月一日開催。","inLanguage":"ja","courseMode":"対面","teaches":["度會神道","和儀（能楽・狂言の身体技法）"],"location":{"@type":"Place","name":"世木神社","address":{"@type":"PostalAddress","addressRegion":"三重県","addressLocality":"伊勢市","streetAddress":"吹上1丁目2-6","addressCountry":"JP"}},"provider":{"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"publisher":{"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"mainEntityOfPage":"https://nakatokojuku.jp/taiken/seki/"}
 </script>
+<!-- 開催予定の構造化データ（Event）── /events.js の予定のうち、伊勢 世木神社の回で今日以降のものだけを出す。予定の追加は events.js だけでよい -->
+<script src="/events.js"></script>
+<script>
+(function(){
+  if(!window.nakatokoUpcoming) return;
+  var org={"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"};
+  var place={"@type":"Place","name":"伊勢 世木神社","address":{"@type":"PostalAddress","streetAddress":"吹上1丁目2-6","addressLocality":"伊勢市","addressRegion":"三重県","addressCountry":"JP"}};
+  var list=window.nakatokoUpcoming().filter(function(e){return e.v&&e.v.indexOf("世木神社")>-1;}).map(function(e){
+    /* 開始時刻：世木神社の回は14:00（本文「当日の流れ」「時間」による） */
+    return {"@context":"https://schema.org","@type":"Event","name":"中常塾 "+e.t,
+      "description":"伊勢 世木神社での、度會神道の講義と和儀のお稽古。少人数制。",
+      "startDate":e.d+"T14:00:00+09:00","eventStatus":"https://schema.org/EventScheduled",
+      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+      "location":place,"organizer":org,"url":e.url,
+      "image":"https://nakatokojuku.jp/taiken/seki/photo_seki_torii.jpg","inLanguage":"ja"};
+  });
+  if(!list.length) return;
+  var el=document.createElement("script"); el.type="application/ld+json"; el.id="nakatoko-events-ld";
+  el.text=JSON.stringify(list); document.head.appendChild(el);
+})();
+</script>
 </head>
 <body>
 
@@ -665,7 +694,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
   <div class="wrap">
     <div class="photo-block">
       <div class="photo-frame">
-        <img src="https://nakatokojuku.jp/taiken/photo_seki_torii.jpg" alt="伊勢 世木神社の鳥居と社号標" width="1600" height="911" decoding="async">
+        <img src="https://nakatokojuku.jp/taiken/seki/photo_seki_torii.jpg" srcset="https://nakatokojuku.jp/taiken/photo_seki_torii.jpg 692w, https://nakatokojuku.jp/taiken/seki/photo_seki_torii.jpg 1436w" sizes="(max-width:800px) calc(100vw - 77px), 718px" alt="伊勢 世木神社の鳥居と社号標" width="1436" height="818" loading="lazy" decoding="async">
       </div>
       <div class="photo-cap">伊勢 世木神社　鳥居と社号標（伊勢市駅前）</div>
     </div>
@@ -710,7 +739,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
           能楽・狂言の身体技法から生まれた「肚の稽古」＝和儀。
           670年磨かれた技芸の核を、今日からの稽古としてお手渡しします。
           頭で分かったことを、身体で知る。
-          すり足ひとつで、日本人の記憶が甦ります。
+          摺り足ひとつで、日本人の記憶が甦ります。
         </p>
       </div>
     </div>
@@ -729,13 +758,13 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
       外宮の神主一族・<span class="em">度會氏の氏神</span>であり、度會神道を学ぶ場でもありました。
     </p>
     <p class="body">
-      二〇一五年十二月、塾主はこの世木神社で、中常塾の前身にあたる「<span class="em">山田白魁塾</span>」を開きました。
+      二〇一五年十二月、塾主はこの世木神社で、中常塾の前身にあたる「<span class="em">山田白魁塾</span>」を開催しました。
       出口延佳の「中常の道」、延佳が開いた学びの場・豐宮崎文庫への思い ──
       今の中常塾の芯になっているものは、この社で言葉になりはじめたものです。
     </p>
     <div class="highlight">
       岡崎で開いた中常塾が、十一年を経て、<b>はじまりの社</b>へ還ります。<br>
-      令和八年十一月より、<b>毎月一日</b>（一月のみ十五日）に開きます。
+      令和八年十一月より、<b>毎月一日</b>（一月のみ十五日）に開催します。
     </div>
     <p class="body">
       講義もお稽古も、社の広間で行います。
@@ -744,7 +773,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
     </p>
     <div class="photo-block" style="margin-top:2rem;">
       <div class="photo-frame">
-        <img src="https://nakatokojuku.jp/taiken/photo_seki_hiroma.jpg" alt="世木神社の広間 講義とお稽古の場" width="1600" height="911" loading="lazy" decoding="async">
+        <img src="https://nakatokojuku.jp/taiken/seki/photo_seki_hiroma.jpg" srcset="https://nakatokojuku.jp/taiken/photo_seki_hiroma.jpg 692w, https://nakatokojuku.jp/taiken/seki/photo_seki_hiroma.jpg 1436w" sizes="(max-width:800px) calc(100vw - 77px), 718px" alt="世木神社の広間 講義とお稽古の場" width="1436" height="818" loading="lazy" decoding="async">
       </div>
       <div class="photo-cap">世木神社の広間　講義もお稽古もここで</div>
     </div>
@@ -838,7 +867,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
       <div>
         <div class="photo-frame">
-          <img src="https://nakatokojuku.jp/taiken/photo_practice.jpg" alt="和儀稽古の一場面" width="1600" height="912" loading="lazy" decoding="async">
+          <img src="https://nakatokojuku.jp/taiken/photo_practice.jpg" alt="鏡板の前で稽古する塾主と参加者" width="1600" height="912" loading="lazy" decoding="async">
         </div>
         <div class="photo-cap">少人数での和儀稽古（岡崎の回より）</div>
       </div>
@@ -1054,8 +1083,8 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         <p class="body">
           二〇一五年十二月、世木神社にて中常塾の前身「山田白魁塾」を開塾。
           令和八（2026）年五月二十五日、岡崎にて中常塾を正式に開塾し、
-          岡崎城 二の丸能楽堂で定期的に講義・稽古を開いています。
-          令和八年十一月より、伊勢 世木神社でも毎月開きます。
+          岡崎城 二の丸能楽堂で定期的に講義・稽古を開催しています。
+          令和八年十一月より、伊勢 世木神社でも毎月開催します。
         </p>
         <div style="margin-top:1.4rem;">
           <a href="https://nakatokojuku.jp/nakatokojuku/"
@@ -1087,14 +1116,14 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         <th>日程</th>
         <td>
           <b>令和八年十一月より、毎月一日</b>
-          <span class="note">一月のみ十五日に開きます</span>
+          <span class="note">一月のみ十五日に開催します</span>
         </td>
       </tr>
       <tr>
         <th>内容</th>
         <td>
           度會神道 講義 ＋ 和儀 お稽古
-          <span class="note">各講義、稽古の単独受講も可。塾主おすすめは、相乗効果が最も高まる全受講。詳細は申し込みページにて</span>
+          <span class="note">各講義、稽古の単独受講も可。塾主おすすめは、相乗効果が最も高まる全受講。詳細は申込ページにて</span>
         </td>
       </tr>
       <tr>
@@ -1106,7 +1135,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
       </tr>
       <tr>
         <th>定員</th>
-        <td><b>稽古：6名まで　／　講義：14名まで</b><span class="note">定員に達し次第、受付終了</span></td>
+        <td><b><span class="nb">稽古：6名まで</span>　／　<span class="nb">講義：14名まで</span></b><span class="note">定員に達し次第、受付終了</span></td>
       </tr>
       <tr>
         <th>参加費</th>
