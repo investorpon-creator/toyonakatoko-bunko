@@ -111,6 +111,10 @@ body{
   color:#f5edd8;
   margin-bottom:1.8rem;
 }
+/* スマホ幅では「肚が目覚める。」の七字が一行に収まらず「る。」だけが次行に落ちるため、画面幅に合わせて字を少し小さくする */
+@media (max-width:520px){
+  .hero-h1{font-size:min(2.8rem, calc((100vw - 46px) / 8.1));}
+}
 .hero-h1 em{
   color:var(--gold-soft);font-style:normal;
   position:relative;
@@ -463,6 +467,7 @@ p.body:last-child{margin-bottom:0;}
   font-size:.72rem;color:var(--muted);
   margin-top:.2rem;letter-spacing:.04em;
 }
+.detail-table .note a{color:var(--vermilion-deep);}
 
 /* ── 最終CTA ── */
 .cta-section{
@@ -497,7 +502,7 @@ p.body:last-child{margin-bottom:0;}
 .cta-note{
   margin-top:1.6rem;
   font-size:.66rem;letter-spacing:.2em;
-  color:rgba(185,160,94,.48);
+  color:rgba(185,160,94,.8);
 }
 
 /* ── フッター ── */
