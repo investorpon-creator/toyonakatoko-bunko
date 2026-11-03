@@ -190,6 +190,13 @@
   .sec-head .rome{font-size:.66rem;letter-spacing:.4em;color:var(--muted);text-transform:uppercase;}
   .sec-head .grow{flex:1;height:0;border-top:1px solid var(--line);transform:translateY(-4px);}
   .sec-head .count{font-size:.72rem;letter-spacing:.3em;color:var(--muted);}
+  /* スマホ幅では「所蔵書」「全一巻」が語の途中で折れていたため、語ごとに折り返し、巻数は右に寄せる */
+  @media (max-width:480px){
+    .sec-head{flex-wrap:wrap;gap:.4rem .9rem;}
+    .sec-head .kanji{letter-spacing:.3em;}
+    .sec-head .kanji,.sec-head .rome,.sec-head .count{white-space:nowrap;}
+    .sec-head .count{margin-left:auto;}
+  }
 
   .volume{
     display:grid;grid-template-columns:152px 1fr;gap:clamp(1.6rem,3.5vw,3rem);

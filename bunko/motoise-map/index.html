@@ -103,6 +103,14 @@
   }
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -210,8 +218,10 @@ var EXTRAS = [
  ["伊雜宮","雜","志摩国 一之宮 ── 神宮別宮・遙宮(とおのみや)","御鎮座の後、倭姫命が志摩国を巡られた折に定められ、伊佐波登美神(いさわとみのかみ)が造営したと『倭姫命世記』に伝わる宮。元伊勢ではありませんが、物語の続きに登場します","三重県志摩市磯部町上之郷",34.380278,136.808889]
 ];
 
-var map = L.map('map', {scrollWheelZoom:false});
-L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+// 地図ライブラリ（Leaflet）が読み込めなかったときも、下の行程一覧だけは出るようにする
+var map = (typeof L !== 'undefined') ? L.map('map', {scrollWheelZoom:false}) : null;
+if (!map) document.querySelector('.map-frame').style.display = 'none';
+if (map) L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
   attribution: '地図：<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>',
   maxZoom: 17
 }).addTo(map);
@@ -223,24 +233,30 @@ SPOTS.forEach(function(s, i){
   var ll = [s[4], s[5]];
   latlngs.push(ll);
   var goal = !!s[6];
+  var m = null;
+  if (map) {
   var icon = L.divIcon({className:'', html:'<div class="mk'+(goal?' goal':'')+'">'+num+'</div>', iconSize:[26,26], iconAnchor:[13,13]});
-  var m = L.marker(ll, {icon: icon}).addTo(map);
+  m = L.marker(ll, {icon: icon}).addTo(map);
   var pop = '<div><b>'+s[0]+'</b><br><span class="pp-miya">'+s[1]+'</span>'
           + (s[2] ? '<br>'+s[2] : '')
           + '<br><span class="pp-place">'+s[3]+'</span></div>';
   m.bindPopup(pop);
   var dir = (i % 2 === 0) ? 'right' : 'left';
   m.bindTooltip(s[0], {permanent:true, direction:dir, offset:[dir==='right'?14:-14,0], className:'shrine-label'});
+  }
   var li = document.createElement('li');
   if (goal) li.className = 'goal';
   li.innerHTML = '<b>'+s[0]+'</b>　<span class="miya">'+s[1]+'</span>'
                + (s[2] ? '<br>'+s[2] : '')
                + '<br><span class="pl">'+s[3]+'</span>';
+  if (map) {
   li.addEventListener('click', function(){ map.setView(ll, 13); m.openPopup(); window.scrollTo({top:0, behavior:'smooth'}); });
   li.style.cursor = 'pointer';
+  }
   listEl.appendChild(li);
 });
 
+if (map) {
 // 巡幸の道筋（伝承候補を含め、行程順に繋ぐ）
 L.polyline(latlngs, {color:'#a8362a', weight:2.5, opacity:.65, dashArray:'6 8'}).addTo(map);
 
@@ -262,6 +278,7 @@ function updateLabels(){
 }
 map.on('zoomend', updateLabels);
 updateLabels();
+}
 </script>
 
 </body>
