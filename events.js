@@ -7,7 +7,7 @@ window.NAKATOKO_EVENTS = [
   {d:"2026-08-24", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"},
   {d:"2026-09-28", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"},
   {d:"2026-10-19", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"},
-  {d:"2026-11-01", t:"講義お稽古（伊勢）", url:"https://mosh.jp/nakatokojuku", v:"伊勢 世木神社", addr:"三重県伊勢市吹上1丁目2-6（伊勢市駅前）"},
+  {d:"2026-11-01", t:"講義お稽古（伊勢）", url:"https://nakatokojuku.jp/taiken/seki/#apply", v:"伊勢 世木神社", addr:"三重県伊勢市吹上1丁目2-6（伊勢市駅前）"},
   {d:"2026-11-16", t:"講義お稽古", url:"https://mosh.jp/nakatokojuku/articles/66137"}
 ];
 /* 「次回は…」に続けて添える一言（空文字にすれば何も出ない） */
