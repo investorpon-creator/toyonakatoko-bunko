@@ -1,0 +1,39 @@
+# サイト点検 ── 壊れたリンク・sitemap・JSON-LD・events.js・検索索引を確かめる
+# 中身は tools/site-check/check.py（Python 標準ライブラリだけ。JS の構文点検に Node を使う）
+name: サイト点検
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      external:
+        description: "外部サイト（mosh.jp など）へのリンクも HEAD で確かめる"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: サイト点検
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          if [ "${{ github.event_name == 'workflow_dispatch' && inputs.external }}" = "true" ]; then
+            python3 tools/site-check/check.py --external
+          else
+            python3 tools/site-check/check.py
+          fi
