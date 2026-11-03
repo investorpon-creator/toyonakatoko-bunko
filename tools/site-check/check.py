@@ -497,6 +497,7 @@ def check_search_index(rep):
     if not script.exists():
         rep.error("tools/build-search-index.py", 0, "索引を作るスクリプトがありません")
         return
+    sys.dont_write_bytecode = True  # tools/__pycache__ を作らない
     spec = importlib.util.spec_from_file_location("build_search_index", script)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
