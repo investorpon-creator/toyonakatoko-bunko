@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="/app/icons/apple-touch-icon.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="中常塾">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
@@ -43,11 +43,11 @@
        padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom));font-feature-settings:"palt";}
   a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
   [hidden]{display:none!important}
-  main{animation:fade .28s ease-out}
+  main{animation:fade .28s ease-out;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
   @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
   /* 頭 */
-  .hd{background:var(--sumi);color:#f3ebd9;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;position:sticky;top:0;z-index:5;
+  .hd{background:var(--sumi);color:#f3ebd9;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;position:sticky;top:0;z-index:5;padding-left:calc(16px + env(safe-area-inset-left));padding-right:calc(16px + env(safe-area-inset-right));
       display:flex;align-items:center;justify-content:center;gap:10px;border-bottom:1px solid rgba(185,160,94,.45)}
   .hd .seal{width:26px;height:26px;display:grid;place-content:center;background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion) 45%,var(--vermilion-deep));
       color:#fbf4e6;font-size:10px;line-height:11px;font-weight:600;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(255,240,220,.35);text-align:center}
@@ -82,6 +82,7 @@
   .cell .glyph{width:38px;height:38px;flex:0 0 38px;border:1px solid var(--vermilion);color:var(--vermilion);border-radius:50%;display:grid;place-content:center;font-size:1.05rem;font-weight:500}
   .cell .t{font-size:.95rem;letter-spacing:.12em;font-weight:500;line-height:1.4}
   .cell .s{display:block;font-size:.66rem;letter-spacing:.1em;color:var(--muted);font-family:var(--sans);margin-top:3px;line-height:1.5}
+  @media (max-width:359px){ .cell{padding:12px 9px;gap:8px} .cell .glyph{width:30px;height:30px;flex-basis:30px;font-size:.88rem} .cell .t{letter-spacing:.02em;font-size:.88rem} .cell .s{letter-spacing:0} }
 
   /* 一覧の行 */
   .list{background:var(--paper-card);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
@@ -124,12 +125,30 @@
   .tip a{color:var(--vermilion-deep);border-bottom:1px solid var(--gold-pale)}
   body.standalone .tip{display:none}
 
+  /* 次の催し（トップ） */
+  .next{padding:16px 18px 14px}
+  .next-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .next-d{font-size:1.12rem;font-weight:500;letter-spacing:.05em}
+  .next-n{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;color:#fbf4e6;background:var(--vermilion);padding:1px 9px;border-radius:2px;white-space:nowrap}
+  .next-t{font-size:.9rem;color:var(--ink-soft);letter-spacing:.06em;margin-top:2px}
+  .next-v{font-size:.84rem;line-height:1.7;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line-soft)}
+  .next-v .muted{font-size:.74rem;font-family:var(--sans)}
+  .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .acts .btn{padding:9px 16px;font-size:.8rem;letter-spacing:.16em}
+  /* 新しいたよりの印 */
+  .new{display:inline-block;font-family:var(--sans);font-size:.6rem;letter-spacing:.1em;line-height:1;color:#fbf4e6;background:var(--vermilion);padding:3px 5px 2px;border-radius:2px;margin-right:6px;vertical-align:2px}
+  /* 新しい版の知らせ */
+  .toast{position:fixed;left:16px;right:16px;bottom:calc(var(--tab-h) + env(safe-area-inset-bottom) + 12px);z-index:20;background:var(--ink);color:#f3ebd9;
+         border-radius:4px;padding:12px 14px;font-size:.82rem;letter-spacing:.06em;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+  .toast button{font:inherit;color:var(--gold-pale);background:none;border:1px solid var(--gold);border-radius:2px;padding:5px 12px;letter-spacing:.14em}
+
   /* 足 */
   .tabs{position:fixed;left:0;right:0;bottom:0;height:calc(var(--tab-h) + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);
-        background:var(--sumi);display:flex;z-index:10;border-top:1px solid rgba(185,160,94,.45)}
+        padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);background:var(--sumi);display:flex;z-index:10;border-top:1px solid rgba(185,160,94,.45)}
   .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#b9a05e;font-size:.62rem;letter-spacing:.16em;font-family:var(--sans);gap:4px;position:relative}
   .tab .ic{font-size:1.15rem;line-height:1;font-family:var(--serif);font-weight:500}
   .tab.on{color:#fbf4e6}
+  .tab .dot{position:absolute;top:9px;left:calc(50% + 10px);width:7px;height:7px;border-radius:50%;background:var(--vermilion-soft);box-shadow:0 0 0 2px var(--sumi)}
   .tab.on::before{content:"";position:absolute;top:-1px;left:22%;right:22%;height:2px;background:var(--vermilion-soft)}
 </style>
 </head>
@@ -145,6 +164,11 @@
     <div class="yomi" id="hdKou"></div>
     <div class="rule"></div>
   </section>
+
+  <div id="topNextWrap" hidden>
+    <div class="cap">次の催し</div>
+    <div class="card next" id="topNextCard"></div>
+  </div>
 
   <div class="cap">今日の一節・塾主の一言</div>
   <div class="card today">
@@ -204,7 +228,7 @@
     <a class="row" href="#howto"><span class="row-t">このアプリの使い方</span></a>
     <a class="row" href="#privacy"><span class="row-t">プライバシーポリシー</span></a>
   </div>
-  <p class="pad muted" style="font-size:.7rem;letter-spacing:.2em;text-align:center;font-family:var(--sans)">中常塾アプリ 1.1</p>
+  <p class="pad muted" style="font-size:.7rem;letter-spacing:.2em;text-align:center;font-family:var(--sans)">中常塾アプリ 1.2</p>
 </main>
 
 <!-- アクセス -->
@@ -215,6 +239,7 @@
     <p style="margin-top:12px">お車の方は、岡崎公園の駐車場か、国道1号線を渡った向かいの「りぶら」（岡崎市図書館交流プラザ）の駐車場をご利用ください。りぶらは館内の受付にある機械に駐車券を通すと、2時間までは無料になります。</p>
     <p style="margin-top:12px">伊勢 世木神社の回は、神社に駐車場がありません。お近くの駐車場をお探しください（伊勢市駅のすぐ前です）。</p>
     <p style="margin-top:16px"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%B2%A1%E5%B4%8E%E5%9F%8E%E4%BA%8C%E3%81%AE%E4%B8%B8%E8%83%BD%E6%A5%BD%E5%A0%82" target="_blank" rel="noopener">地図をひらく</a></p>
+    <p style="margin-top:12px"><a class="btn ghost" href="#kaisai">次回開催を見る</a></p>
   </div>
   <p class="pad"><a class="back" href="#menu">‹ MENUへ戻る</a></p>
 </main>
@@ -249,6 +274,8 @@
   </div>
   <p class="pad"><a class="back" href="#menu">‹ MENUへ戻る</a></p>
 </main>
+
+<div class="toast" id="toast" role="status" hidden><span>新しい版になりました</span><button type="button" id="toastBtn">ひらき直す</button></div>
 
 <nav class="tabs">
   <a class="tab" data-tab="top" href="#top"><span class="ic">家</span>トップ</a>
