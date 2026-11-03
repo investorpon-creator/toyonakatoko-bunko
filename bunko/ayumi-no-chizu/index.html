@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>あなたの神話の地図をひらく｜豐中常文庫・私塾 中常塾</title>
-<meta name="description" content="家に伝わる話を日本地図に置いてみると、思いがけない道のりが現れます。出雲から大和・津軽・衣川・松浦・下関を経て杵築へ還り、岡崎へ ── 塾主の家に伝わる物語を一例として、あなたのご家族の地図をたどる手引きを添えました。">
+<meta name="description" content="祖父母や父母から聞いた話を日本地図に置いてみると、思いがけない道のりが現れます。出雲から大和・津軽・衣川・松浦・皆実村・下関を経て杵築へ還り、岡崎へ ── 塾主が教えられてきた物語を一例として、あなたのご家族の地図をたどる手引きを添えました。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/bunko/ayumi-no-chizu/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="あなたの神話の地図をひらく">
-<meta property="og:description" content="家に伝わる話を日本地図に置くと、思いがけない道のりが現れます。塾主の家の道のりを一例に、あなたの家の地図をたどる手引きを添えました。">
+<meta property="og:description" content="祖父母や父母から聞いた話を日本地図に置くと、思いがけない道のりが現れます。塾主の家の道のりを一例に、あなたの家の地図をたどる手引きを添えました。">
 <meta property="og:url" content="https://nakatokojuku.jp/bunko/ayumi-no-chizu/">
 <meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -98,11 +98,19 @@
   }
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"あなたの神話の地図をひらく","description":"家に伝わる話を日本地図に置いてたどる手引き。出雲から大和・津軽・衣川・松浦・下関を経て杵築へ還り、岡崎へ至る道のりを一例として。","inLanguage":"ja","author":{"@type":"Person","name":"松浦茂樹"},"publisher":{"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"isPartOf":{"@type":"WebSite","name":"豐中常文庫","url":"https://nakatokojuku.jp/bunko/"},"mainEntityOfPage":"https://nakatokojuku.jp/bunko/ayumi-no-chizu/"}
+{"@context":"https://schema.org","@type":"Article","headline":"あなたの神話の地図をひらく","description":"祖父母や父母から聞いた話を日本地図に置いてたどる手引き。出雲から大和・津軽・衣川・松浦・皆実村・下関を経て杵築へ還り、岡崎へ至る道のりを一例として。","inLanguage":"ja","author":{"@type":"Person","name":"松浦茂樹"},"publisher":{"@type":"Organization","@id":"https://nakatokojuku.jp/#organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"isPartOf":{"@type":"WebSite","name":"豐中常文庫","url":"https://nakatokojuku.jp/bunko/"},"mainEntityOfPage":"https://nakatokojuku.jp/bunko/ayumi-no-chizu/"}
 </script>
 </head>
 <body>
@@ -124,7 +132,7 @@
     <div class="kicker">豐中常文庫 ── 地図でよむ</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ あなたの神話の地図をひらく</nav>
     <h1>あなたの神話の地図をひらく</h1>
-    <p class="lead">ご自分の家が、どこから来た家なのか。ご存じでしょうか。祖父母や父母から聞いた切れ切れの話 ── 誰それがどこそこから出てきた、あの土地に墓がある ── を、そのまま日本地図の上に置いてみると、思いがけない<span class="em">一本の道のり</span>が現れることがあります。不思議なもので、その道が見えた途端、神代そして神話は遠い昔話ではなく、<span class="em">いま自分の足元に流れているもの</span>になります。ここに掲げるのは、その一例です。私の家に伝わる物語を、そのまま地図に写しました。読み終えられたら、どうぞご自分の家の地図を描いてみてください。</p>
+    <p class="lead">ご自分の家が、どこから来た家なのか。ご存じでしょうか。祖父母や父母から聞いた切れ切れの話 ── 誰それがどこそこから出てきた、あの土地に墓がある ── を、そのまま日本地図の上に置いてみると、思いがけない<span class="em">一本の道のり</span>が現れることがあります。不思議なもので、その道が見えた途端、神代そして神話は遠い昔話ではなく、<span class="em">いま自分の足元に流れているもの</span>になります。ここに掲げるのは、その一例です。私が教えられてきた物語を、そのまま地図に写しました。読み終えられたら、どうぞご自分の家の地図を描いてみてください。</p>
   </div>
 </div>
 
@@ -132,9 +140,9 @@
 <article>
 
   <div class="ayumi-map">
-    <img src="/nakatokojuku/ayumi_map.svg" alt="家に伝わる歩みの道のりを描いた日本地図。出雲を発ち、大和・津軽・衣川・京都・筑紫大島・松浦・下関を経て出雲杵築へ還り、岡崎へ至る。" width="1000" height="1024" loading="eager" decoding="async">
+    <img src="/nakatokojuku/ayumi_map.svg" alt="塾主が教えられてきた歩みの道のりを描いた日本地図。出雲を発ち、大和・津軽・衣川・京都・筑紫大島・松浦・広島皆実村・下関を経て出雲杵築へ還り、岡崎へ至る。" width="1000" height="1024" loading="eager" decoding="async">
   </div>
-  <div class="ayumi-cap">金の二重丸（1・9）＝出雲・大社杵築 ── 旅立ちの地であり、生を享けた地</div>
+  <div class="ayumi-cap">金の二重丸（1・10）＝出雲・大社杵築 ── 旅立ちの地であり、生を享けた地</div>
 
   <ol class="ayumi-legend">
     <li><a href="#michinori"><span class="ayumi-num">1</span><span><b>出雲</b> ── 縄文の中心地。出雲族・登美氏の源。</span></a></li>
@@ -144,9 +152,10 @@
     <li><a href="#ume"><span class="ayumi-num">5</span><span><b>京都</b> ── 安倍宗任が送られた都。</span></a></li>
     <li><a href="#ume"><span class="ayumi-num">6</span><span><b>筑紫大島</b> ── 宗任が流された玄界の島。</span></a></li>
     <li><a href="#ume"><span class="ayumi-num">7</span><span><b>松浦</b> ── 松浦党に合流。現姓・松浦氏の始まり。</span></a></li>
-    <li><a href="#kizuki"><span class="ayumi-num">8</span><span><b>下関</b> ── 幕末までに至った地。父の生地。</span></a></li>
-    <li><a href="#kizuki"><span class="ayumi-num kin">9</span><span><b>出雲・大社杵築</b> ── 母の生地。私が生を享けた地。</span></a></li>
-    <li><a href="#kizuki"><span class="ayumi-num kin">10</span><span><b>愛知・岡崎</b> ── いま、この地に在り。</span></a></li>
+    <li><a href="#minami"><span class="ayumi-num">8</span><span><b>広島・皆実村</b> ── 森松・新之助・休枩の三代が在った地。</span></a></li>
+    <li><a href="#minami"><span class="ayumi-num">9</span><span><b>下関</b> ── 明治二十六年ごろ、皆実村から移ったとみられる地。父の生地。</span></a></li>
+    <li><a href="#kizuki"><span class="ayumi-num kin">10</span><span><b>出雲・大社杵築</b> ── 母の生地。私が生を享けた地。</span></a></li>
+    <li><a href="#kizuki"><span class="ayumi-num kin">11</span><span><b>愛知・岡崎</b> ── いま、この地に在り。</span></a></li>
   </ol>
   <p class="legend-note">番号を押すと、その地点にまつわる話へ移ります。</p>
 
@@ -157,7 +166,7 @@
     敗れるたびに住む土地を失い、それでも歩みを止めなかった者たちの道のりです。
   </p>
   <p class="body">
-    私の父方・松浦の家は、一本の系譜で<span class="em">出雲族・登美氏</span>に遡ると伝えられます。
+    私の父方・松浦の家は、一本の系譜で<span class="em">出雲族・登美氏</span>に遡ると教えられてきました。
     神武天皇に敗れた國津神の長・登美長髄彦と同族であり、
     伊雜宮を造営した<span class="em">伊佐波登美神</span>もこの系譜に連なります。
     その血を引く一族が東北で奥州安倍氏として興り、
@@ -167,7 +176,7 @@
 
   <h2 id="ume">宗任の梅 ──『太平記』剣の巻の伝えるところ</h2>
   <p class="body">
-    天喜五年（一〇五七年）、源頼義は陸奥へ下り、九年のあいだ戦い続けて、
+    天喜五年（一〇五七）、源頼義は陸奥へ下り、九年のあいだ戦い続けて、
     奥州の安倍貞任・宗任の兄弟を破りました。兄・貞任は討たれ、
     弟・宗任は捕らわれて都へ送られます。
     その宿所に、公卿・殿上人たちが連れ立ってやってきました。
@@ -196,13 +205,22 @@
   <p class="body">
     なお、この「宗任の裔」という伝えを史料の上でどこまで確かめられるのか、
     たどれるところまでたどった記録を公開しています ──
-    <a class="inline" href="/bunko/matsuura-abe/">家の言い伝えは、どこまで信じてよいのか</a>。
+    <a class="inline" href="/bunko/matsuura-abe/">教えられてきた話は、どこまで信じてよいのか</a>。
     出てこなかったことも含めて、そのまま書きました。
+  </p>
+
+  <h2 id="minami">安藝の皆実村から、下関へ</h2>
+  <p class="body">
+    松浦から先、地図の上にふたたび名が現れるのは、
+    安藝國安藝郡の<span class="em">皆実村(みなみむら)</span> ── いまの広島市南区皆実町のあたりです。
+    五代前の森松、高祖父の新之助、曾祖父の休枩。
+    この三代が、明治二十六年（一八九三）ごろ、皆実村から
+    いまの下関へ移ったとみられます。
   </p>
 
   <h2 id="kizuki">出雲へ還り、いま岡崎に</h2>
   <p class="body">
-    その流れの果て、幕末までに下関へ至った家に父が生まれ、
+    その流れの果て、皆実村から下関へ移った家に父が生まれ、
     出雲・大社杵築に生まれた母と出会いました。
     私はその母の生家、杵築(きづき)の地で生を享けています。
     いまの出雲大社は、江戸の世まで<span class="em">杵築大社(きづきのおおやしろ)</span>と称されていました。
@@ -244,7 +262,7 @@
   </p>
   <div class="ayumi-uta">
     <p>天孫降臨より前の系図を正しく伝えるのは、出雲国造家と我が家のみである</p>
-    <span>（秋田家に伝わる答えとして）</span>
+    <span>（秋田家の答えとして語られるもの）</span>
   </div>
   <p class="body">
     敗れて土地を失っても、都に見世物にされても、皇室を前にしてさえ ──
@@ -254,15 +272,15 @@
     出雲を発ったこの道のりが、幾たびの敗北を越えて今日まで貫いてきた一本の軸なのだと思います。
   </p>
   <p class="body">
-    地図の十番、いま私が立つ岡崎もまた、伊勢の神宮から見れば丑寅にあたります。
+    地図の十一番、いま私が立つ岡崎もまた、伊勢の神宮から見れば丑寅にあたります。
     四百年前に朝熊で系図を紡いだ遠い一族の営みと、この地で歩いている道の続きとが、
     どこかで静かに響き合っているように思えてなりません。
   </p>
 
   <h2 id="anata">あなたの地図の描き方</h2>
   <p class="body">
-    ここまでが、我が家に伝わる物語です。
-    もとより、遠い代のことは家に伝わる物語であり、
+    ここまでが、私が教えられてきた物語です。
+    もとより、遠い代のことは教えられてきた物語であり、
     すべてに証を立てられるわけではありません。
     それでも申し上げたいのは、
     <span class="em">こうした地図は、どの家にも必ず一枚ある</span>ということです。
@@ -282,9 +300,9 @@
     <li><b>日本地図の上に、置いてみる</b>
       紙の地図でも、画面の地図でもかまいません。
       古い代から順に印を打ち、線で結びます。
-      家の話は、線になった途端に<span class="em">道のり</span>に変わります。</li>
+      聞いた話は、線になった途端に<span class="em">道のり</span>に変わります。</li>
     <li><b>敗れた話を、消さない</b>
-      どの家の話にも、落ちぶれた代、追われた代、
+      どの家の歩みにも、落ちぶれた代、追われた代、
       土地を捨てて出た代が必ず混じっています。
       そこを消してしまうと、地図はただの自慢話になり、力を失います。
       折れた場所こそが、その家の軸の在りかを教えてくれます。</li>

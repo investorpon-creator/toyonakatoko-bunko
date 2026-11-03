@@ -85,6 +85,9 @@
   .cta-sub{margin-top:.9rem;font-size:.8rem;text-align:center;}
   .cta-sub a{color:var(--gold);text-decoration:none;}
   .cta-sub a:hover{color:var(--vermilion);}
+  /* 案内リンクを語の途中で折らない／狭い画面で区切りの「·」だけが行末に残らないようにする */
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){ footer .f-links span{display:none;} }
   /* footer */
   footer{background:var(--ink);color:#d9cdb4;border-top:3px solid var(--gold);padding:clamp(2.4rem,5vw,3.4rem) 0 2.4rem;margin-top:3rem;}
   footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);text-align:center;}
