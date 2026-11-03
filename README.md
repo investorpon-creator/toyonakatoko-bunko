@@ -60,6 +60,27 @@ git add search-index.json
 
 新しいページを足したときは、フッターのリンク列に `<a href="/search/">検索</a>` も足しておく。
 
+## サイト点検（GitHub Actions）
+
+main への push とプルリクエストのたびに、`.github/workflows/site-check.yml` が `tools/site-check/check.py` を動かして、壊れた箇所を探す。エラーがあると失敗になり、どのファイルの何行目の何が悪いかを日本語で出す。
+
+- **サイト内リンクの切れ**：全HTMLの href・src（相対パス、`/` 始まり、`https://nakatokojuku.jp/` 始まり。日本語のパスとURLエンコードも可）が実在のファイルを指すか。`#アンカー` の id があるか
+- **sitemap.xml**：載っているURLが実在するか。実在する `index.html` が漏れずに載っているか
+- **画像**：img の alt・width・height の抜け（警告のみ。失敗にはしない）
+- **JSON-LD**：`<script type="application/ld+json">` が JSON として正しいか
+- **events.js**：構文が正しいか。各予定に d（YYYY-MM-DD）・t・url があるか
+- **検索索引**：`search-index.json` が最新か（古いと「索引を作り直してください」と出る）
+- **外部リンク**（mosh.jp など）：ふだんは確かめない。Actions の画面で「サイト点検」を手動実行（Run workflow）し、「外部サイトへのリンクも確かめる」に印を付けたときだけ確かめる
+
+ローカルでの実行（Python 3 の標準ライブラリだけ。Node.js があれば JS の構文も確かめる）：
+
+```bash
+python3 tools/site-check/check.py              # いつもの点検
+python3 tools/site-check/check.py --external   # 外部リンクも確かめる
+```
+
+誤検知や、sitemap に載せなくてよいページは `tools/site-check/config.json` で除外する（理由も書き添える）。
+
 ## WEB公開のしかた
 
 このフォルダは自己完結しているので、**そのまま静的ホスティングに置くだけ**で公開できる。
