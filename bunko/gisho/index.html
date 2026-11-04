@@ -103,6 +103,8 @@
     .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
     footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
   }
+  h1,h2,h3{text-wrap:balance;}  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style><script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -124,7 +126,7 @@
   <div class="wrap">
     <div class="kicker">豐中常文庫 ── 解説</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 偽書なのか</nav>
-    <h1>『倭姫命世記』は偽書なのか<br>── 神のこころを慮る</h1>
+    <h1><span class="hb">『倭姫命世記』は偽書なのか</span><span class="hb">── 神のこころを慮る</span></h1>
     <p class="lead">読んでみようと思って調べたら、「偽書」という言葉が出てきた。それで本を閉じてしまった ── そんな経験はありませんか。もったいないことだと思います。成立の年代をめぐる議論は議論としてあります。けれど私がこの本の前で大切にしているのは、<span class="em">神のこころは何だろうか、と慮(おもんぱか)りながら読む</span>ことです。</p>
   </div>
 </div>
