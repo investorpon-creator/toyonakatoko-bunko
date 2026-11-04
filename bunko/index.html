@@ -342,8 +342,8 @@
   @keyframes riseIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
 
   @media (max-width:760px){
-    .hero-grid{grid-template-columns:1fr;gap:2.6rem;}
-    .hero-relic{max-width:380px;margin:0 auto;}
+    .hero-grid{grid-template-columns:minmax(0,1fr);gap:2.6rem;}
+    .hero-relic{width:100%;max-width:380px;margin:0 auto;}
     .volume{grid-template-columns:1fr;}
     .vol-cover{max-width:200px;}
     .vol-cover img{height:240px;}
