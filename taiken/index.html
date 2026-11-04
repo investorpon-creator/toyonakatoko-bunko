@@ -531,6 +531,7 @@ footer .f-seal{
 footer .f-seal span{display:grid;place-content:center;font-size:.88rem;line-height:1;}
 footer .f-seal span:first-child{border-bottom:1px solid rgba(255,255,255,.3);}
 footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f56;}
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style>
     <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
   <!-- GoatCounter analytics -->
@@ -539,7 +540,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
 <style>
   /* ── 改行の統一（PC/スマホ最適化） ── */
   @media (max-width:600px){ br.br-pc{ display:none; }
-    p.body, .lead, .hero-lead, h1, h2{ text-wrap: wrap !important; }  /* スマホは行を端まで詰める(greedy) */ budoux-ja{ word-break: normal !important; overflow-wrap: anywhere !important; } .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
+    p.body, .lead, .hero-lead{ text-wrap: wrap !important; }  /* スマホは本文を端まで詰める(greedy) */ h1, h2, h3{ text-wrap: balance !important; }  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */ budoux-ja{ word-break: normal !important; overflow-wrap: anywhere !important; } .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
   budoux-ja{ display:inline; }
   .page-header h1, .sec-label h2{ text-wrap:balance; }
 </style>
@@ -665,7 +666,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
 <section class="hero">
   <div class="hero-inner">
     <p class="hero-kicker">岡崎城 二の丸能楽堂 ── 少人数制 講義・お稽古</p>
-    <h1 class="hero-h1">能舞台であなたの中の日本、<br><em>肚</em>が目覚める。</h1>
+    <h1 class="hero-h1"><span class="hb">能舞台であなたの中の日本、</span><span class="hb"><em>肚</em>が目覚める。</span></h1>
     <p class="hero-quote">── 鏡板の松の前に立つ、その一日</p>
     <p class="hero-lead">
       呼吸を整え、丹田で軸を感じ、摺り足で場を歩きます。
@@ -1231,7 +1232,7 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
 <section class="cta-section">
   <div class="wrap">
     <p class="cta-eyebrow">中常塾　能舞台 講義・お稽古</p>
-    <h2 class="cta-headline">鏡板の松の前に、<br>あなたも立ってみてください。</h2>
+    <h2 class="cta-headline"><span class="hb">鏡板の松の前に、</span><span class="hb">あなたも立ってみてください。</span></h2>
     <p class="cta-lead">
       頭で分かることと、身体で知ることは、別のことです。
       能舞台という「場の力」の中で、一日かけて学びます。

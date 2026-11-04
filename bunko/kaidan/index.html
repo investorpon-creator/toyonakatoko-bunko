@@ -113,6 +113,8 @@
     .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
     footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
   }
+  h1,h2,h3{text-wrap:balance;}  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -135,7 +137,7 @@
   <div class="wrap">
     <div class="kicker">豐中常文庫 ── 一節ずつの階段</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 一節ずつの階段</nav>
-    <h1>一節ずつの階段<br>── 十分で一つ、声に出して持ち帰る</h1>
+    <h1><span class="hb">一節ずつの階段</span><span class="hb">── 十分で一つ、声に出して持ち帰る</span></h1>
     <p class="lead">古典の一節、和儀®の一所作、神宮の一場面、暦の一候。どれも十分で読める一本ずつに分けました。<br>読み終えたとき、何か一つが声に出せるように。</p>
   </div>
 </div>
