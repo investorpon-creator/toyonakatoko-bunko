@@ -1,0 +1,37 @@
+{
+  "_説明": "サイト点検（tools/site-check/check.py）の設定。パスはリポジトリ直下からの相対パス（先頭の / は付けない）。",
+
+  "site_origins": [
+    "https://nakatokojuku.jp",
+    "http://nakatokojuku.jp",
+    "https://www.nakatokojuku.jp",
+    "http://www.nakatokojuku.jp"
+  ],
+
+  "_skip_dirs_説明": "点検しないフォルダ",
+  "skip_dirs": [".git", ".github", ".claude", "node_modules", "tools"],
+
+  "_sitemap_exclude_説明": "sitemap.xml に載っていなくてもよいページ（実在する index.html のうち、検索エンジンに出さなくてよいもの）",
+  "sitemap_exclude": [],
+
+  "_ignore_links_説明": "リンク切れとして扱わないもの。file はリンク元（* で全ファイル）、target はリンク先の書き方そのまま（末尾 * で前方一致）。理由も書いておく。",
+  "ignore_links": [],
+
+  "_ignore_anchors_説明": "ページ内の JavaScript があとから作るアンカーなど、HTML に id が無くてもよいもの。page はリンク先のページ、anchor は # を除いた名前（一覧も可、* が使える）。",
+  "ignore_anchors": [
+    {
+      "page": "app/index.html",
+      "anchor": ["top", "hitokoto", "hitokoto/*", "tayori", "tayori/*", "kaisai", "menu", "access", "howto", "privacy"],
+      "理由": "アプリは #top・#tayori などのハッシュで画面を切り替える（app/app.js の route）。id は無くてよい"
+    }
+  ],
+
+  "_image_warning_skip_説明": "画像の alt・width・height の警告を出さないページ（ビューアーなど）",
+  "image_warning_skip": [],
+
+  "_external_skip_説明": "外部リンク点検（--external）で確かめないホスト名",
+  "external_skip": [
+    "fonts.googleapis.com",
+    "fonts.gstatic.com"
+  ]
+}

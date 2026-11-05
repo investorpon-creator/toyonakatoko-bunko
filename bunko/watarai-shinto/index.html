@@ -88,6 +88,16 @@
   }
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
+  h1,h2,h3{text-wrap:balance;}  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -110,7 +120,7 @@
   <div class="wrap">
     <div class="kicker">豐中常文庫 ── 解説</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 度會神道とは</nav>
-    <h1>度會神道とは<br>── 中常塾の学びの土台</h1>
+    <h1><span class="hb">度會神道とは</span><span class="hb">── 中常塾の学びの土台</span></h1>
     <p class="lead">忙しい毎日のなかで、ふと「自分の真ん中」を見失いそうになる ── そんな時、千年を超えて受け継がれてきた一本の道が、静かな手がかりになります。神代は遠い昔ではなく、今日のこの一日のただ中に在る。そう伝えてくれるのが、度會神道（わたらいしんとう）です。伊勢神宮の外宮に伝わる神道で、伊勢神道とも呼ばれます。</p>
   </div>
 </div>
@@ -128,7 +138,7 @@
   <p class="body">度會神道は「神道五部書(しんとうごぶしょ)」と呼ばれる典籍を根本に置きます。そのひとつが、伊勢神宮の起源を語る『倭姫命世記(やまとひめのみことせいき)』です。五部書は、その奥書(おくがき)こそ古い時代を伝えますが、実際には鎌倉時代に、外宮の神官・度會行忠(わたらいゆきただ)などがまとめたという研究があります。やがて南北朝期の度會家行(わたらいいえゆき／一二五六〜一三五一)が、これらを拠りどころに伊勢神道（度會神道）を一つの体系へと大成しました。</p>
 
   <h2>中興の祖 ── 出口延佳</h2>
-  <p class="body">江戸時代、この道を学びとしてよみがえらせたのが、外宮の権禰宜・出口延佳(でぐちのぶよし／度會延佳、慶長二十年＝一六一五年生)です。延佳は「神道は日本の道なり」と説き、誰もが学べる場として豊宮崎文庫(とよみやざきぶんこ)を開きました。中常塾と豐中常文庫の理念は、この延佳の志を継いでいます。</p>
+  <p class="body">江戸時代、この道を学びとしてよみがえらせたのが、外宮の権禰宜・出口延佳(でぐちのぶよし／度會延佳、慶長二十年＝一六一五年生)です。延佳は「神道は日本の道なり」と説き、誰もが学べる場として豐宮崎文庫(とよみやざきぶんこ)を開きました。中常塾と豐中常文庫の理念は、この延佳の志を継いでいます。</p>
 
   <h2>中常塾での学び方</h2>
   <p class="body">中常塾では、度會神道を「読む・写す・聴く」で肚(はら)に落としていきます。古典の素読、書写、そして講義 ── 頭の理解だけでなく、身体ごと神代に触れる学びです。</p>
@@ -152,6 +162,8 @@
       <a href="/#contact">お問い合わせ</a>
       <span>·</span>
       <a href="/app/">アプリ</a>
+      <span>·</span>
+      <a href="/search/">検索</a>
     </div>
     <div class="copy">© 私塾 中常塾</div>
   </div>

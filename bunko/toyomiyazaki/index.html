@@ -14,7 +14,7 @@
 <meta property="og:title" content="豐宮崎文庫 ── 学びの場を、自分たちで建てた話">
 <meta property="og:description" content="外宮のすぐ隣に、誰でも入れる学びの場があった。隣の田んぼでは御田植神事。中常塾の文庫の名は、この場からいただいています。">
 <meta property="og:url" content="https://nakatokojuku.jp/bunko/toyomiyazaki/">
-<meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg">
+<meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_toyomiyazaki.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"豐宮崎文庫 ── 学びの場を、自分たちで建てた話","description":"出口延佳らが外宮の隣に建てた、誰でも入れる学びの場・豐宮崎文庫。その隣では御田植神事が行われていた。中常塾の文庫の名の由来。","inLanguage":"ja","author":{"@type":"Person","name":"松浦茂樹"},"publisher":{"@type":"Organization","name":"中常塾","url":"https://nakatokojuku.jp/"},"isPartOf":{"@type":"WebSite","name":"豐中常文庫","url":"https://nakatokojuku.jp/bunko/"},"mainEntityOfPage":"https://nakatokojuku.jp/bunko/toyomiyazaki/"}
@@ -95,6 +95,16 @@
   }
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
+  h1,h2,h3{text-wrap:balance;}  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style><script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -116,7 +126,7 @@
   <div class="wrap">
     <div class="kicker">豐中常文庫 ── 解説</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 豐宮崎文庫</nav>
-    <h1>豐宮崎文庫<br>── 学びの場を、自分たちで建てた話</h1>
+    <h1><span class="hb">豐宮崎文庫</span><span class="hb">── 学びの場を、自分たちで建てた話</span></h1>
     <p class="lead">三百七十余年前の伊勢。神職の中でも高い位ではない人たちが、身分に関わりなく誰でも入れる学びの場をつくりました。その名を<span class="em">豐宮崎文庫(とよみやざきぶんこ)</span>といいます。中常塾の文庫の名は、この場からいただいたものです。</p>
   </div>
 </div>
@@ -164,6 +174,8 @@
       <a href="/#contact">お問い合わせ</a>
       <span>·</span>
       <a href="/app/">アプリ</a>
+      <span>·</span>
+      <a href="/search/">検索</a>
     </div>
     <div class="copy">© 私塾 中常塾</div>
   </div>

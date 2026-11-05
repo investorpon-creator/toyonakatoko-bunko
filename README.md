@@ -28,7 +28,7 @@
   - 解題（書誌・中常塾との縁）
 - **校合の成果**（『度会神道大成』との照合で確定）：
   - 伊雜宮造営者 **伊佐波登美神**、**懸税・御神酒の起源**（page_25／大成 p.72-73）
-  - **心御柱**＝塾名「中常」の原典（page_30／大成 p.72）
+  - **心御柱**＝塾名「中常」の原典（page_21 の割注「一名天御柱・一名心御柱」。page_30 は外宮鎮座の段で、心御柱の記事はない）
   - **1300年の伝来史**（奥書 page_42-44／大成 p.85-87）
   - 詳細：`context/core/倭姫命世記_大成照合/校異メモ.md`
 
@@ -39,6 +39,47 @@ cd 豐中常文庫
 python3 -m http.server 8788
 # ブラウザで http://localhost:8788/ を開く
 ```
+
+## サイト内検索（`/search/`）
+
+検索ページ `search/index.html` は、リポジトリ直下の **`search-index.json`（索引）** を読み、ブラウザの中だけで検索する（外部サービスは使わない）。
+
+- 日本語は語の区切りがないので **部分一致** で探す。空白で区切った語は「すべてを含む」箇所を探す。完全に一致する箇所がないときは **bi-gram（二文字ずつ）** の重なりで近い箇所を出す
+- **旧字と新字の揺れ**（豐／豊、會／会、度會／度会、國／国 など）、全角／半角、カタカナ／ひらがなの違いは、索引と検索語の両方をならしてから照合する（対応表は `search/index.html` の `PAIRS`）
+- 結果には、ページのタイトル・見出しと、当たった語の前後の抜粋（当たった語を強調）を出す
+- 索引の中身：全HTMLページ（`404.html` と検索ページを除く）のタイトル・URL・見出し・本文。`倭姫命世記/` の翻刻テキストも入る。あわせて `tayori.js`（たより）・`events.js`（開催予定）・`bunko/kaidan/kaidan.js`（一節ずつの階段）の項目も入る。公開日前のたよりと過ぎた開催予定は、検索ページの側で出さない
+
+### 索引の作り直し方
+
+ページを足したり本文を直したり、`tayori.js`・`events.js` を書き足したりしたら、索引を作り直してコミットする。
+
+```bash
+python3 tools/build-search-index.py   # Python 3 の標準ライブラリだけで動く
+git add search-index.json
+```
+
+新しいページを足したときは、フッターのリンク列に `<a href="/search/">検索</a>` も足しておく。
+
+## サイト点検（GitHub Actions）
+
+main への push とプルリクエストのたびに、`.github/workflows/site-check.yml` が `tools/site-check/check.py` を動かして、壊れた箇所を探す。エラーがあると失敗になり、どのファイルの何行目の何が悪いかを日本語で出す。
+
+- **サイト内リンクの切れ**：全HTMLの href・src（相対パス、`/` 始まり、`https://nakatokojuku.jp/` 始まり。日本語のパスとURLエンコードも可）が実在のファイルを指すか。`#アンカー` の id があるか
+- **sitemap.xml**：載っているURLが実在するか。実在する `index.html` が漏れずに載っているか
+- **画像**：img の alt・width・height の抜け（警告のみ。失敗にはしない）
+- **JSON-LD**：`<script type="application/ld+json">` が JSON として正しいか
+- **events.js**：構文が正しいか。各予定に d（YYYY-MM-DD）・t・url があるか
+- **検索索引**：`search-index.json` が最新か（古いと「索引を作り直してください」と出る）
+- **外部リンク**（mosh.jp など）：ふだんは確かめない。Actions の画面で「サイト点検」を手動実行（Run workflow）し、「外部サイトへのリンクも確かめる」に印を付けたときだけ確かめる
+
+ローカルでの実行（Python 3 の標準ライブラリだけ。Node.js があれば JS の構文も確かめる）：
+
+```bash
+python3 tools/site-check/check.py              # いつもの点検
+python3 tools/site-check/check.py --external   # 外部リンクも確かめる
+```
+
+誤検知や、sitemap に載せなくてよいページは `tools/site-check/config.json` で除外する（理由も書き添える）。
 
 ## WEB公開のしかた
 

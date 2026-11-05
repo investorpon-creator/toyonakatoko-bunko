@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>倭姫命世記をやさしく ── 伊勢神宮の起源の物語｜豐中常文庫</title>
-<meta name="description" content="神道五部書の一つ『倭姫命世記』を、やさしく。倭姫命が天照大御神を奉じて諸国を巡り、伊勢に神宮を定めるまでの物語と、懸税（神嘗祭）の起源を解説します。">
+<title>倭姫命世記をやさしく ── 伊勢神宮の起源の物語｜豐中常文庫・私塾 中常塾</title>
+<meta name="description" content="神道五部書の一つ『倭姫命世記』をやさしく解説します。倭姫命が天照大御神の御杖代として諸国を巡り、伊勢を御鎮座の地と定めるまでの物語、神嘗祭の懸税の起源、中常塾が蔵する出口延佳校合本のこと。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/bunko/yamatohime/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -85,6 +85,16 @@
   }
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
+  h1,h2,h3{text-wrap:balance;}  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -107,7 +117,7 @@
   <div class="wrap">
     <div class="kicker">豐中常文庫 ── 解説</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 倭姫命世記をやさしく</nav>
-    <h1>倭姫命世記をやさしく<br>── 伊勢神宮はこうして始まった</h1>
+    <h1><span class="hb">倭姫命世記をやさしく</span><span class="hb">── 伊勢神宮はこうして始まった</span></h1>
     <p class="lead">行けども行けども、ここが自分の居場所だと思えない ── そんな心細さは、今も昔も変わりません。一人の皇女が、神のお告げを頼りに諸国を巡り、ついに「ここに居よう」と思える地にたどり着いた物語があります。それを記すのが『倭姫命世記(やまとひめのみことせいき)』。伊勢神宮（内宮）がどのように始まったのかを語る、神道五部書のひとつです。</p>
   </div>
 </div>
@@ -124,7 +134,7 @@
   <p class="body">倭姫命が稲穂を瑞垣(みずがき)に懸けて捧げた故事は、今日まで続く神嘗祭(かんなめさい)の「懸税」の起源とされます。中常塾が外宮の初穂曳(はつほび)きや調献に連なるのも、この古い心の延長線上にあります。</p>
 
   <h2>中常塾が蔵する出口延佳校合本</h2>
-  <p class="body">中常塾の塾主、松浦は、寛文九年(一六六九)に出口延佳が校合・書写した『倭姫命世記』を所蔵しています。その書写本の画像と翻刻を、豐中常文庫で公開しています。</p>
+  <p class="body">中常塾の塾主、松浦は、寛文九年（一六六九）に出口延佳が校合・書写した『倭姫命世記』を所蔵しています。その書写本の画像と翻刻を、豐中常文庫で公開しています。</p>
 
   <div class="cta">
     <p>この物語を、直筆校合本そのままの姿で塾主とともに読み進める ──<br>オンライン講義の準備がはじまっています。全国どこからでもご参加いただけます。</p>
@@ -145,6 +155,8 @@
       <a href="/#contact">お問い合わせ</a>
       <span>·</span>
       <a href="/app/">アプリ</a>
+      <span>·</span>
+      <a href="/search/">検索</a>
     </div>
     <div class="copy">© 私塾 中常塾</div>
   </div>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サイト内検索｜豐中常文庫・私塾 中常塾</title>
+<meta name="description" content="豐中常文庫と中常塾のページ（文庫の読みもの・倭姫命世記の翻刻・講義とお稽古・たより）を、言葉で探せます。旧字と新字のどちらで入れても当たります。">
+<meta name="theme-color" content="#efe7d4">
+<link rel="canonical" href="https://nakatokojuku.jp/search/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:site_name" content="豐中常文庫 ── 私塾 中常塾">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="サイト内検索｜豐中常文庫">
+<meta property="og:description" content="文庫の読みもの・倭姫命世記の翻刻・講義とお稽古・たよりを、言葉で探せます。">
+<meta property="og:url" content="https://nakatokojuku.jp/search/">
+<meta property="og:image" content="https://nakatokojuku.jp/nakatokojuku/photo_book.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600;700&family=Shippori+Mincho:wght@400;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#211911;--ink-soft:#3a2e20;--paper:#efe7d4;--paper-card:#f7f1e4;
+    --vermilion:#a8362a;--vermilion-deep:#8f2c22;--gold:#9a7d3c;--gold-soft:#b9a05e;
+    --muted:#6f6048;--line:#cdbf9f;--serif:'Zen Old Mincho','Shippori Mincho','Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+    --wa-shippou:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cg fill='none' stroke='%239a7d3c' stroke-width='1'%3E%3Ccircle cx='0' cy='22' r='22'/%3E%3Ccircle cx='44' cy='22' r='22'/%3E%3Ccircle cx='22' cy='0' r='22'/%3E%3Ccircle cx='22' cy='44' r='22'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:var(--serif);color:var(--ink);background-color:var(--paper);
+    background-image:radial-gradient(circle at 18% 12%,rgba(255,255,255,.45),transparent 42%),radial-gradient(circle at 82% 78%,rgba(180,150,95,.10),transparent 48%);
+    line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);}
+  /* topbar */
+  .topbar{border-bottom:1px solid var(--line);background:linear-gradient(var(--paper),rgba(239,231,212,.55));position:sticky;top:0;z-index:20;backdrop-filter:blur(3px);}
+  .topbar .inner{max-width:1120px;margin:0 auto;padding:.55rem clamp(1.4rem,4vw,3rem);display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:1rem;}
+  .wordmark{display:flex;align-items:center;gap:.7rem;font-size:1.02rem;letter-spacing:.42em;color:var(--ink);font-weight:600;text-decoration:none;white-space:nowrap;}
+  .seal-mini{width:22px;height:22px;flex-shrink:0;background:var(--vermilion);color:#fff;font-size:9px;line-height:11px;font-weight:700;letter-spacing:0;display:grid;place-content:center;text-align:center;border-radius:2px;}
+  .topnav{display:flex;gap:.6rem 1.5rem;font-size:.74rem;letter-spacing:.22em;color:var(--muted);flex-wrap:wrap;justify-content:flex-end;}
+  .topnav a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:border-color .25s,color .25s;white-space:nowrap;}
+  .topnav a:hover{color:var(--vermilion);border-color:var(--vermilion);}
+  /* page head (七宝繋ぎ) */
+  .page-head{position:relative;padding:clamp(2.4rem,6vw,4rem) 0 clamp(1.2rem,3vw,1.8rem);}
+  .page-head::before{content:"";position:absolute;inset:0;z-index:0;background-image:var(--wa-shippou);background-size:44px 44px;opacity:.06;pointer-events:none;}
+  .page-head>.wrap{position:relative;z-index:1;}
+  .kicker{font-size:.72rem;letter-spacing:.42em;color:var(--vermilion);margin-bottom:1.2rem;}
+  .crumb{font-size:.72rem;letter-spacing:.14em;color:var(--muted);margin-bottom:1.6rem;}
+  .crumb a{color:var(--gold);text-decoration:none;}
+  .crumb a:hover{color:var(--vermilion);}
+  h1{font-size:clamp(1.8rem,4.5vw,2.7rem);letter-spacing:.12em;font-weight:600;line-height:1.4;margin-bottom:1rem;}
+  .lead{font-size:clamp(.92rem,1.4vw,1rem);letter-spacing:.06em;line-height:2.1;color:var(--ink-soft);margin:1.2rem 0 0;}
+  /* 検索欄 */
+  .sform{display:flex;gap:.5rem;margin:1.8rem 0 .6rem;}
+  .sform input{flex:1;min-width:0;font:inherit;font-size:1.05rem;letter-spacing:.06em;color:var(--ink);background:var(--paper-card);border:1px solid var(--line);border-bottom:2px solid var(--gold);border-radius:3px;padding:.65rem .9rem;outline:none;-webkit-appearance:none;appearance:none;}
+  .sform input:focus{border-color:var(--vermilion);}
+  .sform button{flex:0 0 auto;font:inherit;font-size:.92rem;font-weight:600;letter-spacing:.14em;color:#f7efe2;background:var(--vermilion);border:0;border-radius:3px;padding:0 1.3rem;cursor:pointer;}
+  .sform button:hover{background:var(--vermilion-deep);}
+  .hint{font-size:.76rem;letter-spacing:.06em;line-height:1.9;color:var(--muted);}
+  .hint button{font:inherit;color:var(--vermilion-deep);background:none;border:0;border-bottom:1px solid var(--gold-soft);cursor:pointer;padding:0;margin:0 .15em;}
+  /* 結果 */
+  .status{font-size:.82rem;letter-spacing:.08em;color:var(--muted);margin:1.6rem 0 .4rem;min-height:1.5em;}
+  .results{list-style:none;margin:0 0 2rem;}
+  .hit{padding:1.3rem 0 1.2rem;border-bottom:1px solid var(--line);}
+  .hit:first-child{border-top:1px solid var(--line);}
+  .hit-title{font-size:1.08rem;font-weight:600;letter-spacing:.08em;line-height:1.6;}
+  .hit-title a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  .hit-title a:hover{color:var(--vermilion-deep);border-color:var(--vermilion-deep);}
+  .hit-url{font-size:.68rem;letter-spacing:.06em;color:var(--gold);margin-top:.1rem;word-break:break-all;}
+  .sec{margin-top:.75rem;}
+  .sec-head{font-size:.8rem;letter-spacing:.08em;color:var(--vermilion-deep);text-decoration:none;display:inline-block;line-height:1.7;}
+  .sec-head:hover{text-decoration:underline;}
+  .sec-note{font-size:.7rem;color:var(--muted);letter-spacing:.06em;margin-left:.4em;}
+  .snip{font-size:.92rem;letter-spacing:.03em;line-height:2;color:var(--ink-soft);margin-top:.15rem;word-break:break-word;}
+  mark{background:rgba(185,160,94,.38);color:var(--ink);padding:0 .08em;border-radius:2px;}
+  .more{font-size:.74rem;letter-spacing:.06em;color:var(--muted);margin-top:.6rem;}
+  .near{font-size:.82rem;color:var(--ink-soft);letter-spacing:.06em;margin:1rem 0 .4rem;}
+  /* footer */
+  footer{background:var(--ink);color:#d9cdb4;border-top:3px solid var(--gold);padding:clamp(2.4rem,5vw,3.4rem) 0 2.4rem;margin-top:3rem;}
+  footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);text-align:center;}
+  footer .f-mark{font-size:1rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1rem;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.2;color:#a9997b;}
+  footer .f-links{display:flex;gap:.9rem;justify-content:center;margin:1rem 0 .4rem;flex-wrap:wrap;font-size:.72rem;}
+  footer .f-links a{color:#c8b994;text-decoration:none;}
+  footer .copy{margin-top:1.2rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}
+  @media (max-width:640px){
+    .topbar .inner{min-height:56px;flex-wrap:wrap;padding-top:.6rem;padding-bottom:.6rem;gap:.3rem 1rem;}
+    .wordmark{letter-spacing:.3em;}
+    .topnav{gap:.7rem 1.1rem;font-size:.7rem;letter-spacing:.16em;justify-content:flex-end;}
+  }
+  @media (max-width:480px){
+    .sform button{padding:0 1rem;letter-spacing:.08em;}
+    footer .f-links span{display:none;}
+  }
+</style>
+<script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
+<script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <a class="wordmark" href="/"><span class="seal-mini">中常</span>私塾 中常塾</a>
+    <nav class="topnav">
+      <a href="/nakatokojuku/">中常塾について</a>
+      <a href="/jikoshoukai/">塾主より</a>
+      <a href="/taiken/">講義・お稽古</a>
+      <a href="/bunko/">豐中常文庫</a>
+    </nav>
+  </div>
+</div>
+
+<div class="page-head">
+  <div class="wrap">
+    <div class="kicker">言 葉 で 探 す</div>
+    <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ サイト内検索</nav>
+    <h1>サイト内検索</h1>
+    <p class="lead">文庫の読みもの、倭姫命世記の翻刻、講義とお稽古、たよりの中から、言葉で探せます。「度會」と「度会」、「豐」と「豊」のように、旧字と新字のどちらで入れても当たります。</p>
+    <form class="sform" id="sform" role="search" action="/search/" method="get">
+      <input id="q" name="q" type="search" placeholder="例：心御柱" aria-label="探す言葉" autocomplete="off" enterkeyhint="search">
+      <button type="submit">探す</button>
+    </form>
+    <p class="hint">空白で区切ると、すべての言葉を含む箇所を探します。たとえば
+      <button type="button" data-q="心御柱">心御柱</button>
+      <button type="button" data-q="懸税">懸税</button>
+      <button type="button" data-q="世木神社">世木神社</button>
+      <button type="button" data-q="度会">度会</button>
+    </p>
+  </div>
+</div>
+
+<div class="wrap">
+  <p class="status" id="status" aria-live="polite"></p>
+  <ol class="results" id="results"></ol>
+</div>
+
+<footer>
+  <div class="inner">
+    <div class="f-mark">私塾 中常塾</div>
+    <p class="f-line">塾主 松浦茂樹　令和八年五月二十五日 開塾<br>度會神道の学びと和儀を通じて、日本人の肚を再発見する場です。</p>
+    <div class="f-links">
+      <a href="https://www.youtube.com/@nakatokojuku" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/nakatokojuku/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/nakatokojuku" target="_blank" rel="noopener">Facebook</a>
+      <a href="/#contact">お問い合わせ</a>
+      <span>·</span>
+      <a href="/app/">アプリ</a>
+      <span>·</span>
+      <a href="/search/" aria-current="page">検索</a>
+    </div>
+    <div class="copy">© 私塾 中常塾</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  /* ── 文字の揺れをならす ──
+     旧字→新字、異体字、全角英数→半角、カタカナ→ひらがな、大文字→小文字。
+     どれも一文字を一文字に置きかえるので、ならした文の位置が元の文の位置とそのまま一致する
+     （抜粋の切り出しと強調に使う）。 */
+  var PAIRS =
+    '豐豊會会國国圀国圖図傳伝寶宝寳宝齋斎齊斉靈霊禮礼學学舊旧體体濱浜澤沢邊辺邉辺廣広鐵鉄戰戦歸帰據拠實実壽寿繼継縣県嶋島嶌島' +
+    '與与萬万號号處処獻献稻稲榮栄營営櫻桜聲声臺台點点黑黒發発變変樂楽藥薬總総聽聴廳庁醫医澁渋譯訳驛駅豫予餘余辨弁辯弁瓣弁卷巻' +
+    '淺浅錢銭殘残數数樓楼圓円嚴厳權権歡歓觀観關関顯顕屬属獨独燈灯爐炉竊窃釋釈譽誉讀読續続賣売單単彌弥拜拝擧挙敎教晝昼條条來来' +
+    '佛仏假仮僞偽兒児兩両劍剣劒剣釼剣剱剣勞労勳勲區区參参雙双收収圍囲堯尭壞壊壓圧壹壱奧奥孃嬢寢寝將将專専廢廃彈弾徑径從従德徳' +
+    '恆恒惠恵應応戀恋拂払搜捜攝摂晉晋曉暁檢検氣気淨浄濟済滿満燒焼爭争狀状獵猟畫画當当盡尽眞真碎砕祿禄稱称穗穂粹粋絲糸經経繪絵' +
+    '缺欠肅粛膽胆臟臓莊荘蟲虫衞衛裝装覺覚證証讓譲賴頼轉転輕軽遞逓遲遅鄕郷醉酔鑛鉱險険隨随隱隠雜雑靜静顏顔飮飲髮髪鷄鶏麥麦齒歯' +
+    '龍竜龜亀姬姫祕秘黨党冨富鹽塩禰祢狹狭埀垂遙遥瑤瑶曆暦歷歴淚涙壯壮莖茎黃黄靑青淸清卽即旣既槪概噐器嶽岳瀧滝驗験觸触寫写彥彦' +
+    '齡齢舍舎乘乗亞亜惡悪壻婿姊姉巢巣瀨瀬渕淵溪渓萊莱蠶蚕螢蛍蠻蛮謠謡豬猪貳弐辭辞錄録鎭鎮閱閲隸隷顚顛騷騒驅駆髓髄鬪闘鬭闘鷗鴎' +
+    '默黙廐厩槇槙竃竈';
+  var MAP = {};
+  for (var i = 0; i + 1 < PAIRS.length; i += 2) {
+    if (PAIRS[i] !== PAIRS[i + 1]) MAP[PAIRS[i]] = PAIRS[i + 1];
+  }
+
+  var foldCache = Object.create(null);
+  function foldChar(c) {
+    var f = foldCache[c];
+    if (f !== undefined) return f;
+    var code = c.charCodeAt(0);
+    f = c;
+    if (code >= 0xD800 && code <= 0xDFFF) { foldCache[c] = c; return c; } // サロゲートはそのまま
+    var n = c.normalize ? c.normalize('NFKC') : c;     // 互換漢字・全角英数・半角カナ
+    if (n.length === 1) f = n;
+    if (MAP[f]) f = MAP[f];
+    code = f.charCodeAt(0);
+    if (code >= 0x30A1 && code <= 0x30F6) f = String.fromCharCode(code - 0x60); // カタカナ→ひらがな
+    f = f.toLowerCase();
+    if (f.length !== 1) f = c;
+    foldCache[c] = f;
+    return f;
+  }
+  function fold(s) {
+    var out = '';
+    for (var i = 0; i < s.length; i++) out += foldChar(s[i]);
+    return out;
+  }
+
+  var $q = document.getElementById('q');
+  var $status = document.getElementById('status');
+  var $results = document.getElementById('results');
+  var entries = null, loading = null;
+  var TODAY = (function(){ var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); })();
+
+  function load() {
+    if (loading) return loading;
+    loading = fetch('/search-index.json', {cache: 'no-cache'}).then(function(r){
+      if (!r.ok) throw new Error(r.status);
+      return r.json();
+    }).then(function(data){
+      entries = data.entries.filter(function(e){
+        if (e.k === 'tayori') return !e.d || e.d <= TODAY;   // 公開日前のたよりは出さない
+        if (e.k === 'event') return e.d >= TODAY;            // 過ぎた開催予定は出さない
+        return true;
+      });
+      entries.forEach(function(e){
+        e.ft = fold(e.t); e.fh = fold(e.h || ''); e.fb = fold(e.b || '');
+      });
+      return entries;
+    });
+    return loading;
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
+  }
+  function countOf(hay, needle) {
+    var n = 0, i = 0;
+    while ((i = hay.indexOf(needle, i)) !== -1) { n++; i += needle.length; if (n > 50) break; }
+    return n;
+  }
+
+  /* 元の文 s のうち、ならした文 fs で terms に当たる範囲を <mark> で包む */
+  function highlight(s, fs, terms) {
+    var marks = new Array(s.length + 1);
+    terms.forEach(function(t){
+      if (!t) return;
+      var i = 0;
+      while ((i = fs.indexOf(t, i)) !== -1) {
+        for (var k = i; k < i + t.length; k++) marks[k] = true;
+        i += t.length;
+      }
+    });
+    var out = '', open = false;
+    for (var j = 0; j < s.length; j++) {
+      if (marks[j] && !open) { out += '<mark>'; open = true; }
+      if (!marks[j] && open) { out += '</mark>'; open = false; }
+      out += esc(s[j]);
+    }
+    if (open) out += '</mark>';
+    return out;
+  }
+
+  /* 当たった語の前後を切り出す */
+  function snippet(e, terms) {
+    var R = 46, b = e.b || '', fb = e.fb, pos = -1, len = 0;
+    for (var i = 0; i < terms.length; i++) {
+      var p = fb.indexOf(terms[i]);
+      if (p !== -1 && (pos === -1 || p < pos)) { pos = p; len = terms[i].length; }
+    }
+    if (pos === -1) { pos = 0; len = 0; }
+    var start = Math.max(0, pos - R), end = Math.min(b.length, pos + len + R + 20);
+    var html = (start > 0 ? '…' : '') + highlight(b.slice(start, end), fb.slice(start, end), terms) + (end < b.length ? '…' : '');
+    return {html: html, hit: pos >= 0 && len ? b.substr(pos, len) : ''};
+  }
+
+  /* 当たった語の位置へ飛ぶリンク（対応ブラウザでは Text Fragment で当該箇所へ） */
+  function linkFor(e, hitText) {
+    var u = e.u, hash = '';
+    if (u.indexOf('#') !== -1) { hash = u.slice(u.indexOf('#') + 1); u = u.slice(0, u.indexOf('#')); }
+    if (e.a) hash = e.a;
+    if (hitText && !e.k) {
+      hash += ':~:text=' + encodeURIComponent(hitText).replace(/-/g, '%2D').replace(/,/g, '%2C');
+    }
+    return u + (hash ? '#' + hash : '');
+  }
+
+  function bigrams(s) {
+    var out = [];
+    for (var i = 0; i + 1 < s.length; i++) out.push(s.substr(i, 2));
+    return out;
+  }
+
+  function search(raw) {
+    var terms = fold(raw).split(/\s+/).filter(Boolean);
+    if (!terms.length) return {groups: [], terms: terms, near: false};
+    var hits = [];
+    entries.forEach(function(e){
+      var score = 0;
+      for (var i = 0; i < terms.length; i++) {
+        var t = terms[i];
+        var inT = e.ft.indexOf(t) !== -1, inH = e.fh.indexOf(t) !== -1, cB = countOf(e.fb, t);
+        if (!inT && !inH && !cB) return;
+        score += (inT ? 6 : 0) + (inH ? 10 : 0) + Math.min(cB, 12);
+      }
+      hits.push({e: e, s: score, terms: terms});
+    });
+    var near = false;
+    /* 完全に当たらないときは bi-gram（二文字ずつ）の重なりで近い箇所を探す */
+    if (!hits.length) {
+      var q = terms.join('');
+      var grams = bigrams(q).filter(function(g, i, a){ return a.indexOf(g) === i; });
+      if (grams.length >= 2) {
+        entries.forEach(function(e){
+          var hay = e.fh + ' ' + e.fb, got = [];
+          grams.forEach(function(g){ if (hay.indexOf(g) !== -1) got.push(g); });
+          var ratio = got.length / grams.length;
+          if (ratio >= 0.6) hits.push({e: e, s: ratio * 20 + Math.min(countOf(e.fb, got[0]), 5), terms: got});
+        });
+        near = hits.length > 0;
+      }
+    }
+    /* ページごとにまとめる */
+    var byPage = {}, groups = [];
+    hits.forEach(function(h){
+      var key = h.e.k ? h.e.k + h.e.u + h.e.d : h.e.u.split('#')[0];
+      var g = byPage[key];
+      if (!g) { g = byPage[key] = {key: key, items: [], s: 0}; groups.push(g); }
+      g.items.push(h);
+      g.s = Math.max(g.s, h.s) + 0.5;
+    });
+    groups.forEach(function(g){ g.items.sort(function(a, b){ return b.s - a.s; }); });
+    groups.sort(function(a, b){ return b.s - a.s; });
+    return {groups: groups, terms: terms, near: near};
+  }
+
+  function render(raw) {
+    var r = search(raw);
+    $results.innerHTML = '';
+    if (!r.terms.length) { $status.textContent = ''; return; }
+    if (!r.groups.length) {
+      $status.textContent = '「' + raw + '」に当たる箇所は見つかりませんでした。言葉を短くするか、別の書き方でお試しください。';
+      return;
+    }
+    var total = r.groups.reduce(function(n, g){ return n + g.items.length; }, 0);
+    $status.textContent = r.near
+      ? '「' + raw + '」と完全に一致する箇所はありませんでした。近い箇所を ' + r.groups.length + ' ページ表示します。'
+      : '「' + raw + '」は ' + r.groups.length + ' ページ・' + total + ' 箇所に見つかりました。';
+    var html = '';
+    r.groups.forEach(function(g){
+      var first = g.items[0].e;
+      var title = first.t;
+      var pageUrl = first.u;
+      var secs = g.items.slice(0, 3).map(function(h){
+        var sn = snippet(h.e, h.terms);
+        var href = linkFor(h.e, sn.hit);
+        var head = h.e.h ? '<a class="sec-head" href="' + esc(href) + '">' + highlight(h.e.h, h.e.fh, h.terms) + '</a>' : '';
+        var note = h.e.n ? '<span class="sec-note">（' + esc(h.e.n) + 'にあります）</span>' : '';
+        return {href: href, html: '<div class="sec">' + head + note + '<p class="snip">' + sn.html + '</p></div>'};
+      });
+      html += '<li class="hit"><div class="hit-title"><a href="' + esc(secs[0].href) + '">' + highlight(title, first.ft, g.items[0].terms) + '</a></div>' +
+        '<div class="hit-url">' + esc(decodeURI(pageUrl)) + '</div>' +
+        secs.map(function(s){ return s.html; }).join('') +
+        (g.items.length > 3 ? '<p class="more">このページには、ほかに ' + (g.items.length - 3) + ' 箇所あります。</p>' : '') +
+        '</li>';
+    });
+    $results.innerHTML = html;
+  }
+
+  function run(raw, push) {
+    raw = (raw || '').trim();
+    if (push) {
+      var url = raw ? '/search/?q=' + encodeURIComponent(raw) : '/search/';
+      try { history.replaceState(null, '', url); } catch (e) {}
+    }
+    document.title = (raw ? '「' + raw + '」の検索結果｜' : 'サイト内検索｜') + '豐中常文庫・私塾 中常塾';
+    if (!raw) { $status.textContent = ''; $results.innerHTML = ''; return; }
+    $status.textContent = '探しています。';
+    load().then(function(){ render(raw); }).catch(function(){
+      $status.textContent = '索引を読み込めませんでした。時間をおいて、もう一度お試しください。';
+    });
+  }
+
+  document.getElementById('sform').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    run($q.value, true);
+  });
+  var timer = null;
+  $q.addEventListener('input', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){ run($q.value, true); }, 220);
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.hint button[data-q]'), function(b){
+    b.addEventListener('click', function(){ $q.value = b.getAttribute('data-q'); run($q.value, true); });
+  });
+
+  var initial = new URLSearchParams(location.search).get('q') || '';
+  if (initial) { $q.value = initial; run(initial, false); }
+  else { load().catch(function(){}); }
+})();
+</script>
+</body>
+</html>

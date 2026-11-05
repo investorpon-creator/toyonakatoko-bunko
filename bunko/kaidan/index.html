@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>一節ずつの階段 ── 十分で一つ、声に出して持ち帰る｜豐中常文庫・私塾 中常塾</title>
-<meta name="description" content="古典の一節・和儀の一所作・神宮の一場面・暦の一候を、十分で読める一本ずつに。読み終えたとき、何か一つが声に出せるように。">
+<meta name="description" content="古典の一節、和儀の一所作、神宮の一場面、暦の一候を、十分で読める一本ずつに分けた豐中常文庫の連載の目次です。読み終えたとき、何か一つが声に出せるように。第一回は出口延佳の「中極の道」。">
 <meta name="theme-color" content="#efe7d4">
 <link rel="canonical" href="https://nakatokojuku.jp/bunko/kaidan/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:site_name" content="豐中常文庫 ── 私塾 中常塾">
-<meta property="og:type" content="article">
+<meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="一節ずつの階段 ── 十分で一つ、声に出して持ち帰る">
 <meta property="og:description" content="古典の一節・和儀の一所作・神宮の一場面・暦の一候を、十分で読める一本ずつに。読み終えたとき、何か一つが声に出せるように。">
@@ -105,6 +105,16 @@
   figure.eyecatch figcaption{font-size:.8rem;color:var(--muted);letter-spacing:.06em;margin-top:.5rem;}
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
+  h1,h2,h3{text-wrap:balance;}  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -127,8 +137,8 @@
   <div class="wrap">
     <div class="kicker">豐中常文庫 ── 一節ずつの階段</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ 一節ずつの階段</nav>
-    <h1>一節ずつの階段<br>── 十分で一つ、声に出して持ち帰る</h1>
-    <p class="lead">古典の一節、和儀の一所作、神宮の一場面、暦の一候。どれも十分で読める一本ずつに分けました。<br>読み終えたとき、何か一つが声に出せるように。</p>
+    <h1><span class="hb">一節ずつの階段</span><span class="hb">── 十分で一つ、声に出して持ち帰る</span></h1>
+    <p class="lead">古典の一節、和儀®の一所作、神宮の一場面、暦の一候。どれも十分で読める一本ずつに分けました。<br>読み終えたとき、何か一つが声に出せるように。</p>
   </div>
 </div>
 
@@ -162,6 +172,8 @@
       <a href="/#contact">お問い合わせ</a>
       <span>·</span>
       <a href="/app/">アプリ</a>
+      <span>·</span>
+      <a href="/search/">検索</a>
     </div>
     <div class="copy">© 私塾 中常塾</div>
   </div>

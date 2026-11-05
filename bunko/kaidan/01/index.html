@@ -105,6 +105,16 @@
   figure.eyecatch figcaption{font-size:.8rem;color:var(--muted);letter-spacing:.06em;margin-top:.5rem;}
   /* 見出しの書体＝トップと揃える（2026-09-17） */
   h2{font-family:'Zen Antique Soft','Shippori Mincho',serif!important;font-weight:400!important;}
+  /* CTA：「.cta p」の余白指定に負けてボタン直下に貼りついていた案内リンクの行に、本来の間を戻す。リンクは語の途中で折らない */
+  .cta .cta-sub{margin:.9rem 0 0;}
+  .cta-sub a{display:inline-block;}
+  @media (max-width:480px){
+    .cta{padding-left:1.1rem;padding-right:1.1rem;}
+    .cta-btn{padding-left:1.2rem;padding-right:1.2rem;letter-spacing:.06em;}
+    footer .f-links span{display:none;}  /* 折り返すと区切りの「·」だけが行末に残るため */
+  }
+  h1,h2,h3{text-wrap:balance;}  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style>
 <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
 <script data-goatcounter="https://nakatokojuku.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -127,7 +137,7 @@
   <div class="wrap">
     <div class="kicker">豐中常文庫 ── 一節ずつの階段</div>
     <nav class="crumb"><a href="/">中常塾</a> ／ <a href="/bunko/">豐中常文庫</a> ／ <a href="/bunko/kaidan/">一節ずつの階段</a> ／ 01</nav>
-    <h1>「中極の道」<br>── 神道をひと言で言うと何か、延佳の答え</h1>
+    <h1><span class="hb">「中極の道」</span><span class="hb">── 神道をひと言で言うと何か、延佳の答え</span></h1>
     <p class="lead">神社にはよく足を運ぶのに、「神道って何ですか」と聞かれると言葉に詰まる──そんな方へ。この記事を読み終えるころには、その問いに返す一句が一つ、あなたの口の中にあります。<br>しかも、自分の言葉に言い直し、声に出して読める形で。<br>古文の知識はいりません。要るのは十分の時間と、声を出せる場所だけです。</p>
   </div>
 </div>
@@ -135,7 +145,7 @@
 <div class="wrap">
 <article>
 
-<figure class="eyecatch"><img src="/nakatokojuku/photo_wagi.jpg" alt="能舞台での和儀稽古" loading="lazy"><figcaption>能舞台での和儀稽古</figcaption></figure>
+<figure class="eyecatch"><img src="/nakatokojuku/photo_wagi.jpg" alt="能舞台での和儀稽古" width="1400" height="794" decoding="async"><figcaption>能舞台での和儀®稽古</figcaption></figure>
 <p class="body">江戸前期、伊勢の外宮（げくう）に仕えた神職に、出口延佳（でぐちのぶよし）という人がいます。その著書『中臣祓瑞穂鈔（なかとみのはらえみずほしょう）』に、神道をひと言で言い切った一節があります。</p>
 <blockquote>抑（そもそも）、中極（なかつきはみ）の道を神道（かむながらのみち）と云ふ。</blockquote>
 <p class="body">意訳すれば「そもそも、中心を貫く極まりの道、それを神道と呼ぶ」。神社の数でも、参拝の作法でもなく、「中心を貫く極まりの道」。これが延佳の答えです。</p>
@@ -146,7 +156,7 @@
 <p class="body">意味を取りにいく前に、括弧の中の読みだけを追って三度、声に出します。「そもそも、なかつきはみのみちを、かむながらのみちという」。意味が分からなくてかまいません。意味を解くより先に声に出して読む、この読み方を素読（そどく）と言います。音が先に身体に残ると、あとから意味の入る場所ができます。</p>
 <p class="tsumazuki">つまずきやすいところ：小声だと三度目で飽きます。普段の話し声より少しだけ大きく。</p>
 <h2>二、「中極」を自分の日常語に置き換える</h2>
-<p class="body">「中極（なかつきはみ）」は、中（なか）と極（きはみ）の二字です。中心と、極まり。合わせて「中心を貫く極まり」。ここで一度、辞書ではなく自分の暮らしの言葉に置き換えてみてください。「ぶれない芯」「いちばん奥の一点」「自分の真ん中」。どれでも構いません。延佳の言葉を崩すのではなく、自分の側から橋をかける作業です。</p>
+<p class="body">「中極（なかつきはみ）」は、中（なか）と極（きはみ）の二字です。中心と、極まり。合わせて「中心を貫く極まり」。ここで一度、辞書ではなく自分の暮らしの言葉に置き換えてみてください。「ぶれない芯」「いちばん奥の一点」「自分の真ん中」。どれでもかまいません。延佳の言葉を崩すのではなく、自分の側から橋をかける作業です。</p>
 <p class="tsumazuki">つまずきやすいところ：正解を探して手が止まります。仮置きでよいので、まず一つ決めてください。</p>
 <h2>三、「道」と言われていることに立ち止まる</h2>
 <p class="body">神道の「道」は、道路の道であり、歩む道でもあります。延佳は「中極」という一点や状態ではなく、「中極の道」と言いました。つまり止まっている一点ではなく、その中心を貫いて歩いていく動きを神道と呼んでいます。神社という建物の中だけにあるものではなく、今日あなたが歩いている一日の中に、その道は通っています。</p>
@@ -173,6 +183,8 @@
       <a href="/#contact">お問い合わせ</a>
       <span>·</span>
       <a href="/app/">アプリ</a>
+      <span>·</span>
+      <a href="/search/">検索</a>
     </div>
     <div class="copy">© 私塾 中常塾</div>
   </div>

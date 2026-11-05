@@ -500,6 +500,7 @@
     .wordmark{letter-spacing:.3em;}
     .topnav{gap:.5rem 1rem;font-size:.7rem;letter-spacing:.16em;}
   }
+  .hb{display:block;text-wrap:balance;}  /* 見出しの<br>で区切った各行も、行の長さをそろえる */
 </style>
     <script>if(location.search.indexOf('skipgc')>-1){try{localStorage.setItem('skipgc','t')}catch(e){}}</script>
   <!-- GoatCounter analytics -->
@@ -508,7 +509,7 @@
 <style>
   /* ── 改行の統一（PC/スマホ最適化） ── */
   @media (max-width:600px){ br.br-pc{ display:none; }
-    p.body, .lead, .hero-lead, h1, h2{ text-wrap: wrap !important; }  /* スマホは行を端まで詰める(greedy) */ budoux-ja{ word-break: normal !important; overflow-wrap: anywhere !important; } .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
+    p.body, .lead, .hero-lead{ text-wrap: wrap !important; }  /* スマホは本文を端まで詰める(greedy) */ h1, h2, h3{ text-wrap: balance !important; }  /* 見出しは行の長さをそろえ、一字落ちを防ぐ */ budoux-ja{ word-break: normal !important; overflow-wrap: anywhere !important; } .wrap{ padding-left:2.4rem; padding-right:2.4rem; } }
   budoux-ja{ display:inline; }
   .page-header h1, .sec-label h2{ text-wrap:balance; }
 </style>
@@ -610,11 +611,11 @@
 <div class="page-header">
   <div class="wrap">
     <div class="kicker">奉 納 の 記 録　イセヒカリ御神酒</div>
-    <h1>現代に再現された伝説、御神酒三部作<br><span style="font-size:clamp(1.1rem,2.5vw,1.6rem);letter-spacing:.25em;color:var(--muted);">國靈　みはしら　中常乃金神</span></h1>
+    <h1><span class="hb">現代に再現された伝説、御神酒三部作</span><span class="hb"><span style="font-size:clamp(1.1rem,2.5vw,1.6rem);letter-spacing:.25em;color:var(--muted);">國靈　みはしら　中常乃金神</span></span></h1>
     <div class="sub">二〇一五年 ── 二〇二五年　十年の醸し</div>
     <p class="lead">
       神宮の神嘗祭に稲穂を奉る、その稲穂を御神酒に醸す ──
-      その典籍上の根拠は、<span class="em">倭姫命世記25頁</span>に刻まれています。
+      その典籍上の根拠は、<span class="em">倭姫命世記二十五頁</span>に刻まれています。
       大幡主の女子・乙姫が清酒を作り、御饌を奉った、あの一段に。
       本頁は、その流れを現代に生きた十年の記録です。
     </p>
@@ -884,7 +885,7 @@
       ラベルの題字には、<span class="em">坂東未來社長から授かった藍墨「心御柱」</span>を御神筆として用いました。
       出雲大社のかつての柱に見立てた、世界で9本しかない特別な藍墨 ──
       その最初の1本を「6ヶ月後に使うように」と告げられて受け取っていたものが、
-      ちょうど６ヶ月後にあたるこの時に用いられたのです。
+      ちょうど6ヶ月後にあたるこの時に用いられたのです。
       「<span class="em">始まりの日は、はるか昔に決められていた</span>」── あとからそう受け止めさせて頂いた思いが、この御神酒の底に宿っています。
     </p>
 
@@ -1374,7 +1375,7 @@
         中常塾について ▸
       </a>
       <a href="https://nakatokojuku.jp/taiken/" style="display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border:1px solid var(--line);background:transparent;color:var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.28em;font-family:var(--serif);transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
-        講義・稽古へ ▸
+        講義・お稽古へ ▸
       </a>
     </div>
     <p style="margin-top:1.4rem;text-align:center;font-size:.8rem;letter-spacing:.12em;line-height:2;"><a href="https://nakatokojuku.jp/bunko/michinori/" style="color:var(--gold);text-decoration:none;">▶ 当時の言葉のまま読む ── 國靈・みはしら・山田白魁塾のブログ目録</a></p>
@@ -1478,6 +1479,8 @@
       <a href="https://nakatokojuku.jp/#contact">お問い合わせ</a>
       <span>·</span>
       <a href="/app/">アプリ</a>
+      <span>·</span>
+      <a href="/search/">検索</a>
     </div>
     <div class="f-seal" aria-hidden="true"><span>中</span><span>常</span></div>
     <div class="copy">© 私塾 中常塾</div>

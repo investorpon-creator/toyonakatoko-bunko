@@ -67,18 +67,45 @@ const TAYORI = [{d:"2026-05-25",t:"中常塾を開塾しました"}];
   list = list.filter(t => t.d<=todayISO).sort((a,b)=> a.d<b.d?1:(a.d>b.d?-1:0));
   const fmtISO = iso => { const p=iso.split("-"); return (+p[0])+"年"+(+p[1])+"月"+(+p[2])+"日"; };
   const abs = u => /^https?:/.test(u) ? u : "https://nakatokojuku.jp"+u;
-  $("tayoriList").innerHTML = list.length ? list.map((t,i) => '<a class="row" href="#tayori/'+i+'"><span class="row-t">'+esc(t.t.length>40 ? t.t.slice(0,40)+"…" : t.t)+'</span><span class="row-d">'+esc(fmtISO(t.d))+'</span></a>').join("") : '<p class="muted pad">まだ、たよりはありません。</p>';
+  /* 新しい印：前に「たより」を開いた日より後のたよりに「新」。初めての方には、この14日のたよりに付ける。 */
+  const store = { get(k){ try{ return localStorage.getItem(k); }catch(_){ return null; } }, set(k,v){ try{ localStorage.setItem(k,v); }catch(_){} } };
+  const SEEN = "nakatoko-app-tayori-seen";
+  const isoShift = (iso, n) => { const p=iso.split("-"); const t=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n)); return t.toISOString().slice(0,10); };
+  const seen = store.get(SEEN) || isoShift(todayISO, -14);
+  const isNew = t => t.d > seen;
+  const newMark = t => isNew(t) ? '<span class="new">新</span>' : '';
+  $("tayoriList").innerHTML = list.length ? list.map((t,i) => '<a class="row" href="#tayori/'+i+'"><span class="row-t">'+newMark(t)+esc(t.t.length>40 ? t.t.slice(0,40)+"…" : t.t)+'</span><span class="row-d">'+esc(fmtISO(t.d))+'</span></a>').join("") : '<p class="muted pad">まだ、たよりはありません。</p>';
   function renderTayori(i){
     const t = list[i]; if(!t){ $("tayoriDetail").innerHTML=""; return; }
     $("tayoriDetail").innerHTML = '<div class="dt-head"><div class="dt-kou" style="font-size:1rem">中常だより</div><div class="dt-yomi">'+esc(fmtISO(t.d))+'</div></div><div class="dt-body"><p class="hitokoto" style="margin-top:12px">'+esc(t.t)+'</p>'+(t.url ? '<p style="padding:6px 0 12px"><a class="btn" href="'+esc(abs(t.url))+'" target="_blank" rel="noopener">読む</a></p>' : '')+'</div>';
   }
-  $("topTayori").innerHTML = list.slice(0,3).map((t,i) => '<a class="mini" href="#tayori/'+i+'"><span class="mini-d">'+esc(t.d.slice(5).replace("-","/"))+'</span>'+esc(t.t.length>34 ? t.t.slice(0,34)+"…" : t.t)+'</a>').join("");
+  $("topTayori").innerHTML = list.slice(0,3).map((t,i) => '<a class="mini" href="#tayori/'+i+'"><span class="mini-d">'+esc(t.d.slice(5).replace("-","/"))+'</span><span>'+newMark(t)+esc(t.t.length>34 ? t.t.slice(0,34)+"…" : t.t)+'</span></a>').join("");
+  const tayoriTab = document.querySelector('.tab[data-tab="tayori"]');
+  function markTayoriSeen(){
+    const dot = tayoriTab.querySelector(".dot"); if (dot) dot.remove();
+    if (list.length && list[0].d > (store.get(SEEN)||"")) store.set(SEEN, list[0].d);
+  }
+  if (list.some(isNew)){ const dot=document.createElement("span"); dot.className="dot"; dot.setAttribute("aria-label","新しいたよりがあります"); tayoriTab.appendChild(dot); }
 
   /* ── 開催予定：events.js。会場は行に v:（会場名）addr:（住所）が無ければ二の丸能楽堂 ── */
   const up = window.nakatokoUpcoming ? window.nakatokoUpcoming() : [];
   const fmtD = iso => window.nakatokoFmtDate ? window.nakatokoFmtDate(iso, true) : iso;
-  $("kaisaiList").innerHTML = up.length ? up.map(e => '<div class="ev"><div class="ev-d">'+esc(fmtD(e.d))+'</div><div class="ev-t">'+esc(e.t)+'</div><div class="ev-v">'+esc(e.v||VENUE.name)+'<br><span class="muted">'+esc(e.addr||VENUE.addr)+'</span></div>'+(e.url ? '<a class="btn" href="'+esc(e.url)+'" target="_blank" rel="noopener">お申し込み</a>' : '')+'</div>').join("")
+  /* 地図は能楽堂は会場名で、ほかの会場は回ごとの住所（括弧書きを除く）で探す。駐車場の案内はアクセスの頁にある。 */
+  const mapURL = e => "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(e.v ? (e.addr ? e.addr.replace(/（[^）]*）/g,"") : e.v) : VENUE.name);
+  const acts = (e, apply) => '<div class="acts">'+(apply && e.url ? '<a class="btn" href="'+esc(e.url)+'" target="_blank" rel="noopener">お申し込み</a>' : '')+
+    '<a class="btn ghost" href="'+esc(mapURL(e))+'" target="_blank" rel="noopener">地図</a><a class="btn ghost" href="#access">駐車場・アクセス</a></div>';
+  $("kaisaiList").innerHTML = up.length ? up.map(e => '<div class="ev"><div class="ev-d">'+esc(fmtD(e.d))+'</div><div class="ev-t">'+esc(e.t)+'</div><div class="ev-v" style="margin-bottom:0">'+esc(e.v||VENUE.name)+'<br><span class="muted">'+esc(e.addr||VENUE.addr)+'</span></div>'+acts(e, true)+'</div>').join("")
     : '<p class="muted pad">次回の日程は、決まり次第ここに掲載します。</p>';
+  /* トップの「次の催し」：あと何日か・会場・地図までを一枚に */
+  if (up.length){
+    const e = up[0];
+    const p = e.d.split("-"), days = Math.round((Date.UTC(+p[0],+p[1]-1,+p[2]) - Date.UTC(y,m-1,d)) / 86400000);
+    const left = days===0 ? "本日" : days===1 ? "明日" : "あと"+days+"日";
+    $("topNextCard").innerHTML = '<div class="next-top"><span class="next-d">'+esc(fmtD(e.d).replace(/^\d+年/,""))+'</span><span class="next-n">'+left+'</span></div>'+
+      '<div class="next-t">'+esc(e.t)+'</div><div class="next-v">'+esc(e.v||VENUE.name)+'<br><span class="muted">'+esc(e.addr||VENUE.addr)+'</span></div>'+
+      acts(e, false).replace('<div class="acts">','<div class="acts"><a class="btn" href="#kaisai">くわしく</a>');
+    $("topNextWrap").hidden = false;
+  }
   $("topNext").textContent = up.length ? "次回 "+fmtD(up[0].d).replace(/^\d+年/,"") : "決まり次第掲載";
 
   /* ── 画面の切り替え（#top #hitokoto #hitokoto/12 #tayori #tayori/0 #kaisai #menu #access #howto #privacy） ── */
@@ -87,6 +114,7 @@ const TAYORI = [{d:"2026-05-25",t:"中常塾を開塾しました"}];
     const h = (location.hash||"#top").slice(1).split("/"); let v = h[0]||"top";
     if (v==="hitokoto" && h[1]!==undefined){ renderHitokoto(+h[1]); v="hitokotoDetail"; }
     if (v==="tayori" && h[1]!==undefined){ renderTayori(+h[1]); v="tayoriDetail"; }
+    if (v==="tayori" || v==="tayoriDetail") markTayoriSeen();
     if (!views.includes(v)) v="top";
     views.forEach(id => { const el=$("v-"+id); if(el) el.hidden = (id!==v); });
     const tab = {top:"top",hitokoto:"hitokoto",hitokotoDetail:"hitokoto",tayori:"tayori",tayoriDetail:"tayori",kaisai:"top"}[v] || "menu";
@@ -99,5 +127,13 @@ const TAYORI = [{d:"2026-05-25",t:"中常塾を開塾しました"}];
   /* ── ホーム画面に追加の案内：すでにアプリとして開いていれば出さない ── */
   const standalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone===true;
   if (standalone) document.body.classList.add("standalone");
-  if ("serviceWorker" in navigator && location.protocol==="https:") navigator.serviceWorker.register("/app/sw.js").catch(()=>{});
+  /* サービスワーカー：sw.js はブラウザの控えを使わずに毎回確かめる。新しい版に入れ替わったら下に知らせを出す。 */
+  if ("serviceWorker" in navigator && (location.protocol==="https:" || location.hostname==="localhost")){
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener("controllerchange", () => { if (hadController) $("toast").hidden = false; });
+    $("toastBtn").addEventListener("click", () => location.reload());
+    navigator.serviceWorker.register("/app/sw.js", {updateViaCache: "none"}).then(r => {
+      document.addEventListener("visibilitychange", () => { if (document.visibilityState==="visible") r.update().catch(()=>{}); });
+    }).catch(()=>{});
+  }
 })();
