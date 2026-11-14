@@ -98,9 +98,10 @@
       linear-gradient(90deg, rgba(18,12,8,.62) 0%, rgba(18,12,8,.14) 42%, transparent 72%),
       linear-gradient(270deg, rgba(18,12,8,.22) 0%, rgba(18,12,8,.12) 14%, rgba(18,12,8,.04) 26%, transparent 38%);}
   .hero-vtitle{position:absolute;top:clamp(2.2rem,6vw,4.2rem);right:clamp(1.4rem,6vw,5rem);z-index:3;writing-mode:vertical-rl;text-orientation:upright;font-family:'Zen Old Mincho',var(--serif);font-size:clamp(3.4rem,11vw,8rem);font-weight:900;letter-spacing:.04em;line-height:.98;color:#fabf14;text-shadow:0 2px 24px rgba(0,0,0,.55),0 0 1px rgba(0,0,0,.7);}
-  .hero-vtitle .foilchar{font-weight:700;text-shadow:none;background:linear-gradient(110deg,#b8861a 0%,#d6a632 20%,#e8c770 38%,#c4921f 54%,#dcb24c 70%,#a87914 86%,#d2a238 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 1px rgba(0,0,0,.9)) drop-shadow(0 2px 4px rgba(0,0,0,.7)) drop-shadow(0 4px 16px rgba(0,0,0,.45));}
+  .hero-vtitle .foilchar{text-shadow:none;background:linear-gradient(110deg,#b8861a 0%,#d6a632 20%,#e8c770 38%,#c4921f 54%,#dcb24c 70%,#a87914 86%,#d2a238 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 1px rgba(0,0,0,.9)) drop-shadow(0 2px 4px rgba(0,0,0,.7)) drop-shadow(0 4px 16px rgba(0,0,0,.45));}
+  .hero-vtitle .inkchar{font-weight:700;color:#0b0907;-webkit-text-fill-color:#0b0907;-webkit-text-stroke:.04em #e8b52c;paint-order:stroke fill;text-shadow:0 3px 14px rgba(0,0,0,.6);}
   .hero-vtitle::before{content:"";position:absolute;left:-.76em;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(201,176,114,.7) 18%,rgba(201,176,114,.7) 82%,transparent);}
-  .hero-vshijuku{position:absolute;left:-1.18em;top:0;writing-mode:vertical-rl;font-size:.56em;letter-spacing:.3em;color:#3a3632;-webkit-text-fill-color:#3a3632;-webkit-text-stroke:.07em #e8b52c;paint-order:stroke fill;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,.6);white-space:nowrap;}
+  .hero-vshijuku{position:absolute;left:-1.18em;top:0;writing-mode:vertical-rl;font-size:.56em;letter-spacing:.3em;color:#0b0907;-webkit-text-fill-color:#0b0907;-webkit-text-stroke:.07em #e8b52c;paint-order:stroke fill;font-weight:900;text-shadow:0 2px 8px rgba(0,0,0,.6);white-space:nowrap;}
   /* ローマ字は題字の脇、この一箇所だけ */
   .hero-vromaji{position:absolute;left:-2.875em;top:9.75em;writing-mode:vertical-rl;font-size:.16em;letter-spacing:.35em;text-transform:uppercase;color:#e8b52c;font-weight:900;text-shadow:0 0 1px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.75);white-space:nowrap;}
   .hero-stage .wrap-wide{position:relative;z-index:3;width:100%;padding-bottom:clamp(2rem,5vw,3.4rem);padding-top:2rem;}
@@ -336,7 +337,7 @@
 
     <div class="hero-vtitle">
       <span class="hero-vshijuku">私塾</span><span class="hero-vromaji">なかとこじゅく</span>
-      中常<span class="foilchar">塾</span>
+      <span class="foilchar">中常</span><span class="inkchar">塾</span>
     </div>
 
     <div class="wrap-wide">
