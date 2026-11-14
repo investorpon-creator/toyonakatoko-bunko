@@ -423,6 +423,46 @@ p.body:last-child{margin-bottom:0;}
 @media(max-width:600px){
   .voice-grid{grid-template-columns:1fr;}
 }
+.voice-photo{
+  margin:0;
+  background:var(--paper-card);
+  border:1px solid var(--line);
+  border-top:2px solid var(--gold-soft);
+  display:flex;flex-direction:column;
+}
+.voice-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;}
+.voice-photo figcaption{
+  font-size:.64rem;letter-spacing:.2em;color:var(--muted);
+  padding:.7rem 1rem .8rem;text-align:right;
+}
+
+/* ── 開催報告 ── */
+.report-lead{
+  margin-top:1.6rem;
+  font-size:.84rem;letter-spacing:.06em;line-height:2.2;color:var(--ink-soft);
+}
+.report-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.4rem 1rem;
+  margin-top:2rem;
+}
+.report-item{margin:0;}
+.report-item img{
+  display:block;width:100%;height:auto;
+  aspect-ratio:4/3;object-fit:cover;
+  border:1px solid var(--line);
+}
+.report-item figcaption{
+  margin-top:.55rem;
+  font-size:.7rem;letter-spacing:.14em;line-height:1.8;color:var(--muted);
+}
+.report-item figcaption b{
+  display:block;font-weight:600;color:var(--ink);letter-spacing:.18em;
+}
+@media(max-width:600px){
+  .report-grid{grid-template-columns:1fr;}
+}
 
 /* ── 塾主プロフィール ── */
 .profile-grid{
@@ -963,6 +1003,47 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
   </div>
 </section>
 
+<!-- ── 開催報告 ── -->
+<section class="section" id="report">
+  <div class="wrap">
+    <div class="sec-label">
+      <div class="mark">報</div>
+      <h2>開催報告</h2>
+    </div>
+    <p class="report-lead">講義やお稽古あとのみなさんとのようす。</p>
+    <div class="report-grid">
+      <figure class="report-item">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-06-22_wagi.jpg" alt="鏡板の松の前に並ぶ塾主と参加者" width="1521" height="895" loading="lazy" decoding="async">
+        <figcaption><b>岡崎城 二の丸能楽堂</b>和儀お稽古のあとに</figcaption>
+      </figure>
+      <figure class="report-item">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-07-27_okazaki.jpg" alt="岡崎城 二の丸能楽堂 鏡板の前で塾主と参加者" width="1600" height="1200" loading="lazy" decoding="async">
+        <figcaption><b>岡崎城 二の丸能楽堂</b>講義とお稽古のあとに</figcaption>
+      </figure>
+      <figure class="report-item">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-08-24_wagi.jpg" alt="能舞台で肚に手を当てる塾主と参加者" width="1651" height="960" loading="lazy" decoding="async">
+        <figcaption><b>岡崎城 二の丸能楽堂</b>肚に手を当てて</figcaption>
+      </figure>
+      <figure class="report-item">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-08-24_okazaki.jpg" alt="鏡板の松の前で塾主と参加者" width="1600" height="1200" loading="lazy" decoding="async">
+        <figcaption><b>岡崎城 二の丸能楽堂</b>鏡板の松の前で</figcaption>
+      </figure>
+      <figure class="report-item">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-09-28_sodoku.jpg" alt="和室で塾主と参加者が素読をする講義の一場面" width="1683" height="912" loading="lazy" decoding="async">
+        <figcaption><b>度會神道 講義</b>みんなで声に出す素読</figcaption>
+      </figure>
+      <figure class="report-item">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-09-28_okazaki.jpg" alt="能舞台で塾主と参加者" width="1600" height="1200" loading="lazy" decoding="async">
+        <figcaption><b>岡崎城 二の丸能楽堂</b>お稽古を終えて</figcaption>
+      </figure>
+      <figure class="report-item">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-10-19_okazaki.jpg" alt="能舞台で塾主と参加者" width="1600" height="1200" loading="lazy" decoding="async">
+        <figcaption><b>岡崎城 二の丸能楽堂</b>お稽古を終えて</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ── 参加者の声 ── -->
 <section class="section section-alt" id="voices">
   <div class="wrap">
@@ -990,6 +1071,11 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         </p>
         <div class="voice-attr">和儀お稽古参加　50代女性（岡崎市）</div>
       </div>
+
+      <figure class="voice-photo">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-08-24_wagi.jpg" alt="能舞台で肚に手を当てる塾主と参加者" width="1651" height="960" loading="lazy" decoding="async">
+        <figcaption>岡崎城 二の丸能楽堂</figcaption>
+      </figure>
 
       <div class="voice-card">
         <div class="voice-mark" aria-hidden="true">「</div>
@@ -1029,6 +1115,11 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         </p>
         <div class="voice-attr">開塾日参加　50代女性（名古屋市）</div>
       </div>
+
+      <figure class="voice-photo">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-09-28_sodoku.jpg" alt="和室で塾主と参加者が素読をする講義の一場面" width="1683" height="912" loading="lazy" decoding="async">
+        <figcaption>度會神道 講義の素読</figcaption>
+      </figure>
 
       <div class="voice-card">
         <div class="voice-mark" aria-hidden="true">「</div>
@@ -1081,6 +1172,11 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         <div class="voice-attr">度會神道講義・和儀参加　50代女性（静岡県掛川市）</div>
       </div>
 
+      <figure class="voice-photo">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-07-27_okazaki.jpg" alt="鏡板の前で塾主と参加者" width="1600" height="1200" loading="lazy" decoding="async">
+        <figcaption>岡崎城 二の丸能楽堂</figcaption>
+      </figure>
+
       <div class="voice-card">
         <div class="voice-mark" aria-hidden="true">「</div>
         <p class="voice-text">
@@ -1120,6 +1216,11 @@ footer .copy{margin-top:1.2rem;font-size:.62rem;letter-spacing:.22em;color:#7d6f
         </p>
         <div class="voice-attr">和儀お稽古参加　50代男性（岐阜県岐阜市）</div>
       </div>
+
+      <figure class="voice-photo">
+        <img src="https://nakatokojuku.jp/taiken/kaisai/2026-10-19_okazaki.jpg" alt="能舞台で塾主と参加者" width="1600" height="1200" loading="lazy" decoding="async">
+        <figcaption>岡崎城 二の丸能楽堂</figcaption>
+      </figure>
 
       <div class="voice-card">
         <div class="voice-mark" aria-hidden="true">「</div>
