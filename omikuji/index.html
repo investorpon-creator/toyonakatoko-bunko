@@ -104,6 +104,8 @@
   .fuda{max-width:360px;margin:0 auto 1.6rem;background:var(--paper-card);border:1px solid var(--line);border-top:4px solid var(--vermilion);padding:1.8rem 1.6rem 1.4rem;box-shadow:0 6px 18px rgba(60,40,20,.10);opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s;}
   .fuda.miseru{opacity:1;transform:none;}
   .fuda .f-mid{font-family:'Zen Antique Soft','Shippori Mincho',serif;font-size:1.7rem;letter-spacing:.2em;color:var(--vermilion-deep);margin-bottom:1rem;}
+  .fuda .f-mid:has(+ .f-yomi:not([hidden])){margin-bottom:.3rem;}
+  .fuda .f-yomi{font-size:.8rem;letter-spacing:.12em;color:var(--muted);margin-bottom:1rem;word-break:break-all;}
   .fuda .f-hon{font-size:1.02rem;line-height:2.15;letter-spacing:.05em;text-align:left;white-space:pre-line;}
   .fuda .f-soe{margin-top:1.1rem;font-size:.78rem;letter-spacing:.1em;color:var(--muted);text-align:right;}
   .mk-note{font-size:.78rem;color:var(--muted);letter-spacing:.06em;margin-top:.8rem;}
@@ -153,7 +155,7 @@
 
     <!-- 合言葉の後 -->
     <div id="hiku" hidden>
-      <div class="fuda" id="fuda" hidden><div class="f-mid" id="fMid"></div><div class="f-hon" id="fHon"></div><div class="f-soe" id="fSoe"></div></div>
+      <div class="fuda" id="fuda" hidden><div class="f-mid" id="fMid"></div><div class="f-yomi" id="fYomi"></div><div class="f-hon" id="fHon"></div><div class="f-soe" id="fSoe"></div></div>
       <button class="mk-btn" type="button" id="btn">引く</button>
       <p class="mk-note" id="note" hidden></p>
     </div>
@@ -201,7 +203,7 @@
   var t=document.getElementById('tsutsu'),btn=document.getElementById('btn'),f=document.getElementById('fuda'),note=document.getElementById('note');
   function show(i){
     var x=D.fuda[i]||{};
-    [['fMid','midashi'],['fHon','honbun'],['fSoe','soe']].forEach(function(p){var el=document.getElementById(p[0]);el.textContent=x[p[1]]||'';el.hidden=!x[p[1]];});
+    [['fMid','midashi'],['fYomi','yomi'],['fHon','honbun'],['fSoe','soe']].forEach(function(p){var el=document.getElementById(p[0]);el.textContent=x[p[1]]||'';el.hidden=!x[p[1]];});
     f.hidden=false;requestAnimationFrame(function(){requestAnimationFrame(function(){f.classList.add('miseru');});});
   }
   btn.addEventListener('click',function(){
