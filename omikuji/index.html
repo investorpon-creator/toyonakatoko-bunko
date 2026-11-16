@@ -54,6 +54,7 @@
   .crumb a{color:var(--gold);text-decoration:none;}
   .crumb a:hover{color:var(--vermilion);}
   h1{font-size:clamp(1.8rem,4.5vw,2.7rem);letter-spacing:.12em;font-weight:600;line-height:1.4;margin-bottom:1rem;text-wrap:balance;}
+  .omk-sub{font-size:.9rem;letter-spacing:.12em;color:var(--muted);margin-bottom:.2rem;}
   .lead{font-size:clamp(.96rem,1.4vw,1.08rem);letter-spacing:.08em;line-height:2.2;color:var(--ink-soft);margin:1.6rem 0 2.4rem;text-wrap:pretty;}
   h2{font-size:clamp(1.15rem,2.2vw,1.4rem);letter-spacing:.1em;font-weight:600;color:var(--vermilion-deep);margin:2.6rem 0 1rem;padding-left:.8rem;border-left:4px solid var(--gold);}
   p.body{font-size:1rem;letter-spacing:.04em;line-height:2.15;margin:0 0 1.3rem;color:var(--ink);}
@@ -83,13 +84,13 @@
 
   /* おみくじ */
   .mk{margin:1rem 0 2rem;text-align:center;}
-  .tsutsu{width:92px;height:150px;margin:0 auto 1.6rem;position:relative;}
+  .tsutsu{width:92px;height:150px;margin:2rem auto 1.6rem;position:relative;}
   .tsutsu .body{position:absolute;inset:18px 0 0 0;background:linear-gradient(90deg,#7a2a20,#a8362a 45%,#8f2c22);border-radius:6px;box-shadow:inset 0 0 0 2px rgba(154,125,60,.55);}
-  .tsutsu .body::after{content:"御\A籤";white-space:pre;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#efe3c6;font-size:1.05rem;line-height:1.5;letter-spacing:0;}
+  .tsutsu .body::after{content:"御\A神\A籤";white-space:pre;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#efe3c6;font-size:1.05rem;line-height:1.5;letter-spacing:0;}
   .tsutsu .lid{position:absolute;left:-4px;right:-4px;top:8px;height:16px;background:var(--gold);border-radius:4px;}
-  .tsutsu .bou{position:absolute;left:50%;top:-14px;width:8px;height:0;margin-left:-4px;background:#e9dcbc;border:1px solid var(--gold);border-radius:2px;transition:height .45s ease .1s;}
-  .tsutsu.furu{animation:furu .9s ease-in-out;}
-  .tsutsu.deta .bou{height:34px;}
+  .tsutsu .bou{position:absolute;left:50%;bottom:calc(100% - 20px);width:8px;height:0;margin-left:-4px;background:#e9dcbc;border:1px solid var(--gold);border-radius:2px;transition:height .45s ease .1s;}
+  .tsutsu.furu{animation:furu 1.35s ease-in-out;}
+  .tsutsu.deta .bou{height:56px;}
   @keyframes furu{0%,100%{transform:rotate(0)}15%{transform:rotate(-16deg)}35%{transform:rotate(14deg)}55%{transform:rotate(-11deg)}75%{transform:rotate(8deg)}}
   .mk-btn{font-family:var(--serif);font-size:1rem;letter-spacing:.3em;background:var(--vermilion);color:#fff;border:0;border-radius:6px;padding:.75rem 2.4rem;cursor:pointer;}
   .mk-btn:hover{background:var(--vermilion-deep);}
@@ -131,6 +132,7 @@
 <div class="page-head">
 <div class="wrap">
   <div class="crumb"><a href="/">私塾 中常塾</a>　›　ご縁おみくじ⛩️</div>
+  <p class="omk-sub">ちょっとマニアックな笑</p>
   <h1>ご縁おみくじ⛩️</h1>
   <p class="lead">今日のご縁は？？</p>
 </div>
@@ -219,7 +221,7 @@
       show(i);
       if(D.ichinichi===1){note.hidden=false;note.textContent='一日一回の縁だめし！';btn.hidden=true;}
       else{btn.disabled=false;btn.textContent='もう一度引く';}
-    },950);
+    },1400);
   });
 })();
 </script>
