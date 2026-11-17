@@ -40,7 +40,7 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
-  body{font-family:var(--serif);color:var(--ink);background:var(--paper);line-height:1.9;min-height:100vh;
+  body{font-family:var(--serif);color:var(--ink);background:var(--paper);line-height:1.14;min-height:100vh;
        padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom));font-feature-settings:"palt";}
   a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
   [hidden]{display:none!important}
@@ -59,7 +59,7 @@
   .hero::before{content:"";position:absolute;inset:0;background:var(--seigaiha);background-size:60px 30px;opacity:.07;pointer-events:none}
   .hero>*{position:relative}
   .hero .date{font-size:.72rem;letter-spacing:.32em;color:var(--muted);font-family:var(--sans);font-weight:400}
-  .hero .kou{font-size:1.5rem;letter-spacing:.14em;font-weight:500;line-height:1.5;margin-top:8px;color:var(--ink)}
+  .hero .kou{font-size:1.5rem;letter-spacing:.14em;font-weight:500;line-height:1;margin-top:8px;color:var(--ink)}
   .hero .yomi{font-size:.74rem;letter-spacing:.22em;color:var(--gold);margin-top:2px}
   .rule{width:28px;height:1px;background:var(--gold-soft);margin:14px auto 0}
 
@@ -70,9 +70,9 @@
   .today{display:grid;grid-template-columns:34px 1fr}
   .today .vlabel{writing-mode:vertical-rl;background:var(--vermilion);color:#fbf4e6;font-size:.72rem;letter-spacing:.34em;padding:14px 0;text-align:center;display:grid;place-content:center}
   .today .body{padding:16px 18px 14px}
-  .issetsu{font-size:1.06rem;line-height:2.05;letter-spacing:.04em;color:var(--ink)}
+  .issetsu{font-size:1.06rem;line-height:1.23;letter-spacing:.04em;color:var(--ink)}
   .issetsu .src{display:block;text-align:right;font-size:.72rem;color:var(--muted);letter-spacing:.14em;margin-top:6px}
-  .hitokoto{font-size:.98rem;line-height:2.1;letter-spacing:.03em;color:var(--ink-soft)}
+  .hitokoto{font-size:.98rem;line-height:1.26;letter-spacing:.03em;color:var(--ink-soft)}
   .today .hitokoto{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line-soft)}
   .today .hitokoto::before{content:"塾主の一言";display:block;font-size:.64rem;letter-spacing:.3em;color:var(--gold);margin-bottom:4px}
   .today .more{display:block;text-align:right;font-size:.7rem;letter-spacing:.22em;color:var(--vermilion-deep);margin-top:10px}
@@ -81,8 +81,8 @@
   .cell{background:var(--paper-card);border:1px solid var(--line-soft);border-radius:4px;padding:16px 14px 14px;display:flex;align-items:center;gap:12px;min-height:76px}
   .cell:active{background:var(--paper-warm)}
   .cell .glyph{width:38px;height:38px;flex:0 0 38px;border:1px solid var(--vermilion);color:var(--vermilion);border-radius:50%;display:grid;place-content:center;font-size:1.05rem;font-weight:500}
-  .cell .t{font-size:.95rem;letter-spacing:.12em;font-weight:500;line-height:1.4}
-  .cell .s{display:block;font-size:.66rem;letter-spacing:.1em;color:var(--muted);font-family:var(--sans);margin-top:3px;line-height:1.5}
+  .cell .t{font-size:.95rem;letter-spacing:.12em;font-weight:500;line-height:1}
+  .cell .s{display:block;font-size:.66rem;letter-spacing:.1em;color:var(--muted);font-family:var(--sans);margin-top:3px;line-height:1}
   @media (max-width:359px){ .cell{padding:12px 9px;gap:8px} .cell .glyph{width:30px;height:30px;flex-basis:30px;font-size:.88rem} .cell .t{letter-spacing:.02em;font-size:.88rem} .cell .s{letter-spacing:0} }
 
   /* 一覧の行 */
@@ -91,9 +91,9 @@
   .row:last-child{border-bottom:0}
   .row:active{background:var(--paper-warm)}
   .row::after{content:"›";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--gold-soft);font-size:1.2rem;line-height:1}
-  .row-t{display:block;font-size:.98rem;letter-spacing:.03em;line-height:1.75;color:var(--ink)}
+  .row-t{display:block;font-size:.98rem;letter-spacing:.03em;line-height:1.05;color:var(--ink)}
   .row-d{display:block;font-size:.7rem;color:var(--muted);font-family:var(--sans);margin-top:3px;letter-spacing:.08em}
-  .mini{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:9px 18px;border-bottom:1px solid var(--line-soft);font-size:.88rem;line-height:1.75}
+  .mini{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:9px 18px;border-bottom:1px solid var(--line-soft);font-size:.88rem;line-height:1.05}
   .mini:last-child{border-bottom:0}
   .mini-d{color:var(--vermilion-deep);font-family:var(--sans);font-size:.72rem;letter-spacing:.06em;padding-top:3px}
   .foot-link{display:block;text-align:right;font-size:.7rem;letter-spacing:.22em;color:var(--vermilion-deep);padding:10px 18px 12px}
@@ -103,7 +103,7 @@
   .dt-head{position:relative;background:var(--paper-warm);padding:24px 20px 20px;overflow:hidden}
   .dt-head::before{content:"";position:absolute;inset:0;background:var(--seigaiha);background-size:60px 30px;opacity:.06;pointer-events:none}
   .dt-head>*{position:relative}
-  .dt-kou{font-size:1.35rem;font-weight:500;letter-spacing:.1em;line-height:1.5}
+  .dt-kou{font-size:1.35rem;font-weight:500;letter-spacing:.1em;line-height:1}
   .dt-yomi{font-size:.72rem;color:var(--gold);letter-spacing:.2em;margin-top:4px}
   .dt-body{padding:6px 20px 8px}
   .dt-body .issetsu{margin:6px 0 4px}
@@ -115,14 +115,14 @@
   .ev::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;background:var(--vermilion)}
   .ev-d{font-size:1.2rem;font-weight:500;letter-spacing:.06em}
   .ev-t{font-size:.9rem;color:var(--ink-soft);margin:0 0 10px;letter-spacing:.06em}
-  .ev-v{font-size:.88rem;line-height:1.8;margin-bottom:14px;padding-top:10px;border-top:1px dashed var(--line-soft)}
+  .ev-v{font-size:.88rem;line-height:1.08;margin-bottom:14px;padding-top:10px;border-top:1px dashed var(--line-soft)}
   .ev-v .muted{font-size:.78rem;font-family:var(--sans)}
   .menu .row-t{font-weight:400}
   .menu .row small{display:block;color:var(--muted);font-family:var(--sans);font-size:.7rem;letter-spacing:.04em;margin-top:1px}
-  .prose{padding:18px 20px 26px;font-size:.93rem;line-height:2}
+  .prose{padding:18px 20px 26px;font-size:.93rem;line-height:1.2}
   .prose h3{font-size:.78rem;letter-spacing:.28em;margin:18px 0 6px;color:var(--vermilion-deep);font-weight:500}
   .prose ol{padding-left:1.5em} .prose li{margin:2px 0}
-  .tip{margin:18px 16px 8px;font-size:.78rem;line-height:1.8;color:var(--muted);text-align:center;letter-spacing:.04em}
+  .tip{margin:18px 16px 8px;font-size:.78rem;line-height:1.08;color:var(--muted);text-align:center;letter-spacing:.04em}
   .tip a{color:var(--vermilion-deep);border-bottom:1px solid var(--gold-pale)}
   body.standalone .tip{display:none}
 
@@ -132,7 +132,7 @@
   .next-d{font-size:1.12rem;font-weight:500;letter-spacing:.05em}
   .next-n{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;color:#fbf4e6;background:var(--vermilion);padding:1px 9px;border-radius:2px;white-space:nowrap}
   .next-t{font-size:.9rem;color:var(--ink-soft);letter-spacing:.06em;margin-top:2px}
-  .next-v{font-size:.84rem;line-height:1.7;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line-soft)}
+  .next-v{font-size:.84rem;line-height:1.02;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line-soft)}
   .next-v .muted{font-size:.74rem;font-family:var(--sans)}
   .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
   .acts .btn{padding:9px 16px;font-size:.8rem;letter-spacing:.16em}
@@ -210,7 +210,7 @@
 <main id="v-kaisai" hidden>
   <div class="cap">講義・お稽古 開催予定</div>
   <div id="kaisaiList"></div>
-  <p class="pad muted" style="font-size:.8rem;line-height:1.9">会場は原則、岡崎城 二の丸能楽堂です。回によって変わるときは、その回の欄に記します。</p>
+  <p class="pad muted" style="font-size:.8rem;line-height:1.14">会場は原則、岡崎城 二の丸能楽堂です。回によって変わるときは、その回の欄に記します。</p>
 </main>
 
 <!-- MENU -->

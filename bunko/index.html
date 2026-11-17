@@ -49,7 +49,7 @@
       radial-gradient(circle at 18% 12%, rgba(255,255,255,.45), transparent 42%),
       radial-gradient(circle at 82% 78%, rgba(180,150,95,.10), transparent 48%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    line-height:1.9;
+    line-height:1.14;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
   }
@@ -101,7 +101,7 @@
   .title-main{
     writing-mode:vertical-rl;text-orientation:upright;
     font-size:clamp(3.4rem,7vw,5.6rem);
-    font-weight:600;letter-spacing:.12em;line-height:1.02;
+    font-weight:600;letter-spacing:.12em;line-height:1;
     color:var(--ink);
     text-shadow:0 1px 0 rgba(255,255,255,.5);
   }
@@ -117,7 +117,7 @@
   .hero-rule::after{content:"";position:absolute;top:3px;left:0;width:40px;border-top:1px solid var(--gold-soft);}
   .tagline{
     font-size:clamp(1.02rem,1.6vw,1.28rem);
-    letter-spacing:.16em;line-height:2.2;color:var(--ink-soft);
+    letter-spacing:.16em;line-height:1.32;color:var(--ink-soft);
     font-weight:500;max-width:30ch;
   }
   .subline{
@@ -143,7 +143,7 @@
   }
   .relic-cap{
     margin-top:1rem;text-align:center;
-    font-size:.68rem;letter-spacing:.26em;color:var(--muted);line-height:2;
+    font-size:.68rem;letter-spacing:.26em;color:var(--muted);line-height:1.2;
   }
   .relic-cap b{color:var(--ink-soft);font-weight:600;}
   /* 朱印 */
@@ -175,7 +175,7 @@
   }
   .preface p{
     font-size:clamp(.98rem,1.4vw,1.12rem);
-    letter-spacing:.1em;line-height:2.5;color:var(--ink-soft);
+    letter-spacing:.1em;line-height:1.5;color:var(--ink-soft);
     text-wrap:pretty;
   }
   .preface p + p{margin-top:1.4rem;}
@@ -240,15 +240,15 @@
   }
   .vol-title{
     font-size:clamp(1.7rem,3vw,2.2rem);letter-spacing:.16em;font-weight:600;
-    line-height:1.3;color:var(--ink);
+    line-height:1;color:var(--ink);
   }
   .vol-ruby{font-size:.74rem;letter-spacing:.34em;color:var(--muted);margin-top:.4rem;}
   .vol-desc{
-    font-size:.86rem;letter-spacing:.06em;line-height:2.1;color:var(--ink-soft);
+    font-size:.86rem;letter-spacing:.06em;line-height:1.26;color:var(--ink-soft);
     margin:1.2rem 0 1.3rem;max-width:52ch;text-wrap:pretty;
   }
   .vol-meta{
-    font-size:.72rem;letter-spacing:.08em;line-height:2;color:var(--muted);
+    font-size:.72rem;letter-spacing:.08em;line-height:1.2;color:var(--muted);
     padding-top:1rem;border-top:1px dotted var(--line);
   }
   .vol-enter{
@@ -276,7 +276,7 @@
     font-size:1.3rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1.4rem;
   }
   footer .f-line{
-    font-size:.74rem;letter-spacing:.18em;line-height:2.3;color:#a9997b;
+    font-size:.74rem;letter-spacing:.18em;line-height:1.38;color:#a9997b;
     max-width:46ch;margin:0 auto;
   }
   footer .f-seal{
@@ -305,7 +305,7 @@
   }
   .contact-desc{
     font-size:clamp(.86rem,1.2vw,1rem);
-    letter-spacing:.1em;line-height:2.4;color:var(--ink-soft);
+    letter-spacing:.1em;line-height:1.44;color:var(--ink-soft);
     margin-bottom:2.2rem;
   }
   .sns-row{
@@ -558,51 +558,51 @@
     <div style="display:grid;gap:14px;">
       <a href="https://nakatokojuku.jp/bunko/watarai-shinto/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">度會神道とは ── 中常塾の学びの土台</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">伊勢神宮外宮の神官家・度會氏に伝わる神道と、「神代そのまま今に在る」世界観を、やさしく。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">伊勢神宮外宮の神官家・度會氏に伝わる神道と、「神代そのまま今に在る」世界観を、やさしく。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/yamatohime/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">倭姫命世記をやさしく ── 伊勢神宮はこうして始まった</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">倭姫命の遍歴と伊勢鎮座、そして懸税（神嘗祭）の起源を、現代語で。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">倭姫命の遍歴と伊勢鎮座、そして懸税（神嘗祭）の起源を、現代語で。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/nakatoko-no-michi/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">「中常」という名 ── 中常の道と天御中主神</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">中（天御中主神）と常（国常立尊）、中心にして永遠なる「中常の道」の意。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">中（天御中主神）と常（国常立尊）、中心にして永遠なる「中常の道」の意。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/okazaki-to-ise/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">岡崎と伊勢 ── 御鍬祭りと懸税の物語</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">伊勢の磯部から岡崎の磯部へ運ばれた御鍬、ええじゃないかの発火点、そして今に続く懸税奉納。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">伊勢の磯部から岡崎の磯部へ運ばれた御鍬、ええじゃないかの発火点、そして今に続く懸税奉納。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/motoise-map/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">倭姫命の御巡幸マップ ── 元伊勢を地図でたどる</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">『倭姫命世記』の宮々（元伊勢）の伝承地を、実際の地図に巡幸順でプロット。道行きを目でたどれます。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">『倭姫命世記』の宮々（元伊勢）の伝承地を、実際の地図に巡幸順でプロット。道行きを目でたどれます。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/ayumi-no-chizu/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">あなたの神話の地図をひらく</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">聞いてきた話を日本地図に置くと、一本の道のりが現れます。塾主が教えられてきた出雲から岡崎までの道のりを一例に、ご自分の家の地図を描く手引きを添えて。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">聞いてきた話を日本地図に置くと、一本の道のりが現れます。塾主が教えられてきた出雲から岡崎までの道のりを一例に、ご自分の家の地図を描く手引きを添えて。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/matsuura-abe/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">教えられてきた話は、どこまで信じてよいのか</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">「松浦は安倍宗任の裔」という、教えられてきた話を、たどれるところまで確かめた記録。出てこなかったことも、家の財産になります。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">「松浦は安倍宗任の裔」という、教えられてきた話を、たどれるところまで確かめた記録。出てこなかったことも、家の財産になります。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/gisho/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">『倭姫命世記』は偽書なのか ── 神のこころを慮る</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">成立年代の議論とは別に、神のこころは何だろうかと慮りながら読むという道。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">成立年代の議論とは別に、神のこころは何だろうかと慮りながら読むという道。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/tegaki/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">手で書かれた文字で読む ── 江戸の草書本と素読</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">活字ではなく、人の手の文字で読む。読めない字があってよい理由。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">活字ではなく、人の手の文字で読む。読めない字があってよい理由。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/misakadono/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">外宮の御酒殿の神 ── お伊勢参りに、もうひとつの立ち寄り所を</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">外宮の奥に、お酒の神さま。なぜ神さまに酒を捧げるのかを、『倭姫命世記』の一段からたどります。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">外宮の奥に、お酒の神さま。なぜ神さまに酒を捧げるのかを、『倭姫命世記』の一段からたどります。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/toyomiyazaki/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">豐宮崎文庫 ── 学びの場を、自分たちで建てた話</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">外宮のすぐ隣に、誰でも入れる学びの場があった。隣の田では御田植神事。この文庫の名の由来です。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">外宮のすぐ隣に、誰でも入れる学びの場があった。隣の田では御田植神事。この文庫の名の由来です。</span>
       </a>
       <a href="https://nakatokojuku.jp/bunko/michinori/" style="display:block;text-decoration:none;background:#f7f1e4;border:1px solid #cdbf9f;border-top:2px solid #9a7d3c;padding:1.1rem 1.3rem;">
         <span style="display:block;font-size:1.08rem;letter-spacing:.06em;color:#8f2c22;font-weight:600;margin-bottom:.35rem;">道のりの記録 ── 三つのブログで読む、二〇一五年からの物語</span>
-        <span style="display:block;font-size:.82rem;line-height:1.8;color:#6f6048;">一本の御神酒から始まった十年を、その時その場で書いた言葉のまま。國靈・みはしら・山田白魁塾、三つのブログの目録です。</span>
+        <span style="display:block;font-size:.82rem;line-height:1.08;color:#6f6048;">一本の御神酒から始まった十年を、その時その場で書いた言葉のまま。國靈・みはしら・山田白魁塾、三つのブログの目録です。</span>
       </a>
     </div>
   </div>
@@ -662,9 +662,9 @@
 <style>
 .kicho{padding:clamp(2.8rem,6vw,4.2rem) 1.5rem;border-top:1px solid var(--line,#cdbf9f);}
 .kicho-inner{max-width:640px;margin:0 auto;}
-.kicho-lead{text-align:center;font-size:1.02rem;line-height:2.15;letter-spacing:.06em;color:var(--ink,#211911);margin:0 0 .6rem;}
+.kicho-lead{text-align:center;font-size:1.02rem;line-height:1.29;letter-spacing:.06em;color:var(--ink,#211911);margin:0 0 .6rem;}
 .kicho-lead .kicho-em{color:var(--vermilion-deep,#8a2a20);font-weight:600;white-space:nowrap;}
-.kicho-sub{text-align:center;font-size:.8rem;line-height:1.95;color:var(--muted,#6f6048);letter-spacing:.06em;margin:0 0 2rem;}
+.kicho-sub{text-align:center;font-size:.8rem;line-height:1.17;color:var(--muted,#6f6048);letter-spacing:.06em;margin:0 0 2rem;}
 .kicho-card{position:relative;background:linear-gradient(180deg,var(--paper-card,#f8f2e6),var(--paper-warm,#f3ebd9));border:1px solid var(--line,#cdbf9f);padding:2rem 1.8rem;box-shadow:0 14px 34px -26px rgba(40,28,12,.55);}
 .kicho-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-soft,#b9a05e) 20%,var(--gold,#9a7d3c) 50%,var(--gold-soft,#b9a05e) 80%,transparent);}
 .kicho-cap{font-size:.66rem;letter-spacing:.3em;color:var(--gold,#9a7d3c);margin-bottom:1.2rem;text-align:center;}
@@ -674,7 +674,7 @@
 .kicho-form input:focus{outline:none;border-color:var(--gold-soft,#b9a05e);box-shadow:0 0 0 3px rgba(154,125,60,.14);}
 .kicho-submit{margin-top:.5rem;background:linear-gradient(165deg,#bb4a3a,#a8362a 55%,#8a2a20);color:#fbf2e2;border:none;font-family:var(--serif,serif);font-size:1rem;font-weight:600;letter-spacing:.16em;padding:.94rem;border-radius:4px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,240,220,.25),0 14px 28px -15px rgba(168,54,42,.8);transition:filter .2s;}
 .kicho-submit:hover{filter:brightness(1.06);}
-.kicho-note{text-align:center;font-size:.72rem;line-height:1.95;color:var(--muted,#6f6048);letter-spacing:.05em;margin-top:1.1rem;}
+.kicho-note{text-align:center;font-size:.72rem;line-height:1.17;color:var(--muted,#6f6048);letter-spacing:.05em;margin-top:1.1rem;}
 </style>
 <section class="kicho" aria-label="中常だよりの御案内">
   <div class="kicho-inner">
@@ -693,8 +693,8 @@
         <p class="kicho-note">折々のことばと、奉納・お稽古のご案内をお送りします。<br>お名前は、中常だよりの呼びかけにのみ用います。</p>
       </div>
       <div id="kicho-thanks" style="display:none;text-align:center;padding:.4rem 0 .2rem;">
-        <p style="font-size:1.06rem;line-height:2;color:var(--ink,#211911);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
-        <p style="font-size:.9rem;line-height:2;color:var(--ink-soft,#3a2d20);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。</p>
+        <p style="font-size:1.06rem;line-height:1.2;color:var(--ink,#211911);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
+        <p style="font-size:.9rem;line-height:1.2;color:var(--ink-soft,#3a2d20);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。</p>
       </div>
       <iframe name="kicho-sink" title="送信" style="display:none;" tabindex="-1" aria-hidden="true"></iframe>
     </div>

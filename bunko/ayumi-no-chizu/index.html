@@ -33,7 +33,7 @@
   body{
     font-family:var(--serif);color:var(--ink);background-color:var(--paper);
     background-image:radial-gradient(circle at 18% 12%,rgba(255,255,255,.45),transparent 42%),radial-gradient(circle at 82% 78%,rgba(180,150,95,.10),transparent 48%);
-    line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;
+    line-height:1.17;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;
   }
   .wrap{max-width:860px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);}
   .topbar{border-bottom:1px solid var(--line);background:linear-gradient(var(--paper),rgba(239,231,212,.55));position:sticky;top:0;z-index:1100;backdrop-filter:blur(3px);}
@@ -51,35 +51,35 @@
   .crumb{font-size:.72rem;letter-spacing:.14em;color:var(--muted);margin-bottom:1.6rem;}
   .crumb a{color:var(--gold);text-decoration:none;}
   .crumb a:hover{color:var(--vermilion);}
-  h1{font-size:clamp(1.8rem,4.5vw,2.7rem);letter-spacing:.12em;font-weight:600;line-height:1.4;margin-bottom:1rem;text-wrap:balance;}
-  .lead{font-size:clamp(.96rem,1.4vw,1.08rem);letter-spacing:.08em;line-height:2.2;color:var(--ink-soft);margin:1.6rem 0 1rem;text-wrap:pretty;}
+  h1{font-size:clamp(1.8rem,4.5vw,2.7rem);letter-spacing:.12em;font-weight:600;line-height:1.2;margin-bottom:1rem;text-wrap:balance;}
+  .lead{font-size:clamp(.96rem,1.4vw,1.08rem);letter-spacing:.08em;line-height:1.32;color:var(--ink-soft);margin:1.6rem 0 1rem;text-wrap:pretty;}
   h2{font-size:clamp(1.15rem,2.2vw,1.4rem);letter-spacing:.1em;font-weight:600;color:var(--vermilion-deep);margin:2.6rem 0 1rem;padding-left:.8rem;border-left:4px solid var(--gold);scroll-margin-top:80px;}
-  p.body{font-size:1rem;letter-spacing:.04em;line-height:2.15;margin:0 0 1.3rem;color:var(--ink);}
+  p.body{font-size:1rem;letter-spacing:.04em;line-height:1.29;margin:0 0 1.3rem;color:var(--ink);}
   .em{color:var(--vermilion-deep);font-weight:600;}
   a.inline{color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid var(--gold-soft);}
   a.inline:hover{border-color:var(--vermilion-deep);}
   .ayumi-map{border:1px solid var(--line);box-shadow:0 16px 48px -28px rgba(40,28,12,.45);background:#e6ddc6;margin:1.6rem 0 0;}
   .ayumi-map img{display:block;width:100%;height:auto;}
-  .ayumi-cap{margin-top:.7rem;text-align:center;font-size:.66rem;letter-spacing:.2em;color:var(--muted);line-height:1.9;}
+  .ayumi-cap{margin-top:.7rem;text-align:center;font-size:.66rem;letter-spacing:.2em;color:var(--muted);line-height:1.14;}
   .ayumi-legend{list-style:none;margin:1.8rem 0 0;padding:0;}
   .ayumi-legend li{border-top:1px solid rgba(205,191,159,.55);}
   .ayumi-legend li:first-child{border-top:none;}
-  .ayumi-legend a{display:flex;gap:.85rem;align-items:baseline;padding:.5rem .4rem;font-size:.86rem;letter-spacing:.05em;line-height:1.9;color:var(--ink-soft);text-decoration:none;}
+  .ayumi-legend a{display:flex;gap:.85rem;align-items:baseline;padding:.5rem .4rem;font-size:.86rem;letter-spacing:.05em;line-height:1.14;color:var(--ink-soft);text-decoration:none;}
   .ayumi-legend a:hover{background:rgba(205,191,159,.16);}
   .ayumi-num{flex:0 0 24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--vermilion);color:#fbf2e2;font-size:.72rem;font-weight:600;align-self:flex-start;margin-top:.35rem;}
   .ayumi-num.kin{background:var(--gold);}
   .ayumi-legend b{color:var(--ink);font-weight:600;}
-  .legend-note{margin-top:.9rem;font-size:.74rem;line-height:1.9;letter-spacing:.05em;color:var(--muted);}
+  .legend-note{margin-top:.9rem;font-size:.74rem;line-height:1.14;letter-spacing:.05em;color:var(--muted);}
   .ayumi-uta{margin:1.5rem 0;padding:1.1rem 1.3rem;border-left:2px solid var(--vermilion);background:rgba(205,191,159,.14);}
-  .ayumi-uta p{margin:0;font-size:1.02rem;letter-spacing:.14em;line-height:2.1;color:var(--ink);}
-  .ayumi-uta span{display:block;margin-top:.55rem;font-size:.78rem;letter-spacing:.08em;line-height:1.9;color:var(--muted);}
+  .ayumi-uta p{margin:0;font-size:1.02rem;letter-spacing:.14em;line-height:1.26;color:var(--ink);}
+  .ayumi-uta span{display:block;margin-top:.55rem;font-size:.78rem;letter-spacing:.08em;line-height:1.14;color:var(--muted);}
   ol.tebiki{list-style:none;margin:1.4rem 0 1.6rem;padding:0;counter-reset:tb;}
-  ol.tebiki li{position:relative;padding:.7rem 0 .9rem 3rem;border-bottom:1px dashed var(--line);counter-increment:tb;font-size:.96rem;letter-spacing:.04em;line-height:2.05;}
+  ol.tebiki li{position:relative;padding:.7rem 0 .9rem 3rem;border-bottom:1px dashed var(--line);counter-increment:tb;font-size:.96rem;letter-spacing:.04em;line-height:1.23;}
   ol.tebiki li::before{content:counter(tb);position:absolute;left:.4rem;top:1rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--gold);color:#fbf2e2;display:grid;place-content:center;font-size:.78rem;font-weight:600;}
   ol.tebiki b{display:block;color:var(--vermilion-deep);font-weight:600;letter-spacing:.08em;}
   .den{margin-top:2rem;font-size:.76rem;letter-spacing:.2em;color:var(--muted);}
   .cta{background:var(--paper-card);border:1px solid var(--line);border-top:2px solid var(--vermilion);padding:1.6rem 1.6rem;margin:2.8rem 0 1rem;text-align:center;}
-  .cta p{font-size:.92rem;line-height:1.9;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
+  .cta p{font-size:.92rem;line-height:1.14;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
   .cta-btn{display:inline-block;background:var(--vermilion);color:#f7efe2;text-decoration:none;font-size:.92rem;font-weight:600;letter-spacing:.12em;padding:.8rem 2rem;border-radius:4px;}
   .cta-btn:hover{background:var(--vermilion-deep);}
   .cta-sub{margin-top:.9rem;font-size:.8rem;}
@@ -88,7 +88,7 @@
   footer{background:var(--ink);color:#d9cdb4;border-top:3px solid var(--gold);padding:clamp(2.4rem,5vw,3.4rem) 0 2.4rem;margin-top:3rem;}
   footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);text-align:center;}
   footer .f-mark{font-size:1rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1rem;}
-  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.2;color:#a9997b;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:1.32;color:#a9997b;}
   footer .f-links{display:flex;gap:.9rem;justify-content:center;margin:1rem 0 .4rem;flex-wrap:wrap;font-size:.72rem;}
   footer .f-links a{color:#c8b994;text-decoration:none;}
   footer .copy{margin-top:1.2rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}

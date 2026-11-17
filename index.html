@@ -51,7 +51,7 @@
       radial-gradient(circle at 16% 8%, rgba(255,253,247,.55), transparent 40%),
       radial-gradient(circle at 84% 86%, rgba(154,125,60,.08), transparent 46%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    line-height:1.95; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; min-height:100vh;
+    line-height:1.17; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; min-height:100vh;
     overflow-x:hidden;
   }
   img{max-width:100%;}
@@ -107,7 +107,7 @@
   .hero-vromaji{position:absolute;right:-3.37em;top:9.75em;writing-mode:vertical-rl;font-size:.16em;letter-spacing:.35em;text-transform:uppercase;color:#e8b52c;font-weight:900;text-shadow:0 0 1px rgba(0,0,0,.9),0 1px 4px rgba(0,0,0,.75);white-space:nowrap;}
   .hero-stage .wrap-wide{position:relative;z-index:3;width:100%;padding-bottom:clamp(2rem,5vw,3.4rem);padding-top:2rem;}
   .hero-overline{font-size:clamp(.66rem,1.1vw,.74rem);letter-spacing:.5em;color:var(--gold-soft);margin-bottom:1.2rem;}
-  .hero-stage .sub{font-size:clamp(.8rem,1.2vw,.9rem);letter-spacing:.22em;color:#e8dcc4;line-height:2;max-width:40ch;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+  .hero-stage .sub{font-size:clamp(.8rem,1.2vw,.9rem);letter-spacing:.22em;color:#e8dcc4;line-height:1.2;max-width:40ch;text-shadow:0 1px 8px rgba(0,0,0,.5);}
   .hero-stage .sub b{color:#fff;font-weight:600;}
 
   /* 下段：左に長い地の文、右に一段下げて申し出 */
@@ -118,16 +118,16 @@
   .shijuku-head{font-size:1.4em;}
   .hero-body{padding:clamp(2.8rem,6vw,5.2rem) 0 clamp(3rem,7vw,6rem);}
   .hero-body .wrap-wide{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:start;}
-  .hero-lead{font-size:clamp(1rem,1.45vw,1.14rem);letter-spacing:.1em;line-height:2.55;color:var(--ink-soft);text-wrap:pretty;}
+  .hero-lead{font-size:clamp(1rem,1.45vw,1.14rem);letter-spacing:.1em;line-height:1.53;color:var(--ink-soft);text-wrap:pretty;}
   .hero-cta-block{margin-top:clamp(0rem,9vw,7.5rem);padding-left:clamp(0rem,2.4vw,2rem);border-left:1px solid var(--line);}
-  .hero-promise{font-size:clamp(1.02rem,1.5vw,1.16rem);letter-spacing:.08em;line-height:2.3;color:var(--ink);text-wrap:pretty;}
+  .hero-promise{font-size:clamp(1.02rem,1.5vw,1.16rem);letter-spacing:.08em;line-height:1.38;color:var(--ink);text-wrap:pretty;}
   /* 三行の箇条：◆をやめ、漢数字を振った細い罫の並びに */
   .hero-benefits{list-style:none;margin:1.5rem 0 2rem;padding:0;counter-reset:bn;border-top:1px solid var(--line);}
-  .hero-benefits li{counter-increment:bn;display:grid;grid-template-columns:1.9rem 1fr;align-items:baseline;padding:.62rem 0;border-bottom:1px solid var(--line-soft);font-size:.92rem;letter-spacing:.05em;line-height:1.9;color:var(--ink-soft);}
+  .hero-benefits li{counter-increment:bn;display:grid;grid-template-columns:1.9rem 1fr;align-items:baseline;padding:.62rem 0;border-bottom:1px solid var(--line-soft);font-size:.92rem;letter-spacing:.05em;line-height:1.14;color:var(--ink-soft);}
   .hero-benefits li::before{content:counter(bn,cjk-ideographic);font-size:.8rem;color:var(--vermilion);letter-spacing:0;}
   .btn-vermilion{display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(165deg,var(--vermilion-soft),var(--vermilion) 55%,var(--vermilion-deep));color:#fbf2e2;text-decoration:none;font-size:clamp(.96rem,1.4vw,1.06rem);font-weight:600;letter-spacing:.16em;padding:.96rem 2.2rem;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(255,240,220,.25),0 14px 28px -15px rgba(168,54,42,.8);transition:transform .15s,box-shadow .25s,filter .2s;}
   .btn-vermilion:hover{filter:brightness(1.06);transform:translateY(-1px);}
-  .hero-cta-note{margin-top:1.2rem;font-size:.76rem;letter-spacing:.08em;line-height:2;color:var(--muted);}
+  .hero-cta-note{margin-top:1.2rem;font-size:.76rem;letter-spacing:.08em;line-height:1.2;color:var(--muted);}
 
   /* ── 今日の中常（このページの見せ場：一節を縦書きで大きく） ── */
   .kyo{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
@@ -139,7 +139,7 @@
   .tdy-date .tcy{text-combine-upright:all;letter-spacing:0;}
   .kyo-verse{flex:1;min-width:0;display:flex;justify-content:center;}
   .tdy-issetsu{writing-mode:vertical-rl;height:clamp(21rem,64vh,36rem);max-width:100%;overflow-x:auto;overflow-y:hidden;}
-  .tdy-issetsu blockquote{margin:0;font-family:'Yuji Syuku',var(--serif);font-size:clamp(1.42rem,3.3vw,2.7rem);line-height:1.9;letter-spacing:.12em;color:#4f3a2c;}
+  .tdy-issetsu blockquote{margin:0;font-family:'Yuji Syuku',var(--serif);font-size:clamp(1.42rem,3.3vw,2.7rem);line-height:1.14;letter-spacing:.12em;color:#4f3a2c;}
   .tdy-issetsu .src{display:block;font-family:var(--serif);font-size:clamp(.74rem,1vw,.86rem);letter-spacing:.3em;color:var(--muted);text-align:end;margin-block-start:1.4em;}
   .kyo-sub{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) minmax(0,1.1fr);border-top:1px solid var(--line);}
   .kyo-sub > div{padding:1.8rem clamp(1rem,2.4vw,2rem) 2rem;}
@@ -147,21 +147,21 @@
   .kyo-sub > div:first-child{padding-left:0;}
   .kyo-sub > div:last-child{padding-right:0;}
   .tdy-cap{font-size:.72rem;letter-spacing:.3em;color:var(--vermilion);margin-bottom:.9rem;}
-  .tdy-koyomi .kou{color:var(--ink);margin-bottom:.2rem;line-height:1.6;}
+  .tdy-koyomi .kou{color:var(--ink);margin-bottom:.2rem;line-height:1;}
   .tdy-koyomi .kou .sekki{display:block;font-size:.8rem;letter-spacing:.3em;color:var(--vermilion-deep);font-weight:600;}
   .tdy-koyomi .kou .ko{display:block;font-size:1.6rem;letter-spacing:.14em;}
   .tdy-koyomi .yomi{font-size:.78rem;color:var(--muted);letter-spacing:.1em;margin-bottom:.9rem;}
   .tdy-koyomi .tsuki{font-size:.84rem;color:var(--ink-soft);letter-spacing:.08em;}
   .tdy-hitokoto .h-date{font-size:.72rem;color:var(--gold);letter-spacing:.16em;margin-bottom:.5rem;}
-  .tdy-hitokoto .h-text{font-size:.92rem;line-height:2.1;color:var(--ink-soft);letter-spacing:.05em;}
+  .tdy-hitokoto .h-text{font-size:.92rem;line-height:1.26;color:var(--ink-soft);letter-spacing:.05em;}
   .tdy-tayori ul{list-style:none;margin:0;padding:0;}
-  .tdy-tayori li{font-size:.84rem;line-height:1.8;color:var(--ink-soft);padding:.4rem 0;border-bottom:1px dotted var(--line);letter-spacing:.04em;}
+  .tdy-tayori li{font-size:.84rem;line-height:1.08;color:var(--ink-soft);padding:.4rem 0;border-bottom:1px dotted var(--line);letter-spacing:.04em;}
   .tdy-tayori li:last-child{border-bottom:none;}
   .tdy-tayori li .d{color:var(--gold);font-size:.72rem;letter-spacing:.12em;margin-right:.6em;}
   .tdy-tayori a{color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid transparent;}
   .tdy-tayori a:hover{border-color:var(--vermilion-deep);}
   .tdy-more{display:inline-block;margin-top:.9rem;font-size:.74rem;letter-spacing:.2em;}
-  .tdy-app{padding:0 0 2.2rem;font-size:.76rem;letter-spacing:.12em;line-height:2;}
+  .tdy-app{padding:0 0 2.2rem;font-size:.76rem;letter-spacing:.12em;line-height:1.2;}
   .tdy-app a{color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid var(--gold-pale);}
 
   /* ── つながる（朝の写真と記帳） ── */
@@ -169,8 +169,8 @@
   .tg-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(1.8rem,5vw,4.5rem);align-items:center;}
   .tg-photo{aspect-ratio:3/4;}
   .tg-photo img{object-position:center 30%;}
-  .tg-lead{font-size:clamp(1.06rem,1.6vw,1.26rem);line-height:2.1;color:var(--ink);letter-spacing:.06em;margin:0 0 .7rem;}
-  .tg-sub{font-size:.84rem;line-height:2;color:var(--muted);letter-spacing:.06em;margin:0 0 1.9rem;}
+  .tg-lead{font-size:clamp(1.06rem,1.6vw,1.26rem);line-height:1.26;color:var(--ink);letter-spacing:.06em;margin:0 0 .7rem;}
+  .tg-sub{font-size:.84rem;line-height:1.2;color:var(--muted);letter-spacing:.06em;margin:0 0 1.9rem;}
   .tg-card{background:var(--paper-card);border:1px solid var(--line);padding:clamp(1.5rem,3vw,2.2rem) clamp(1.2rem,3vw,2rem);}
   .tg-cap{font-size:.7rem;letter-spacing:.3em;color:var(--gold);margin-bottom:1.2rem;}
   .tg-form{display:flex;flex-direction:column;gap:.95rem;max-width:420px;}
@@ -179,9 +179,9 @@
   .tg-form input:focus{outline:none;border-color:var(--gold-soft);box-shadow:0 0 0 3px rgba(154,125,60,.14);}
   .tg-submit{margin-top:.6rem;background:linear-gradient(165deg,var(--vermilion-soft),var(--vermilion) 55%,var(--vermilion-deep));color:#fbf2e2;border:none;font-family:var(--serif);font-size:1.02rem;font-weight:600;letter-spacing:.16em;padding:.96rem;border-radius:4px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,240,220,.25),0 14px 28px -15px rgba(168,54,42,.8);transition:filter .2s;}
   .tg-submit:hover{filter:brightness(1.06);}
-  .tg-note{font-size:.72rem;line-height:1.95;color:var(--muted);letter-spacing:.06em;margin-top:1.2rem;}
+  .tg-note{font-size:.72rem;line-height:1.17;color:var(--muted);letter-spacing:.06em;margin-top:1.2rem;}
   .tg-line{margin-top:1.7rem;padding-top:1.5rem;border-top:1px dotted var(--line);}
-  .tg-line p{font-size:.84rem;line-height:1.95;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
+  .tg-line p{font-size:.84rem;line-height:1.17;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
   .tg-line-btn{display:inline-flex;align-items:center;gap:.6rem;background:#06C755;color:#fff;text-decoration:none;padding:.72rem 1.95rem;border-radius:6px;font-size:.82rem;letter-spacing:.16em;}
 
   /* ── 御案内二つ：写本は紙の上に、能楽堂は頁幅いっぱいに ── */
@@ -191,7 +191,7 @@
   .ol-text{display:block;padding-bottom:.4rem;}
   .ol-text .k,.ol-text .t{display:block;}
   .ol-text .k{font-size:.74rem;letter-spacing:.24em;color:var(--muted);margin-bottom:.8rem;}
-  .ol-text .t{font-size:clamp(1.3rem,2.4vw,1.8rem);letter-spacing:.14em;line-height:1.7;color:var(--ink);margin-bottom:1.5rem;}
+  .ol-text .t{font-size:clamp(1.3rem,2.4vw,1.8rem);letter-spacing:.14em;line-height:1.02;color:var(--ink);margin-bottom:1.5rem;}
   .ol-text .b{display:inline-block;font-size:.84rem;letter-spacing:.16em;color:var(--vermilion-deep);border-bottom:1px solid var(--vermilion-deep);padding-bottom:.2rem;}
   .ol-link:hover .b{color:var(--vermilion);}
 
@@ -208,13 +208,13 @@
   .tobira{padding:clamp(3.6rem,8vw,7rem) 0 clamp(3rem,7vw,6rem);}
   .tobira-intro{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.5rem,5vw,5rem);align-items:end;margin-bottom:clamp(2.2rem,5vw,3.6rem);}
   .tobira-intro h2{font-weight:500;font-size:clamp(2rem,4.6vw,3.4rem);letter-spacing:.24em;line-height:1.2;color:var(--ink);white-space:nowrap;}
-  .tobira-intro p{font-size:.94rem;line-height:2.15;letter-spacing:.05em;color:var(--ink-soft);max-width:44ch;}
+  .tobira-intro p{font-size:.94rem;line-height:1.29;letter-spacing:.05em;color:var(--ink-soft);max-width:44ch;}
   .tobira-list{list-style:none;counter-reset:tb;border-top:2px solid var(--ink);}
   .tb{counter-increment:tb;display:grid;grid-template-columns:3.6rem minmax(0,1fr) minmax(0,.82fr);gap:clamp(1.2rem,3vw,2.6rem);padding:clamp(1.6rem,3.4vw,2.4rem) 0;border-bottom:1px solid var(--line);}
-  .tb-title{writing-mode:vertical-rl;font-family:'Zen Antique Soft',var(--serif);font-weight:400;font-size:1.18rem;letter-spacing:.22em;line-height:1.5;color:var(--ink);justify-self:center;}
+  .tb-title{writing-mode:vertical-rl;font-family:'Zen Antique Soft',var(--serif);font-weight:400;font-size:1.18rem;letter-spacing:.22em;line-height:1.2;color:var(--ink);justify-self:center;}
   .tb-title::before{content:counter(tb,cjk-ideographic);display:block;color:var(--vermilion);font-size:.82rem;margin-bottom:.8em;}
   .tb-text{align-self:center;}
-  .tb-text p{font-size:.96rem;line-height:2.2;letter-spacing:.05em;color:var(--ink-soft);}
+  .tb-text p{font-size:.96rem;line-height:1.32;letter-spacing:.05em;color:var(--ink-soft);}
   .tb-links{display:flex;flex-direction:column;align-items:flex-start;gap:.35rem;margin-top:1.1rem;}
   .tb-links a{font-size:.8rem;letter-spacing:.14em;color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid var(--gold-pale);}
   .tb-links a:hover{border-color:var(--vermilion-deep);}
@@ -226,7 +226,7 @@
   .bunko-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(1.8rem,5vw,5rem);align-items:center;}
   .bunko-grid .ph{aspect-ratio:3/4;max-height:620px;}
   .bunko-grid .ph img{object-position:center 20%;}
-  .bunko-text p{font-size:clamp(.96rem,1.4vw,1.1rem);letter-spacing:.08em;line-height:2.4;color:var(--ink-soft);margin-bottom:2rem;max-width:30em;}
+  .bunko-text p{font-size:clamp(.96rem,1.4vw,1.1rem);letter-spacing:.08em;line-height:1.44;color:var(--ink-soft);margin-bottom:2rem;max-width:30em;}
   .btn-ink{display:inline-flex;align-items:center;gap:.7rem;padding:.92rem 2.3rem;border:1px solid var(--sumi);background:var(--sumi);color:var(--paper);text-decoration:none;font-size:.82rem;letter-spacing:.28em;font-family:var(--serif);transition:filter .2s;}
   .btn-ink:hover{filter:brightness(1.25);}
 
@@ -236,12 +236,12 @@
   .voice-feature .ph{aspect-ratio:16/10;}
   .voice-feature .ph img{object-position:center 35%;}
   .vf-body h2{font-weight:500;font-size:.86rem;letter-spacing:.42em;color:var(--vermilion-deep);margin-bottom:1.6rem;}
-  .vf-quote p{font-size:clamp(1.18rem,2.1vw,1.5rem);line-height:2.15;letter-spacing:.07em;color:var(--ink);text-wrap:pretty;}
+  .vf-quote p{font-size:clamp(1.18rem,2.1vw,1.5rem);line-height:1.29;letter-spacing:.07em;color:var(--ink);text-wrap:pretty;}
   .vf-quote .vf-attr{margin-top:1.3rem;font-size:.74rem;letter-spacing:.18em;color:var(--muted);}
   .voice-stream{list-style:none;columns:2;column-gap:clamp(1.2rem,3vw,2rem);}
   .voice-stream li{break-inside:avoid;background:#fff;border:1px solid var(--line);border-top:2px solid var(--gold-soft);padding:1.3rem 1.4rem 1.1rem;margin-bottom:clamp(1.2rem,3vw,2rem);}
   .vf-quote{background:#fff;border:1px solid var(--line);border-top:2px solid var(--gold-soft);padding:clamp(1.4rem,3vw,2rem) clamp(1.4rem,3vw,2.2rem);}
-  .voice-text{font-size:.86rem;letter-spacing:.05em;line-height:2.1;color:var(--ink-soft);text-wrap:pretty;}
+  .voice-text{font-size:.86rem;letter-spacing:.05em;line-height:1.26;color:var(--ink-soft);text-wrap:pretty;}
   .voice-attr{display:block;margin-top:.4rem;font-size:.68rem;letter-spacing:.16em;color:var(--muted);}
 
   /* ── 結び：御木曳きの写真を頁幅いっぱいに、申し出は左右に並べる ── */
@@ -251,13 +251,13 @@
   .cta-pair > div{padding:0 clamp(1rem,3vw,3rem);}
   .cta-pair > div:first-child{padding-left:0;}
   .cta-pair > div + div{border-left:1px solid var(--line);}
-  .cta-lead{font-size:.92rem;letter-spacing:.1em;line-height:2.2;color:var(--ink-soft);margin-bottom:1.6rem;}
+  .cta-lead{font-size:.92rem;letter-spacing:.1em;line-height:1.32;color:var(--ink-soft);margin-bottom:1.6rem;}
   .cta-note{margin-top:1.1rem;font-size:.72rem;letter-spacing:.08em;color:var(--muted);}
 
   /* contact */
   .contact{padding:clamp(3.2rem,6vw,5.2rem) 0;}
   .contact .inner{max-width:660px;margin:0 auto;padding:0 1.25rem;text-align:center;}
-  .contact-desc{font-size:clamp(.88rem,1.2vw,1rem);letter-spacing:.1em;line-height:2.45;color:var(--ink-soft);margin-bottom:2.3rem;}
+  .contact-desc{font-size:clamp(.88rem,1.2vw,1rem);letter-spacing:.1em;line-height:1.47;color:var(--ink-soft);margin-bottom:2.3rem;}
   .sns-row{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;}
   .sns-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.82rem 2rem;border:1px solid var(--line);background:var(--paper-card);color:var(--ink-soft);text-decoration:none;font-size:.78rem;letter-spacing:.26em;transition:border-color .25s,background .25s,color .25s;font-family:var(--serif);}
   .sns-btn:hover{border-color:var(--gold-soft);background:#fff;color:var(--ink);}
@@ -269,7 +269,7 @@
   footer::before{content:"";position:absolute;inset:0;background-image:var(--seigaiha);background-size:60px 30px;opacity:.07;pointer-events:none;-webkit-mask-image:linear-gradient(#000,transparent 70%);mask-image:linear-gradient(#000,transparent 70%);}
   footer .inner{position:relative;max-width:1160px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);text-align:center;}
   footer .f-mark{font-size:1.06rem;letter-spacing:.44em;color:#efe3c6;font-weight:600;margin-bottom:1.1rem;}
-  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.25;color:#a9997b;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:1.35;color:#a9997b;}
   footer .f-seal{display:inline-grid;grid-template-rows:1fr 1fr;width:46px;height:46px;margin-top:1.8rem;background:linear-gradient(135deg,var(--vermilion-soft),var(--vermilion-deep));color:#fff;border-radius:3px;font-weight:700;box-shadow:inset 0 0 0 1px rgba(255,240,220,.3);}
   footer .f-seal span{display:grid;place-content:center;font-size:.92rem;line-height:1;}
   footer .f-seal span:first-child{border-bottom:1px solid rgba(255,255,255,.3);}
@@ -433,8 +433,8 @@
           <p class="tg-note">折々のことばと、奉納・お稽古のご案内をお送りします。お名前は、中常だよりの呼びかけにのみ用います。</p>
         </div>
         <div id="tg-thanks" style="display:none;text-align:center;padding:.4rem 0 .2rem;">
-          <p style="font-size:1.06rem;line-height:2;color:var(--ink);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
-          <p style="font-size:.9rem;line-height:2;color:var(--ink-soft);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。もしよろしければ、毎朝そっと手元へ ── 下のLINEでも繋がっておけます。</p>
+          <p style="font-size:1.06rem;line-height:1.2;color:var(--ink);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
+          <p style="font-size:.9rem;line-height:1.2;color:var(--ink-soft);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。もしよろしければ、毎朝そっと手元へ ── 下のLINEでも繋がっておけます。</p>
         </div>
         <iframe name="tg-sink" title="送信" style="display:none;" tabindex="-1" aria-hidden="true"></iframe>
         <div class="tg-line">

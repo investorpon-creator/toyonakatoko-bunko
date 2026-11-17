@@ -36,7 +36,7 @@
   body{
     font-family:var(--serif);color:var(--ink);background-color:var(--paper);
     background-image:radial-gradient(circle at 18% 12%,rgba(255,255,255,.45),transparent 42%),radial-gradient(circle at 82% 78%,rgba(180,150,95,.10),transparent 48%);
-    line-height:1.95;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;
+    line-height:1.17;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;
   }
   .wrap{max-width:720px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);}
   /* topbar */
@@ -56,17 +56,17 @@
   .crumb{font-size:.72rem;letter-spacing:.14em;color:var(--muted);margin-bottom:1.6rem;}
   .crumb a{color:var(--gold);text-decoration:none;}
   .crumb a:hover{color:var(--vermilion);}
-  h1{font-size:clamp(1.8rem,4.5vw,2.7rem);letter-spacing:.12em;font-weight:600;line-height:1.4;margin-bottom:1rem;text-wrap:balance;}
-  .lead{font-size:clamp(.96rem,1.4vw,1.08rem);letter-spacing:.08em;line-height:2.2;color:var(--ink-soft);margin:1.6rem 0 2.4rem;text-wrap:pretty;}
+  h1{font-size:clamp(1.8rem,4.5vw,2.7rem);letter-spacing:.12em;font-weight:600;line-height:1.2;margin-bottom:1rem;text-wrap:balance;}
+  .lead{font-size:clamp(.96rem,1.4vw,1.08rem);letter-spacing:.08em;line-height:1.32;color:var(--ink-soft);margin:1.6rem 0 2.4rem;text-wrap:pretty;}
   h2{font-size:clamp(1.15rem,2.2vw,1.4rem);letter-spacing:.1em;font-weight:600;color:var(--vermilion-deep);margin:2.6rem 0 1rem;padding-left:.8rem;border-left:4px solid var(--gold);}
   h2 .yr{display:block;font-size:.72rem;letter-spacing:.3em;color:var(--muted);font-weight:400;margin-bottom:.2rem;}
-  p.body{font-size:1rem;letter-spacing:.04em;line-height:2.15;margin:0 0 1.3rem;color:var(--ink);}
+  p.body{font-size:1rem;letter-spacing:.04em;line-height:1.29;margin:0 0 1.3rem;color:var(--ink);}
   .em{color:var(--vermilion-deep);font-weight:600;}
   a.inline{color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid var(--gold-soft);}
   a.inline:hover{border-color:var(--vermilion-deep);}
   /* 年の流れ */
   .nagare{border-top:1px solid var(--line);margin:1.4rem 0 2rem;}
-  .nagare div{display:grid;grid-template-columns:8.5em 1fr;gap:.2rem 1rem;padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.92rem;letter-spacing:.04em;line-height:1.9;}
+  .nagare div{display:grid;grid-template-columns:8.5em 1fr;gap:.2rem 1rem;padding:.7rem 0;border-bottom:1px solid var(--line);font-size:.92rem;letter-spacing:.04em;line-height:1.14;}
   .nagare dt{color:var(--gold);letter-spacing:.08em;}
   .nagare dd a{color:var(--vermilion-deep);text-decoration:none;border-bottom:1px solid var(--gold-soft);}
   @media(max-width:520px){.nagare div{grid-template-columns:1fr;}}
@@ -75,8 +75,8 @@
   .picks{display:grid;gap:12px;}
   .pick{display:block;text-decoration:none;background:var(--paper-card);border:1px solid var(--line);border-top:2px solid var(--gold);padding:1rem 1.2rem;}
   .pick:hover{border-top-color:var(--vermilion);}
-  .pick .t{display:block;font-size:1rem;letter-spacing:.05em;color:var(--vermilion-deep);font-weight:600;line-height:1.7;}
-  .pick .d{display:block;font-size:.84rem;line-height:1.85;color:var(--ink-soft);margin-top:.3rem;}
+  .pick .t{display:block;font-size:1rem;letter-spacing:.05em;color:var(--vermilion-deep);font-weight:600;line-height:1.02;}
+  .pick .d{display:block;font-size:.84rem;line-height:1.11;color:var(--ink-soft);margin-top:.3rem;}
   .pick .m{display:block;font-size:.7rem;letter-spacing:.14em;color:var(--muted);margin-top:.35rem;}
   /* 全記事の目録 */
   details.toc{margin:1rem 0 .6rem;border:1px solid var(--line);background:rgba(247,241,228,.55);}
@@ -85,7 +85,7 @@
   details.toc summary::before{content:"▸ ";color:var(--gold);}
   details.toc[open] summary::before{content:"▾ ";}
   details.toc ol{list-style:none;padding:0 1.2rem 1rem;}
-  details.toc li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-top:1px dotted var(--line);font-size:.88rem;line-height:1.75;}
+  details.toc li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-top:1px dotted var(--line);font-size:.88rem;line-height:1.05;}
   details.toc li a{color:var(--ink);text-decoration:none;}
   details.toc li a:hover{color:var(--vermilion-deep);}
   details.toc li .dt{flex-shrink:0;font-size:.72rem;letter-spacing:.06em;color:var(--muted);padding-top:.15rem;}
@@ -93,9 +93,9 @@
   .blog-link{font-size:.8rem;letter-spacing:.08em;margin:.4rem 0 0;}
   .blog-link a{color:var(--gold);text-decoration:none;}
   .blog-link a:hover{color:var(--vermilion);}
-  .note{font-size:.78rem;line-height:1.9;color:var(--muted);letter-spacing:.04em;margin:2rem 0 0;padding-top:1rem;border-top:1px solid var(--line);}
+  .note{font-size:.78rem;line-height:1.14;color:var(--muted);letter-spacing:.04em;margin:2rem 0 0;padding-top:1rem;border-top:1px solid var(--line);}
   .cta{background:var(--paper-card);border:1px solid var(--line);border-top:2px solid var(--vermilion);padding:1.6rem 1.6rem;margin:2.8rem 0 1rem;text-align:center;}
-  .cta p{font-size:.92rem;line-height:1.9;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
+  .cta p{font-size:.92rem;line-height:1.14;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 1rem;}
   .cta-btn{display:inline-block;background:var(--vermilion);color:#f7efe2;text-decoration:none;font-size:.92rem;font-weight:600;letter-spacing:.12em;padding:.8rem 2rem;border-radius:4px;}
   .cta-btn:hover{background:var(--vermilion-deep);}
   .cta-sub{margin-top:.9rem;font-size:.8rem;}
@@ -105,7 +105,7 @@
   footer{background:var(--ink);color:#d9cdb4;border-top:3px solid var(--gold);padding:clamp(2.4rem,5vw,3.4rem) 0 2.4rem;margin-top:3rem;}
   footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3rem);text-align:center;}
   footer .f-mark{font-size:1rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1rem;}
-  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.2;color:#a9997b;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:1.32;color:#a9997b;}
   footer .f-links{display:flex;gap:.9rem;justify-content:center;margin:1rem 0 .4rem;flex-wrap:wrap;font-size:.72rem;}
   footer .f-links a{color:#c8b994;text-decoration:none;}
   footer .copy{margin-top:1.2rem;font-size:.64rem;letter-spacing:.22em;color:#7d6f56;}

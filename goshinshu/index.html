@@ -49,7 +49,7 @@
       radial-gradient(circle at 18% 12%, rgba(255,255,255,.45), transparent 42%),
       radial-gradient(circle at 82% 78%, rgba(180,150,95,.10), transparent 48%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    line-height:1.9;
+    line-height:1.14;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
     min-height:100vh;
@@ -97,7 +97,7 @@
   }
   .page-header h1{
     font-size:clamp(1.8rem,4.5vw,3rem);
-    letter-spacing:.2em;font-weight:600;line-height:1.25;
+    letter-spacing:.2em;font-weight:600;line-height:1.2;
     margin-bottom:.5rem;
   }
   .page-header .sub{
@@ -106,7 +106,7 @@
   }
   .page-header .lead{
     font-size:clamp(.94rem,1.4vw,1.06rem);
-    letter-spacing:.1em;line-height:2.5;
+    letter-spacing:.1em;line-height:1.5;
     color:var(--ink-soft);
     margin-top:2rem;max-width:54ch;
     text-wrap:pretty;
@@ -130,7 +130,7 @@
   }
   .toc ol li{
     counter-increment:toc;
-    font-size:.84rem;letter-spacing:.1em;line-height:1.7;
+    font-size:.84rem;letter-spacing:.1em;line-height:1.02;
     display:flex;align-items:baseline;gap:.7rem;
   }
   .toc ol li::before{
@@ -166,7 +166,7 @@
     text-align:center;
     font-size:.78rem;font-weight:700;
     color:var(--vermilion);letter-spacing:.04em;
-    line-height:1.4;
+    line-height:1;
     font-family:var(--serif);
   }
   .part-meta{
@@ -179,7 +179,7 @@
   .part-meta h2{
     font-size:clamp(1.3rem,3vw,1.9rem);
     letter-spacing:.18em;font-weight:600;
-    color:var(--ink);line-height:1.3;
+    color:var(--ink);line-height:1.2;
   }
   .part-meta .year{
     font-size:.78rem;letter-spacing:.25em;color:var(--gold);
@@ -202,7 +202,7 @@
   }
 
   p.body{
-    font-size:.93rem;letter-spacing:.06em;line-height:2.5;
+    font-size:.93rem;letter-spacing:.06em;line-height:1.5;
     color:var(--ink-soft);margin-bottom:1.3rem;
     text-wrap:pretty;
   }
@@ -216,7 +216,7 @@
     border-left:3px solid var(--gold);
     padding:1.2rem 1.6rem;
     margin:1.8rem 0;
-    font-size:.88rem;line-height:2.4;
+    font-size:.88rem;line-height:1.44;
     color:var(--ink-soft);letter-spacing:.07em;
     text-wrap:pretty;
   }
@@ -230,7 +230,7 @@
     margin:1.4rem 0;
   }
   .shrine-list li{
-    font-size:.82rem;letter-spacing:.08em;line-height:1.9;
+    font-size:.82rem;letter-spacing:.08em;line-height:1.14;
     color:var(--ink-soft);
     padding:.35rem .8rem .35rem 1.4rem;
     background:var(--paper-card);
@@ -259,14 +259,14 @@
     font-size:clamp(1.5rem,4vw,2.2rem);
     letter-spacing:.25em;font-weight:700;
     color:var(--gold-soft);
-    margin-bottom:.5rem;line-height:1.2;
+    margin-bottom:.5rem;line-height:1;
   }
   .mei-card .mei-yomi{
     font-size:.76rem;letter-spacing:.35em;color:var(--muted);
     margin-bottom:1.2rem;
   }
   .mei-card .mei-body{
-    font-size:.86rem;letter-spacing:.08em;line-height:2.3;
+    font-size:.86rem;letter-spacing:.08em;line-height:1.38;
     color:var(--paper-2);
   }
   .mei-card .mei-body b{color:var(--gold-soft);}
@@ -303,7 +303,7 @@
     margin-bottom:.25rem;
   }
   .tl-content .tl-text{
-    font-size:.88rem;letter-spacing:.07em;line-height:2.2;
+    font-size:.88rem;letter-spacing:.07em;line-height:1.32;
     color:var(--ink-soft);text-wrap:pretty;
   }
   .tl-content .tl-text b{color:var(--ink);font-weight:600;}
@@ -335,7 +335,7 @@
   }
   .trilogy-item .ti-name{
     font-size:.9rem;letter-spacing:.15em;font-weight:700;color:var(--ink);
-    line-height:1.3;
+    line-height:1;
   }
   .trilogy-item .ti-year{
     font-size:.7rem;letter-spacing:.15em;color:var(--gold);margin-top:.3rem;
@@ -352,12 +352,12 @@
     font-size:.7rem;letter-spacing:.4em;color:var(--vermilion);margin-bottom:1rem;
   }
   .prelude-box .pb-quote{
-    font-size:.9rem;letter-spacing:.1em;line-height:2.6;
+    font-size:.9rem;letter-spacing:.1em;line-height:1.56;
     color:var(--ink);border-left:2px solid var(--gold-soft);
     padding-left:1.2rem;margin:1rem 0;
   }
   .prelude-box .pb-note{
-    font-size:.75rem;letter-spacing:.1em;color:var(--muted);line-height:1.9;
+    font-size:.75rem;letter-spacing:.1em;color:var(--muted);line-height:1.14;
   }
 
   /* ── YouTubeカード ── */
@@ -394,7 +394,7 @@
   }
   .yt-sub{
     font-size:.76rem;letter-spacing:.1em;
-    color:#a9997b;line-height:1.9;
+    color:#a9997b;line-height:1.14;
   }
   .yt-btn{
     display:inline-flex;align-items:center;gap:.5rem;
@@ -409,7 +409,7 @@
     font-size:.7rem;letter-spacing:.4em;color:var(--vermilion);margin-bottom:1.2rem;
   }
   .yt-lead{
-    font-size:.9rem;letter-spacing:.08em;line-height:2.4;
+    font-size:.9rem;letter-spacing:.08em;line-height:1.44;
     color:var(--ink-soft);margin-bottom:1.4rem;text-wrap:pretty;
   }
   @media (max-width:560px){
@@ -436,7 +436,7 @@
   }
   footer .inner{max-width:1120px;margin:0 auto;padding:0 clamp(1.4rem,4vw,3.5rem);text-align:center;}
   footer .f-mark{font-size:1rem;letter-spacing:.42em;color:#efe3c6;font-weight:600;margin-bottom:1rem;}
-  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:2.2;color:#a9997b;}
+  footer .f-line{font-size:.72rem;letter-spacing:.14em;line-height:1.32;color:#a9997b;}
   footer .f-seal{
     display:inline-grid;grid-template-rows:1fr 1fr;
     width:42px;height:42px;margin-top:1.6rem;
@@ -461,7 +461,7 @@
     color:var(--vermilion);display:block;margin-bottom:.7rem;
   }
   .voice-quote .vq-text{
-    font-size:.88rem;letter-spacing:.07em;line-height:2.5;
+    font-size:.88rem;letter-spacing:.07em;line-height:1.5;
     color:var(--ink-soft);
     text-wrap:pretty;
   }
@@ -1379,7 +1379,7 @@
         講義・お稽古へ ▸
       </a>
     </div>
-    <p style="margin-top:1.4rem;text-align:center;font-size:.8rem;letter-spacing:.12em;line-height:2;"><a href="https://nakatokojuku.jp/bunko/michinori/" style="color:var(--gold);text-decoration:none;">▶ 当時の言葉のまま読む ── 國靈・みはしら・山田白魁塾のブログ目録</a></p>
+    <p style="margin-top:1.4rem;text-align:center;font-size:.8rem;letter-spacing:.12em;line-height:1.2;"><a href="https://nakatokojuku.jp/bunko/michinori/" style="color:var(--gold);text-decoration:none;">▶ 当時の言葉のまま読む ── 國靈・みはしら・山田白魁塾のブログ目録</a></p>
   </div>
 </section>
 
@@ -1410,9 +1410,9 @@
 <style>
 .kicho{padding:clamp(2.8rem,6vw,4.2rem) 1.5rem;border-top:1px solid var(--line,#cdbf9f);}
 .kicho-inner{max-width:640px;margin:0 auto;}
-.kicho-lead{text-align:center;font-size:1.02rem;line-height:2.15;letter-spacing:.06em;color:var(--ink,#211911);margin:0 0 .6rem;}
+.kicho-lead{text-align:center;font-size:1.02rem;line-height:1.29;letter-spacing:.06em;color:var(--ink,#211911);margin:0 0 .6rem;}
 .kicho-lead .kicho-em{color:var(--vermilion-deep,#8a2a20);font-weight:600;white-space:nowrap;}
-.kicho-sub{text-align:center;font-size:.8rem;line-height:1.95;color:var(--muted,#6f6048);letter-spacing:.06em;margin:0 0 2rem;}
+.kicho-sub{text-align:center;font-size:.8rem;line-height:1.17;color:var(--muted,#6f6048);letter-spacing:.06em;margin:0 0 2rem;}
 .kicho-card{position:relative;background:linear-gradient(180deg,var(--paper-card,#f8f2e6),var(--paper-warm,#f3ebd9));border:1px solid var(--line,#cdbf9f);padding:2rem 1.8rem;box-shadow:0 14px 34px -26px rgba(40,28,12,.55);}
 .kicho-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold-soft,#b9a05e) 20%,var(--gold,#9a7d3c) 50%,var(--gold-soft,#b9a05e) 80%,transparent);}
 .kicho-cap{font-size:.66rem;letter-spacing:.3em;color:var(--gold,#9a7d3c);margin-bottom:1.2rem;text-align:center;}
@@ -1422,7 +1422,7 @@
 .kicho-form input:focus{outline:none;border-color:var(--gold-soft,#b9a05e);box-shadow:0 0 0 3px rgba(154,125,60,.14);}
 .kicho-submit{margin-top:.5rem;background:linear-gradient(165deg,#bb4a3a,#a8362a 55%,#8a2a20);color:#fbf2e2;border:none;font-family:var(--serif,serif);font-size:1rem;font-weight:600;letter-spacing:.16em;padding:.94rem;border-radius:4px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,240,220,.25),0 14px 28px -15px rgba(168,54,42,.8);transition:filter .2s;}
 .kicho-submit:hover{filter:brightness(1.06);}
-.kicho-note{text-align:center;font-size:.72rem;line-height:1.95;color:var(--muted,#6f6048);letter-spacing:.05em;margin-top:1.1rem;}
+.kicho-note{text-align:center;font-size:.72rem;line-height:1.17;color:var(--muted,#6f6048);letter-spacing:.05em;margin-top:1.1rem;}
 </style>
 <section class="kicho" aria-label="中常だよりの御案内">
   <div class="kicho-inner">
@@ -1441,8 +1441,8 @@
         <p class="kicho-note">折々のことばと、奉納・お稽古のご案内をお送りします。<br>お名前は、中常だよりの呼びかけにのみ用います。</p>
       </div>
       <div id="kicho-thanks" style="display:none;text-align:center;padding:.4rem 0 .2rem;">
-        <p style="font-size:1.06rem;line-height:2;color:var(--ink,#211911);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
-        <p style="font-size:.9rem;line-height:2;color:var(--ink-soft,#3a2d20);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。</p>
+        <p style="font-size:1.06rem;line-height:1.2;color:var(--ink,#211911);letter-spacing:.06em;margin:0 0 .6rem;">記帳、ありがとうございます。</p>
+        <p style="font-size:.9rem;line-height:1.2;color:var(--ink-soft,#3a2d20);letter-spacing:.05em;margin:0;">明日の朝、はじめの一節が、あなたのもとへ届きます。</p>
       </div>
       <iframe name="kicho-sink" title="送信" style="display:none;" tabindex="-1" aria-hidden="true"></iframe>
     </div>
